@@ -357,3 +357,13 @@ Configure in `testng.xml`:
 ## License
 
 MIT License - See LICENSE file for details.
+## First-time setup after cloning
+
+The token files are not in the repository. In the project root:
+
+1. Copy `APIRequest.example.txt` to `APIRequest.txt` and put your token in `ServiceRequestDetail.Token`.
+2. Copy `APIToken.example.txt` to `APIToken.txt` (`Token:<your token>`).
+3. Make sure `RequestSpecifications.txt` holds your header values (EventName, OwnerId, Mode, Environment).
+4. Edit the cases in `src/test/resources/testdata/test-data.xlsx` (sheet `TestData`) and choose what runs with `rater.iterations` in `src/main/resources/config/rater.properties` (empty = all).
+
+Requirements: Java 17+, WPS Office (`KET.Application` registered) or Microsoft Excel, and network access to the RT endpoint.

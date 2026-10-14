@@ -1,0 +1,147 @@
+{
+  "OwnerId": "15793",
+  "ServiceRequestDetail": {
+    "OwnerId": "15793",
+    "EndClientUserUniqueSessionId": "1.0",
+    "ServiceRequestVersion": "1.0",
+    "LanguageCode": "en",
+    "UserName": "swetha_p",
+    "RegionCode": "US",
+    "ServiceResponseVersion": "1.0",
+    "ResponseType": "json",
+    "Token": "<PASTE-YOUR-TOKEN>",
+    "Lob": "PL",
+    "BrowserIp": "192.158.1.38.",
+    "UserRole": "Underwriter",
+    "ServiceRequestDetail": {}
+  },
+  "EventName": "RTConnectorPLRating",
+  "LOB": "PL",
+  "TransactionType": "New_Business",
+  "Account": {
+    "Insured": [
+      {
+        "ServiceRequestDetail": {},
+        "InsuranceScoreRange": "741-768",
+        "InsuranceScoreFetchedDate": "06/21/2026",
+        "Location": [
+          {
+            "State": "Texas",
+            "County": "Bailey",
+            "Zipcode1": "8260",
+            "StateRegionCode": "FL",
+            "City": "Orlando",
+            "Building": [
+              {
+                "CoastalWaterDistance": "50 - 75 Mi.",
+                "DateBuilt": "1974",
+                "ConstructionType": "Masonry",
+                "Occupancy": "Builders Risk",
+                "AgeOfHome": "52",
+                "AgeOfRoof": "11 or more Years",
+                "NumberOfStories": "1",
+                "NumberOfLosses": "0",
+                "CoverageABandCredit": "$250,000 - $349,999",
+                "ExtendedReplacementCost": "No",
+                "NumberOfFamilies": "1",
+                "ProtectionClass": "10",
+                "Alarm": "None",
+                "Creditpercent": "-0.1",
+                "MinimumTiv": "1",
+                "MaximumTiv": "0.88",
+                "Coverage": [
+                  {
+                    "DwellingValuation": "Replacement Cost",
+                    "PersonalPropertyValuation": "Replacement Cost",
+                    "RMSModeledPremium": "430.4",
+                    "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                    "MiscsurchargeFactor": "0",
+                    "WaterDamageSublimit": {
+                      "Limit": "Full Policy Limits"
+                    },
+                    "DwellingCoverage": {
+                      "Limit": "610000"
+                    },
+                    "OtherStructureCoverage": {
+                      "Limit": "0"
+                    },
+                    "PersonalPropertyCoverage": {
+                      "Limit": "0"
+                    },
+                    "LossOfUseCoverage": {
+                      "Limit": "0"
+                    },
+                    "WaterDamageDeductible": {
+                      "Limit": "Excluded"
+                    },
+                    "PLWindCoverage": {
+                      "CoverageSelected": "Yes"
+                    },
+                    "LimitedMoldCoverage": {
+                      "Limit": "5000"
+                    },
+                    "WaterBackupCoverage": {
+                      "Limit": "NONE"
+                    },
+                    "IdentityFraudCoverage": {
+                      "CoverageSelected": "15000",
+                      "Limit": "15000.00"
+                    },
+                    "SpecialCoverageA": {
+                      "CoverageSelected": "No"
+                    },
+                    "SpecialCoverageC": {
+                      "CoverageSelected": "No"
+                    },
+                    "ReplacementCostOnContentsCoverage": {
+                      "CoverageSelected": "No"
+                    },
+                    "IncreasedLossAssessment": {
+                      "Limit": "Not Applicable"
+                    },
+                    "PersonalInjuryCoverage": {
+                      "CoverageSelected": "No"
+                    },
+                    "EarthquakeCoverage": {
+                      "CoverageSelected": "No",
+                      "Deductible": "EXCLUDED"
+                    },
+                    "TheftCoverage": {
+                      "Limit": "5000"
+                    },
+                    "VandalismOrMaliciousMischiefCoverage": {
+                      "CoverageSelected": "Excluded"
+                    },
+                    "ExtendedCoverage": {
+                      "CoverageSelected": "Excluded"
+                    },
+                    "PersonalLiabilityCoverageL": {
+                      "Limit": "500000"
+                    },
+                    "MedicalPaymentsCoverageM": {
+                      "Limit": "None"
+                    },
+                    "AOPDeductible": {
+                      "Limit": "2500",
+                      "DeductibleType": "1000"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "QuoteType": "New Business",
+  "EffectiveDate": "01/01/2021",
+  "CarrierName": "XYZ Company",
+  "ExpirationDate": "01/01/2022",
+  "SublineName": "HO3",
+  "PolicyFee": "0",
+  "ApplicableDate": "01/01/2021",
+  "ProductName": "RTConnectorPLRating",
+  "PolicyTerm": "12 months",
+  "ProductVersionNumber": "123456"
+}
