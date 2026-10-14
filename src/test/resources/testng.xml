@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Automation Suite" verbose="1">
+    <!--
+        Single test data file: src/test/resources/testdata/test-data.xlsx (sheet TestData).
+        It is only read by a run - results go to target/rater-output/Run_<timestamp>/.
+        The older Excel-driven suites (MockContractTest, DataDrivenApiTest) are not part of this suite any more.
+    -->
+    <test name="Rater Validation" preserve-order="true">
+        <classes>
+            <class name="com.automation.rater.RaterValidationTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,49 @@
+# Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.tmp
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Reports
+allure-results/
+allure-report/
+target/site/
+
+# Test data (optional - keep template)
+# src/test/resources/testdata/test-data.xlsx
+
+# Playwright
+playwright/.cache/
+playwright/.local-browsers/
+
+# Temporary files
+*.bak
+*.backup
+
+# Secrets / local inputs - never commit
+APIToken.txt
+APIRequest.txt
+API Specs.txt
+
+# Misc local output
+test-output/

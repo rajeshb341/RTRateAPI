@@ -1,0 +1,5 @@
+EventName: RTConnectorPLRating
+OwnerId:15793
+Mode: DEV
+Environment: 25
+Content-Type:application/json
