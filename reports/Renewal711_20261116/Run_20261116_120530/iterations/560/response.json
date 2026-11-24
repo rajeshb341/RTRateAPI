@@ -1,0 +1,249 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.1562385",
+  "MinimumEarnedPremium" : "350.000000",
+  "State" : "CW",
+  "RatingTerm" : "Monthly",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.1378575",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "DP3 Builders Risk",
+  "TotalBasePremium" : "6253.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "653",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.08730974999999999",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "0.0",
+          "TotalPropertyPremium" : "521.1",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "1.6542328042328043",
+          "RenewalConstructionTypeRiskFactor" : "1.0000",
+          "RenewalTermNonWindFDR" : "0.1378575",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Builders Risk",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.20000",
+          "CoastalWaterDistance" : "10000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "1",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "1.200000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.091905",
+          "RenewalAgeOfHomeRiskFactor" : "1.00000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "-5.46",
+          "CalculatedPropertyPremium" : "521.10135",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "1.0000",
+          "BasePremium" : "6253.0",
+          "FinalPropertyPremium" : "521.1",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.07857877499999999",
+          "AgeOfHomeRiskPremium" : "43.7",
+          "AgeOfHome" : "74",
+          "DateBuilt" : "1952",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "0.975000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "94.5",
+            "PolicyformFactor" : "1.1",
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "12",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "289.5",
+            "PLNonWind" : {
+              "Premium" : "521.10135"
+            },
+            "InsuranceScoreFactor" : "1.200",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "42000"
+            },
+            "TotalBaseNonWindFactor" : "0.0766",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "1500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.025000",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "BaseRate" : "0.052500000000000",
+            "DwellingCoverage" : {
+              "Limit" : "210000"
+            },
+            "BaseNonWindPremium" : "218.48",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "142.01",
+            "InsuranceScoreAgeInMonths" : "0",
+            "AOPDeductible" : {
+              "DeductibleType" : "",
+              "Factor" : "0.950000",
+              "Premium" : "-10.92",
+              "Limit" : "1500"
+            },
+            "CalculatedNonWindPremium" : "347.4",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "105000"
+            },
+            "NonWindBaseRateFactor" : "0.0578",
+            "OtherStructureCoverage" : {
+              "Limit" : "21000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "100",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "378000.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "43.7",
+          "AgeOfRoof" : "6",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "0.0",
+          "ProtectionClass" : "3",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "0.0",
+          "TotalCalculatedPropertyPremium" : "521.1",
+          "Creditpercent" : "0"
+        } ],
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "OR",
+        "State" : "Oregon",
+        "Latitude" : "44.564425",
+        "City" : "CORVALLIS",
+        "RatingTerritory" : "OR1",
+        "LocationFullAddress" : "120 SW 4TH ST, CORVALLIS, OR, 97333, United States",
+        "County" : "Benton",
+        "Longitude" : "-123.262166",
+        "BasePremium" : "6253.0",
+        "Zipcode1" : "97333"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

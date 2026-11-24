@@ -1,0 +1,83 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_160327
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_160327
+Rater          : LloydsRater_BRD_V4.0_10302026_Final.xlsx
+API headers    : Mode TEST, Environment 20
+Iterations     : 917, 6391, 6392, 6408, 6527, 6530, 6531, 6536, 6540-6545, 6555, 6557, 6584, 6585, 6587, 6600, 6612,
+                 6615, 6657, 6921, 7040 (25 bugged test cases)
+Totals         : 2,150 attribute checks - 1,526 Pass, 120 Fail, 504 N/A; 0 skipped; every request HTTP 200
+                 (Run_20261030_153830 with the V3.0 Rater: 1,521 Pass, 125 Fail)
+
+Changes in this round
+---------------------
+- Rater V4.0 (10/30/2026 Final): Water Damage Deductible list adds 500 / 1000; Insurance Score Range adds
+  "Not Applicable" (factor 1); formulas and Rate Tables unchanged. V4.0 has no County sheet: the county spelling table is
+  now config/rater-county-table.txt (exported from the V3.0 County sheet).
+- Water Damage Deductible: "Equal to AOP" is not used any more - the test data holds the AOP Deductible amount (all
+  9,308 cases, ChangeLog sheet), and a remaining "Equal to AOP" is turned into the AOP amount (rater.input.valueFrom.38).
+
+Fixed / passing
+---------------
+HO6-05  Water Damage Deductible factor   6657   C141 0.95 = 0.95 (Pass)
+Others still passing                     6391, 6392, 6408, 6531, 6536, 6540, 6541, 6555, 6557, 6585, 6612, 6921
+
+Summary of the open bugs (by iteration id)
+-----------------------------------------
+Bug     Defect  Iterations                                          Summary
+BUG-A   API     6527, 6530 (MA), 6542-6545 (MD), 6587, 6600 (MD),   Insurance Score Factor 0 with InsuranceScoreStatus
+                7040 (MA)                                           "Not Applicable" (the V4.0 Rater gives 1)
+HO6-01  API     6584, 6615, 7040                                    TIV factor above 200,000: API 1.5 (flat)
+HO6-09  API     6657                                                Max Additive Credit rounded to 2 decimals (NEW)
+BUG-05  API     917                                                 Half-cent rounding (1 - 2 cents)
+
+
+BUG-A  Insurance Score Factor 0 where the insurance score does not apply (MD / MA)
+---------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6527 (HO5 MA), 6530 (DP3 Builders Risk MA), 6542, 6543, 6544, 6545 (DP1 Builders Risk MD),
+                  6587, 6600 (HO6 MD), 7040 (HO6 MA)
+Bug Summary     : The request sends InsuranceScoreStatus "Not Applicable" and InsuranceScoreRange "-1". The API returns
+                  Insurance Score Factor 0, so its Calculated Non-Wind Premium is 0. The V4.0 Rater has the option
+                  "Not Applicable" for the insurance score and rates it with factor 1.
+Expected Result : 6527: Insurance Score Factor 1, Calculated Non-Wind Premium 2,267.68, PLNonWind Premium 2,267.68
+Actual Result   : 6527: Insurance Score Factor 0.000, Calculated Non-Wind Premium 0.0, PLNonWind Premium 1,511.79
+Evidence        : 6527 (HO5, BARNSTABLE MA, rated without wind; InsuranceScoreStatus Not Applicable, Range -1)
+Result path     : ...\Run_20261030_160327\iterations\6527
+
+
+HO6-01  TIV factor above 200,000: API 1.5 (flat)
+-----------------------------------------------
+Defect          : API (please confirm with the BA which side is right above 200,000)
+Iterations      : 6584, 6615, 7040 (TIV up to 200,000 matches)
+Bug Summary     : MinimumTiv / MaximumTiv are sent as the TIV band 200,000 - 10,000,000. The API returns 1.5; the Rater
+                  keeps increasing the factor above 200,000 (1.5 + 0.03 per 10,000).
+Expected Result : 6584 TIV 256,519: 1.669557
+Actual Result   : 6584: 1.5; Calculated Non-Wind Premium 455.87 vs 409.58
+Evidence        : 6584 (HO6, VIRGINIA BEACH CITY VA, TIV 256,519)
+Result path     : ...\Run_20261030_160327\iterations\6584
+
+
+HO6-09  Max Additive Credit rounded to 2 decimals (NEW)
+------------------------------------------------------
+Defect          : API (rounding - please confirm with the BA)
+Iterations      : 6657 (seen now that the Water Damage Deductible factor matches)
+Bug Summary     : Every factor matches, but the API rounds the Max Additive Credit to 2 decimals before multiplying:
+                  1.185 -> 1.19. The Rater multiplies 1.185.
+Expected Result : Combined Total Factor 1.49433 x 0.8 x 1.185 x 1.4 = 1.983275; Calculated Non-Wind Premium 991.64
+Actual Result   : Combined Total Factor 1.49433 x 0.8 x 1.19 x 1.4 = 1.991643; Calculated Non-Wind Premium 995.82
+Evidence        : 6657 (HO6, BALDWIN AL, AOP 5,000, Water Damage Deductible 5,000)
+                  Max Additive Credit: Rater 1.185, API 1.19 (within the 0.01 tolerance, so it shows as Pass)
+Result path     : ...\Run_20261030_160327\iterations\6657
+
+
+BUG-05  Half-cent rounding
+-------------------------
+Defect          : API (rounding method - confirm with the BA)
+Iterations      : 917
+Bug Summary     : Half-cent amounts are rounded to the other cent than the Rater (Age of Roof -42.435: Rater -42.43,
+                  API -42.44); the difference carries into the totals.
+Expected Result : PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ)
+Result path     : ...\Run_20261030_160327\iterations\917

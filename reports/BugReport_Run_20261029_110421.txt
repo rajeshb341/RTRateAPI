@@ -1,0 +1,80 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261029_110421  (rater.iterations = 6527-6583, wind cases, PLWindCoverage = Yes)
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261029_110421
+Rater          : LloydsRater_BRD_V3.0_10282026_Final.xlsx
+API headers    : Mode TEST, Environment 20  (DEV / 25 returns no GrossAal for any wind request - see
+                 reports\WindSample_Evidence_20261029 and reports\WindSample_Evidence_20261029_TEST_Env20)
+Date           : 2026-10-29
+Totals         : 4052 attribute checks - 3048 Pass, 392 Fail, 602 N/A; 10 test cases skipped (test data, see Notes)
+Wind feedback  : the API returned GrossAal for 43 wind cases; the Rater was recalculated with it as row 44 and
+                 GrossAal (C156), WindAalFactor (C155) and Wind premium (C157) match the Rater for all of them
+                 except BUG-01 below.
+
+Summary (by iteration id)
+-------------------------
+BUG-01  DP1 Builders Risk: WindAalFactor 0, so wind premium is 0
+        6540-6541
+BUG-02  HTTP 500 for DP1 Builders Risk (Maryland) with wind
+        6542-6545
+BUG-03  MiscSurchargeAmount applied to the rounded property premium (Rater uses the unrounded one)
+        6531, 6536, 6538, 6557, 6563-6564, 6567, 6570, 6572, 6583
+
+
+BUG-01  DP1 Builders Risk: WindAalFactor (C155) is 0, so the wind premium is 0
+-----------------------------------------------------------------------------
+Iterations      : 6540-6541
+Bug Summary     : For DP1 Builders Risk with PLWindCoverage = Yes the API returns GrossAal but WindAalFactor 0,
+                  so PLWindCoverage Premium is 0. The Rater's WindAalFactor is 1 and its wind premium is
+                  WindAalFactor x GrossAal / 12. All premiums after it are short by the wind premium.
+Expected Result : C155 WindAalFactor 1, C157 Wind premium 12.26 (6540) / 34.42 (6541)
+Actual Result   : WindAalFactor 0.0, Wind premium 0.0
+                  6540: C159 9505.46 vs 9493.20, C161 -950.55 vs -949.32
+                  6541: C159 16022.55 vs 15988.13, C166 FinalPropertyPremium 14420.29 vs 14389.32,
+                        C228 BasePremium 173043 vs 172672
+Evidence        : 6541 (DP1_BUILDERS_RISK): Expected C155 1 / C157 34.42, Actual 0.0 / 0.0
+Result path     : ...\Run_20261029_110421\iterations\6541
+
+
+BUG-02  HTTP 500 for DP1 Builders Risk (Maryland) with wind
+----------------------------------------------------------
+Iterations      : 6542-6545
+Bug Summary     : DP1 Builders Risk requests in Maryland with PLWindCoverage = Yes fail with HTTP 500 in
+                  TEST / 20 as well (also seen in DEV / 25 and in Run_20261028_180920). All retries fail.
+Expected Result : HTTP 200 with a rated response (e.g. 6542 SublineName "DP1 Builders Risk", RatingTerritory MD3,
+                  PLNonWind Premium 291.95)
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating";
+                  no attribute returned
+Evidence        : 6542 (DP1_BUILDERS_RISK, Maryland)
+Result path     : ...\Run_20261029_110421\iterations\6542
+
+
+BUG-03  MiscSurchargeAmount (C160) applied to the rounded property premium
+--------------------------------------------------------------------------
+Iterations      : 6531, 6536, 6538, 6557, 6563-6564, 6567, 6570, 6572, 6583
+Bug Summary     : The API rounds CalculatedPropertyPremium (C159) to 2 decimals and then multiplies it by the
+                  MiscsurchargeFactor; the Rater multiplies the unrounded C159. The rounding gap (under 0.005) is
+                  multiplied by the factor, and these cases have a very large MiscsurchargeFactor in the test
+                  data (row 47, e.g. 991.93), so C160 differs by up to ~4 and C162 / C166 / C228 follow.
+                  C159 itself matches in all these cases. Low severity; it only shows with large factors.
+Expected Result : C160 = C159 (unrounded) x MiscsurchargeFactor
+                  6531: 2707.116192770789 x 991.93 = 2,685,269.77
+Actual Result   : C160 = 2707.12 (rounded) x 991.93 = 2,685,273.54
+                  6531: C162 2,687,706.17 vs 2,687,709.95, C166 2,687,731.17 vs 2,687,734.95,
+                        C228 2,687,801 vs 2,687,805
+Evidence        : 6531 (DP3, ACCOMACK VA 23336): GrossAal 687.84 and Wind premium 1719.60 match;
+                  C160 Expected 2685269.7651, Actual 2685273.5416
+Result path     : ...\Run_20261029_110421\iterations\6531
+Note            : Please confirm whether factors such as 991.93 are intended test data. With a realistic factor
+                  the difference is below the 0.01 tolerance.
+
+
+Notes
+-----
+- Skipped (test data, not sent): 6532, 6546-6554 are DP1 with Dwelling/Contents valuation RCV/ACV; the Rater
+  rates only ACV/ACV for DP1.
+- Rater input rows 62-75 are written to the Rater but have no request mapping (unchanged from earlier runs).
+- The DP3 wind sample request (DP3 Request_TC1.json) now returns GrossAal 510.07 in TEST / 20 where its sample
+  response has 345.28; its Zipcode1 23336 does not match its address (VIRGINIA BEACH, VA 23462).
+- BUG-01 of BugReport_Run_20261029_101841 (no GrossAal) was caused by Mode DEV / Environment 25; it does not
+  occur in TEST / 20.

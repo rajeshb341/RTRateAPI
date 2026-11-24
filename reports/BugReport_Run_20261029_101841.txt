@@ -1,0 +1,83 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261029_101841  (rater.iterations = 6527-6583, wind cases, PLWindCoverage = Yes)
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261029_101841
+Rater          : LloydsRater_BRD_V3.0_10282026_Final.xlsx
+Date           : 2026-10-29
+Totals         : 4052 attribute checks - 2841 Pass, 599 Fail, 602 N/A; 10 test cases skipped (test data, see Notes)
+
+Wind test data used (every wind case, the applicable combination):
+  ExteriorSiding MetalSteel, RoofType ConcreteClaySlateTiles, RoofShape Gable, RoofSlope Lessthanorequalto612265,
+  RoofBrace Braced, RoofParapetsAvailable "", Fasteners "", GuttersPresent "", WindRating "", SecondaryWaterResistance "",
+  RoofToWallConnection SingleWraps, MitigationOpenings Allopeningsareprotected, ProtectionMissilesSize Large
+  + WindDeductiblePercentage as a fraction (0.01 / 0.02 / 0.04 / 0.05 / 0.1), LocationFullAddress / Latitude / Longitude
+    geocoded from the case's county, state and zip, TigerCQApplicable Y.
+
+Summary (by iteration id)
+-------------------------
+BUG-01  Wind model returns no GrossAal; wind premium is 0
+        6527-6531, 6533-6535, 6537-6545, 6555-6583
+BUG-02  HTTP 500 for DP1 Builders Risk (Maryland) with wind
+        6542-6545
+BUG-03  WindAalFactor (C155) 0 instead of 1 for DP1 Builders Risk
+        6540-6545
+
+
+BUG-01  Wind model returns no GrossAal; wind premium (PLWindCoverage) is 0
+-------------------------------------------------------------------------
+Iterations      : 6527-6531, 6533-6535, 6537-6545, 6555-6583 (every wind case that got a response)
+Bug Summary     : With PLWindCoverage = Yes and TigerCQApplicable = Y the response has no GrossAal, so
+                  PLWindCoverage Premium is 0 and every premium built on it is short by the wind premium.
+                  This is now an API-side problem, not a test data one:
+                    - the requests carry the applicable wind attribute combination, a numeric deductible and a
+                      per-address location, and have exactly the keys of the wind sample requests;
+                    - the API's own wind sample requests (HO3, DP3 and DP3 Builders Risk samples, sent unchanged)
+                      also return no GrossAal today;
+                    - on 2026-10-28 the 6555 request (same location, accepted wind attribute values, deductible
+                      0.01) returned GrossAal 194.04 and wind premium 533.62.
+                  The wind service behind TigerCQApplicable appears to be failing or switched off since 10/28.
+Expected Result : GrossAal returned (C156) and Wind premium C157 = WindAalFactor x GrossAal (/12 for Builders Risk / Vacant).
+Actual Result   : GrossAal missing, Wind premium 0.0. Follow-on differences in C159, C161, C162 and, where the
+                  case has a surcharge or minimum premium, C160, C166, C228.
+Evidence        : 6555 (HO3, HAMPTON CITY VA 23669)
+                  Request : LocationFullAddress "HAMPTON CITY, VA 23669, United States", Latitude 37.043478,
+                            Longitude -76.342101, WindDeductiblePercentage 0.01, TigerCQApplicable Y
+                  Response: WindAalFactor 2.750, GrossAal (missing), PLWindCoverage Premium 0.0
+                  Rater   : C157 Wind premium 177.79 (uses the test data RMSModeledPremium because no API GrossAal)
+                            C159 1685.32 vs API 1507.53, C166 1541.79 vs API 1461.40
+Result path     : ...\Run_20261029_101841\iterations\6555
+Note            : The large C160 / C166 / C228 differences (e.g. 6531: C166 2,139,891.36 vs 980,464.48) are this
+                  same bug: those cases have a very large MiscSurcharge factor in the test data (6531: 991.93),
+                  which multiplies the missing wind premium.
+
+
+BUG-02  HTTP 500 for DP1 Builders Risk (Maryland) with wind
+----------------------------------------------------------
+Iterations      : 6542-6545
+Bug Summary     : DP1 Builders Risk requests in Maryland with PLWindCoverage = Yes fail with HTTP 500 (also in
+                  Run_20261028_180920). All retries fail.
+Expected Result : HTTP 200 with a rated response (e.g. 6542 SublineName "DP1 Builders Risk", RatingTerritory MD3,
+                  PLNonWind Premium 291.95).
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating";
+                  no attribute returned.
+Evidence        : 6542 (DP1_BUILDERS_RISK, Maryland)
+Result path     : ...\Run_20261029_101841\iterations\6542
+
+
+BUG-03  WindAalFactor (C155) is 0 instead of 1 for DP1 Builders Risk
+-------------------------------------------------------------------
+Iterations      : 6540-6545 (6540-6541 compared; 6542-6545 fail on BUG-02)
+Bug Summary     : For DP1 Builders Risk with wind the Rater's WindAalFactor is 1 but the API returns 0
+                  (same as BUG-04 of Run_20261028_180920).
+Expected Result : C155 WindAalFactor = 1
+Actual Result   : WindAalFactor = 0.0
+Evidence        : 6540 (DP1_BUILDERS_RISK): Expected 1, Actual 0.0
+Result path     : ...\Run_20261029_101841\iterations\6540
+
+
+Notes
+-----
+- Skipped (test data, not sent): 6532, 6546-6554 are DP1 with Dwelling/Contents valuation RCV/ACV; the Rater
+  rates only ACV/ACV for DP1.
+- Rater input rows 62-75 are written to the Rater but have no request mapping (unchanged from earlier runs).
+- No failures outside the wind premium chain apart from BUG-02 and BUG-03.

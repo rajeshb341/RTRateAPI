@@ -1,0 +1,99 @@
+# Rater value -> API value, per request target.   Format:  target | Rater value | API value [| configurations]
+#   target          Rater row ("22"), or a row's extra attribute from rater-request-mapping.properties ("40.status")
+#   Rater value     exact dropdown wording; "*" = any value without an exact entry
+#   API value       blank = send an empty string (the API's "not selected"; "None" / "Not Applicable" wording -> HTTP 500)
+#   configurations  optional comma list of configuration ids (rater.configurations) the entry is limited to
+# The test data (test-data.xlsx) keeps the Rater's dropdown wording; this file translates it for the API request.
+# A value with no entry is sent unchanged (or, on a rater.range.rows row, as one number inside its range).
+# Every entry was checked against the UAT API with the configuration templates (config/templates).
+
+# 12 / 13  Dwelling / Personal property valuation. HO3/HO5/HO8/DP1/DP3 take the Rater wording (RCV/ACV/FRC, only the pairs of
+#          the policy form table - see configuration.<ID>.valuations). HO6 and the Builders Risk / Vacant combinations are
+#          rated with ALL (Rate Tables B:E); anything else is rejected (HO6) or rates a different policy form factor (DP BR/V).
+12 | * | ALL | HO6,DP1_BUILDERS_RISK,DP3_BUILDERS_RISK,DP1_VACANT,DP3_VACANT
+13 | * | ALL | HO6,DP1_BUILDERS_RISK,DP3_BUILDERS_RISK,DP1_VACANT,DP3_VACANT
+
+# 22  Distance to coast: a band, not a free number. The API (like the Rate Tables FJ column) matches the band key exactly -
+#     any other number gets no minimum property rate. Keys = the previous Rater's own C164 mapping (lower bound in feet).
+22 | <1000' | 0
+22 | 1001'-2500' | 1000
+22 | 2500' - 1 Mi. | 2500
+22 | 1 - 2 Mi. | 5000
+22 | 2 - 5 Mi. | 10000
+22 | 5 - 10 Mi. | 25000
+22 | 10 - 15 Mi. | 50000
+22 | 15 - 25 Mi. | 80000
+22 | 25 - 50 Mi. | 130000
+22 | 50 - 75 Mi. | 260000
+22 | 75 - 100 Mi. | 400000
+22 | >100 Mi. | 530000
+
+# 28  Age of roof: numeric range in years -> one value inside it (rater.range.rows), no entry needed.
+
+# 35  Central station alarm: the API takes the Rate Tables DJ codes (the Rater builds them the same way in C135: spaces
+#     removed, Burglary -> Burglar). The dropdown wording gives no alarm credit (HO3/DP) or HTTP 500 (HO6).
+35 | Central Station Burglary Alarm | CentralStationBurglarAlarm
+35 | Central Station Fire Alarm | CentralStationFireAlarm
+35 | Central Station Burglary & Fire Alarm | CentralStationBurglar&Firealarm
+
+# 36  Water damage sub-limit: "Full Policy Limits" is the absence of a sub-limit
+36 | Full Policy Limits |
+
+# 40  Insurance score: a band ("614-652" -> one score inside it, rater.range.rows) or a status without a score.
+#     Status codes as in Rate Tables EP: 1 = scored, 2 = No Hit, Reject; "Not Needed" = no score at all (factor 1).
+40 | No Hit | -1
+40 | Reject | -1
+40 | Not Needed |
+40 | Not Applicable | -1
+40.status | No Hit | 2
+40.status | Reject | Reject
+40.status | Not Needed |
+40.status | Not Applicable | Not Applicable
+40.status | * | 1
+
+# 52.limit  Identity Fraud limit: 15000 when selected (the Rater's rated limit), none otherwise
+52.limit | Yes | 15000
+52.limit | * |
+
+# 45  Wind deductible: the API takes the percentage as a fraction (the wind samples send 0.05). Checked on the UAT API
+#     28 Oct: 0.01 / 0.02 / 0.04 / 0.05 / 0.1 each rate wind; 1000, 1 or 2 give Gross AAL 0. Since 16 Nov the API answers
+#     HTTP 500 for the Rater wording or an empty value in every request (also without wind), so it is always the fraction.
+#     The test data keeps the fraction; rater.input.alias.45 gives the Rater its wording.
+45 | Greater of $2,500 or 1% | 0.01
+45 | Greater of $5,000 or 2% | 0.02
+45 | Greater of $10,000 or 4% | 0.04
+45 | Greater of $15,000 or 5% | 0.05
+45 | Greater of $25,000 or 10% | 0.1
+
+# 43  Wind coverage: sent as in the test data. "Yes" needs the wind attributes (wind.* in rater-request-mapping.properties;
+#     without them the API answered HTTP 500, which is why it used to be sent as "No").
+
+# 50 / 51 / 56 / 81 / 82  "None" / "NONE" / "Not Applicable" limits are sent as an empty string
+50 | None |
+51 | NONE |
+56 | Not Applicable |
+81 | None |
+82 | None |
+
+# 59  Earthquake deductible: "5% Deductible" -> 5 (Deductible and EarthquakeDeductiblePercentage); EXCLUDED -> none
+59 | EXCLUDED |
+59 | 5% Deductible | 5
+59 | 10% Deductible | 10
+59 | 15% Deductible | 15
+59 | 25% Deductible | 25
+59.percentage | EXCLUDED |
+59.percentage | 5% Deductible | 5
+59.percentage | 10% Deductible | 10
+59.percentage | 15% Deductible | 15
+59.percentage | 25% Deductible | 25
+
+# 77  Theft: the API rates a 5000 limit or nothing (Rate Tables HU: 0 / 5000); "Excluded" and "Included" are rejected as text.
+#     "Included" has no rate in the Rater either (premium 0), so both are sent as no theft limit.
+77 | Excluded |
+77 | Included |
+
+# 79  Extended coverage: "Excluded" is rejected as text; no node value = not selected
+79 | Excluded |
+
+# Known API limit (HTTP 500, nothing sent can fix it): HO6 Earthquake Coverage "Included" (row 60); such cases are
+# reported as API failures.

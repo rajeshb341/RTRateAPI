@@ -1,0 +1,35 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_131243
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_131243
+Rater          : LloydsRater_BRD_V3.0_10302026_Updated.xlsx
+API headers    : Mode DEV, Environment 25
+County         : spelled as in the Rater's "County" sheet for the case's subline; a test data county that is not there
+                 is replaced by the ZIP's county for the Rater and the request (6540, 6541: planning region -> New Haven)
+Iterations     : 917, 6391, 6392, 6408, 6527, 6530, 6531, 6536, 6540-6545, 6555, 6557, 6584, 6585, 6587, 6600, 6612,
+                 6615, 6657, 6921, 7040 (25 bugged test cases)
+Totals         : 2,150 attribute checks - 1,132 Pass, 618 Fail, 400 N/A; 0 skipped
+                 (previous run Run_20261030_123341: 1,038 Pass, 738 Fail)
+
+Fixed / passing in this run
+---------------------------
+NEW-01  HO6 HTTP 500 with "Virginia Beach (City)"   6584        HTTP 200 - "VIRGINIA BEACH CITY" (HO6 spelling) is sent
+NEW-02  Connecticut county / territory               6540, 6541  Pass - Rater and API both use New Haven (territory CT1)
+BUG-02  DP1 Builders Risk WindAalFactor 0            6540, 6541  Pass - it was caused by the planning-region county
+BUG-03  DP1 Builders Risk Base Premium               6391, 6392, 6408   Pass
+HO6-02 / 03 / 04 / 07 / 08                           6585, 6612, 6921   Pass
+
+Still open
+----------
+Bug      Defect  Iterations                              Result in this run
+BUG-01A  API     6542, 6543, 6544, 6545                  Insurance Score Factor 0.000 (Rater 1);
+                                                         6542 PLNonWind Premium 176.53 vs 291.95
+BUG-01B  API     6527, 6530, 6531, 6536, 6555, 6557      HTTP 500 with TigerCQApplicable N (wind)
+HO6-01   API     6584, 6615, 7040                        TIV factor above 200,000: API 1.5, Rater 1.6696 (6584) /
+                                                         2.8878 (6615) / 1.9575 (7040) - confirm with the BA
+HO6-05   Rater   6657                                    Water Damage Deductible "Equal to AOP": Rater 1, API 0.95
+HO6-06   API     6587, 6600, 7040                        HO6 Insurance Score Factor 0.000 in MD / MA (Rater 0.8 / 1.05)
+BUG-05   API     917                                     Half-cent rounding: Final Property Premium 2,087.35 vs 2,087.33
+
+The full bug details (summary, expected, actual, evidence) of the open bugs are unchanged from
+BugReport_Run_20261030_123341.txt.

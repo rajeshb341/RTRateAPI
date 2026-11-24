@@ -1,0 +1,240 @@
+== Insured / LOB Details
+Row 9 Subline -> Product -> UI InsuranceType (occ_1.json)
+   UI options : Homeowners, Condo, Dwelling Fire, Dwelling Fire (Vacant Only), Flood, High Value
+   API values : HO6 (2205), DP3 (1897), HO3 (1722), HO8 (1644), DP1 (391), HO5 (92)
+   all API values exist in the UI
+
+== Risk Details (dev, Dwelling Fire product recording; Homeowners Occupancy from the screenshot of 18 Nov)
+Row 26 Occupancy -> UI Occupancy (occ_2.json) - HO3/HO5/HO8 (Homeowners: same 3 options as Dwelling Fire)
+   UI options : Owner Primary, Owner Seasonal, Vacant
+   API values : Primary (2665), Secondary/Seasonal (554), Short-Term Rental (239)
+   NOT IN UI  : Short-Term Rental (UI: TenantShortTerm) - 239 case(s)
+
+Row 26 Occupancy -> UI Occupancy (occ_2.json) - DP1/DP3 (Dwelling Fire)
+   UI options : Owner Primary, Owner Seasonal, Vacant
+   API values : Long-Term Rental (1578), Short-Term Rental (157), Primary (24), Secondary/Seasonal (12)
+   NOT IN UI  : Long-Term Rental (UI: TenantLongTerm) - 1578 case(s), Short-Term Rental (UI: TenantShortTerm) - 157 case(s)
+
+Row 26 Occupancy -> UI Occupancy (occ_3.json) - DP1/DP3 Vacant (Dwelling Fire (Vacant Only))
+   UI options : Owner Primary, Owner Seasonal, Vacant
+   API values : Vacant (259)
+   all API values exist in the UI
+
+Row 33 Number Of Families -> Type of Residence -> UI ResType (occ_2.json)
+   UI options : Single Family Dwelling, Duplex, Triplex, Fourplex, Townhome, Condo, Mobile Home, Student Housing, Model Home, Barn, Other/ Unconventional, Houseboat, Vacant land
+   API values : 1 (7451), 2 (500)
+   all API values exist in the UI
+
+Row 29 Number Of Stories -> UI NumberOfStories (occ_2.json)
+   UI options : 1, 1.5, 2, 2.5, 3, 4, 5+
+   API values : 1 (3322), 2 (2660), 3 (628), 1.5 (295), 4 (143), 5 (123), 6 (67), 8 (63), 15 (60), 7 (58), 10 (53), 9 (47), 12 (46), 2.5 (43), 14 (39), 20 (35), 16 (26), 11 (25), 22 (25), 18 (23), 23 (22), 13 (19), 17 (18), 19 (13), 30 (13), 21 (12), 25 (10), 34 (10), 26 (6), 31 (5), 24 (4), 40 (4), 50 (4), 35 (3), 33 (3), 27 (3), 28 (2), 32 (2), 29 (2), 44 (2), 65 (2), 37 (1), 51 (1), 42 (1), 43 (1), 56 (1), 63 (1), 41 (1), 57 (1), 58 (1), 38 (1), 54 (1)
+   all API values exist in the UI
+
+Row 34 Protection Class -> UI ProtectionClass (occ_2.json)
+   UI options : 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+   API values : 3 (2040), 2 (1841), 4 (1569), 1 (919), 5 (678), 6 (464), 9 (217), 10 (99), 7 (83), 8 (41)
+   all API values exist in the UI
+
+Row 25 Construction Type -> UI ConstructionType (occ_2.json)
+   UI options : Brick Veneer, Stucco, Cement Fiber or Asbestos, Frame, Log, Other, Brick, Stone or Masonry, Steel frame with concrete roof deck, Steel/Fire Resistive
+   API values : Frame (6217), Masonry (885), Reinforced Concrete (499), Superior (321), Steel (29)
+   all API values exist in the UI
+
+== Coverage Details (dev, Form HO3)
+Row 9 Subline -> Form Type -> UI SublineName (dev_cov_expanded.json) - Homeowners/Condo forms
+   UI options : HO3, HO5, HO6, HO8
+   API values : HO6 (2205), HO3 (1722), HO8 (1644), HO5 (92)
+   all API values exist in the UI
+
+Row 12 Loss Settlement - Dwelling -> UI DwellingValuation (dev_cov_expanded.json)
+   UI options : RCV, ACV, FRCV
+   API values : RCV (4509), ACV (3442)
+   all API values exist in the UI
+
+Row 13 Loss Settlement - Contents -> UI PersonalPropertyValuation (dev_cov_expanded.json)
+   UI options : RCV, ACV, FRCV
+   API values : ACV (7859), RCV (92)
+   all API values exist in the UI
+
+Row 20 Cov C Personal Property -> UI PersonalPropertyCoverage_dt_Limit (dev_cov_expanded.json)
+   UI options : $10,000, $25,000, $50,000, $75,000, $100,000, $150,000, $200,000, $250,000, Other
+   API values : 150000 (1744), 200000 (1648), 100000 (1241), 250000 (1064), 25000 (1029), 10000 (735), 50000 (364), 75000 (126)
+   all API values exist in the UI
+
+Row 81 Liability Limit -> UI PersonalLiabilityCoverageL_dt_Limit (dev_cov_expanded.json)
+   UI options : $25,000, $50,000, $100,000, $200,000, $300,000, $500,000, $1,000,000
+   API values : 500000 (3566), 300000 (3427), None (595), 100000 (363)
+   NOT IN UI  : None - 595 case(s)
+
+Row 82 Medical Payments -> UI MedicalPaymentsCoverageM_dt_Limit (dev_cov_expanded.json)
+   UI options : $500, $1,000, $5,000, 10,000
+   API values : 1000 (4222), 5000 (2828), None (590), 3000 (128), 2000 (122), 10000 (53), 4000 (8)
+   NOT IN UI  : None - 590 case(s), 3000 - 128 case(s), 2000 - 122 case(s), 4000 - 8 case(s)
+
+Row 37 AOP Deductible -> UI DwellingCoverage_dt_AopPolicyDeductibleAmount (dev_cov_expanded.json)
+   UI options : $500, $1,000, $2,500, $5,000, $10,000, $25,000, Other
+   API values : 2500 (4617), 1500 (2949), 5000 (347), 10000 (31), 25000 (4), 1000 (3)
+   NOT IN UI  : 1500 - 2949 case(s)
+
+Row 45 Wind Deductible -> UI DwellingCoverage_dt_WindDeductibleType (dev_cov_expanded.json) - all cases (the API accepts it with or without wind; 4% occurs only with wind excluded in the test data)
+   UI options : Excluded, $500, $1,000, $2,500, $5,000, 1%, 2%, 3%, 5%, 10%
+   API values : 0.01 (4541), 0.02 (1903), 0.05 (1158), 0.1 (192), 0.04 (157)
+   NOT IN UI  : 0.04 - 157 case(s)
+
+Row 43 Wind Coverage Selected -> UI IncludeWind (radio Yes / No) (None): UI options not recorded
+Row 55 Replacement Cost On Contents -> UI ReplacementCostonContents (dev_cov_expanded.json)
+   UI options : Yes, No
+   API values : No (7951)
+   all API values exist in the UI
+
+Row 32 Extended Replacement Cost -> UI ExtendedReplacementCostMap (dev_cov_expanded.json)
+   UI options : Included, Not Included
+   API values : No (6363), Yes (1588)
+   all API values exist in the UI
+
+Row 52 Identity Fraud -> UI IdentityFraudCoverageMap (dev_cov_expanded.json)
+   UI options : Included, Not Included
+   API values : No (7951)
+   all API values exist in the UI
+
+== Coverage Details (dev, Form HO6 (Condo product))
+Row 12 Loss Settlement - Dwelling -> UI DwellingValuation (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : RCV, ACV, FRCV
+   API values : RCV (2205)
+   all API values exist in the UI
+
+Row 13 Loss Settlement - Contents -> UI PersonalPropertyValuation (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : RCV, ACV, FRCV
+   API values : ACV (2205)
+   all API values exist in the UI
+
+Row 20 Cov C Personal Property -> UI PersonalPropertyCoverage_dt_Limit (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : $10,000, $25,000, $50,000, $75,000, $100,000, $150,000, $200,000, $250,000, Other
+   API values : 25000 (1029), 10000 (735), 50000 (364), 75000 (56), 100000 (20), 150000 (1)
+   all API values exist in the UI
+
+Row 81 Liability Limit -> UI PersonalLiabilityCoverageL_dt_Limit (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : $25,000, $50,000, $100,000, $200,000, $300,000, $500,000, $1,000,000
+   API values : 500000 (1098), 300000 (994), 100000 (98), None (15)
+   NOT IN UI  : None - 15 case(s)
+
+Row 82 Medical Payments -> UI MedicalPaymentsCoverageM_dt_Limit (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : $500, $1,000, $5,000, 10,000
+   API values : 1000 (1194), 5000 (902), 3000 (41), 2000 (36), 10000 (15), None (14), 4000 (3)
+   NOT IN UI  : 3000 - 41 case(s), 2000 - 36 case(s), None - 14 case(s), 4000 - 3 case(s)
+
+Row 37 AOP Deductible -> UI DwellingCoverage_dt_AopPolicyDeductibleAmount (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : $500, $1,000, $2,500, $5,000, $10,000, $25,000, Other
+   API values : 2500 (2140), 5000 (61), 10000 (4)
+   all API values exist in the UI
+
+Row 55 Replacement Cost On Contents -> UI ReplacementCostonContents (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : Yes, No
+   API values : No (2205)
+   all API values exist in the UI
+
+Row 32 Extended Replacement Cost -> UI ExtendedReplacementCostMap (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : Included, Not Included
+   API values : No (1577), Yes (628)
+   all API values exist in the UI
+
+Row 52 Identity Fraud -> UI IdentityFraudCoverageMap (dev_cov_HO6.json) - HO6 (Condo product)
+   UI options : Included, Not Included
+   API values : No (2205)
+   all API values exist in the UI
+
+== Coverage Details (dev, Form DP1 / DP3 (Dwelling Fire products, incl. Vacant))
+Row 12 Loss Settlement - Dwelling -> UI DwellingValuation (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : RCV, ACV, FRCV
+   API values : RCV (2212), ACV (76)
+   all API values exist in the UI
+
+Row 13 Loss Settlement - Contents -> UI PersonalPropertyValuation (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : RCV, ACV, FRCV
+   API values : ACV (2288)
+   all API values exist in the UI
+
+Row 20 Cov C Personal Property -> UI PersonalPropertyCoverage_dt_Limit (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : $10,000, $25,000, $50,000, $75,000, $100,000, $150,000, $200,000, $250,000, Other
+   API values : 100000 (655), 150000 (594), 200000 (593), 250000 (401), 75000 (45)
+   all API values exist in the UI
+
+Row 81 Liability Limit -> UI PersonalLiabilityCoverageL_dt_Limit (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : $25,000, $50,000, $100,000, $200,000, $300,000, $500,000, $1,000,000
+   API values : 500000 (1126), 300000 (595), None (537), 100000 (30)
+   NOT IN UI  : None - 537 case(s)
+
+Row 82 Medical Payments -> UI MedicalPaymentsCoverageM_dt_Limit (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : $500, $1,000, $5,000, 10,000
+   API values : 1000 (920), 5000 (771), None (540), 2000 (23), 10000 (20), 3000 (12), 4000 (2)
+   NOT IN UI  : None - 540 case(s), 2000 - 23 case(s), 3000 - 12 case(s), 4000 - 2 case(s)
+
+Row 37 AOP Deductible -> UI DwellingCoverage_dt_AopPolicyDeductibleAmount (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : $500, $1,000, $2,500, $5,000, $10,000, $25,000, Other
+   API values : 1500 (1151), 2500 (973), 5000 (148), 10000 (13), 25000 (3)
+   NOT IN UI  : 1500 - 1151 case(s)
+
+Row 55 Replacement Cost On Contents -> UI ReplacementCostonContents (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : Yes, No
+   API values : No (2288)
+   all API values exist in the UI
+
+Row 32 Extended Replacement Cost -> UI ExtendedReplacementCostMap (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : Included, Not Included
+   API values : No (2288)
+   all API values exist in the UI
+
+Row 52 Identity Fraud -> UI IdentityFraudCoverageMap (dev_cov_DP1.json) - DP1 / DP3 (Dwelling Fire products, incl. Vacant)
+   UI options : Included, Not Included
+   API values : No (2288)
+   all API values exist in the UI
+
+== Carrier Selection (dev)
+Effective Date (rater.dates.effective=today -> PolicyEffectiveDate): the UI rejects today ("Enter a valid date"); its default is tomorrow
+
+== API inputs with no UI element of their own (pages recorded so far)
+Row 19 Coverage B / Other Structure limit: Cov B has only a deductible dropdown (OtherStructureCoverageAmount), no limit field
+Row 22 Distance To Coast band: calculated by the UI from the address; only an "Override Distance to Coast" checkbox
+Row 27 Age of Dwelling: derived from Year Built
+Row 30 Number of claims in the past 5 years: no field on Risk Details
+Row 31 Coverage A Band Credit: derived from Coverage A
+Row 35 Central Station Alarm: no field on Risk Details / Coverage Details
+Row 36 Water Damage SubLimit: only a free "Water Damage Limitation" field (Coverage Limitations)
+Row 38 Water Damage Deductible: only Included / Not Included (WaterDamageDeductibleMap), no amount
+Row 40 Insurance Score Range: not entered in the UI (fetched)
+Row 41 Insurance Score Last Run Date: not entered in the UI
+Row 44 Gross AAL (third party): not entered in the UI (wind model)
+Row 47 Miscellaneous Surcharge Factor: no field found
+Row 48 Miscellaneous Credit Factor: no field found
+Row 50 Limited Mold limit (5000 / 10000 / 15000): only Included / Not Included (LimitedMoldCoverageMap), no limit
+Row 51 Water Back-Up limit (5000 / 10000 / 25000): only Included / Not Included (WaterBackupCoverageMap), no limit
+Row 53 Special Coverage A (HO6): no field on the HO6 (Condo) Coverage Details page
+Row 54 Special Coverage C (HO6): no field on the HO6 (Condo) Coverage Details page
+Row 56 Increased Loss Assessment amount: only Included / Not Included, no amount
+Row 58 SC Earthquake Coverage / Deductible: no field on the HO3 / HO6 / DP Coverage Details pages
+Row 60 Earthquake Coverage: no field on the HO3 / HO6 / DP Coverage Details pages
+Row 62-75 Scheduled Personal Property item values: only Included / Not Included (PersonalPropertyMap)
+Row 77-79 Theft / V&MM / Extended Coverage (DP1): no field on the DP1 / DP3 Coverage Details page (only Theft/Burglary Deductible Included/Not Included and a free Theft Limitation)
+
+== VALUES THAT DO NOT EXIST IN THE UI (summary)
+Row 26 Occupancy [HO3/HO5/HO8 (Homeowners: same 3 options as Dwelling Fire)]: Short-Term Rental - 239 test case(s)  (UI element Occupancy)
+Row 26 Occupancy [DP1/DP3 (Dwelling Fire)]: Long-Term Rental - 1578 test case(s)  (UI element Occupancy)
+Row 26 Occupancy [DP1/DP3 (Dwelling Fire)]: Short-Term Rental - 157 test case(s)  (UI element Occupancy)
+Row 81 Liability Limit: None - 595 test case(s)  (UI element PersonalLiabilityCoverageL_dt_Limit)
+Row 82 Medical Payments: None - 590 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments: 3000 - 128 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments: 2000 - 122 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments: 4000 - 8 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 37 AOP Deductible: 1500 - 2949 test case(s)  (UI element DwellingCoverage_dt_AopPolicyDeductibleAmount)
+Row 45 Wind Deductible [all cases (the API accepts it with or without wind; 4% occurs only with wind excluded in the test data)]: 0.04 - 157 test case(s)  (UI element DwellingCoverage_dt_WindDeductibleType)
+Row 81 Liability Limit [HO6 (Condo product)]: None - 15 test case(s)  (UI element PersonalLiabilityCoverageL_dt_Limit)
+Row 82 Medical Payments [HO6 (Condo product)]: 3000 - 41 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [HO6 (Condo product)]: 2000 - 36 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [HO6 (Condo product)]: None - 14 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [HO6 (Condo product)]: 4000 - 3 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 81 Liability Limit [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: None - 537 test case(s)  (UI element PersonalLiabilityCoverageL_dt_Limit)
+Row 82 Medical Payments [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: None - 540 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: 2000 - 23 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: 3000 - 12 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 82 Medical Payments [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: 4000 - 2 test case(s)  (UI element MedicalPaymentsCoverageM_dt_Limit)
+Row 37 AOP Deductible [DP1 / DP3 (Dwelling Fire products, incl. Vacant)]: 1500 - 1151 test case(s)  (UI element DwellingCoverage_dt_AopPolicyDeductibleAmount)

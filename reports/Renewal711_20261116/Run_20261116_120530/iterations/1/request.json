@@ -1,0 +1,170 @@
+{
+  "method" : "POST",
+  "url" : "https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3",
+  "headers" : {
+    "EventName" : "RTConnectorPLRating",
+    "OwnerId" : "15793",
+    "Mode" : "TEST",
+    "Environment" : "20",
+    "Content-Type" : "application/json",
+    "Token" : "c+Morv...(1152 chars)"
+  },
+  "body" : {
+    "OwnerId" : "15793",
+    "ServiceRequestDetail" : {
+      "OwnerId" : "15793",
+      "EndClientUserUniqueSessionId" : "1.0",
+      "ServiceRequestVersion" : "1.0",
+      "LanguageCode" : "en",
+      "UserName" : "kailash_d",
+      "RegionCode" : "US",
+      "ServiceResponseVersion" : "1.0",
+      "ResponseType" : "json",
+      "Token" : "****",
+      "Lob" : "PL",
+      "BrowserIp" : "192.158.1.38.",
+      "UserRole" : "Underwriter",
+      "ServiceRequestDetail" : { }
+    },
+    "EventName" : "RTConnectorPLRating",
+    "LOB" : "PL",
+    "TransactionType" : "Renewal",
+    "Account" : {
+      "Insured" : [ {
+        "ServiceRequestDetail" : { },
+        "InsuranceScoreStatus" : "",
+        "InsuranceScoreRange" : "",
+        "InsuranceScoreFetchedDate" : "06/21/2026",
+        "Location" : [ {
+          "State" : "Virginia",
+          "County" : "Accomack",
+          "Zipcode1" : "23336",
+          "StateRegionCode" : "VA",
+          "City" : "CHINCOTEAGUE",
+          "Building" : [ {
+            "CoastalWaterDistance" : "5000",
+            "DateBuilt" : "2004",
+            "ConstructionType" : "Frame",
+            "Occupancy" : "Short-Term Rental",
+            "AgeOfHome" : "22",
+            "AgeOfRoof" : "11",
+            "NumberOfStories" : "2",
+            "NumberOfLosses" : "1",
+            "CoverageABandCredit" : "$250,000 - $349,999",
+            "ExtendedReplacementCost" : "No",
+            "NumberOfFamilies" : "1",
+            "ProtectionClass" : "3",
+            "Alarm" : "None",
+            "Creditpercent" : "0",
+            "MinimumTiv" : "200000",
+            "MaximumTiv" : "10000000",
+            "Coverage" : [ {
+              "PLNonWind" : {
+                "Premium" : "0.0"
+              },
+              "DwellingValuation" : "ACV",
+              "PersonalPropertyValuation" : "ACV",
+              "RMSModeledPremium" : "263.08",
+              "WindDeductiblePercentage" : "0.01",
+              "MiscsurchargeFactor" : "0",
+              "TIVFactor" : "1",
+              "WaterDamageSublimit" : {
+                "Limit" : ""
+              },
+              "DwellingCoverage" : {
+                "Limit" : "299000"
+              },
+              "OtherStructureCoverage" : {
+                "Limit" : "29900"
+              },
+              "PersonalPropertyCoverage" : {
+                "Limit" : "149500"
+              },
+              "LossOfUseCoverage" : {
+                "Limit" : "59800"
+              },
+              "WaterDamageDeductible" : {
+                "Limit" : "1500"
+              },
+              "PLWindCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "LimitedMoldCoverage" : {
+                "Limit" : "5000"
+              },
+              "WaterBackupCoverage" : {
+                "Limit" : "5000"
+              },
+              "PersonalLiabilityCoverageL" : {
+                "Limit" : "300000"
+              },
+              "MedicalPaymentsCoverageM" : {
+                "Limit" : "1000"
+              },
+              "AOPDeductible" : {
+                "Limit" : "1500",
+                "DeductibleType" : "1500"
+              },
+              "PersonalProperty" : {
+                "PersonalArticleFloater" : [ {
+                  "ItemCategory" : "Mens",
+                  "ItemDescription" : "Abc",
+                  "ItemValue" : "0.0"
+                } ]
+              },
+              "IdentityFraudCoverage" : {
+                "Limit" : "",
+                "CoverageSelected" : "No"
+              },
+              "SpecialCoverageA" : {
+                "CoverageSelected" : "No"
+              },
+              "SpecialCoverageC" : {
+                "CoverageSelected" : "No"
+              },
+              "ReplacementCostOnContentsCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "EarthquakeCoverage" : {
+                "CoverageSelected" : "No",
+                "EarthquakeDeductiblePercentage" : "",
+                "Deductible" : ""
+              },
+              "TheftCoverage" : {
+                "Limit" : ""
+              },
+              "VandalismOrMaliciousMischiefCoverage" : {
+                "CoverageSelected" : "Excluded"
+              },
+              "ExtendedCoverage" : {
+                "CoverageSelected" : ""
+              }
+            } ]
+          } ],
+          "Latitude" : "37.936721",
+          "LocationFullAddress" : "6141 MADDOX BLVD, CHINCOTEAGUE, VA, 23336, United States",
+          "Longitude" : "-75.370018"
+        } ]
+      } ]
+    },
+    "ProductVerNumber" : "PL_15793_208_V1",
+    "ProductNumber" : "PL_15793_208",
+    "PolicyEffectiveDate" : "10/15/2026",
+    "QuoteType" : "Renewal",
+    "EffectiveDate" : "10/15/2026",
+    "PolicyExpirationDate" : "10/15/2027",
+    "CarrierName" : "ALL",
+    "ExpirationDate" : "10/15/2027",
+    "SublineName" : "HO3",
+    "State" : "CW",
+    "ApplicableDate" : "10/15/2026",
+    "ProductName" : "RTConnectorPLRating",
+    "RatingTerm" : "Annual",
+    "ProductVersionNumber" : "PL_15793_208_V1",
+    "ContractName" : "ALL",
+    "BookOfBusinessAdjustment" : "No",
+    "MinimumRenewalReserveFactor" : "0.5",
+    "MaximumRenewalReserveFactor" : "0.7",
+    "RenewalAdjustmentType" : "No Adjustment"
+  }
+}

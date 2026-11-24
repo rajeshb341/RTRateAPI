@@ -1,0 +1,141 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_123341
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_123341
+Rater          : LloydsRater_BRD_V3.0_10302026_Updated.xlsx
+API headers    : Mode DEV, Environment 25   (the earlier runs were Mode TEST, Environment 20)
+Request rules  : County from the Rater's State / County table (Rate Tables JX:JY), fetched street address, insurance
+                 score N/A (HI/KY/MA/MD), TigerCQApplicable N (listed states), MinimumTiv/MaximumTiv from the TIV band
+Iterations     : 917, 6391, 6392, 6408, 6527, 6530, 6531, 6536, 6540-6545, 6555, 6557, 6584, 6585, 6587, 6600, 6612,
+                 6615, 6657, 6921, 7040 (25 bugged test cases)
+Totals         : 2,150 attribute checks - 1,038 Pass, 738 Fail, 374 N/A; 0 skipped
+
+Summary (by iteration id)
+-------------------------
+Bug      Defect     Iterations                              Summary
+NEW-01   API        6584                                    HO6: HTTP 500 with the Rater table's county spelling
+                                                            "Virginia Beach (City)"
+NEW-02   Automation 6540, 6541                              Connecticut: the request now sends the table county
+                                                            (New Haven) but the Rater still gets the planning region,
+                                                            so the Rater has no territory
+BUG-01A  API        6542, 6543, 6544, 6545                  DP1 Builders Risk wind (MD): Insurance Score Factor 0
+BUG-01B  API        6527, 6530, 6531, 6536, 6555, 6557      Wind with TigerCQApplicable N: HTTP 500
+HO6-01   API        6615, 7040                              TIV factor above 200,000: API 1.5 (flat)
+HO6-05   Rater      6657                                    Water Damage Deductible "Equal to AOP" not resolved
+HO6-06   API        6587, 6600, 7040                        HO6 Insurance Score Factor 0 in MD / MA
+BUG-05   API        917                                     Half-cent rounding (1 - 2 cents)
+
+Fixed / passing in this run
+- BUG-02 (6540, 6541): cause found - with the table county "New Haven" the API finds territory CT1 and returns
+  WindAalFactor 2.630 and a wind premium (32.24) instead of 0. It was the planning-region county, which has no territory.
+  The remaining differences are NEW-02.
+- BUG-03 (6391, 6392, 6408): Pass.
+- HO6-02 Number Of Stories (6612), HO6-03 Protection (6921), HO6-04 Alarm, HO6-08 Minimum Earned Premium (6585, 6612):
+  Pass.
+- HO6-07 Minimum Non-Wind Rate Premium: Pass in DEV / 25 (6585: 111.79 = 111.79; 6587: 234.73 = 234.73).
+
+
+NEW-01  HO6: HTTP 500 with the Rater table's county spelling "Virginia Beach (City)" => "VIRGINIA BEACH CITY" is the correct speclling for VA:HO6
+-----------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6584 (every HO6 case in a Virginia independent city will do the same)
+Bug Summary     : The request now sends the county as spelled in the Rater's State / County table (Rate Tables
+                  JX:JY): "Virginia Beach (City)". HO6 fails with HTTP 500. The same request with "VIRGINIA BEACH CITY"
+                  (the HO6 county list spelling) rates fine (territory VA13). Other sublines accept the table spelling
+                  (6391 DP1 Builders Risk "Chesapeake (City)" -> territory VA5).
+Expected Result : HTTP 200, RatingTerritory VA13 (as with "VIRGINIA BEACH CITY")
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating"
+Evidence        : 6584 (HO6, VIRGINIA BEACH CITY VA 23451)
+                  Request County "Virginia Beach (City)"      -> HTTP 500
+                  Same request, County "VIRGINIA BEACH CITY"  -> HTTP 200, territory VA13
+                  Same request, County "Virginia Beach"       -> HTTP 500
+Result path     : ...\Run_20261030_123341\iterations\6584
+
+
+NEW-02  Connecticut: the Rater has no territory for the planning-region county => "SOUTH CENTRAL CONNECTICUT PLANNING REGION" is wrong count Since "New Haven" is the correct county
+-----------------------------------------------------------------------------
+Defect          : Automation (test data / framework) - not an API or Rater bug
+Iterations      : 6540, 6541
+Bug Summary     : The test data county "SOUTH CENTRAL CONNECTICUT PLANNING REGION" is not in the Rater's State / County
+                  table, so the request now sends the ZIP's county from the table ("New Haven") and the API rates
+                  territory CT1. The Rater still receives the planning region from the test data: its Rating Territory
+                  is blank and every rate is 1, so all premiums differ.
+Expected Result : Rater and API rate the same county: Rating Territory CT1, Non-Wind Base Rate Factor 0.0175
+Actual Result   : Rater: Rating Territory blank, Non-Wind Base Rate Factor 1, Base Non-Wind Premium 10,548
+                  API  : Rating Territory CT1, Non-Wind Base Rate Factor 0.0175, Base Non-Wind Premium 184.59
+Evidence        : 6540 (DP1_BUILDERS_RISK, CT 06511, wind Yes)
+Result path     : ...\Run_20261030_123341\iterations\6540
+Fix             : write the table county into the Rater as well (or correct the county in the test data).
+
+
+BUG-01A  DP1 Builders Risk wind (Maryland): Insurance Score Factor 0
+-------------------------------------------------------------------
+Defect          : API
+Iterations      : 6542, 6543, 6544, 6545
+Bug Summary     : With InsuranceScoreStatus "Not Applicable" / Range "-1" / TigerCQApplicable "N" the API returns
+                  Insurance Score Factor 0, so the Calculated Non-Wind Premium is 0 and the premiums are too low.
+                  The Rater uses 1. Same in DEV / 25 as in TEST / 20.
+Expected Result : Insurance Score Factor 1, PLNonWind Premium 291.95
+Actual Result   : Insurance Score Factor 0.000, Calculated Non-Wind Premium 0.0, PLNonWind Premium 176.53
+Evidence        : 6542 (DP1_BUILDERS_RISK, BALTIMORE MD, wind Yes)
+Result path     : ...\Run_20261030_123341\iterations\6542
+
+
+BUG-01B  Wind with TigerCQApplicable N: HTTP 500 => Wind also should be excluded
+-----------------------------------------------
+Defect          : API
+Iterations      : 6527 (HO5 MA), 6530 (DP3 Builders Risk MA), 6531 (DP3 VA), 6536 (HO5 SC), 6555 (HO3 VA), 6557 (HO3 VA)
+Bug Summary     : Wind requests of the TigerCQ-not-applicable states send TigerCQApplicable "N" and fail with HTTP 500
+                  (with "Y" they rate). Same in DEV / 25.
+Expected Result : HTTP 200 with a rated response (6531: SublineName DP3, RatingTerritory VA1)
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating"
+Evidence        : 6531 (DP3, ACCOMACK VA, wind Yes, TigerCQApplicable N)
+Result path     : ...\Run_20261030_123341\iterations\6531
+
+
+HO6-01  TIV factor above 200,000: API 1.5 (flat) => API Issue Exists
+-----------------------------------------------
+Defect          : API (please confirm with the BA which side is right above 200,000)
+Iterations      : 6615, 7040 (TIV up to 200,000 matches: 6585, 6587, 6600, 6612, 6657, 6921)
+Bug Summary     : MinimumTiv / MaximumTiv are sent as the TIV band (200,000 - 10,000,000). The API returns 1.5, the
+                  Rater keeps increasing the factor above 200,000 (1.5 + 0.03 per 10,000).
+Expected Result : 6615 TIV 662,600: 1.5 + 46.26 x 0.03 = 2.8878
+Actual Result   : 6615: 1.5; Calculated Non-Wind Premium 716.75 vs 372.30
+Evidence        : 6615 (HO6, MIAMI-DADE FL, TIV 662,600)
+Result path     : ...\Run_20261030_123341\iterations\6615
+
+
+HO6-05  Water Damage Deductible "Equal to AOP" not resolved
+----------------------------------------------------------
+Defect          : Rater
+Iterations      : 6657
+Bug Summary     : The Rater looks up the text "Equal to AOP" in the deductible table, finds nothing and uses 1; the API
+                  uses the AOP amount (5,000 / 5,000 = 0.95), as in the table.
+Expected Result : 0.95 (as the API)
+Actual Result   : Rater 1; Calculated Non-Wind Premium 1,033.48 (Rater) vs 995.82 (API)
+Evidence        : 6657 (HO6, BALDWIN AL, AOP 5,000, Equal to AOP)
+Result path     : ...\Run_20261030_123341\iterations\6657
+
+
+HO6-06  HO6 Insurance Score Factor 0 in Maryland / Massachusetts => Rater Issue Exists
+---------------------------------------------------------------
+Defect          : API
+Iterations      : 6587, 6600 (MD), 7040 (MA)
+Bug Summary     : InsuranceScoreStatus "Not Applicable" / Range "-1" is sent for MD / MA; the API returns Insurance
+                  Score Factor 0, so its Calculated Non-Wind Premium is 0 and only the minimum non-wind premium is left.
+                  The Rater applies the score band.
+Expected Result : 6587: Insurance Score Factor 0.8, PLNonWind Premium 314.02, Final Property Premium 349.02
+Actual Result   : 6587: Insurance Score Factor 0.000, PLNonWind Premium 234.73 (the minimum), Final Property Premium 269.73
+Evidence        : 6587 (HO6, WORCESTER MD)
+Result path     : ...\Run_20261030_123341\iterations\6587
+
+BUG-05  Half-cent rounding
+-------------------------
+Defect          : API (rounding method - confirm with the BA)
+Iterations      : 917
+Bug Summary     : Half-cent amounts are rounded to the other cent than the Rater (Age of Roof -42.435: Rater -42.43,
+                  API -42.44); the difference carries into the totals.
+Expected Result : PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ)
+Result path     : ...\Run_20261030_123341\iterations\917

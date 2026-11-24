@@ -1,0 +1,424 @@
+RT RATING API vs LLOYDS RATER - BUG REPORT
+Run folder        : target/rater-output/Run_20261027_160839
+Report workbook   : target/rater-output/Run_20261027_160839/RaterValidationReport_20261027_160839.xlsx (sheets Results / Summary / Configurations)
+Endpoint          : https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3
+Rater             : LloydsRater_BRD_V3.0_10272026_Final.xlsx (RT Common Lloyds Rater BRD V3.0, 10/27/2026 Final)
+Test data         : src/test/resources/testdata/test-data.xlsx (sheet TestData), TestCaseId 1 - 6526
+Run date          : 27 Oct 2026, 16:08 - 22:33
+
+OVERALL RESULT
+  Test cases            : 6526 total -> 6422 executed, 104 skipped as invalid test data (O-2)
+  HTTP responses        : 6420 x HTTP 200, 2 connection failures (O-1)
+  Configurations        : HO3 (3228), DP3 (2933), DP3_VACANT (127), DP3_BUILDERS_RISK (116), HO5 (18)
+  Attribute checks      : 552396  ->  Pass 448749, Fail 13663, N/A 89880
+  Failing test cases    : 6186; every failing check traces to the 6 bugs or the observations below
+  Expected = Lloyds Rater (column C of the Rater sheet after recalculation); Actual = API response.
+  Per iteration evidence: target/rater-output/Run_20261027_160839/iterations/<TestCaseId>/request.json, response.json, response-status.txt
+  Rater expected values : target/rater-output/Run_20261027_160839/working/rater-expected.json ; Rater inputs: working/rater-cases.json
+
+SUMMARY                                                                                         cases  failing checks
+  BUG-01 Low    API         Wind AAL Factor (C155) not returned / returned as 0                       5695      5695
+  BUG-02 High   Rater       Rating Territory (C106) ignores the Zip code                              1012      4562
+  BUG-03 High   API         South Carolina zip-level territory not applied                             182      2838
+  BUG-04 Medium Rater       Renewal Coverage Inflation (C107) 0.035 for DP3 Builders Risk/Vacant       243       243
+  BUG-05 Low    API / Rater Half-cent rounding differs (x.xx5) -> 0.01-0.02 premium differences         67       127
+  BUG-06 Medium API         Builders Risk liability premium missing from Liability Premium               3         6
+
+RESOLVED SINCE THE 23 OCT RUN (old Rater BRD V3.0 08/05/2026) - now passing
+  - Minimum Property Rate (C164/C165): rate-table lookup again; fails only where the territory differs (BUG-02/03)
+  - Renewal Coverage Inflation Factor (C107) for DP3: Rater now tests DP3 (still open for Builders Risk / Vacant, BUG-04)
+  - New Jersey / North and South Carolina territories: the territory table now uses New_Jersey, North_Carolina, ...
+  - Non-Wind Base Rate Factor (C111) 4-decimal rounding: the Rater now rounds like the API
+  - AOP Deductible 1500 for DP3 Builders Risk / Vacant (C139) and South Carolina Earthquake Deductible Factor (C180)
+
+========================================================================================================================
+BUG-01  Wind AAL Factor (C155) is not returned by the API (empty), or returned as 0.0 when the Rater factor is 1
+========================================================================================================================
+Severity        : Low
+Category        : API
+Bug Summary     :
+                  Wind AAL Factor (C155) is not returned by the API (empty), or returned as 0.0 when the Rater factor
+                  is 1.
+Expected Result :
+                  Building/Coverage/WindAalFactor = the Rater wind AAL factor for the location (e.g. 2.5, 5.25, 6; 1
+                  where no AAL applies).
+Actual Result   :
+                  WindAalFactor is missing from the response in 5,410 iterations and is 0.0 in 285 iterations where
+                  the Rater gives 1 (one HO3 case: Rater 6, API 0.0). It passes only where the Rater value is 0 (725
+                  iterations). The wind premium (C157) itself matches, so only the reported factor is wrong.
+Failing cells   :
+    Building/Coverage/WindAalFactor (C155)                            5695
+Iterations      : 5695 test case(s). One evidence per configuration:
+      HO3  (2866 iteration(s))
+        Evidence iteration : 1   (Subline HO3, Occupancy Short-Term Rental, State Virginia, Distance to coast 1 - 2 Mi.)
+          Building/Coverage/WindAalFactor (C155)                         Expected            2.5   Actual (empty)
+        Files              : target/rater-output/Run_20261027_160839/iterations/1/request.json , response.json
+        Iterations         : 1-56, 62-96, 100-101, 103-104, 113-218, 227, 241-244, 248-253, 255-263, 265-286, 289-430,
+        433-459, 461-464, 469-514, 518-707, 709-815, 820-949, 955-1108, 1110-1168, 1176-1247, 1507-1712, 1718-1938,
+        1940-2524, 2526-2528, 2532-2534, 2537-2540, 2542-2545, 2547-2549, 2551-2564, 2566-2580, 2582-2612, 2614-2619,
+        2621, 2623-2675, 2677-2682, 2684, 2686-2694, 2696-2699, 2701-2718, 2720-2735, 2737, 2739-2741, 2743-2750,
+        2752-2772, 2775-2780, 2782, 2784-2789, 2792-2793, 2795, 2797-2816, 2818-2829, 2832-2837, 2839, 2841-2844,
+        2846-2852, 2854-2855, 2857, 2859-2870, 2872-2876, 2878-2884, 2888-2920, 2922-3091, 3094-3107, 3110-3169,
+        3171-3213, 3230-3239, 3242-3247, 3249-3253, 3256-3262, 3264-3278
+
+      HO5  (17 iteration(s))
+        Evidence iteration : 6509   (Subline HO5, Occupancy Primary, State Virginia, Distance to coast <1000')
+          Building/Coverage/WindAalFactor (C155)                         Expected           2.75   Actual (empty)
+        Files              : target/rater-output/Run_20261027_160839/iterations/6509/request.json , response.json
+        Iterations         : 6509-6514, 6516-6526
+
+      DP3  (2617 iteration(s))
+        Evidence iteration : 3279   (Subline DP3, Occupancy Short-Term Rental, State Virginia, Distance to coast 2 - 5 Mi.)
+          Building/Coverage/WindAalFactor (C155)                         Expected            2.5   Actual (empty)
+        Files              : target/rater-output/Run_20261027_160839/iterations/3279/request.json , response.json
+        Iterations         : 3279-3304, 3306-3329, 3334, 3339, 3341-3375, 3395-3399, 3402, 3404-3405, 3407-3568,
+        3572-3583, 3588-3611, 3613-3968, 3976-4014, 4017-4450, 4462-4484, 4486-4547, 4729-4838, 4843-5034, 5036-5481,
+        5483-5485, 5487, 5489-5490, 5493-5494, 5496, 5498, 5500, 5502-5510, 5513-5515, 5517-5520, 5522, 5524-5544,
+        5546-5548, 5550-5553, 5555-5569, 5571-5577, 5579-5585, 5587-5589, 5591-5612, 5614-5617, 5619-5637, 5639-5642,
+        5644-5660, 5662-5677, 5679-5681, 5684-5744, 5746-5763, 5765-5772, 5774, 5776-5779, 5781-5795, 5797, 5801-5802,
+        5804-5817, 5819-5833, 5835-5845, 5847-5863, 5876-5950, 5952-6013, 6030-6099, 6102-6182, 6221-6239, 6241-6249,
+        6251, 6254-6258
+
+      DP3_BUILDERS_RISK  (93 iteration(s))
+        Evidence iteration : 6391   (Subline DP3, Occupancy Builders Risk, State Virginia, Distance to coast 5 - 10 Mi.)
+          Building/Coverage/WindAalFactor (C155)                         Expected           2.75   Actual (empty)
+        Files              : target/rater-output/Run_20261027_160839/iterations/6391/request.json , response.json
+        Iterations         : 6391-6392, 6398-6400, 6403-6419, 6423-6435, 6437-6445, 6448-6451, 6455-6474, 6476-6480,
+        6482-6488, 6491-6500, 6506-6508
+
+      DP3_VACANT  (102 iteration(s))
+        Evidence iteration : 6259   (Subline DP3, Occupancy Vacant, State Virginia, Distance to coast 15 - 25 Mi.)
+          Building/Coverage/WindAalFactor (C155)                         Expected           2.75   Actual (empty)
+        Files              : target/rater-output/Run_20261027_160839/iterations/6259/request.json , response.json
+        Iterations         : 6259, 6263-6284, 6286-6298, 6311-6342, 6344-6348, 6352-6356, 6358-6368, 6370-6375,
+        6377-6381, 6389-6390
+
+========================================================================================================================
+BUG-02  Rating Territory (C106) ignores the Zip code - the Rater takes the LAST county row of the territory table, giving the wrong territory for split counties
+========================================================================================================================
+Severity        : High
+Category        : Rater
+Bug Summary     :
+                  Rating Territory (C106) ignores the Zip code - the Rater takes the LAST county row of the territory
+                  table, giving the wrong territory for split counties.
+Expected Result :
+                  C106 = the territory of the row matching State + County + Zip, or the county "ALL" row when the zip
+                  has no row of its own (this is what the API returns).
+Actual Result   :
+                  The Rater formula matches only State + County (LOOKUP(2,1/((State)*(County)),Territory)), so it
+                  returns the last row of the county whatever the zip. The wrong territory then changes the Non-Wind
+                  Base Rate and every premium built on it (C111-C166, C228/C229) and the Minimum Property Rate
+                  (C164/C165).
+Territory evidence (State / County / Zip : RTPL_RATINGTERRITORY value / wrong value returned):
+    Mississippi / HARRISON / 39532            453 iteration(s)   table: zip row 39532 -> MS1         wrong: MS3 (last county row)
+    Mississippi / JACKSON / 39564             205 iteration(s)   table: zip row 39564 -> MS1         wrong: MS2 (last county row)
+    Georgia / GLYNN / 31522                   184 iteration(s)   table: no zip row -> ALL row GA5    wrong: GA11 (row of zip 31561)
+    North_Carolina / BRUNSWICK / 28467         72 iteration(s)   table: zip row 28467 -> NC11        wrong: NC8 (last county row)
+    North_Carolina / ONSLOW / 28546            53 iteration(s)   table: zip row 28546 -> NC5         wrong: NC6 (last county row)
+    South_Carolina / GEORGETOWN / 29576        39 iteration(s)   table: no zip row -> ALL row SC6    wrong: SC3 (row of zip 29440)
+    South_Carolina / MARION / 29571             4 iteration(s)   table: no zip row -> ALL row SC7    wrong: SC3 (row of zip 29546)
+    South_Carolina / WILLIAMSBURG / 29510       2 iteration(s)   table: no zip row -> ALL row SC7    wrong: SC3 (row of zip 29554)
+Failing cells   :
+    Insured/Location/RatingTerritory (C106)                           1012
+    Building/Coverage/NonWindBaseRateFactor (C111)                     159
+    Building/Coverage/BaseNonWindPremium (C112)                        170
+    Location/Building/ConstructionTypePremium (C117)                     2
+    Location/Building/OccupancyTypePremium (C119)                       60
+    Location/Building/AgeOfHomeRiskPremium (C121)                      136
+    Location/Building/AgeOfRoofPremium (C123)                           94
+    Location/Building/CoverageABandPremium (C128)                      110
+    Location/Building/ExtendedReplacementcostPremium (C130)             57
+    Location/Building/NumberofFamilyPremium (C132)                       4
+    Location/Building/ProtectionclassPremium (C134)                      2
+    Location/Building/AlarmCreditAmount (C136)                           2
+    Coverage/AOPDeductible/Premium (C140)                              170
+    Building/Coverage/TotalBaseNonWindFactor (C143)                    159
+    Building/Coverage/TotalBaseNonWindPremium (C144)                   175
+    Building/Coverage/CalculatedNonWindPremium (C149)                  214
+    Building/Coverage/MaxCreditAmount (C150)                           170
+    Coverage/PLNonWind/Premium (C153)                                  178
+    Location/Building/CalculatedPropertyPremium (C159)                 178
+    Building/Coverage/MiscSurchargeAmount (C160)                        11
+    Building/Coverage/CreditsSurchargesTotal (C161)                    170
+    Location/Building/TotalCalculatedPropertyPremium (C162)            183
+    Building/Coverage/MinimumPropertyRateFactor (C164)                 315
+    Building/Coverage/MinimumPropertyRatePremium (C165)                315
+    Location/Building/FinalPropertyPremium (C166)                      183
+    Location/Building/BasePremium (C228)                               175
+    Location/Building/FDRWithoutInsuranceScoreFactor (C229)            158
+Iterations      : 1012 test case(s). One evidence per configuration:
+      HO3  (632 iteration(s))
+        Evidence iteration : 1248   (Subline HO3, Occupancy Primary, State Mississippi, County HARRISON, Zip 39532)
+          Insured/Location/RatingTerritory (C106)                        Expected            MS3   Actual MS1
+        Files              : target/rater-output/Run_20261027_160839/iterations/1248/request.json , response.json
+        Iterations         : 1248-1707, 2373-2460, 2563-2564, 2566-2580, 2582-2588, 2722-2726, 2735, 2737, 2739-2741,
+        2743-2750, 2752-2772, 2775-2780, 2782, 2784-2789, 2792-2793, 2862-2867
+
+      HO5  (3 iteration(s))
+        Evidence iteration : 6515   (Subline HO5, Occupancy Secondary/Seasonal, State Mississippi, County HARRISON, Zip 39532)
+          Insured/Location/RatingTerritory (C106)                        Expected            MS3   Actual MS1
+        Files              : target/rater-output/Run_20261027_160839/iterations/6515/request.json , response.json
+        Iterations         : 6515-6516, 6519
+
+      DP3  (351 iteration(s))
+        Evidence iteration : 4548   (Subline DP3, Occupancy Long-Term Rental, State Mississippi, County HARRISON, Zip 39532)
+          Insured/Location/RatingTerritory (C106)                        Expected            MS3   Actual MS1
+        Files              : target/rater-output/Run_20261027_160839/iterations/4548/request.json , response.json
+        Iterations         : 4548-4728, 5367-5455, 5538-5544, 5546-5548, 5550-5553, 5555, 5719, 5724-5744, 5746,
+        5806-5817, 5819-5833, 5835-5845, 5847-5851
+
+      DP3_BUILDERS_RISK  (5 iteration(s))
+        Evidence iteration : 6455   (Subline DP3, Occupancy Builders Risk, State Mississippi, County JACKSON, Zip 39564)
+          Insured/Location/RatingTerritory (C106)                        Expected            MS2   Actual MS1
+        Files              : target/rater-output/Run_20261027_160839/iterations/6455/request.json , response.json
+        Iterations         : 6455-6457, 6473, 6484
+
+      DP3_VACANT  (21 iteration(s))
+        Evidence iteration : 6299   (Subline DP3, Occupancy Vacant, State Mississippi, County HARRISON, Zip 39532)
+          Insured/Location/RatingTerritory (C106)                        Expected            MS3   Actual MS1
+        Files              : target/rater-output/Run_20261027_160839/iterations/6299/request.json , response.json
+        Iterations         : 6299-6310, 6337-6341, 6358, 6362-6364
+
+========================================================================================================================
+BUG-03  South Carolina zip-level territory not applied - the API returns the county "ALL" territory although the zip has its own row
+========================================================================================================================
+Severity        : High
+Category        : API
+Bug Summary     :
+                  South Carolina zip-level territory not applied - the API returns the county "ALL" territory although
+                  the zip has its own row.
+Expected Result :
+                  Rating Territory = the territory of the zip row in RTPL_RATINGTERRITORY (e.g. HORRY 29575 -> SC3).
+Actual Result   :
+                  The API returns the county ALL-row territory (e.g. SC6), so the Non-Wind Base Rate, all non-wind
+                  premiums and the Minimum Property Rate are calculated on the wrong territory. Seen only for South
+                  Carolina zips; NC and MS zip rows are applied correctly by the API.
+Territory evidence (State / County / Zip : RTPL_RATINGTERRITORY value / wrong value returned):
+    South_Carolina / HORRY / 29575            135 iteration(s)   table: zip row -> SC3               wrong: SC6 (ALL row)
+    South_Carolina / BEAUFORT / 29928          27 iteration(s)   table: zip row -> SC1               wrong: SC5 (ALL row)
+    South_Carolina / CHARLESTON / 29405        17 iteration(s)   table: zip row -> SC2               wrong: SC6 (ALL row)
+    South_Carolina / DORCHESTER / 29485         3 iteration(s)   table: zip row -> SC2               wrong: SC7 (ALL row)
+Failing cells   :
+    Insured/Location/RatingTerritory (C106)                            182
+    Building/Coverage/NonWindBaseRateFactor (C111)                     138
+    Building/Coverage/BaseNonWindPremium (C112)                        155
+    Location/Building/ConstructionTypePremium (C117)                     6
+    Location/Building/OccupancyTypePremium (C119)                       57
+    Location/Building/AgeOfHomeRiskPremium (C121)                      130
+    Location/Building/AgeOfRoofPremium (C123)                          100
+    Location/Building/CoverageABandPremium (C128)                      101
+    Location/Building/ExtendedReplacementcostPremium (C130)             49
+    Location/Building/NumberofFamilyPremium (C132)                       9
+    Location/Building/ProtectionclassPremium (C134)                      1
+    Location/Building/AlarmCreditAmount (C136)                           6
+    Coverage/AOPDeductible/Premium (C140)                              155
+    Building/Coverage/TotalBaseNonWindFactor (C143)                    136
+    Building/Coverage/TotalBaseNonWindPremium (C144)                   155
+    Building/Coverage/CalculatedNonWindPremium (C149)                  155
+    Building/Coverage/MaxCreditAmount (C150)                           155
+    Coverage/PLNonWind/Premium (C153)                                  155
+    Location/Building/CalculatedPropertyPremium (C159)                 155
+    Building/Coverage/MiscSurchargeAmount (C160)                        10
+    Building/Coverage/CreditsSurchargesTotal (C161)                    154
+    Location/Building/TotalCalculatedPropertyPremium (C162)            155
+    Building/Coverage/MinimumPropertyRateFactor (C164)                  46
+    Building/Coverage/MinimumPropertyRatePremium (C165)                 46
+    Location/Building/FinalPropertyPremium (C166)                      155
+    Location/Building/BasePremium (C228)                               141
+    Location/Building/FDRWithoutInsuranceScoreFactor (C229)            131
+Iterations      : 182 test case(s). One evidence per configuration:
+      HO3  (148 iteration(s))
+        Evidence iteration : 2505   (Subline HO3, Occupancy Short-Term Rental, State South_Carolina, County BEAUFORT, Zip 29928)
+          Insured/Location/RatingTerritory (C106)                        Expected            SC1   Actual SC5
+          Building/Coverage/MinimumPropertyRateFactor (C164)             Expected              1   Actual 0.9
+          Building/Coverage/MinimumPropertyRatePremium (C165)            Expected          10548   Actual 9493.2
+        Files              : target/rater-output/Run_20261027_160839/iterations/2505/request.json , response.json
+        Iterations         : 2505-2524, 2526-2528, 2532-2534, 2589-2612, 2614-2619, 2621, 2623-2675, 2677-2682, 2684,
+        2686-2694, 2696-2699, 2701-2718
+
+      HO5  (1 iteration(s))
+        Evidence iteration : 6520   (Subline HO5, Occupancy Secondary/Seasonal, State South_Carolina, County BEAUFORT, Zip 29928)
+          Insured/Location/RatingTerritory (C106)                        Expected            SC1   Actual SC5
+          Building/Coverage/MinimumPropertyRateFactor (C164)             Expected            0.9   Actual 0.75
+          Building/Coverage/MinimumPropertyRatePremium (C165)            Expected         4843.8   Actual 4036.5
+        Files              : target/rater-output/Run_20261027_160839/iterations/6520/request.json , response.json
+        Iterations         : 6520
+
+      DP3  (19 iteration(s))
+        Evidence iteration : 5513   (Subline DP3, Occupancy Short-Term Rental, State South_Carolina, County CHARLESTON, Zip 29405)
+          Insured/Location/RatingTerritory (C106)                        Expected            SC2   Actual SC6
+          Building/Coverage/NonWindBaseRateFactor (C111)                 Expected            0.2   Actual 0.185
+          Building/Coverage/BaseNonWindPremium (C112)                    Expected           1476   Actual 1365.3
+          Location/Building/OccupancyTypePremium (C119)                  Expected           73.8   Actual 68.27
+          Location/Building/AgeOfHomeRiskPremium (C121)                  Expected          295.2   Actual 273.06
+          Location/Building/AgeOfRoofPremium (C123)                      Expected          -36.9   Actual -34.13
+          Location/Building/CoverageABandPremium (C128)                  Expected          -73.8   Actual -68.27
+          Coverage/AOPDeductible/Premium (C140)                          Expected         -110.7   Actual -102.4
+          Building/Coverage/TotalBaseNonWindFactor (C143)                Expected           0.22   Actual 0.2035
+          Building/Coverage/TotalBaseNonWindPremium (C144)               Expected         1623.6   Actual 1501.83
+          Building/Coverage/CalculatedNonWindPremium (C149)              Expected        1380.06   Actual 1276.56
+          Building/Coverage/MaxCreditAmount (C150)                       Expected          959.4   Actual 887.45
+          ... 9 more failing cell(s) in this iteration
+        Files              : target/rater-output/Run_20261027_160839/iterations/5513/request.json , response.json
+        Iterations         : 5513-5515, 5517-5520, 5522, 5524-5531, 5535-5537
+
+      DP3_BUILDERS_RISK  (4 iteration(s))
+        Evidence iteration : 6476   (Subline DP3, Occupancy Builders Risk, State South_Carolina, County HORRY, Zip 29575)
+          Insured/Location/RatingTerritory (C106)                        Expected            SC3   Actual SC6
+          Building/Coverage/BaseNonWindPremium (C112)                    Expected         194.08   Actual 179.32
+          Location/Building/AgeOfHomeRiskPremium (C121)                  Expected         -38.82   Actual -35.86
+          Location/Building/CoverageABandPremium (C128)                  Expected         -19.41   Actual -17.93
+          Coverage/AOPDeductible/Premium (C140)                          Expected         -14.56   Actual -13.45
+          Building/Coverage/TotalBaseNonWindPremium (C144)               Expected         121.29   Actual 112.08
+          Building/Coverage/CalculatedNonWindPremium (C149)              Expected        90.9675   Actual 84.06
+          Building/Coverage/MaxCreditAmount (C150)                       Expected      126.15408   Actual 116.56
+          Coverage/PLNonWind/Premium (C153)                              Expected         126.15   Actual 116.56
+          Location/Building/CalculatedPropertyPremium (C159)             Expected         126.15   Actual 116.56
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected         -12.62   Actual -11.66
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected         113.53   Actual 104.9
+          ... 2 more failing cell(s) in this iteration
+        Files              : target/rater-output/Run_20261027_160839/iterations/6476/request.json , response.json
+        Iterations         : 6476-6479
+
+      DP3_VACANT  (10 iteration(s))
+        Evidence iteration : 6342   (Subline DP3, Occupancy Vacant, State South_Carolina, County CHARLESTON, Zip 29405)
+          Insured/Location/RatingTerritory (C106)                        Expected            SC2   Actual SC6
+          Building/Coverage/BaseNonWindPremium (C112)                    Expected          99.79   Actual 92.23
+          Location/Building/AgeOfHomeRiskPremium (C121)                  Expected          24.95   Actual 23.06
+          Location/Building/AgeOfRoofPremium (C123)                      Expected          -4.99   Actual -4.61
+          Location/Building/CoverageABandPremium (C128)                  Expected          19.96   Actual 18.45
+          Coverage/AOPDeductible/Premium (C140)                          Expected          -4.99   Actual -4.61
+          Building/Coverage/TotalBaseNonWindPremium (C144)               Expected         134.72   Actual 124.52
+          Building/Coverage/CalculatedNonWindPremium (C149)              Expected        229.024   Actual 211.68
+          Building/Coverage/MaxCreditAmount (C150)                       Expected        64.8648   Actual 59.95
+          Coverage/PLNonWind/Premium (C153)                              Expected         229.02   Actual 211.68
+          Location/Building/CalculatedPropertyPremium (C159)             Expected         229.02   Actual 211.68
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected          -22.9   Actual -21.17
+          ... 5 more failing cell(s) in this iteration
+        Files              : target/rater-output/Run_20261027_160839/iterations/6342/request.json , response.json
+        Iterations         : 6342, 6344-6348, 6352-6355
+
+========================================================================================================================
+BUG-04  Renewal Coverage Inflation Factor (C107) is 0.035 for DP3 Builders Risk and DP3 Vacant (regression from the DP_3 -> DP3 fix)
+========================================================================================================================
+Severity        : Medium
+Category        : Rater
+Bug Summary     :
+                  Renewal Coverage Inflation Factor (C107) is 0.035 for DP3 Builders Risk and DP3 Vacant (regression
+                  from the DP_3 -> DP3 fix).
+Expected Result :
+                  C107 RenewalCoverageInflationFactor = 0 for DP3 Builders Risk / Vacant (the API value, and the Rater
+                  value before 10/27/2026).
+Actual Result   :
+                  The Rater gives 0.035. The new formula IF(OR(LEFT(C9,3)="HO3",LEFT(C9,3)="HO5",C9="DP3"),0.035,0)
+                  only looks at the subline (C9), which is also DP3 for Builders Risk and Vacant; it does not exclude
+                  Occupancy (C26) = Builders Risk / Vacant. Premiums are not affected. Business to confirm which side
+                  is correct.
+Failing cells   :
+    Location/Building/RenewalCoverageInflationFactor (C107)            243
+Iterations      : 243 test case(s). One evidence per configuration:
+      DP3_BUILDERS_RISK  (116 iteration(s))
+        Evidence iteration : 6391   (Subline DP3, Occupancy Builders Risk, State Virginia)
+          Location/Building/RenewalCoverageInflationFactor (C107)        Expected          0.035   Actual 0
+        Files              : target/rater-output/Run_20261027_160839/iterations/6391/request.json , response.json
+        Iterations         : 6391-6474, 6476-6480, 6482-6508
+
+      DP3_VACANT  (127 iteration(s))
+        Evidence iteration : 6259   (Subline DP3, Occupancy Vacant, State Virginia)
+          Location/Building/RenewalCoverageInflationFactor (C107)        Expected          0.035   Actual 0
+        Files              : target/rater-output/Run_20261027_160839/iterations/6259/request.json , response.json
+        Iterations         : 6259-6342, 6344-6348, 6352-6356, 6358-6390
+
+========================================================================================================================
+BUG-05  Half-cent rounding differs (x.xx5) - premiums differ by 0.01-0.02 from Total Base Non-Wind Premium onwards
+========================================================================================================================
+Severity        : Low
+Category        : API / Rater
+Bug Summary     :
+                  Half-cent rounding differs (x.xx5) - premiums differ by 0.01-0.02 from Total Base Non-Wind Premium
+                  onwards.
+Expected Result :
+                  Component premiums rounded the same way on both sides, e.g. Age of Home Risk Premium 1237.86 x 0.25
+                  = 309.465 -> 309.47.
+Actual Result   :
+                  The API rounds x.xx5 component premiums differently (Age of Home Risk C121 309.46 instead of 309.47;
+                  Age of Roof C123 -42.44 instead of -42.43; AOP Deductible C140). The 0.01 component difference is
+                  within tolerance, but it is carried into C144 Total Base Non-Wind Premium and multiplied by the
+                  insurance score factor (C149, C153, C159, C162, C166), where it reaches 0.01-0.02, and into
+                  C160/C228 where a large Misc Surcharge Factor multiplies it (O-4).
+Failing cells   :
+    Building/Coverage/TotalBaseNonWindPremium (C144)                    33
+    Building/Coverage/CalculatedNonWindPremium (C149)                   44
+    Coverage/PLNonWind/Premium (C153)                                    9
+    Location/Building/CalculatedPropertyPremium (C159)                   9
+    Building/Coverage/MiscSurchargeAmount (C160)                         3
+    Location/Building/TotalCalculatedPropertyPremium (C162)             10
+    Location/Building/FinalPropertyPremium (C166)                       13
+    Location/Building/BasePremium (C228)                                 6
+Iterations      : 67 test case(s). One evidence per configuration:
+      HO3  (40 iteration(s))
+        Evidence iteration : 843   (Subline HO3, Occupancy Primary, State New_Jersey, Cov A 299000, Year built 1900, Roof age 11 or more Years, Misc surcharge factor 0)
+          Building/Coverage/CalculatedNonWindPremium (C149)              Expected      1689.6915   Actual 1689.68
+        Files              : target/rater-output/Run_20261027_160839/iterations/843/request.json , response.json
+        Iterations         : 843, 851, 876, 883, 886, 888-889, 900-901, 917-918, 921, 924, 934, 938, 949, 961, 1148,
+        1157, 1164, 1187, 1203, 1215, 1220-1221, 1247, 1721, 1787, 1792, 1808-1809, 1832, 1956, 1971, 1988, 1997,
+        2001, 2019, 2022, 2089
+
+      DP3  (21 iteration(s))
+        Evidence iteration : 5193   (Subline DP3, Occupancy Short-Term Rental, State Georgia, Cov A 410000, Year built 1989, Roof age 6 - 10 Years, Misc surcharge factor 0)
+          Building/Coverage/TotalBaseNonWindPremium (C144)               Expected        1739.84   Actual 1739.83
+          Building/Coverage/CalculatedNonWindPremium (C149)              Expected      2453.1744   Actual 2453.16
+        Files              : target/rater-output/Run_20261027_160839/iterations/5193/request.json , response.json
+        Iterations         : 5193, 5215, 5221, 5224-5225, 5228, 5232, 5234, 5250, 5255, 5257-5258, 5267, 5280-5281,
+        5292, 5312, 5350-5351, 5356, 5364
+
+      DP3_BUILDERS_RISK  (5 iteration(s))
+        Evidence iteration : 6391   (Subline DP3, Occupancy Builders Risk, State Virginia, Cov A 210000, Year built 1958, Roof age 11 or more Years, Misc surcharge factor 0)
+          Location/Building/BasePremium (C228)                           Expected           1085   Actual 830
+        Files              : target/rater-output/Run_20261027_160839/iterations/6391/request.json , response.json
+        Iterations         : 6391-6392, 6408, 6437, 6442
+
+      DP3_VACANT  (1 iteration(s))
+        Evidence iteration : 6295   (Subline DP3, Occupancy Vacant, State New_Jersey, Cov A 586000, Year built 1915, Roof age 11 or more Years, Misc surcharge factor 0)
+          Location/Building/BasePremium (C228)                           Expected           4860   Actual 4861
+        Files              : target/rater-output/Run_20261027_160839/iterations/6295/request.json , response.json
+        Iterations         : 6295
+
+========================================================================================================================
+BUG-06  Builders Risk liability premium not included in Liability Premium / Total Liability Premium
+========================================================================================================================
+Severity        : Medium
+Category        : API
+Bug Summary     :
+                  Builders Risk liability premium not included in Liability Premium / Total Liability Premium.
+Expected Result :
+                  C221 LiabilityPremium = 25 and C223 TotalLiabilityPremium = 21.25 - 30 for DP3 Builders Risk with
+                  liability selected.
+Actual Result   :
+                  Liability Premium is not returned (empty) and Total Liability Premium is 0.0.
+Failing cells   :
+    Location/Building/LiabilityPremium (C221)                            3
+    Location/Building/TotalLiabilityPremium (C223)                       3
+Iterations      : 3 test case(s). One evidence per configuration:
+      DP3_BUILDERS_RISK  (3 iteration(s))
+        Evidence iteration : 6391   (Subline DP3, Occupancy Builders Risk, Liability limit 500000, Med pay None)
+          Location/Building/LiabilityPremium (C221)                      Expected             25   Actual (empty)
+          Location/Building/TotalLiabilityPremium (C223)                 Expected          21.25   Actual 0
+        Files              : target/rater-output/Run_20261027_160839/iterations/6391/request.json , response.json
+        Iterations         : 6391-6392, 6408
+
+OBSERVATIONS (not product bugs)
+  O-1  Connection failure: iterations 287 and 288 (HO3, Virginia) got no response - getaddrinfo ENOTFOUND
+       rtconnectorplratekb.solartis.net (DNS lookup failed at 19:12, after 2 retries). All their 86 checks are reported
+       Fail. Re-run with --cases 287,288. Their county NEWPORT NEWS CITY has no row in the territory table either.
+  O-2  104 test cases skipped (not run) because a dropdown input is empty: CoastalWaterDistance row 22 (91),
+       ConstructionType row 25 (11), InsuranceScoreRange row 40 (2). Fill these in test-data.xlsx to run them.
+  O-3  Iteration 2826 (HO3, North_Carolina / HYDE / 27810): zip 27810 has no row and HYDE has no ALL row in the
+       territory table. The API returns an empty territory and rates with factor 1 (base rate 1.0), the Rater falls
+       back to the last county row (NC13): 21 checks fail (C106, C111-C166, C228/C229). Invalid test data.
+  O-4  Iterations 1956, 1971 (HO3) and 5224 (DP3) use an unrealistic Misc Surcharge Factor (row 47: 209.93, 2942.96,
+       -32.8), which multiplies the 0.01 rounding difference of BUG-05 into differences of 0.3 - 29 on C160 / C162 /
+       C166 / C228.
+  O-5  49 of the BUG-05 checks differ by exactly 0.01 but are reported Fail because of floating point
+       (e.g. |2079.3200000000006 - 2079.31| = 0.0100000000006 > tolerance 0.01). A framework fix (compare with a small
+       epsilon) would pass them.

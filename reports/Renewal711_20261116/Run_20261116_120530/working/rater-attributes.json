@@ -1,0 +1,4132 @@
+{
+    "countyTable":  [
+
+                    ],
+    "attributes":  [
+                       {
+                           "row":  9,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "Company",
+                           "entityType":  "Req/Resp",
+                           "current":  "HO5",
+                           "values":  [
+                                          "DP1",
+                                          "DP3",
+                                          "HO3",
+                                          "HO5",
+                                          "HO8",
+                                          "HO6"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "DP1,DP3,HO3,HO5,HO8,HO6"
+                       },
+                       {
+                           "row":  12,
+                           "role":  "INPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "DwellingValuation",
+                           "entityType":  "Req/Resp",
+                           "current":  "RCV",
+                           "values":  [
+                                          "RCV",
+                                          "ACV",
+                                          "FRC"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "RCV,ACV,FRC"
+                       },
+                       {
+                           "row":  13,
+                           "role":  "INPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "PersonalPropertyValuation",
+                           "entityType":  "Req/Resp",
+                           "current":  "RCV",
+                           "values":  [
+                                          "RCV",
+                                          "ACV",
+                                          "FRC"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "RCV,ACV,FRC"
+                       },
+                       {
+                           "row":  14,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "TransactionType",
+                           "entityType":  "Req/Resp",
+                           "current":  "Renewal",
+                           "values":  [
+                                          "New_Business",
+                                          "Renewal"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "New_Business,Renewal"
+                       },
+                       {
+                           "row":  15,
+                           "role":  "INPUT",
+                           "parent":  "Insured",
+                           "entity":  "Location",
+                           "name":  "State",
+                           "entityType":  "Req/Resp",
+                           "current":  "Maryland",
+                           "values":  [
+                                          "Alabama",
+                                          "Arizona",
+                                          "Arkansas",
+                                          "Colorado",
+                                          "Connecticut",
+                                          "Delaware",
+                                          "Florida",
+                                          "Georgia",
+                                          "Idaho",
+                                          "Illinois",
+                                          "Indiana",
+                                          "Iowa",
+                                          "Kansas",
+                                          "Louisiana",
+                                          "Maine",
+                                          "Maryland",
+                                          "Massachusetts",
+                                          "Michigan",
+                                          "Minnesota",
+                                          "Mississippi",
+                                          "Missouri",
+                                          "Nevada",
+                                          "New_Hampshire",
+                                          "New_Jersey",
+                                          "New_Mexico",
+                                          "New_York",
+                                          "North_Carolina",
+                                          "Ohio",
+                                          "Oregon",
+                                          "Rhode_Island",
+                                          "South_Carolina",
+                                          "Tennessee",
+                                          "Texas",
+                                          "Utah",
+                                          "Virginia",
+                                          "Washington",
+                                          "Washington_DC",
+                                          "Wisconsin"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "=INDIRECT(IF($C$9=\"HO6\",\"HO6_DV_State\",\"DV_State\"))"
+                       },
+                       {
+                           "row":  16,
+                           "role":  "INPUT",
+                           "parent":  "Insured",
+                           "entity":  "Location",
+                           "name":  "County",
+                           "entityType":  "Req/Resp",
+                           "current":  "Caroline",
+                           "values":  [
+                                          "Allegany",
+                                          "Anne Arundel",
+                                          "Baltimore",
+                                          "Baltimore City",
+                                          "Calvert",
+                                          "Caroline",
+                                          "Carroll",
+                                          "Cecil",
+                                          "Charles",
+                                          "Dorchester",
+                                          "Frederick",
+                                          "Garrett",
+                                          "Harford",
+                                          "Howard",
+                                          "Kent",
+                                          "Montgomery",
+                                          "Prince George\u0027s",
+                                          "Queen Anne\u0027s",
+                                          "Saint Mary\u0027s",
+                                          "Somerset",
+                                          "Talbot",
+                                          "Washington",
+                                          "Wicomico",
+                                          "Worcester"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "=INDIRECT(IF($C$9=\"HO6\",\"HO6_\"\u0026C15,C15))"
+                       },
+                       {
+                           "row":  17,
+                           "role":  "INPUT",
+                           "parent":  "Insured",
+                           "entity":  "Location",
+                           "name":  "Zipcode1",
+                           "entityType":  "Req/Resp",
+                           "current":  32605,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  18,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "DwellingCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  410000,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  19,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "OtherStructureCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  41000,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  20,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalPropertyCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  205000,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  21,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "LossOfUseCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  82000,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  22,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoastalWaterDistance",
+                           "entityType":  "Req/Resp",
+                           "current":  "\u003c1000\u0027",
+                           "values":  [
+                                          "\u003c1000\u0027",
+                                          "1001\u0027-2500\u0027",
+                                          "2500\u0027 - 1 Mi.",
+                                          "1 - 2 Mi.",
+                                          "2 - 5 Mi.",
+                                          "5 - 10 Mi.",
+                                          "10 - 15 Mi.",
+                                          "15 - 25 Mi.",
+                                          "25 - 50 Mi.",
+                                          "50 - 75 Mi.",
+                                          "75 - 100 Mi.",
+                                          "\u003e100 Mi."
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "\u003c1000\u0027,1001\u0027-2500\u0027,2500\u0027 - 1 Mi.,1 - 2 Mi.,2 - 5 Mi.,5 - 10 Mi.,10 - 15 Mi.,15 - 25 Mi.,25 - 50 Mi.,50 - 75 Mi.,75 - 100 Mi.,\u003e100 Mi."
+                       },
+                       {
+                           "row":  23,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "DateBuilt",
+                           "entityType":  "Req/Resp",
+                           "current":  1995,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  25,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ConstructionType",
+                           "entityType":  "Req/Resp",
+                           "current":  "Frame",
+                           "values":  [
+                                          "Frame",
+                                          "Masonry",
+                                          "Reinforced Concrete",
+                                          "Steel",
+                                          "Superior",
+                                          "Adobe",
+                                          "Log Home"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Frame,Masonry,Reinforced Concrete,Steel,Superior,Adobe,Log Home"
+                       },
+                       {
+                           "row":  26,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "Occupancy",
+                           "entityType":  "Req/Resp",
+                           "current":  "Secondary/Seasonal",
+                           "values":  [
+                                          "Primary",
+                                          "Secondary/Seasonal",
+                                          "Long-Term Rental",
+                                          "Short-Term Rental",
+                                          "Vacant",
+                                          "Builders Risk"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "=INDIRECT(IF($C$9=\"HO6\",\"\u0027Rate Tables\u0027!$QS$2:$QS$6\",\"\u0027Rate Tables\u0027!$QR$2:$QR$7\"))"
+                       },
+                       {
+                           "row":  27,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfHome",
+                           "entityType":  "Req/Resp",
+                           "current":  31,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  28,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfRoof",
+                           "entityType":  "Req/Resp",
+                           "current":  "11 or more Years",
+                           "values":  [
+                                          "0 - 5 Years",
+                                          "6 - 10 Years",
+                                          "11 or more Years"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "0 - 5 Years,6 - 10 Years,11 or more Years"
+                       },
+                       {
+                           "row":  29,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberOfStories",
+                           "entityType":  "Req/Resp",
+                           "current":  2,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  30,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberofLosses",
+                           "entityType":  "Req/Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  31,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoverageABandCredit",
+                           "entityType":  "Req/Resp",
+                           "current":  "$350,000 - $499,999",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "=dv_coverageabandcredit"
+                       },
+                       {
+                           "row":  32,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ExtendedReplacementCost",
+                           "entityType":  "Req/Resp",
+                           "current":  "Yes",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  33,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberOfFamilies",
+                           "entityType":  "Req/Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  34,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ProtectionClass",
+                           "entityType":  "Req/Resp",
+                           "current":  8,
+                           "values":  [
+                                          "1",
+                                          "2",
+                                          "3",
+                                          "4",
+                                          "5",
+                                          "6",
+                                          "7",
+                                          "8",
+                                          "9",
+                                          "10"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "1,2,3,4,5,6,7,8,9,10"
+                       },
+                       {
+                           "row":  35,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "Alarm",
+                           "entityType":  "Req/Resp",
+                           "current":  "None",
+                           "values":  [
+                                          "None",
+                                          "Central Station Burglary Alarm",
+                                          "Central Station Fire Alarm",
+                                          "Central Station Burglary \u0026 Fire Alarm"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "None,Central Station Burglary Alarm,Central Station Fire Alarm,Central Station Burglary \u0026 Fire Alarm"
+                       },
+                       {
+                           "row":  36,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageSublimit",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  "Full Policy Limits",
+                           "values":  [
+                                          "5000",
+                                          "10000",
+                                          "15000",
+                                          "25000",
+                                          "50000",
+                                          "Full Policy Limits"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "5000,10000,15000,25000,50000,Full Policy Limits"
+                       },
+                       {
+                           "row":  37,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "AOPDeductible",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  1500,
+                           "values":  [
+                                          "500",
+                                          "1000",
+                                          "1500",
+                                          "2500",
+                                          "5000",
+                                          "10000",
+                                          "25000",
+                                          "50000"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "500,1000,1500,2500,5000,10000,25000,50000"
+                       },
+                       {
+                           "row":  38,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageDeductible",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  "Equal to AOP",
+                           "values":  [
+                                          "500",
+                                          "1000",
+                                          "2500",
+                                          "5000",
+                                          "10000",
+                                          "Equal to AOP",
+                                          "Excluded"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "500,1000,2500,5000,10000,Equal to AOP,Excluded"
+                       },
+                       {
+                           "row":  40,
+                           "role":  "INPUT",
+                           "parent":  "Account",
+                           "entity":  "Insured",
+                           "name":  "InsuranceScoreRange",
+                           "entityType":  "Req/Resp",
+                           "current":  "Not Applicable",
+                           "values":  [
+                                          "No Hit",
+                                          "Reject",
+                                          "Not Needed",
+                                          "Not Applicable",
+                                          "835-997",
+                                          "799-834",
+                                          "769-798",
+                                          "741-768",
+                                          "713-740",
+                                          "686-712",
+                                          "653-685",
+                                          "614-652",
+                                          "549-613",
+                                          "0-548"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "No Hit,Reject,Not Needed,Not Applicable,835-997,799-834,769-798,741-768,713-740,686-712,653-685,614-652,549-613,0-548"
+                       },
+                       {
+                           "row":  41,
+                           "role":  "INPUT",
+                           "parent":  "Account",
+                           "entity":  "Insured",
+                           "name":  "InsuranceScoreFetchedDate",
+                           "entityType":  "Req/Resp",
+                           "current":  "06/21/2026",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  43,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLWindCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  44,
+                           "role":  "INPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "RMSModeledPremium",
+                           "entityType":  "Req/Resp",
+                           "current":  595.35,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  45,
+                           "role":  "INPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "WindDeductiblePercentage",
+                           "entityType":  "Req/Resp",
+                           "current":  "Greater of $2,500 or 1%",
+                           "values":  [
+                                          "1000",
+                                          "Greater of $2,500 or 1%",
+                                          "Greater of $5,000 or 2%",
+                                          "Greater of $10,000 or 4%",
+                                          "Greater of $15,000 or 5%",
+                                          "Greater of $25,000 or 10%"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "=\u0027Rate Tables\u0027!$JT$8:$JT$13"
+                       },
+                       {
+                           "row":  47,
+                           "role":  "INPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MiscsurchargeFactor",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  48,
+                           "role":  "INPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "Creditpercent",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  50,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "LimitedMoldCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  5000,
+                           "values":  [
+                                          "5000",
+                                          "10000",
+                                          "15000",
+                                          "None"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "5000,10000,15000,None"
+                       },
+                       {
+                           "row":  51,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterBackupCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  5000,
+                           "values":  [
+                                          "NONE",
+                                          "5000",
+                                          "10000",
+                                          "25000"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "NONE,5000,10000,25000"
+                       },
+                       {
+                           "row":  52,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IdentityFraudCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  53,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageA",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  54,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageC",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  55,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ReplacementCostOnContentsCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  56,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IncreasedLossAssessment",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  "Not Applicable",
+                           "values":  [
+                                          "5000",
+                                          "6000",
+                                          "7000",
+                                          "8000",
+                                          "9000",
+                                          "10000",
+                                          "Not Applicable"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "5000,6000,7000,8000,9000,10000,Not Applicable"
+                       },
+                       {
+                           "row":  57,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalInjuryCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  58,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "No",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  59,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "Deductible",
+                           "entityType":  "Req/Resp",
+                           "current":  "EXCLUDED",
+                           "values":  [
+                                          "EXCLUDED",
+                                          "5% Deductible",
+                                          "10% Deductible",
+                                          "15% Deductible",
+                                          "25% Deductible"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "EXCLUDED,5% Deductible,10% Deductible,15% Deductible,25% Deductible"
+                       },
+                       {
+                           "row":  60,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "Excluded",
+                           "values":  [
+                                          "Excluded",
+                                          "Included"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Excluded,Included"
+                       },
+                       {
+                           "row":  62,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  63,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  64,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  65,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  66,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  67,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  68,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  69,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  70,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  71,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  72,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  73,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  74,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  75,
+                           "role":  "INPUT",
+                           "parent":  "PersonalProperty",
+                           "entity":  "PersonalArticleFloater",
+                           "name":  "ItemValue",
+                           "entityType":  "Req/Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  77,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "TheftCoverage",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  "Excluded",
+                           "values":  [
+                                          "5000",
+                                          "Excluded",
+                                          "Included"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "5000,Excluded,Included"
+                       },
+                       {
+                           "row":  78,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "VandalismOrMaliciousMischiefCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "Excluded",
+                           "values":  [
+                                          "Excluded",
+                                          "Included"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Excluded,Included"
+                       },
+                       {
+                           "row":  79,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ExtendedCoverage",
+                           "name":  "CoverageSelected",
+                           "entityType":  "Req/Resp",
+                           "current":  "Excluded",
+                           "values":  [
+                                          "Excluded",
+                                          "Included"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Excluded,Included"
+                       },
+                       {
+                           "row":  81,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalLiabilityCoverageL",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  500000,
+                           "values":  [
+                                          "None",
+                                          "100000",
+                                          "300000",
+                                          "500000",
+                                          "1000000"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "None,100000,300000,500000,1000000"
+                       },
+                       {
+                           "row":  82,
+                           "role":  "INPUT",
+                           "parent":  "Coverage",
+                           "entity":  "MedicalPaymentsCoverageM",
+                           "name":  "Limit",
+                           "entityType":  "Req/Resp",
+                           "current":  5000,
+                           "values":  [
+                                          "None",
+                                          "1000",
+                                          "2000",
+                                          "3000",
+                                          "4000",
+                                          "5000",
+                                          "10000"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "None,1000,2000,3000,4000,5000,10000"
+                       },
+                       {
+                           "row":  89,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "BookOfBusinessAdjustment",
+                           "entityType":  "Req/Resp",
+                           "current":  "Yes",
+                           "values":  [
+                                          "Yes",
+                                          "No"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "Yes,No"
+                       },
+                       {
+                           "row":  90,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "MinimumRenewalReserveFactor",
+                           "entityType":  "Req/Resp",
+                           "current":  0.5,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  91,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "MaximumRenewalReserveFactor",
+                           "entityType":  "Req/Resp",
+                           "current":  0.7,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  92,
+                           "role":  "INPUT",
+                           "parent":  "Account",
+                           "entity":  "Insured",
+                           "name":  "InsuranceScoreFetchedDate",
+                           "entityType":  "Req/Resp",
+                           "current":  46194,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  93,
+                           "role":  "INPUT",
+                           "parent":  "Account",
+                           "entity":  "Insured",
+                           "name":  "InsuranceScoreRange",
+                           "entityType":  "Req/Resp",
+                           "current":  "Not Applicable",
+                           "values":  [
+                                          "No Hit",
+                                          "Reject",
+                                          "Not Needed",
+                                          "Not Applicable",
+                                          "835-997",
+                                          "799-834",
+                                          "769-798",
+                                          "741-768",
+                                          "713-740",
+                                          "686-712",
+                                          "653-685",
+                                          "614-652",
+                                          "549-613",
+                                          "0-548"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "No Hit,Reject,Not Needed,Not Applicable,835-997,799-834,769-798,741-768,713-740,686-712,653-685,614-652,549-613,0-548"
+                       },
+                       {
+                           "row":  95,
+                           "role":  "INPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "RenewalAdjustmentType",
+                           "entityType":  "Req/Resp",
+                           "current":  "No Adjustment",
+                           "values":  [
+                                          "No Adjustment",
+                                          "Target Premium",
+                                          "Percentage Adjustment",
+                                          "Target Fully developed rate"
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  "No Adjustment,Target Premium,Percentage Adjustment,Target Fully developed rate"
+                       },
+                       {
+                           "row":  104,
+                           "role":  "OUTPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "SublineName",
+                           "entityType":  "Resp",
+                           "current":  "HO5",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  105,
+                           "role":  "OUTPUT",
+                           "parent":  "Insured",
+                           "entity":  "Location",
+                           "name":  "HO6TerritoryCode",
+                           "entityType":  "Resp",
+                           "current":  "",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  106,
+                           "role":  "OUTPUT",
+                           "parent":  "Insured",
+                           "entity":  "Location",
+                           "name":  "RatingTerritory",
+                           "entityType":  "Resp",
+                           "current":  "MD2",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  107,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalCoverageInflationFactor",
+                           "entityType":  "Resp",
+                           "current":  0.035,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  108,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TotalInsuredValue",
+                           "entityType":  "Resp",
+                           "current":  738000,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  110,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "PolicyformFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  111,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "NonWindBaseRateFactor",
+                           "entityType":  "Resp",
+                           "current":  0.294,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  112,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "BaseNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  2169.72,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  113,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TIVFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  114,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TerritoryRelativityFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  116,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ConstructionTypeFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  117,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ConstructionTypePremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  118,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "OccupancyFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  119,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "OccupancyTypePremium",
+                           "entityType":  "Resp",
+                           "current":  108.49,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  120,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfHomeRiskFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  121,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfHomeRiskPremium",
+                           "entityType":  "Resp",
+                           "current":  108.49,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  122,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfRoofFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  123,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfRoofPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  124,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberOfStoriesFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  125,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LossSurchargeFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  126,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LossSurchargeAmount",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  127,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoverageABandFactor",
+                           "entityType":  "Resp",
+                           "current":  0.95,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  128,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoverageABandPremium",
+                           "entityType":  "Resp",
+                           "current":  -108.49,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  129,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ExtendedReplacementCostAmount",
+                           "entityType":  "Resp",
+                           "current":  1.1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  130,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ExtendedReplacementcostPremium",
+                           "entityType":  "Resp",
+                           "current":  216.97,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  131,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "FamilyFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  132,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberofFamilyPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  133,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ProtectionFactor",
+                           "entityType":  "Resp",
+                           "current":  1.3,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  134,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ProtectionclassPremium",
+                           "entityType":  "Resp",
+                           "current":  650.92,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  135,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AlarmCreditFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  136,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AlarmCreditAmount",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  137,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageSublimit",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  138,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageSublimit",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  139,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "AOPDeductible",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  0.95,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  140,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "AOPDeductible",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  -108.49,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  141,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageDeductible",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  143,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TotalBaseNonWindFactor",
+                           "entityType":  "Resp",
+                           "current":  0.4116,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  144,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TotalBaseNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  3037.6099999999997,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  145,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CombinedAdditiveFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  146,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "MaxAdditiveCredit",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  147,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "InsuranceScoreFactor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  148,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CombinedTotalFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  149,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CalculatedNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  150,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MaxCreditAmount",
+                           "entityType":  "Resp",
+                           "current":  1410.318,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  151,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumNonWindRate",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  152,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumNonWindRatePremium",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  153,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLNonWind",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  1410.32,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  155,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "WindAalFactor",
+                           "entityType":  "Resp",
+                           "current":  2.5,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  156,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "GrossAal",
+                           "entityType":  "Resp",
+                           "current":  595.35,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  157,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLWindCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  159,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CalculatedPropertyPremium",
+                           "entityType":  "Resp",
+                           "current":  1410.32,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  160,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MiscSurchargeAmount",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  161,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CreditsSurchargesTotal",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  162,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalCalculatedPropertyPremium",
+                           "entityType":  "Resp",
+                           "current":  1410.32,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  164,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumPropertyRateFactor",
+                           "entityType":  "Resp",
+                           "current":  0.4,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  165,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumPropertyRatePremium",
+                           "entityType":  "Resp",
+                           "current":  2952,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  166,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "FinalPropertyPremium",
+                           "entityType":  "Resp",
+                           "current":  1435.32,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  168,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "LimitedMoldCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  169,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterBackupCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  25,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  170,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IdentityFraudCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  171,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageA",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  172,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageA",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  173,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageC",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  174,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageC",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  175,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ReplacementCostOnContentsCoverage",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  176,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ReplacementCostOnContentsCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  177,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IncreasedLossAssessment",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  178,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalInjuryCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  179,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  180,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "DeductibleFactor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  181,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "DeductiblePremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  182,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  213,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "TheftCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  214,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "VandalismOrMaliciousMischiefCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  215,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ExtendedCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  217,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalOptionalCoveragePremium",
+                           "entityType":  "Resp",
+                           "current":  25,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  219,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalLiabilityCoverageL",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  100,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  220,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "MedicalPaymentsCoverageM",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  20,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  221,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LiabilityPremium",
+                           "entityType":  "Resp",
+                           "current":  120,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  222,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "InsuranceScoreFactor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  223,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalLiabilityPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  225,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "PolicyTermFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  226,
+                           "role":  "OUTPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "MinimumEarnedPremium",
+                           "entityType":  "Resp",
+                           "current":  750,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  227,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TermInMonths",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  228,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "BasePremium",
+                           "entityType":  "Resp",
+                           "current":  1435,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  229,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NonWindFDR",
+                           "entityType":  "Resp",
+                           "current":  0.1911,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  243,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TotalInsuredValue",
+                           "entityType":  "Resp",
+                           "current":  763829.99999999988,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  245,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "BaseNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  2245.66,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  246,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TIVFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  247,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ConstructionTypeFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  248,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ConstructionTypePremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  249,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "OccupancyFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  250,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "OccupancyTypePremium",
+                           "entityType":  "Resp",
+                           "current":  112.28,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  251,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfHomeRiskFactor",
+                           "entityType":  "Resp",
+                           "current":  1.05,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  252,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfHomeRiskPremium",
+                           "entityType":  "Resp",
+                           "current":  112.28,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  253,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfRoofFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  254,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AgeOfRoofPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  255,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberOfStoriesFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  256,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LossSurchargeFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  257,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LossSurchargeAmount",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  258,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoverageABandFactor",
+                           "entityType":  "Resp",
+                           "current":  0.95,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  259,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CoverageABandPremium",
+                           "entityType":  "Resp",
+                           "current":  -112.28,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  260,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ExtendedReplacementCostAmount",
+                           "entityType":  "Resp",
+                           "current":  1.1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  261,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ExtendedReplacementcostPremium",
+                           "entityType":  "Resp",
+                           "current":  224.57,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  262,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "FamilyFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  263,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NumberofFamilyPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  264,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ProtectionFactor",
+                           "entityType":  "Resp",
+                           "current":  1.3,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  265,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "ProtectionclassPremium",
+                           "entityType":  "Resp",
+                           "current":  673.7,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  266,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AlarmCreditFactor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  267,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AlarmCreditAmount",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  268,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageSublimit",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  1,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  269,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterDamageSublimit",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  270,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "AOPDeductible",
+                           "name":  "Factor",
+                           "entityType":  "Resp",
+                           "current":  0.95,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  271,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "AOPDeductible",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  -112.28,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  273,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "TotalBaseNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  3143.93,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  274,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "InsuranceScoreFactor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  275,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CombinedTotalFactor",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  276,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "CalculatedNonWindPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  277,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MaxCreditAmount",
+                           "entityType":  "Resp",
+                           "current":  1459.6791299999998,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  278,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumNonWindRate",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  279,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumNonWindRatePremium",
+                           "entityType":  "Resp",
+                           "current":  "N/A",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  281,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLNonWind",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  2189.5186949999993,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  283,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "WindAalFactor",
+                           "entityType":  "Resp",
+                           "current":  2.5,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  284,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "GrossAal",
+                           "entityType":  "Resp",
+                           "current":  595.35,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  286,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLWindCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  288,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "CalculatedPropertyPremium",
+                           "entityType":  "Resp",
+                           "current":  2189.5186949999993,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  289,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "MinimumPropertyRatePremium",
+                           "entityType":  "Resp",
+                           "current":  3055.32,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  322,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalPropertyPremium",
+                           "entityType":  "Resp",
+                           "current":  2214.52,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  291,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "LimitedMoldCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  292,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "WaterBackupCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  25,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  293,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IdentityFraudCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  294,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageA",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  295,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "SpecialCoverageC",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  296,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ReplacementCostOnContentsCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  297,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "IncreasedLossAssessment",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  298,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalInjuryCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  299,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "DeductiblePremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  300,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "EarthquakeCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  316,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "TheftCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  317,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "VandalismOrMaliciousMischiefCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  318,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "ExtendedCoverage",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  320,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalOptionalCoveragePremium",
+                           "entityType":  "Resp",
+                           "current":  25,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  324,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PersonalLiabilityCoverageL",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  100,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  325,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "MedicalPaymentsCoverageM",
+                           "name":  "Premium",
+                           "entityType":  "Resp",
+                           "current":  20,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  326,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "LiabilityPremium",
+                           "entityType":  "Resp",
+                           "current":  120,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  327,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "InsuranceScoreFactor",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  328,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "TotalLiabilityPremium",
+                           "entityType":  "Resp",
+                           "current":  0,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  331,
+                           "role":  "OUTPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "MinimumEarnedPremium",
+                           "entityType":  "Resp",
+                           "current":  750,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  332,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "BasePremium",
+                           "entityType":  "Resp",
+                           "current":  2215,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  232,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "NonWindFDR",
+                           "entityType":  "Req/Resp",
+                           "current":  0.1911,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  233,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "BOBAdjustedNonWindFDR",
+                           "entityType":  "",
+                           "current":  0.18154499999999998,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  234,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalAgeOfHomeRiskFactor",
+                           "entityType":  "Resp",
+                           "current":  0.03,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  235,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalConstructionTypeRiskFactor",
+                           "entityType":  "Resp",
+                           "current":  -0.025,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  236,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalRoofAgeRiskFactor",
+                           "entityType":  "Resp",
+                           "current":  0.08,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  237,
+                           "role":  "OUTPUT",
+                           "parent":  "Coverage",
+                           "entity":  "PLWindCoverage",
+                           "name":  "WindHailDeductibleFactorRenewal",
+                           "entityType":  "",
+                           "current":  0.9,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  238,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "AdjustedRenewalNonWindFDR",
+                           "entityType":  "Resp",
+                           "current":  0.177211702395,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  239,
+                           "role":  "OUTPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "FDRFloor",
+                           "entityType":  "Resp",
+                           "current":  0.28664999999999996,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  240,
+                           "role":  "OUTPUT",
+                           "parent":  "Root",
+                           "entity":  "SolartisInsuredV2",
+                           "name":  "FDRCeiling",
+                           "entityType":  "Resp",
+                           "current":  0.32487,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  241,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalTermNonWindFDR",
+                           "entityType":  "Resp",
+                           "current":  0.28664999999999996,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  244,
+                           "role":  "OUTPUT",
+                           "parent":  "Building",
+                           "entity":  "Coverage",
+                           "name":  "InsuranceScoreFactorDecision",
+                           "entityType":  "Resp",
+                           "current":  "No — Carry prior ISF (4 months)",
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       },
+                       {
+                           "row":  333,
+                           "role":  "OUTPUT",
+                           "parent":  "Location",
+                           "entity":  "Building",
+                           "name":  "RenewalFinalPremiumRate",
+                           "entityType":  "Resp",
+                           "current":  0.28998599164735611,
+                           "values":  [
+
+                                      ],
+                           "valuesByParent":  {
+
+                                              },
+                           "dependsOnRow":  null,
+                           "validation":  null
+                       }
+                   ]
+}

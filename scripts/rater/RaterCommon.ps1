@@ -5,15 +5,20 @@ $ErrorActionPreference = 'Stop'
 
 function Start-RaterApp {
     param([string]$ProgId = 'KET.Application')
+    $errors = @()
     foreach ($id in @($ProgId, 'Excel.Application')) {
         try {
             $app = New-Object -ComObject $id
             $app.Visible = $false
             $app.DisplayAlerts = $false
             return $app
-        } catch { }
+        } catch { $errors += "$id -> $($_.Exception.Message)" }
     }
-    throw "Could not start a spreadsheet application via COM (tried $ProgId and Excel.Application)."
+    # A WPS Office auto-update can drop the KET.Application COM registration (REGDB_E_CLASSNOTREG / 80040154).
+    # Repair: "%LOCALAPPDATA%\Kingsoft\WPS Office\<newest version>\office6\ksomisc.exe" -repaircom, then -reg
+    throw ("Could not start a spreadsheet application via COM (tried $ProgId and Excel.Application). " +
+           "If WPS Office was just updated, re-register it: <WPS Office>\<version>\office6\ksomisc.exe -repaircom and -reg.`n" +
+           ($errors -join "`n"))
 }
 
 function New-RaterWorkCopy {
@@ -52,6 +57,13 @@ function ConvertTo-PlainValue {
     return $Value
 }
 
+# One-line JSON with every non-ASCII character escaped (\uXXXX), so it reads back the same whatever the console encoding.
+function ConvertTo-AsciiJson {
+    param($Object)
+    $json = ConvertTo-Json -InputObject $Object -Depth 6 -Compress
+    return [regex]::Replace($json, '[^\x00-\x7F]', { param($m) '\u{0:x4}' -f [int][char]$m.Value })
+}
+
 function Write-Utf8 {
     param([string]$Path, [string]$Text)
     $dir = Split-Path -Parent $Path
@@ -62,7 +74,8 @@ function Write-Utf8 {
 # Writes a value the way a user would type it: numbers as numbers, everything else as text.
 function Set-RaterCell {
     param($Cell, $Value)
-    if ($null -eq $Value -or "$Value" -eq '') { $Cell.Value2 = $null; return }
+    # ClearContents, not Value2 = $null: WPS COM throws "Object reference not set to an instance of an object" for $null
+    if ($null -eq $Value -or "$Value" -eq '') { $Cell.ClearContents() | Out-Null; return }
     $text = "$Value"
     $num = 0.0
     if ([double]::TryParse($text, [Globalization.NumberStyles]::Float, [Globalization.CultureInfo]::InvariantCulture, [ref]$num)) {

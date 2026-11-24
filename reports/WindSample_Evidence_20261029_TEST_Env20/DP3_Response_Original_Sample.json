@@ -1,0 +1,230 @@
+{
+  "CarrierName": "One London",
+  "MinimumEarnedPremium": "750.000000",
+  "State": "CW",
+  "RatingTerm": "Annual",
+  "QuoteType": "New Business",
+  "TransactionType": "New Business",
+  "OwnerId": "15793",
+  "ContractName": "ALL",
+  "PolicyTerm": "",
+  "ObjectType": "Submission",
+  "ProductName": "RTConnectorPLRating",
+  "ObjectID": "SN10191",
+  "ProductNumber": "PL_15793_208",
+  "EffectiveDate": "10/15/2026",
+  "SublineName": "DP3",
+  "EventName": "RTConnectorPL_SingleLocation_Rating",
+  "ProductVersionNumber": "PL_15793_208_V1",
+  "Account": {
+    "Insured": [
+      {
+        "ServiceRequestDetail": {},
+        "InsuranceScoreRange": "769",
+        "InsuranceScoreFetchedDate": "06/21/2026",
+        "InsuranceScoreStatus": "6",
+        "Location": [
+          {
+            "Building": [
+              {
+                "CoverageABandCredit": "$350,000 - $499,999",
+                "ProtectionclassPremium": "0.0",
+                "NumberofLosses": "1",
+                "Fasteners": "",
+                "LiabilityPremium": "100.0",
+                "TotalPropertyPremium": "10047.35",
+                "ConstructionTypeFactor": "1.00000",
+                "ProtectionFactor": "1.000000",
+                "Occupancy": "Short-Term Rental",
+                "ExtendedReplacementCost": "No",
+                "RoofToWallConnection": "SingleWraps",
+                "ProtectionMissilesSize": "Large",
+                "AgeOfHomeRiskFactor": "1.25000",
+                "RoofUpdated": "2006",
+                "CoastalWaterDistance": "25000",
+                "RenewalCoverageInflationFactor": "0.035",
+                "ExteriorSiding": "MetalSteel",
+                "RoofSlope": "Lessthanorequalto612265",
+                "NumberOfStories": "2",
+                "OccupancyFactor": "1.05000",
+                "ConstructionType": "Frame",
+                "CoverageABandFactor": "0.950000",
+                "FamilyFactor": "1.000000",
+                "NumberofFamilyPremium": "0.0",
+                "AgeOfRoofPremium": "-25.2",
+                "CalculatedPropertyPremium": "1869.8412158882084",
+                "AlarmCreditAmount": "0.0",
+                "NumberOfFamilies": "1",
+                "FDRWithoutInsuranceScoreFactor": "0.189763",
+                "BasePremium": "10132.0",
+                "FinalPropertyPremium": "10022.35",
+                "RoofShape": "Gable",
+                "SquareFt": "1403",
+                "LossSurchargeAmount": "0.0",
+                "AgeOfHomeRiskPremium": "251.98",
+                "AgeOfHome": "122",
+                "DateBuilt": "1904",
+                "WindRating": "",
+                "RoofBrace": "Braced",
+                "OccupancyTypePremium": "50.4",
+                "GuttersPresent": "",
+                "ExtendedReplacementCostAmount": "1.0",
+                "SecondaryWaterResistance": "",
+                "MaxAdditiveCredit": "0.0",
+                "ConstructionTypePremium": "0.0",
+                "LossSurchargeFactor": "1.000000",
+                "ExtendedReplacementcostPremium": "0.0",
+                "AgeOfRoofFactor": "0.975000",
+                "Coverage": [
+                  {
+                    "MinimumPropertyRatePremium": "1856.67",
+                    "PolicyformFactor": "1.0",
+                    "MedicalPaymentsCoverageM": {
+                      "Premium": "0.0",
+                      "Limit": "1000"
+                    },
+                    "MiscsurchargeFactor": "4.46",
+                    "TerritoryRelativityFactor": "1.0",
+                    "PLWindCoverage": {
+                      "Premium": "863.1912158882085",
+                      "CoverageSelected": "Yes"
+                    },
+                    "TIVFactor": "0.0",
+                    "MinimumNonWindRate": "0.0",
+                    "PersonalLiabilityCoverageL": {
+                      "Premium": "100.0",
+                      "Limit": "500000"
+                    },
+                    "BaseRate": "0.190000000000000",
+                    "DwellingCoverage": {
+                      "Limit": "494000"
+                    },
+                    "BaseNonWindPremium": "1007.91",
+                    "TermInMonths": "0",
+                    "PersonalProperty": {
+                      "TotalPersonalPropertyPremium": "0.0",
+                      "PersonalArticleFloater": [
+                        {
+                          "ItemCategory": "Mens",
+                          "ItemValue": "0.0",
+                          "Rate": "0.0",
+                          "Premium": "0.0",
+                          "ItemDescription": "Abc"
+                        }
+                      ]
+                    },
+                    "MinimumNonWindRatePremium": "0.0",
+                    "WindAalFactor": "2.500",
+                    "TotalBaseNonWindPremium": "1184.29",
+                    "TigerCQApplicable": "Y",
+                    "WaterDamageSublimit": {
+                      "Factor": "1.0",
+                      "Premium": "0.0",
+                      "Limit": ""
+                    },
+                    "PLNonWind": {
+                      "Premium": "1006.65"
+                    },
+                    "InsuranceScoreFactor": "0.850",
+                    "MaxCreditAmount": "655.14",
+                    "CreditsSurchargesTotal": "-186.98",
+                    "LossOfUseCoverage": {
+                      "Limit": "23899"
+                    },
+                    "TotalBaseNonWindFactor": "0.2232",
+                    "LimitedMoldCoverage": {
+                      "Premium": "0.0",
+                      "Limit": "5000"
+                    },
+                    "WaterBackupCoverage": {
+                      "Premium": "25.0",
+                      "Limit": "5000"
+                    },
+                    "GrossAal": "345.2764863552834",
+                    "AOPDeductible": {
+                      "DeductibleType": "",
+                      "Factor": "0.950000",
+                      "Premium": "-50.4",
+                      "Limit": "1500"
+                    },
+                    "CalculatedNonWindPremium": "1006.65",
+                    "CombinedAdditiveFactor": "1.0",
+                    "PersonalPropertyCoverage": {
+                      "Limit": "12579"
+                    },
+                    "NonWindBaseRateFactor": "0.19",
+                    "WaterDamageDeductible": {
+                      "Factor": "1.0",
+                      "Limit": "Equal to AOP"
+                    },
+                    "OtherStructureCoverage": {
+                      "Limit": "0"
+                    },
+                    "EarthquakeCoverage": {
+                      "Deductible": "",
+                      "DeductibleFactor": "0.0",
+                      "DeductiblePremium": "0.0",
+                      "Factor": "0.0",
+                      "Premium": "0.0",
+                      "CoverageSelected": "No"
+                    },
+                    "PersonalPropertyValuation": "ACV",
+                    "RMSModeledPremium": "269.78",
+                    "TotalInsuredValue": "530478.0",
+                    "DwellingValuation": "RCV",
+                    "MiscSurchargeAmount": "8339.49182286141",
+                    "CombinedTotalFactor": "0.0",
+                    "WindDeductiblePercentage": "0.001",
+                    "MinimumPropertyRateFactor": "0.350000"
+                  }
+                ],
+                "CoverageABandPremium": "-50.4",
+                "AgeOfRoof": "10",
+                "NumberOfStoriesFactor": "1.0",
+                "TotalLiabilityPremium": "85.0",
+                "RoofType": "ConcreteClaySlateTiles",
+                "ProtectionClass": "6",
+                "NumberOfUnits": "SingleFamilyDwelling",
+                "AlarmCreditFactor": "1.000000",
+                "Alarm": "None",
+                "TotalOptionalCoveragePremium": "25.0",
+                "TotalCalculatedPropertyPremium": "10022.35",
+                "MitigationOpenings": "Allopeningsareprotected",
+                "RoofParapetsAvailable": "",
+                "Creditpercent": "-0.1"
+              }
+            ],
+            "StateRegionCode": "VA",
+            "State": "Virginia",
+            "Latitude": "36.84668",
+            "City": "VIRGINIA BEACH",
+            "RatingTerritory": "VA1",
+            "LocationFullAddress": "544 North Witchduck Road, VIRGINIA BEACH, VA 23462 United States",
+            "County": "ACCOMACK",
+            "Longitude": "-76.07531",
+            "Zipcode1": "23336"
+          }
+        ]
+      }
+    ]
+  },
+  "ServiceRequestDetail": {
+    "OwnerId": "15793",
+    "ServiceRequestVersion": "1.0",
+    "UserName": "TestUser_02",
+    "EndClientUserUniqueSessionId": "1.0",
+    "ResponseType": "json",
+    "Lob": "PL",
+    "UserRole": "Underwriter",
+    "RegionCode": "US",
+    "ServiceResponseVersion": "1.0",
+    "Token": "<removed>",
+    "BrowserIp": "192.158.1.38.",
+    "LanguageCode": "en"
+  },
+  "PolicyEffectiveDate": "10/15/2026",
+  "LOB": "PL",
+  "ExpirationDate": "10/15/2027",
+  "ApplicableDate": "10/15/2026",
+  "PolicyExpirationDate": "10/15/2027"
+}

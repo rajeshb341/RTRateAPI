@@ -1,0 +1,253 @@
+<title>Rater API Effort Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; summary scorecard, then one section per effort area (coverage, execution, failure analysis), then editable assumptions */
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#1b2430; --muted:#5b6675; --line:#dde2e9;
+  --manual:#b4532a; --manual-soft:#f6e3d9; --auto:#1f6f78; --auto-soft:#d9eef0; --fail:#a8322d;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --surface:#1a2029; --ink:#e6eaf0; --muted:#9aa5b4; --line:#2c3440;
+  --manual:#e58a5f; --manual-soft:#3a2419; --auto:#5cc0c9; --auto-soft:#16323a; --fail:#ef7d76; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161c; --surface:#1a2029; --ink:#e6eaf0; --muted:#9aa5b4; --line:#2c3440;
+  --manual:#e58a5f; --manual-soft:#3a2419; --auto:#5cc0c9; --auto-soft:#16323a; --fail:#ef7d76; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:980px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,4.4vw,40px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:24px;font-weight:700}
+h3{font-size:17px;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:12px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+section{display:grid;gap:16px}
+.lead{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--mono);font-size:13px}
+
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:grid;gap:4px;align-content:start}
+.tile .k{font-size:13px;color:var(--muted);font-weight:600}
+.tile .v{font-family:var(--display);font-size:34px;font-weight:800;line-height:1.1}
+.tile .s{font-size:14px;color:var(--muted)}
+.tile.m .v{color:var(--manual)} .tile.a .v{color:var(--auto)}
+
+.bars{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:18px}
+.bar-row{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;align-items:center}
+.bar-row .lbl{font-weight:600;font-size:15px}
+.track{display:grid;gap:5px}
+.bar{height:16px;border-radius:3px;min-width:3px}
+.bar.m{background:var(--manual)} .bar.a{background:var(--auto)}
+.bar-line{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.bar-line .bar{flex:none}
+.legend{display:flex;gap:18px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.r,th.r{text-align:right;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr.total td{font-weight:700;background:var(--bg)}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;font-weight:600}
+.tag.m{background:var(--manual-soft);color:var(--manual)} .tag.a{background:var(--auto-soft);color:var(--auto)}
+.tag.f{background:var(--manual-soft);color:var(--fail)}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.cmp{grid-template-columns:1fr}.bar-row{grid-template-columns:1fr}}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.side.m{border-top:3px solid var(--manual)} .side.a{border-top:3px solid var(--auto)}
+.side ul{margin:0;padding-left:18px;display:grid;gap:4px}
+
+.assume{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:18px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 22px}
+.field{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center;font-size:14px}
+.field input{font:inherit;font-family:var(--mono);font-size:14px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;text-align:right}
+.field input:focus-visible{outline:2px solid var(--auto);outline-offset:1px}
+.group-t{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);grid-column:1/-1;margin-top:4px}
+button{font:inherit;font-size:14px;font-weight:600;padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;justify-self:start}
+button:focus-visible{outline:2px solid var(--auto);outline-offset:2px}
+.note{font-size:14px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">RT Rating API · Lloyds Rater BRD V3.0 validation</div>
+  <h1>Manual vs Automation Effort for <span id="hN">6,000</span> Test Combinations</h1>
+  <p class="lead">Effort to verify the RT rating API against the Lloyds Rater, split into test coverage, execution and failure analysis. Automation figures are measured from the runs on 23 Oct 2026. Manual figures are a per-step estimate; every assumption is editable at the bottom of the page.</p>
+  <div class="meta">
+    <span>Per combination: <b>65</b> Rater inputs, <b>86</b> rated outputs</span>
+    <span><b>10</b> configurations (HO3/5/6/8, DP1/3, Builders Risk, Vacant)</span>
+    <span>Tolerance <b>±0.01</b></span>
+  </div>
+</header>
+
+<section>
+  <div class="score">
+    <div class="tile m"><div class="k">Manual effort</div><div class="v num" id="tManH">–</div><div class="s" id="tManD">–</div></div>
+    <div class="tile a"><div class="k">Automation effort (people)</div><div class="v num" id="tAutoH">–</div><div class="s" id="tAutoD">–</div></div>
+    <div class="tile a"><div class="k">Automation run time (machine)</div><div class="v num" id="tRun">–</div><div class="s">unattended, one machine, sequential</div></div>
+    <div class="tile"><div class="k">Effort saved</div><div class="v num" id="tSave">–</div><div class="s" id="tSaveS">–</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Hours by effort area</h2>
+  <div class="bars" id="bars"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Area 1</div>
+  <h2>Test coverage effort</h2>
+  <p class="lead">Designing valid input combinations (state/county, subline/occupancy, valuation pairs, deductibles a configuration rates) and turning each one into an API request.</p>
+  <div class="tbl"><table id="tCov"></table></div>
+  <div class="cmp">
+    <div class="side m"><h3>Manual coverage in practice</h3><ul>
+      <li>Each combination is hand-picked from 65 dropdowns and fields, with dependencies checked by eye.</li>
+      <li>Rater wording must be translated to API values (value mapping, range rows, distance-to-coast bands).</li>
+      <li>Realistic teams sample a few hundred cases; 6,000 is rarely reached.</li>
+    </ul></div>
+    <div class="side a"><h3>Automated coverage achieved</h3><ul>
+      <li><b class="num">6,526</b> combinations in the test data, <b class="num">6,422</b> executed.</li>
+      <li><b class="num">552,396</b> attribute checks, every one of 86 outputs on every case.</li>
+      <li>14 states, 5 configurations exercised; invalid combinations auto-skipped (104).</li>
+      <li>Requests built from per-configuration templates and mapping files.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Area 2</div>
+  <h2>Execution time</h2>
+  <p class="lead">Getting the expected values from the Rater, calling the API, comparing all 86 outputs and recording the result.</p>
+  <div class="tbl"><table id="tExe"></table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Measured run (23 Oct 2026)</th><th class="r">Cases run</th><th class="r">Wall time</th><th class="r">Rater recalc</th><th class="r">API + compare</th><th class="r">Sec / case</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">Run_20261023_155049</td><td class="r num">998</td><td class="r num">0 h 41 m</td><td class="r num">11.5 m</td><td class="r num">29 m</td><td class="r num">2.46</td></tr>
+      <tr><td class="mono">Run_20261023_184928</td><td class="r num">5,424</td><td class="r num">3 h 49 m</td><td class="r num">49.7 m</td><td class="r num">2 h 56 m</td><td class="r num">2.54</td></tr>
+      <tr class="total"><td>Combined</td><td class="r num">6,422</td><td class="r num">4 h 30 m</td><td class="r"></td><td class="r"></td><td class="r num">2.53</td></tr>
+    </tbody></table></div>
+  <p class="note">All 6,422 API calls returned HTTP 200 (average response about 1.6 s). Recalculation runs in WPS/Excel through COM; the report workbook is written at the end.</p>
+</section>
+
+<section>
+  <div class="eyebrow">Area 3</div>
+  <h2>Failure analysis</h2>
+  <p class="lead">Triage of every mismatch, root-causing each distinct defect (Rater formula vs API rating) and writing the bug report.</p>
+  <div class="tbl"><table id="tFail"></table></div>
+  <div class="tbl"><table>
+    <thead><tr><th>Observed in the two runs</th><th class="r">Value</th></tr></thead>
+    <tbody>
+      <tr><td>Attribute checks (Pass / Fail / N/A)</td><td class="r num">435,189 / 27,195 / 89,908</td></tr>
+      <tr><td>Failing checks per executed case</td><td class="r num">4.23</td></tr>
+      <tr><td>Cases with at least one failure</td><td class="r num">~100% (Minimum Property Rate C164)</td></tr>
+      <tr><td>Distinct defects filed</td><td class="r num">12 <span class="tag f">4 Rater</span> <span class="tag f">7 API</span> <span class="tag f">1 Both</span></td></tr>
+      <tr><td>High-severity defects</td><td class="r num">3</td></tr>
+    </tbody></table></div>
+  <p class="note">Automation groups failures by attribute and pattern, keeps request/response evidence per iteration and reports only new bugs against the previous run. Manual triage has to open each failing case.</p>
+</section>
+
+<section>
+  <h2>Assumptions</h2>
+  <div class="assume">
+    <div class="fields" id="fields"></div>
+    <button type="button" id="reset">Reset to defaults</button>
+    <p class="note">Manual minutes are per combination for one experienced tester using the Rater workbook and Postman. Automation hours are people time only; machine time is shown separately. The one-time framework build is not included unless entered.</p>
+  </div>
+</section>
+
+<footer>Sources: target/rater-output/Run_20261023_155049 and Run_20261023_184928 (console logs, report workbooks); reports/BugReport_Run_*.txt; config/rater.properties. Person-day = 8 h.</footer>
+</div>
+
+<script>
+const DEF = {
+  n:6000, testers:5,
+  mDesign:3, mReq:5,
+  mRater:8, mApi:2, mCompare:12, mRecord:3,
+  failPerCase:4.23, mPerFail:1, bugs:12, hRoot:4,
+  aData:4, secPerCase:2.53, aMonitor:0.5, hReview:1, aReport:2, aBuild:0
+};
+const FIELDS = [
+  ['Scope',[['n','Test combinations'],['testers','Manual testers (for calendar time)']]],
+  ['Manual · coverage (min per case)',[['mDesign','Design a valid combination'],['mReq','Build request JSON (65 fields)']]],
+  ['Manual · execution (min per case)',[['mRater','Enter inputs in Rater, recalc, capture 86 outputs'],['mApi','Send request, save response'],['mCompare','Compare 86 attributes'],['mRecord','Record pass / fail']]],
+  ['Manual · failure analysis',[['failPerCase','Failing checks per case'],['mPerFail','Minutes to triage one failing check'],['bugs','Distinct defects'],['hRoot','Hours to root-cause one defect']]],
+  ['Automation',[['aData','Generate & review test data (h)'],['secPerCase','Machine seconds per case'],['aMonitor','Launch & monitor run (h)'],['hReview','Hours to confirm one defect'],['aReport','Bug report review (h)'],['aBuild','One-time framework build (h)']]]
+];
+let S = {...DEF};
+try{const s=JSON.parse(localStorage.getItem('effortAssumptions')||'null'); if(s) S={...DEF,...s};}catch(e){}
+
+const f0=x=>Math.round(x).toLocaleString('en-US');
+const f1=x=>(Math.round(x*10)/10).toLocaleString('en-US',{minimumFractionDigits:x<10&&x%1?1:0,maximumFractionDigits:1});
+const h=x=>x>=100?f0(x)+' h':f1(x)+' h';
+
+function model(){
+  const n=S.n, mh=m=>m*n/60;
+  const cov={m:[['Design valid combinations',S.mDesign,mh(S.mDesign)],['Build API requests',S.mReq,mh(S.mReq)]],
+             a:[['Generate from Rater dropdowns + review',null,S.aData],['Requests from templates & mappings',null,0]]};
+  const exe={m:[['Rater: enter inputs, recalc, capture outputs',S.mRater,mh(S.mRater)],['Send API request, save response',S.mApi,mh(S.mApi)],['Compare 86 attributes',S.mCompare,mh(S.mCompare)],['Record results',S.mRecord,mh(S.mRecord)]],
+             a:[['Launch & monitor (people)',null,S.aMonitor]]};
+  const fails=n*S.failPerCase;
+  const fai={m:[['Triage '+f0(fails)+' failing checks',S.failPerCase*S.mPerFail,fails*S.mPerFail/60],['Root-cause '+S.bugs+' defects',null,S.bugs*S.hRoot]],
+             a:[['Grouping, evidence, new-vs-known diff',null,0],['Confirm '+S.bugs+' defects',null,S.bugs*S.hReview],['Review bug report',null,S.aReport]]};
+  const sum=a=>a.reduce((t,r)=>t+r[2],0);
+  const run=n*S.secPerCase/3600;
+  return {cov,exe,fai,sum,run};
+}
+
+function table(id,area,extraAuto){
+  const {sum}=model(), rows=[];
+  rows.push('<thead><tr><th>Step</th><th>Mode</th><th class="r">Min / case</th><th class="r">Hours for '+f0(S.n)+'</th></tr></thead><tbody>');
+  area.m.forEach(r=>rows.push(`<tr><td>${r[0]}</td><td><span class="tag m">Manual</span></td><td class="r num">${r[1]==null?'–':f1(r[1])}</td><td class="r num">${h(r[2])}</td></tr>`));
+  area.a.forEach(r=>rows.push(`<tr><td>${r[0]}</td><td><span class="tag a">Auto</span></td><td class="r num">–</td><td class="r num">${r[2]?h(r[2]):'automatic'}</td></tr>`));
+  if(extraAuto) rows.push(`<tr><td>${extraAuto[0]}</td><td><span class="tag a">Machine</span></td><td class="r num">${f1(S.secPerCase)} sec</td><td class="r num">${h(extraAuto[1])}</td></tr>`);
+  const m=sum(area.m), a=sum(area.a);
+  rows.push(`<tr class="total"><td>Total people time</td><td></td><td></td><td class="r num">Manual ${h(m)} · Auto ${h(a)}</td></tr></tbody>`);
+  document.getElementById(id).innerHTML=rows.join('');
+}
+
+function render(){
+  const M=model(), {sum}=M;
+  const man=sum(M.cov.m)+sum(M.exe.m)+sum(M.fai.m);
+  const auto=sum(M.cov.a)+sum(M.exe.a)+sum(M.fai.a)+(+S.aBuild||0);
+  document.getElementById('hN').textContent=f0(S.n);
+  document.getElementById('tManH').textContent=f0(man)+' h';
+  const weeks=man/(Math.max(1,S.testers)*40);
+  document.getElementById('tManD').textContent=f0(man/8)+' person-days · about '+f1(weeks)+' weeks with '+S.testers+' testers';
+  document.getElementById('tAutoH').textContent=f1(auto)+' h';
+  document.getElementById('tAutoD').textContent=f1(auto/8)+' person-days'+(S.aBuild?' incl. '+f0(S.aBuild)+' h framework build':' (framework build not included)');
+  document.getElementById('tRun').textContent=f1(M.run)+' h';
+  document.getElementById('tSave').textContent=f0(man-auto)+' h';
+  document.getElementById('tSaveS').textContent=(man>0?((1-auto/man)*100).toFixed(1):'0')+'% less people time';
+
+  const areas=[['Test coverage',sum(M.cov.m),sum(M.cov.a)],['Execution',sum(M.exe.m),sum(M.exe.a)],['Failure analysis',sum(M.fai.m),sum(M.fai.a)]];
+  const max=Math.max(...areas.map(a=>a[1]),1);
+  document.getElementById('bars').innerHTML='<div class="legend"><span><i style="background:var(--manual)"></i>Manual</span><span><i style="background:var(--auto)"></i>Automation (people)</span></div>'+
+    areas.map(a=>`<div class="bar-row"><div class="lbl">${a[0]}</div><div class="track">
+      <div class="bar-line"><div class="bar m" style="width:calc(${a[1]/max} * (100% - 90px))"></div><span class="num">${h(a[1])}</span></div>
+      <div class="bar-line"><div class="bar a" style="width:calc(${a[2]/max} * (100% - 90px))"></div><span class="num">${h(a[2])}</span></div></div></div>`).join('')+
+    `<p class="note">Automation execution also uses ${f1(M.run)} h of unattended machine time, not counted as people time.</p>`;
+
+  table('tCov',M.cov); table('tExe',M.exe,['Rater recalc + API + compare, '+f0(S.n)+' cases',M.run]); table('tFail',M.fai);
+}
+
+function buildFields(){
+  document.getElementById('fields').innerHTML=FIELDS.map(([g,fs])=>`<div class="group-t">${g}</div>`+
+    fs.map(([k,l])=>`<label class="field" for="f_${k}"><span>${l}</span><input id="f_${k}" type="number" min="0" step="any" value="${S[k]}" data-k="${k}"></label>`).join('')).join('');
+  document.querySelectorAll('#fields input').forEach(el=>el.addEventListener('input',()=>{
+    const v=parseFloat(el.value); S[el.dataset.k]=isNaN(v)?0:v;
+    try{localStorage.setItem('effortAssumptions',JSON.stringify(S));}catch(e){}
+    render();
+  }));
+}
+document.getElementById('reset').addEventListener('click',()=>{S={...DEF};try{localStorage.removeItem('effortAssumptions');}catch(e){}buildFields();render();});
+buildFields(); render();
+</script>

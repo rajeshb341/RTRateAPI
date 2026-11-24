@@ -1,0 +1,249 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.06828730000000001",
+  "MinimumEarnedPremium" : "200.000000",
+  "State" : "CW",
+  "RatingTerm" : "Monthly",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.0602535",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "09/15/2026",
+  "SublineName" : "DP1 Vacant",
+  "TotalBasePremium" : "5336.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "-1",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "Reject",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$350,000 - $499,999",
+          "BOBAdjustedNonWindFDR" : "0.03816055",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "0.0",
+          "TotalPropertyPremium" : "444.67",
+          "ConstructionTypeFactor" : "0.90000",
+          "RenewalFinalPremiumRate" : "0.7230352303523035",
+          "RenewalConstructionTypeRiskFactor" : "-0.0250",
+          "RenewalTermNonWindFDR" : "0.0602535",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Vacant",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.15000",
+          "CoastalWaterDistance" : "260000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "1",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Masonry",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "0.950000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.040169",
+          "RenewalAgeOfHomeRiskFactor" : "0.02000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "444.67083",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.0600",
+          "BasePremium" : "5336.0",
+          "FinalPropertyPremium" : "444.67",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.024136624196100003",
+          "AgeOfHomeRiskPremium" : "34.1",
+          "AgeOfHome" : "44",
+          "DateBuilt" : "1982",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "-22.73",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.000000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "276.75",
+            "PolicyformFactor" : "1.48",
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.600",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "12",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "210.25",
+            "PLNonWind" : {
+              "Premium" : "444.67083"
+            },
+            "InsuranceScoreFactor" : "1.410",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "82000"
+            },
+            "TotalBaseNonWindFactor" : "0.0285",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.05",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.037500",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "BaseRate" : "0.020800000000000",
+            "DwellingCoverage" : {
+              "Limit" : "410000"
+            },
+            "BaseNonWindPremium" : "227.3",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "",
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "147.75",
+            "InsuranceScoreAgeInMonths" : "0",
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-17.05",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "296.45",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "205000"
+            },
+            "NonWindBaseRateFactor" : "0.0308",
+            "OtherStructureCoverage" : {
+              "Limit" : "41000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "354.48",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "738000.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "-11.37",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "0.0",
+          "ProtectionClass" : "2",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "0.0",
+          "TotalCalculatedPropertyPremium" : "444.67",
+          "Creditpercent" : "0"
+        } ],
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "FL",
+        "State" : "Florida",
+        "Latitude" : "28.345249",
+        "City" : "KISSIMMEE",
+        "RatingTerritory" : "FL9",
+        "LocationFullAddress" : "3260 VINELAND RD, KISSIMMEE, FL, 34746, United States",
+        "County" : "Osceola",
+        "Longitude" : "-81.486442",
+        "BasePremium" : "5336.0",
+        "Zipcode1" : "34746"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "09/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "09/15/2027",
+  "ApplicableDate" : "09/15/2026",
+  "PolicyExpirationDate" : "09/15/2027"
+}

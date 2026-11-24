@@ -1,0 +1,252 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.5209769",
+  "MinimumEarnedPremium" : "500.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.45968549999999997",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO6",
+  "TotalBasePremium" : "503.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "799",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.306457",
+          "ProtectionclassPremium" : "1.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "75.0",
+          "TotalPropertyPremium" : "442.66",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.5344184613423146",
+          "RenewalConstructionTypeRiskFactor" : "-0.0250",
+          "RenewalTermNonWindFDR" : "0.45968549999999997",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Owner - Secondary Residence",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.30000",
+          "CoastalWaterDistance" : "10000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "2",
+          "OccupancyFactor" : "1.08000",
+          "MaximumTiv" : "100000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "90000",
+          "CoverageABandFactor" : "1.0",
+          "FamilyFactor" : "1.0",
+          "NonWindFDR" : "0.306457",
+          "RenewalAgeOfHomeRiskFactor" : "0.02500",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "432.660589455",
+          "AlarmCreditAmount" : "1.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.0700",
+          "BasePremium" : "503.0",
+          "FinalPropertyPremium" : "432.66",
+          "LossSurchargeAmount" : "1.0",
+          "AdjustedRenewalNonWindFDR" : "0.29493364219312496",
+          "AgeOfHomeRiskPremium" : "1.0",
+          "AgeOfHome" : "42",
+          "DateBuilt" : "1984",
+          "OccupancyTypePremium" : "1.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "1.43",
+          "ConstructionTypePremium" : "1.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.0",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "611.79",
+            "PolicyformFactor" : "1.0",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "IncreasedLossAssessment" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "TermInMonths" : "0",
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "MinimumNonWindRatePremium" : "141.1815",
+            "TotalBaseNonWindPremium" : "0.0",
+            "PLNonWind" : {
+              "Premium" : "432.660589455"
+            },
+            "InsuranceScoreFactor" : "0.800",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "0"
+            },
+            "TotalBaseNonWindFactor" : "0.0",
+            "PersonalInjuryCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.650000",
+            "TerritoryRelativityFactor" : "0.45",
+            "TIVFactor" : "1.120605",
+            "MinimumNonWindRate" : "0.15",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "50.0",
+              "Limit" : "500000"
+            },
+            "DwellingCoverage" : {
+              "Limit" : "40000"
+            },
+            "BaseNonWindPremium" : "500.0",
+            "WindAalFactor" : "",
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "1.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "0.0",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "10.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "1.000000",
+              "Premium" : "1.0",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "288.44",
+            "CombinedAdditiveFactor" : "1.4300000000000002",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "54121"
+            },
+            "NonWindBaseRateFactor" : "1.0",
+            "OtherStructureCoverage" : {
+              "Limit" : "0"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "95.66",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "94121.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.5768874540000001",
+            "TIVRateRelativityFactor" : "1.100"
+          } ],
+          "CoverageABandPremium" : "0.0",
+          "AgeOfRoof" : "6",
+          "NumberOfStoriesFactor" : "1.050000",
+          "TotalLiabilityPremium" : "60.0",
+          "ProtectionClass" : "3",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "10.0",
+          "TotalCalculatedPropertyPremium" : "432.66",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "GA",
+        "State" : "Georgia",
+        "Latitude" : "31.167344",
+        "City" : "ST SIMONS ISLAND",
+        "RatingTerritory" : "GA10",
+        "LocationFullAddress" : "2300 FREDERICA RD, ST SIMONS ISLAND, GA, 31522, United States",
+        "HO6TerritoryCode" : "GA10",
+        "County" : "GLYNN",
+        "Longitude" : "-81.384564",
+        "BasePremium" : "503.0",
+        "Zipcode1" : "31522"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

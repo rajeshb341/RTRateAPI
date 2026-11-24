@@ -1,0 +1,249 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.0642022",
+  "MinimumEarnedPremium" : "200.000000",
+  "State" : "CW",
+  "RatingTerm" : "Monthly",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.056649000000000005",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "09/15/2026",
+  "SublineName" : "DP3 Vacant",
+  "TotalBasePremium" : "5017.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "-1",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "Not Applicable",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$350,000 - $499,999",
+          "BOBAdjustedNonWindFDR" : "0.0358777",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "0.0",
+          "TotalPropertyPremium" : "418.07",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.679810298102981",
+          "RenewalConstructionTypeRiskFactor" : "-0.0250",
+          "RenewalTermNonWindFDR" : "0.056649000000000005",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Vacant",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.25000",
+          "CoastalWaterDistance" : "400000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "3",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "0.950000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.037766",
+          "RenewalAgeOfHomeRiskFactor" : "0.03000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "-21.44",
+          "CalculatedPropertyPremium" : "418.06962000000004",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.0800",
+          "BasePremium" : "5017.0",
+          "FinalPropertyPremium" : "418.07",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.03502133517870001",
+          "AgeOfHomeRiskPremium" : "107.2",
+          "AgeOfHome" : "106",
+          "DateBuilt" : "1920",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "0.950000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "246.49",
+            "PolicyformFactor" : "1.58",
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "12",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "471.66",
+            "PLNonWind" : {
+              "Premium" : "418.06962000000004"
+            },
+            "InsuranceScoreFactor" : "0.000",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "82000"
+            },
+            "TotalBaseNonWindFactor" : "0.0639",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "1500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.033400",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "BaseRate" : "0.036800000000000",
+            "DwellingCoverage" : {
+              "Limit" : "410000"
+            },
+            "BaseNonWindPremium" : "428.78",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "278.71",
+            "InsuranceScoreAgeInMonths" : "0",
+            "AOPDeductible" : {
+              "DeductibleType" : "",
+              "Factor" : "0.950000",
+              "Premium" : "-21.44",
+              "Limit" : "1500"
+            },
+            "CalculatedNonWindPremium" : "0.0",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "205000"
+            },
+            "NonWindBaseRateFactor" : "0.0581",
+            "OtherStructureCoverage" : {
+              "Limit" : "41000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "0",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "738000.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "-21.44",
+          "AgeOfRoof" : "0",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "0.0",
+          "ProtectionClass" : "2",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "0.0",
+          "TotalCalculatedPropertyPremium" : "418.07",
+          "Creditpercent" : "0"
+        } ],
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "MD",
+        "State" : "Maryland",
+        "Latitude" : "39.286663",
+        "City" : "BALTIMORE",
+        "RatingTerritory" : "MD3",
+        "LocationFullAddress" : "1934 FREDERICK AVE, BALTIMORE, MD, 21223, United States",
+        "County" : "Baltimore City",
+        "Longitude" : "-76.647513",
+        "BasePremium" : "5017.0",
+        "Zipcode1" : "21223"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "09/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "09/15/2027",
+  "ApplicableDate" : "09/15/2026",
+  "PolicyExpirationDate" : "09/15/2027"
+}

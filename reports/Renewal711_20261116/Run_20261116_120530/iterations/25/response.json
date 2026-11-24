@@ -1,0 +1,253 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.521934",
+  "MinimumEarnedPremium" : "700.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.46053",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO8",
+  "TotalBasePremium" : "3480.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "799",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$350,000 - $499,999",
+          "BOBAdjustedNonWindFDR" : "0.30702",
+          "ProtectionclassPremium" : "1317.33",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "70.0",
+          "TotalPropertyPremium" : "3423.71",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.4715447154471545",
+          "RenewalConstructionTypeRiskFactor" : "0.0250",
+          "RenewalTermNonWindFDR" : "0.46053",
+          "ProtectionFactor" : "2.000000",
+          "Occupancy" : "Secondary/Seasonal",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.25000",
+          "CoastalWaterDistance" : "0",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "2",
+          "OccupancyFactor" : "1.05000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "0.950000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.30702",
+          "RenewalAgeOfHomeRiskFactor" : "0.06000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "-32.93",
+          "CalculatedPropertyPremium" : "3398.7114",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.1250",
+          "BasePremium" : "3480.0",
+          "FinalPropertyPremium" : "3398.71",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.337746945375",
+          "AgeOfHomeRiskPremium" : "329.33",
+          "AgeOfHome" : "91",
+          "DateBuilt" : "1935",
+          "OccupancyTypePremium" : "65.87",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "0.975000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "2583.0",
+            "PolicyformFactor" : "0.85",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "20.0",
+              "Limit" : "5000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "0",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "2832.26",
+            "PLNonWind" : {
+              "Premium" : "3398.7114"
+            },
+            "InsuranceScoreFactor" : "0.800",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "82000"
+            },
+            "TotalBaseNonWindFactor" : "0.3838",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.350000",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "50.0",
+              "Limit" : "300000"
+            },
+            "BaseRate" : "0.210000000000000",
+            "DwellingCoverage" : {
+              "Limit" : "410000"
+            },
+            "BaseNonWindPremium" : "1317.33",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "856.26",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-98.8",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "2265.81",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "205000"
+            },
+            "NonWindBaseRateFactor" : "0.1785",
+            "OtherStructureCoverage" : {
+              "Limit" : "41000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ACV",
+            "RMSModeledPremium" : "10.51",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "738000.0",
+            "DwellingValuation" : "ACV",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "-65.87",
+          "AgeOfRoof" : "6",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "56.0",
+          "ProtectionClass" : "9",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "25.0",
+          "TotalCalculatedPropertyPremium" : "3398.71",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "ME",
+        "State" : "Maine",
+        "Latitude" : "43.856253",
+        "City" : "FREEPORT",
+        "RatingTerritory" : "ME1",
+        "LocationFullAddress" : "5 DEPOT ST, FREEPORT, ME, 04032, United States",
+        "County" : "Cumberland",
+        "Longitude" : "-70.101534",
+        "BasePremium" : "3480.0",
+        "Zipcode1" : "4032"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

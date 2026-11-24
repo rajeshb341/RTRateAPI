@@ -1,0 +1,167 @@
+{
+  "method" : "POST",
+  "url" : "https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3",
+  "headers" : {
+    "EventName" : "RTConnectorPLRating",
+    "OwnerId" : "15793",
+    "Mode" : "TEST",
+    "Environment" : "20",
+    "Content-Type" : "application/json",
+    "Token" : "c+Morv...(1152 chars)"
+  },
+  "body" : {
+    "OwnerId" : "15793",
+    "ServiceRequestDetail" : {
+      "OwnerId" : "15793",
+      "EndClientUserUniqueSessionId" : "1.0",
+      "ServiceRequestVersion" : "1.0",
+      "LanguageCode" : "en",
+      "UserName" : "TestUser_02",
+      "RegionCode" : "US",
+      "ServiceResponseVersion" : "1.0",
+      "ResponseType" : "json",
+      "Token" : "****",
+      "Lob" : "PL",
+      "BrowserIp" : "192.158.1.38.",
+      "UserRole" : "Underwriter"
+    },
+    "EventName" : "RTConnectorPLRating",
+    "LOB" : "PL",
+    "TransactionType" : "Renewal",
+    "Account" : {
+      "Insured" : [ {
+        "ServiceRequestDetail" : { },
+        "InsuranceScoreStatus" : "1",
+        "InsuranceScoreRange" : "741",
+        "InsuranceScoreFetchedDate" : "06/21/2026",
+        "Location" : [ {
+          "City" : "BETHANY BEACH",
+          "County" : "Sussex",
+          "Latitude" : "38.534024",
+          "State" : "Delaware",
+          "LocationFullAddress" : "616 SPRING LAKE DR, BETHANY BEACH, DE, 19930, United States",
+          "Longitude" : "-75.068751",
+          "StateRegionCode" : "DE",
+          "Zipcode1" : "19930",
+          "Building" : [ {
+            "CoastalWaterDistance" : "10000",
+            "NumberOfUnits" : "SingleFamilyDwelling",
+            "ConstructionType" : "Frame",
+            "ExteriorSiding" : "MetalSteel",
+            "RoofType" : "ConcreteClaySlateTiles",
+            "RoofShape" : "Gable",
+            "RoofSlope" : "Lessthanorequalto612265",
+            "RoofBrace" : "Braced",
+            "RoofParapetsAvailable" : "",
+            "Fasteners" : "",
+            "GuttersPresent" : "",
+            "WindRating" : "",
+            "SecondaryWaterResistance" : "",
+            "RoofToWallConnection" : "SingleWraps",
+            "MitigationOpenings" : "Allopeningsareprotected",
+            "ProtectionMissilesSize" : "Large",
+            "RoofUpdated" : "2006",
+            "AgeOfRoof" : "0",
+            "DateBuilt" : "2024",
+            "NumberOfStories" : "2",
+            "SquareFt" : "1403",
+            "Occupancy" : "Primary",
+            "AgeOfHome" : "2",
+            "NumberOfLosses" : "1",
+            "CoverageABandCredit" : "$500,000 - $1,000,000",
+            "ExtendedReplacementCost" : "Yes",
+            "NumberOfFamilies" : "1",
+            "ProtectionClass" : "5",
+            "Alarm" : "None",
+            "Creditpercent" : "0",
+            "MinimumTiv" : "200000",
+            "MaximumTiv" : "10000000",
+            "Coverage" : [ {
+              "CoastalDistance" : "1000",
+              "TigerCQApplicable" : "N",
+              "PLWindCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "DwellingCoverage" : {
+                "Limit" : "586000"
+              },
+              "OtherStructureCoverage" : {
+                "Limit" : "58600"
+              },
+              "PersonalPropertyCoverage" : {
+                "Limit" : "293000"
+              },
+              "LossOfUseCoverage" : {
+                "Limit" : "117200"
+              },
+              "PLNonWind" : {
+                "Premium" : "0.0"
+              },
+              "NonWindBaseRateFactor" : "0.2",
+              "DwellingValuation" : "RCV",
+              "PersonalPropertyValuation" : "RCV",
+              "WindDeductiblePercentage" : "0.01",
+              "MiscsurchargeFactor" : "0",
+              "TIVFactor" : "1",
+              "WaterDamageSublimit" : {
+                "Limit" : ""
+              },
+              "WaterDamageDeductible" : {
+                "Limit" : "2500"
+              },
+              "LimitedMoldCoverage" : {
+                "Limit" : "5000"
+              },
+              "WaterBackupCoverage" : {
+                "Limit" : "5000"
+              },
+              "EarthquakeCoverage" : {
+                "CoverageSelected" : "No",
+                "Deductible" : "",
+                "EarthquakeDeductiblePercentage" : ""
+              },
+              "PersonalLiabilityCoverageL" : {
+                "Limit" : "500000"
+              },
+              "MedicalPaymentsCoverageM" : {
+                "Limit" : "5000"
+              },
+              "AOPDeductible" : {
+                "Limit" : "2500",
+                "DeductibleType" : "1500"
+              },
+              "PersonalProperty" : {
+                "PersonalArticleFloater" : [ {
+                  "ItemCategory" : "Mens",
+                  "ItemDescription" : "Abc",
+                  "ItemValue" : "0.0"
+                } ]
+              }
+            } ]
+          } ]
+        } ]
+      } ]
+    },
+    "ProductVerNumber" : "PL_15793_208_V1",
+    "ProductNumber" : "PL_15793_208",
+    "PolicyEffectiveDate" : "10/15/2026",
+    "QuoteType" : "Renewal",
+    "EffectiveDate" : "10/15/2026",
+    "PolicyExpirationDate" : "10/15/2027",
+    "CarrierName" : "One London",
+    "ExpirationDate" : "10/15/2027",
+    "SublineName" : "HO5",
+    "State" : "CW",
+    "ApplicableDate" : "10/15/2026",
+    "ProductName" : "RTConnectorPLRating",
+    "RatingTerm" : "Annual",
+    "ProductVersionNumber" : "PL_15793_208_V1",
+    "ContractName" : "ALL",
+    "ObjectID" : "SN10191",
+    "ObjectType" : "Submission",
+    "BookOfBusinessAdjustment" : "Yes",
+    "MinimumRenewalReserveFactor" : "0.5",
+    "MaximumRenewalReserveFactor" : "0.7",
+    "RenewalAdjustmentType" : "No Adjustment"
+  }
+}

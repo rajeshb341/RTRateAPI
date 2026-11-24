@@ -1,0 +1,61 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261029_120613
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261029_120613
+Rater          : LloydsRater_BRD_V3.0_10282026_Final.xlsx
+API headers    : Mode TEST, Environment 20
+Iterations     : 25, 28, 1644, 1645, 3281, 3282, 4893, 4894, 6264, 6265, 6325, 6326, 6399, 6400, 6511, 6512, 6530
+Totals         : 1292 attribute checks - 1052 Pass, 28 Fail, 210 N/A; 2 test cases skipped (test data, see Notes)
+
+Overall        : All premiums match the Rater in every iteration (Wind premium, Non-wind premium, Property,
+                 Liability, Final and Base premium). The 28 failures are two wind attributes in the 14
+                 iterations WITHOUT wind coverage (PLWindCoverage = No). The one wind iteration (6530) passes fully.
+
+Summary
+-------
+Bug     Defect  Iterations                                                              Attribute
+BUG-01  API     25, 28, 1644, 1645, 3281, 3282, 6264, 6265, 6325, 6326, 6399, 6400,      WindAalFactor (C155)
+                6511, 6512
+BUG-02  API     25, 28, 1644, 1645, 3281, 3282, 6264, 6265, 6325, 6326, 6399, 6400,      GrossAal (C156)
+                6511, 6512
+
+
+BUG-01  WindAalFactor is not returned when wind coverage is not selected
+------------------------------------------------------------------------
+Defect          : API
+Iterations      : 25, 28, 1644, 1645, 3281, 3282, 6325, 6326, 6399, 6400, 6511, 6512  (returned empty)
+                  6264, 6265 (DP1 Vacant)                                                (returned 0.0)
+Bug Summary     : When PLWindCoverage = No, the API leaves WindAalFactor empty (or 0.0 for DP1 Vacant).
+                  The Rater still shows the territory's wind factor. The wind premium is 0 on both sides, so
+                  the premium is not affected; only the WindAalFactor value in the response is missing.
+                  (Same behaviour in Mode DEV / Environment 25 - Run_20261027_160839.)
+Expected Result : WindAalFactor = the Rater's wind factor for the territory (e.g. 2.5)
+Actual Result   : WindAalFactor = "" (empty);  DP1 Vacant: 0.0
+Evidence        : Iteration 25 (HO3, PLWindCoverage = No)
+                  Expected (Rater) WindAalFactor 2.5  |  Actual (API) ""  |  Wind premium 0 = 0.0 (Pass)
+Result path     : ...\Run_20261029_120613\iterations\25
+Note            : Please confirm with the BA whether WindAalFactor should be returned when wind is not
+                  selected. If not, this is a Rater change (show blank / N/A when wind is No) instead.
+
+
+BUG-02  GrossAal is not returned when wind coverage is not selected (Mode TEST / Environment 20)
+-----------------------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 25, 28, 1644, 1645, 3281, 3282, 6264, 6265, 6325, 6326, 6399, 6400, 6511, 6512
+Bug Summary     : When PLWindCoverage = No, the response has no GrossAal. The Rater's Gross AAL is the
+                  RMSModeledPremium sent in the request. In Mode DEV / Environment 25 the API did return it
+                  (iteration 25 in Run_20261027_160839: GrossAal 690.4), so TEST / 20 behaves differently.
+                  The wind premium is 0 on both sides, so the premium is not affected.
+Expected Result : GrossAal = RMSModeledPremium from the request (iteration 25: 690.4)
+Actual Result   : GrossAal is missing from the response
+Evidence        : Iteration 25 (HO3, PLWindCoverage = No)
+                  Request RMSModeledPremium 690.4  |  Expected (Rater) GrossAal 690.4  |  Actual (API) not in response
+Result path     : ...\Run_20261029_120613\iterations\25
+
+
+Not bugs
+--------
+- 6530 (DP3 Builders Risk, PLWindCoverage = Yes): passes fully - GrossAal 1091.34, WindAalFactor 2.5,
+  Wind premium 227.36 match the Rater.
+- 4893, 4894: skipped, invalid test data - DP1 with Dwelling/Contents valuation RCV/ACV, the Rater rates only
+  ACV/ACV for DP1.

@@ -25,17 +25,20 @@ import java.util.Random;
 /**
  * The TestData workbook: one row per test case, one column per input attribute.
  * Column headers look like "15:Insured/Location/State" - the number before the colon is the Rater row.
+ * "Request:RoofType" columns are request-only attributes the Rater has no row for (not written to the Rater).
  */
 @Slf4j
 public final class RaterTestData {
     private static final String ID_HEADER = "TestCaseId";
+    static final String REQUEST_PREFIX = "Request";
 
     private RaterTestData() {}
 
     /** Builds test cases from the dropdown values of the Rater inputs. Case 1 uses the Rater's current values. */
     public static List<RaterTestCase> generate(RaterSettings settings, List<RaterAttribute> attributes, int count, Long seed) {
         Random random = seed == null ? new Random() : new Random(seed);
-        List<RaterAttribute> inputs = attributes.stream().filter(a -> "INPUT".equals(a.getRole())).toList();
+        List<RaterAttribute> inputs = attributes.stream().filter(RaterTestData::isInput).toList();
+        List<RaterConfiguration> configurations = RaterConfiguration.all(settings);
         List<RaterTestCase> cases = new ArrayList<>();
 
         for (int i = 1; i <= count; i++) {
@@ -44,9 +47,50 @@ public final class RaterTestData {
                 String value = i == 1 ? attr.currentText() : pick(settings, attr, tc, random);
                 tc.inputs().put(attr.getRow(), value);
             }
+            conform(settings, configurations, tc, random);
             cases.add(tc);
         }
         return cases;
+    }
+
+    /** Request inputs only: role INPUT and ENTITY TYPE Req/Resp (a Resp attribute is response-only and never an input). */
+    private static boolean isInput(RaterAttribute a) {
+        return "INPUT".equals(a.getRole()) && !"Resp".equalsIgnoreCase(String.valueOf(a.getEntityType()).trim());
+    }
+
+    /**
+     * Makes a generated case one of the supported configurations: an occupancy the subline is rated with, an allowed
+     * Dwelling/Contents valuation pair, and the values allowed by configuration.&lt;ID&gt;.values.&lt;row&gt; (e.g. no
+     * Medical Payments for Builders Risk). Cases that already fit are left as they are.
+     */
+    static void conform(RaterSettings settings, List<RaterConfiguration> configurations, RaterTestCase tc, Random random) {
+        if (configurations.isEmpty()) return;
+        Map<Integer, String> in = tc.inputs();
+        RaterConfiguration.Resolution r = RaterConfiguration.resolve(settings, configurations, in);
+        int occupancyRow = Integer.parseInt(settings.get("rater.configuration.occupancyRow", "26"));
+        int sublineRow = Integer.parseInt(settings.get("rater.configuration.sublineRow", "9"));
+        RaterConfiguration c = r.configuration();
+        if (c == null) {
+            List<RaterConfiguration> sameSubline = configurations.stream()
+                .filter(x -> x.subline().equalsIgnoreCase(in.getOrDefault(sublineRow, "").trim())).toList();
+            if (sameSubline.isEmpty()) return;            // a subline the configuration list does not know: leave it
+            c = sameSubline.get(random.nextInt(sameSubline.size()));
+            if (c.occupancies().stream().noneMatch(o -> o.equalsIgnoreCase(in.getOrDefault(occupancyRow, "").trim()))) {
+                in.put(occupancyRow, c.occupancies().get(random.nextInt(c.occupancies().size())));
+            }
+        }
+        List<Integer> valuationRows = RaterSettings.parseRows(settings.get("rater.configuration.valuationRows", "12,13"));
+        String valuation = valuationRows.stream().map(row -> in.getOrDefault(row, "").trim()).reduce((a, b) -> a + "/" + b).orElse("");
+        if (!c.valuations().isEmpty() && c.valuations().stream().noneMatch(v -> v.equalsIgnoreCase(valuation))) {
+            String[] pair = c.valuations().get(random.nextInt(c.valuations().size())).split("/");
+            for (int k = 0; k < Math.min(pair.length, valuationRows.size()); k++) in.put(valuationRows.get(k), pair[k].trim());
+        }
+        for (Integer row : List.copyOf(in.keySet())) {
+            List<String> allowed = settings.list("configuration." + c.id() + ".values." + row, "|");
+            if (!allowed.isEmpty() && allowed.stream().noneMatch(v -> v.equalsIgnoreCase(in.get(row).trim()))) {
+                in.put(row, allowed.get(random.nextInt(allowed.size())));
+            }
+        }
     }
 
     private static String pick(RaterSettings settings, RaterAttribute attr, RaterTestCase tc, Random random) {
@@ -75,7 +119,7 @@ public final class RaterTestData {
             log.warn("{} already exists and is NOT overwritten; generated data goes to {}", file, target);
             file = target;
         }
-        List<RaterAttribute> inputs = attributes.stream().filter(a -> "INPUT".equals(a.getRole())).toList();
+        List<RaterAttribute> inputs = attributes.stream().filter(RaterTestData::isInput).toList();
         try (Workbook wb = new XSSFWorkbook()) {
             Sheet sheet = wb.createSheet(sheetName);
             CellStyle bold = wb.createCellStyle();
@@ -126,13 +170,21 @@ public final class RaterTestData {
             Sheet sheet = wb.getSheet(sheetName);
             if (sheet == null) throw new IOException("Sheet '" + sheetName + "' not found in " + file);
 
+            // "<row>:<path>" = Rater input row; "Request:<Name>" = request-only attribute (see wind.* in the request mapping)
             Row header = sheet.getRow(0);
             Map<Integer, Integer> rowByColumn = new LinkedHashMap<>();
+            Map<Integer, String> requestByColumn = new LinkedHashMap<>();
             for (int c = 1; c < header.getLastCellNum(); c++) {
                 Cell cell = header.getCell(c);
                 String text = cell == null ? "" : text(cell);
                 int colon = text.indexOf(':');
-                if (colon > 0) rowByColumn.put(c, Integer.parseInt(text.substring(0, colon).trim()));
+                if (colon <= 0) continue;
+                String prefix = text.substring(0, colon).trim();
+                if (prefix.matches("\\d+")) {
+                    rowByColumn.put(c, Integer.parseInt(prefix));
+                } else if (prefix.equalsIgnoreCase(REQUEST_PREFIX)) {
+                    requestByColumn.put(c, text.substring(colon + 1).trim());
+                }
             }
 
             List<RaterTestCase> cases = new ArrayList<>();
@@ -141,6 +193,7 @@ public final class RaterTestData {
                 if (row == null || row.getCell(0) == null || text(row.getCell(0)).isEmpty()) continue;
                 RaterTestCase tc = new RaterTestCase(text(row.getCell(0)));
                 rowByColumn.forEach((col, raterRow) -> tc.inputs().put(raterRow, text(row.getCell(col))));
+                requestByColumn.forEach((col, name) -> tc.requestValues().put(name, text(row.getCell(col))));
                 cases.add(tc);
             }
             log.info("Read {} test case(s) from {}", cases.size(), file);

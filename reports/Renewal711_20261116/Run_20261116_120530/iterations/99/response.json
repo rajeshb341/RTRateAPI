@@ -1,0 +1,252 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.8752943",
+  "MinimumEarnedPremium" : "750.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.7723184999999999",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO6",
+  "TotalBasePremium" : "750.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.514879",
+          "ProtectionclassPremium" : "1.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "30.0",
+          "TotalPropertyPremium" : "704.6",
+          "ConstructionTypeFactor" : "0.95000",
+          "RenewalFinalPremiumRate" : "0.8650519031141869",
+          "RenewalConstructionTypeRiskFactor" : "0.0200",
+          "RenewalTermNonWindFDR" : "0.7723184999999999",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Rental - Short Term/Seasonal",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.05000",
+          "CoastalWaterDistance" : "530000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "10",
+          "OccupancyFactor" : "1.08000",
+          "MaximumTiv" : "90000",
+          "ConstructionType" : "Reinforced Concrete",
+          "MinimumTiv" : "80000",
+          "CoverageABandFactor" : "1.0",
+          "FamilyFactor" : "1.0",
+          "NonWindFDR" : "0.514879",
+          "RenewalAgeOfHomeRiskFactor" : "0.05000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "669.6001395",
+          "AlarmCreditAmount" : "1.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.1150",
+          "BasePremium" : "750.0",
+          "FinalPropertyPremium" : "669.6",
+          "LossSurchargeAmount" : "1.0",
+          "AdjustedRenewalNonWindFDR" : "0.5533654329315",
+          "AgeOfHomeRiskPremium" : "1.0",
+          "AgeOfHome" : "20",
+          "DateBuilt" : "2006",
+          "OccupancyTypePremium" : "1.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "1.03",
+          "ConstructionTypePremium" : "1.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.0",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "867.0",
+            "PolicyformFactor" : "1.0",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "5.0",
+              "Limit" : "1000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "IncreasedLossAssessment" : {
+              "Premium" : "25.0",
+              "Limit" : "10000"
+            },
+            "TermInMonths" : "0",
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "MinimumNonWindRatePremium" : "216.75",
+            "TotalBaseNonWindPremium" : "0.0",
+            "PLNonWind" : {
+              "Premium" : "669.6001395"
+            },
+            "InsuranceScoreFactor" : "1.0",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "10200"
+            },
+            "TotalBaseNonWindFactor" : "0.0",
+            "PersonalInjuryCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "1.000000",
+            "TerritoryRelativityFactor" : "0.8",
+            "TIVFactor" : "1.0835000000000001",
+            "MinimumNonWindRate" : "0.25",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "25.0",
+              "Limit" : "300000"
+            },
+            "DwellingCoverage" : {
+              "Limit" : "51000"
+            },
+            "BaseNonWindPremium" : "500.0",
+            "WindAalFactor" : "",
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "1.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "0.0",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "10.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "1.000000",
+              "Premium" : "1.0",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "446.4",
+            "CombinedAdditiveFactor" : "1.03",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "25500"
+            },
+            "NonWindBaseRateFactor" : "1.0",
+            "OtherStructureCoverage" : {
+              "Limit" : "0"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "0",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "86700.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.8928040000000002",
+            "TIVRateRelativityFactor" : "1.050"
+          } ],
+          "CoverageABandPremium" : "0.0",
+          "AgeOfRoof" : "6",
+          "NumberOfStoriesFactor" : "0.950000",
+          "TotalLiabilityPremium" : "30.0",
+          "ProtectionClass" : "2",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "35.0",
+          "TotalCalculatedPropertyPremium" : "669.6",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "MS",
+        "State" : "Mississippi",
+        "Latitude" : "30.403594",
+        "City" : "BILOXI",
+        "RatingTerritory" : "MS2",
+        "LocationFullAddress" : "2120 ENTERPRISE DR, BILOXI, MS, 39531, United States",
+        "HO6TerritoryCode" : "MS2",
+        "County" : "HARRISON",
+        "Longitude" : "-88.962544",
+        "BasePremium" : "750.0",
+        "Zipcode1" : "39531"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

@@ -1,0 +1,92 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_153830
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_153830
+Rater          : LloydsRater_BRD_V3.0_10302026_Updated.xlsx
+API headers    : Mode TEST, Environment 20
+Iterations     : 917, 6391, 6392, 6408, 6527, 6530, 6531, 6536, 6540-6545, 6555, 6557, 6584, 6585, 6587, 6600, 6612,
+                 6615, 6657, 6921, 7040 (25 bugged test cases)
+Totals         : 2,150 attribute checks - 1,521 Pass, 125 Fail, 504 N/A; 0 skipped; every request HTTP 200
+                 (Run_20261030_131943 before the changes: 1,132 Pass, 618 Fail, 6 x HTTP 500)
+
+Changes in this round
+---------------------
+NEW-01  VA HO6 county "VIRGINIA BEACH CITY": the request uses the County sheet's HO6 spelling (one spelling for HO6);
+        every test data county is in the County sheet for its subline (9,109 exact, 199 other spelling -> the sheet's).
+NEW-02  Test data: the Connecticut planning regions (90 cases) are replaced by their county (ChangeLog sheet), e.g.
+        SOUTH CENTRAL CONNECTICUT PLANNING REGION -> NEW HAVEN, WESTERN CONNECTICUT PLANNING REGION -> FAIRFIELD.
+BUG-01B Wind cases of states where TigerCQ does not apply are rated without wind: Rater PLWindCoverage No; request
+        PLWindCoverage No + TigerCQApplicable N (rater.wind.offRule). No more HTTP 500.
+
+Fixed / passing
+---------------
+NEW-01   6584 HO6 VA                      HTTP 200 (the TIV difference left is HO6-01)
+NEW-02   6540, 6541 CT                    Pass (New Haven, territory CT1, wind premium matches)
+BUG-01B  6531, 6536, 6555, 6557           Pass (rated without wind); 6527, 6530 rate too - see BUG-A below
+BUG-02   6540, 6541                       Pass
+BUG-03   6391, 6392, 6408                 Pass
+HO6-02/03/04/07/08  6585, 6612, 6921      Pass
+
+Summary of the open bugs (by iteration id)
+-----------------------------------------
+Bug     Defect  Iterations                                          Summary
+BUG-A   API     6527, 6530 (MA), 6542-6545 (MD), 6587, 6600 (MD),   Insurance Score Factor 0 with InsuranceScoreStatus
+                7040 (MA)                                           "Not Applicable" (was BUG-01A + HO6-06)
+HO6-01  API     6584, 6615, 7040                                    TIV factor above 200,000: API 1.5 (flat)
+HO6-05  Rater   6657                                                Water Damage Deductible "Equal to AOP" not resolved
+BUG-05  API     917                                                 Half-cent rounding (1 - 2 cents)
+
+
+BUG-A  Insurance Score Factor 0 where the insurance score does not apply (MD / MA)
+---------------------------------------------------------------------------------
+Defect          : API (please confirm with the BA the factor for "Not Applicable": the Rater uses 1 / the score band)
+Iterations      : 6527 (HO5 MA), 6530 (DP3 Builders Risk MA), 6542, 6543, 6544, 6545 (DP1 Builders Risk MD),
+                  6587, 6600 (HO6 MD), 7040 (HO6 MA)
+Bug Summary     : For MD and MA the request sends InsuranceScoreStatus "Not Applicable" and InsuranceScoreRange "-1".
+                  The API returns Insurance Score Factor 0, so its Calculated Non-Wind Premium is 0 and the premiums
+                  are too low (only a minimum premium is left). The Rater uses factor 1 (insurance score "Not Needed")
+                  or the score band's factor.
+Expected Result : 6527: Insurance Score Factor 1, Calculated Non-Wind Premium 2,267.68, PLNonWind Premium 2,267.68
+Actual Result   : 6527: Insurance Score Factor 0.000, Calculated Non-Wind Premium 0.0, PLNonWind Premium 1,511.79
+Evidence        : 6527 (HO5, BARNSTABLE MA, rated without wind)
+                  Request : InsuranceScoreStatus Not Applicable, InsuranceScoreRange -1, TigerCQApplicable N,
+                            PLWindCoverage No
+                  Response: HTTP 200, InsuranceScoreFactor 0.000, PLNonWind Premium 1511.79
+Result path     : ...\Run_20261030_153830\iterations\6527
+
+
+HO6-01  TIV factor above 200,000: API 1.5 (flat)
+-----------------------------------------------
+Defect          : API (please confirm with the BA which side is right above 200,000)
+Iterations      : 6584, 6615, 7040 (TIV up to 200,000 matches)
+Bug Summary     : MinimumTiv / MaximumTiv are sent as the TIV band 200,000 - 10,000,000. The API returns 1.5; the
+                  Rater keeps increasing the factor above 200,000 (1.5 + 0.03 per 10,000).
+Expected Result : 6584 TIV 256,519: 1.669557
+Actual Result   : 6584: 1.5; Calculated Non-Wind Premium 455.87 vs 409.58
+Evidence        : 6584 (HO6, VIRGINIA BEACH CITY VA, TIV 256,519)
+Result path     : ...\Run_20261030_153830\iterations\6584
+
+
+HO6-05  Water Damage Deductible "Equal to AOP" not resolved
+----------------------------------------------------------
+Defect          : Rater (Rater sheet C141, Rate Tables EI8:EK19)
+Iterations      : 6657
+Bug Summary     : C141 looks up the text "Equal to AOP" in the Water Damage deductible column (EJ), finds nothing and
+                  IFERROR returns 1. The API uses the AOP amount: AOP 5,000 / Water Damage 5,000 = 0.95 (Rate Tables
+                  row 19).
+Expected Result : 0.95 (as the API)
+Actual Result   : Rater 1; Calculated Non-Wind Premium 1,033.48 (Rater) vs 995.82 (API)
+Evidence        : 6657 (HO6, BALDWIN AL, AOP 5,000, Equal to AOP)
+Result path     : ...\Run_20261030_153830\iterations\6657
+
+
+BUG-05  Half-cent rounding
+-------------------------
+Defect          : API (rounding method - confirm with the BA)
+Iterations      : 917
+Bug Summary     : Half-cent amounts are rounded to the other cent than the Rater (Age of Roof -42.435: Rater -42.43,
+                  API -42.44); the difference carries into the totals.
+Expected Result : PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ)
+Result path     : ...\Run_20261030_153830\iterations\917

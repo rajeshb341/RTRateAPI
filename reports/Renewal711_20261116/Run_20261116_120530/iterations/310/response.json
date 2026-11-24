@@ -1,0 +1,250 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.7590772",
+  "MinimumEarnedPremium" : "750.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.6697740000000001",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "DP1",
+  "TotalBasePremium" : "2725.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "614",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.4241902",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "120.0",
+          "TotalPropertyPremium" : "2556.75",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.7208994708994709",
+          "RenewalConstructionTypeRiskFactor" : "0.0500",
+          "RenewalTermNonWindFDR" : "0.6697740000000001",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Long-Term Rental",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.00000",
+          "CoastalWaterDistance" : "10000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "1.5",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "1.200000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.446516",
+          "RenewalAgeOfHomeRiskFactor" : "0.07500",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "2531.7457200000003",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.1500",
+          "BasePremium" : "2725.0",
+          "FinalPropertyPremium" : "2531.75",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.44050031319",
+          "AgeOfHomeRiskPremium" : "0.0",
+          "AgeOfHome" : "21",
+          "DateBuilt" : "2005",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.000000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "1134.0",
+            "PolicyformFactor" : "0.9",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "20.0",
+              "Limit" : "5000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.800",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "0",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "1205.59",
+            "PLNonWind" : {
+              "Premium" : "2531.7457200000003"
+            },
+            "InsuranceScoreFactor" : "1.400",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "42000"
+            },
+            "TotalBaseNonWindFactor" : "0.3189",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.02",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.300000",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "100.0",
+              "Limit" : "500000"
+            },
+            "BaseRate" : "0.315000000000000",
+            "DwellingCoverage" : {
+              "Limit" : "210000"
+            },
+            "BaseNonWindPremium" : "1071.63",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "MaxCreditAmount" : "696.56",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-80.37",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "1687.83",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "105000"
+            },
+            "NonWindBaseRateFactor" : "0.2835",
+            "OtherStructureCoverage" : {
+              "Limit" : "21000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ACV",
+            "RMSModeledPremium" : "395.99",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "378000.0",
+            "DwellingValuation" : "ACV",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "214.33",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "168.0",
+          "ProtectionClass" : "6",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "25.0",
+          "TotalCalculatedPropertyPremium" : "2531.75",
+          "Creditpercent" : "0"
+        } ],
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "CT",
+        "State" : "Connecticut",
+        "Latitude" : "41.701699",
+        "City" : "WETHERSFIELD",
+        "RatingTerritory" : "CT2",
+        "LocationFullAddress" : "52 KNIGHT ST, WETHERSFIELD, CT, 06109, United States",
+        "County" : "Hartford",
+        "Longitude" : "-72.67658",
+        "BasePremium" : "2725.0",
+        "Zipcode1" : "6109"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

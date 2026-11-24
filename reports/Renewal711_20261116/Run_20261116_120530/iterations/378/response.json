@@ -1,0 +1,254 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.8300198999999999",
+  "MinimumEarnedPremium" : "750.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.7323705",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "DP3",
+  "TotalBasePremium" : "3058.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "614",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.46383464999999996",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "120.0",
+          "TotalPropertyPremium" : "2890.25",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.781637399994888",
+          "RenewalConstructionTypeRiskFactor" : "-0.0250",
+          "RenewalTermNonWindFDR" : "0.7323705",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Long-Term Rental",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.00000",
+          "CoastalWaterDistance" : "10000",
+          "RenewalCoverageInflationFactor" : "0.035",
+          "NumberOfStories" : "1.5",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "1.200000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.488247",
+          "RenewalAgeOfHomeRiskFactor" : "0.04000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "2865.25310715",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.1000",
+          "BasePremium" : "3058.0",
+          "FinalPropertyPremium" : "2865.25",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.413888934888",
+          "AgeOfHomeRiskPremium" : "0.0",
+          "AgeOfHome" : "21",
+          "DateBuilt" : "2005",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.000000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "2738.61",
+            "PolicyformFactor" : "1.0",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "20.0",
+              "Limit" : "5000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.800",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "0",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "1364.41",
+            "PLNonWind" : {
+              "Premium" : "2865.25310715"
+            },
+            "InsuranceScoreFactor" : "1.400",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "42000"
+            },
+            "TotalBaseNonWindFactor" : "0.3487",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.02",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.700000",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "100.0",
+              "Limit" : "500000"
+            },
+            "BaseRate" : "0.310000000000000",
+            "DwellingCoverage" : {
+              "Limit" : "210000"
+            },
+            "BaseNonWindPremium" : "1212.81",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "788.33",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-90.96",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "1910.17",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "105000"
+            },
+            "NonWindBaseRateFactor" : "0.31",
+            "OtherStructureCoverage" : {
+              "Limit" : "21000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ACV",
+            "RMSModeledPremium" : "395.99",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "391229.99999999994",
+            "DwellingValuation" : "RCV",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "242.56",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "168.0",
+          "ProtectionClass" : "6",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "25.0",
+          "TotalCalculatedPropertyPremium" : "2865.25",
+          "Creditpercent" : "0"
+        } ],
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "AL",
+        "State" : "Alabama",
+        "Latitude" : "30.257279",
+        "City" : "GULF SHORES",
+        "RatingTerritory" : "AL1",
+        "LocationFullAddress" : "906 GULF SHORES PKWY, GULF SHORES, AL, 36542, United States",
+        "County" : "Baldwin",
+        "Longitude" : "-87.688421",
+        "BasePremium" : "3058.0",
+        "Zipcode1" : "36542"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

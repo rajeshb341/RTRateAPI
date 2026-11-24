@@ -1,0 +1,96 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_172426  (full run of test-data.xlsx)
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_172426
+Rater          : LloydsRater_BRD_V4.0_10302026_Final_ISFFix.xlsx
+API headers    : Mode TEST, Environment 20
+Test cases     : 8,784 read, 7,349 run, 1,435 skipped (test data, see Notes)
+                 HO3 1,652 | HO5 26 | HO6 2,201 | HO8 1,592 | DP3 1,627 | DP3 Vacant 61 | DP3 Builders Risk 1 |
+                 DP1 Vacant 66 | DP1 Builders Risk 123
+Totals         : 633,449 attribute checks - 486,223 Pass, 4,290 Fail, 141,501 N/A; every request HTTP 200
+                 351 test cases have a failure; 6,998 test cases pass fully
+Run time       : 49 min (17:24:26 - 18:13:17)
+
+Note: this run read test-data.xlsx before the stored addresses were added and while the geocoding service was not
+reachable (3,414 "No coordinates found" warnings: Latitude / Longitude were sent empty). This did not cause any
+failure (the wind cases 6540, 6541 pass). Since then every case has a stored, Census-confirmed address in the test data
+and the runs no longer look addresses up (rater.geocode.online=false).
+
+Summary (by iteration id)
+-------------------------
+Issue    Defect     Cases  Summary
+TD-01    Test data   192   County spelled differently from the Rater territory table: the Rater has no Rating
+                           Territory (FIXED in the test data since this run)
+HO6-09   API          52   HO6 Max Additive Credit rounded to 2 decimals before multiplying
+HO6-10   Rater         7   HO6 TIV exactly 200,000: Rater TIV Factor "N/A", premiums #VALUE!  (NEW)
+BUG-05   API         100   Half-cent rounding of component premiums (1 - 2 cents; whole-dollar Base Premium in 5 cases)
+
+
+TD-01  County spelled differently from the Rater territory table (Rater has no territory)
+-----------------------------------------------------------------------------------------
+Defect          : Test data - FIXED (test-data.xlsx now holds the Rater territory table's spelling for these counties)
+Cases           : 192 - 62, 100-101, 103-104, 227, 265-300, 433-434, 461-464, 469-514, 815, 3230-3239, 3303-3304, 3306,
+                  3334, 3339, 3402, 3407-3439, 3572-3583, 3588-3611, 6263-6265, 6270, 6403-6407, 6409-6410, 6506
+Bug Summary     : The test data had e.g. "NEWPORT NEWS CITY" (77), "SUFFOLK CITY" (72), "RICHMOND CITY" (16),
+                  "PRINCE GEORGES" (10); the Rater's territory table has "NEWPORT NEWS (CITY)", "SUFFOLK (CITY)",
+                  "RICHMOND (CITY)", "PRINCE GEORGE'S". The Rater found no Rating Territory (C106 blank) and rated with
+                  factor 1, so every premium differed. The API found the territory (e.g. VA7).
+Expected Result : Rating Territory VA7, Non-Wind Base Rate Factor 0.2834 (as the API)
+Actual Result   : Rater: Rating Territory blank, Non-Wind Base Rate Factor 1, Base Non-Wind Premium 7,380 (API 2,091.49)
+Evidence        : 62 (HO3, CHARLOTTESVILLE CITY VA 22903)
+Result path     : ...\Run_20261030_172426\iterations\62
+
+
+HO6-09  HO6 Max Additive Credit rounded to 2 decimals
+----------------------------------------------------
+Defect          : API (rounding - please confirm with the BA)
+Cases           : 52 - 6647, 6670, 6817, 6891, 6920, 6928, 7071, 7157, 7195, 7197, 7204, 7210, 7368, 7380, 7405, 7419,
+                  7422, 7446, 7449, 7461, 7480, 7496, 7521, 7554, 7578-7579, 7617, 7682, 7792, 7804, 7816, 7875, 7916,
+                  8010, 8032, 8090, 8151, 8160, 8172, 8179, 8260, 8302, 8311, 8329, 8434, 8513, 8555, 8562, 8737, 8763,
+                  8777, 8780
+Bug Summary     : When the Combined Additive Factor ends in a half (1.185, 1.535, 1.035 ...), the API rounds the Max
+                  Additive Credit to 2 decimals (1.19, 1.54, 1.04) and multiplies with that; the Rater multiplies the
+                  unrounded value. The factor itself is within the 0.01 tolerance, the premiums are not.
+Expected Result : 6891: Max Additive Credit 1.535, Calculated Non-Wind Premium 486.31, Final Property Premium 521.31
+Actual Result   : 6891: Max Additive Credit 1.54, Calculated Non-Wind Premium 487.90, Final Property Premium 522.90
+Evidence        : 6891 (HO6)
+Result path     : ...\Run_20261030_172426\iterations\6891
+
+
+HO6-10  HO6 TIV exactly 200,000: Rater TIV Factor "N/A" (NEW)
+------------------------------------------------------------
+Defect          : Rater (C113)
+Cases           : 7 - 6848, 6939, 6951, 7823, 8105, 8576, 8593
+Bug Summary     : C113 interpolates between the TIV row of the TIV table and the next row. For a TIV of exactly 200,000
+                  the TIV row is the last one (200,000), there is no next row, the formula errors and IFERROR returns
+                  "N/A"; Combined Total Factor, Calculated Non-Wind Premium, PLNonWind and Final Property Premium become
+                  #VALUE!. The API returns 1.5 (the table value for 200,000).
+Expected Result : TIV Factor 1.5 (Rate Tables row "200000 - 10000000"), a rated premium
+Actual Result   : Rater: TIV Factor N/A, Combined Total Factor #VALUE!, PLNonWind Premium #VALUE!
+                  API  : TIV Factor 1.5, PLNonWind Premium 240.00, Final Property Premium 275.00
+Evidence        : 6848 (HO6, WORCESTER MD 21842, TIV 200,000 = 150,000 + 0 + 30,000 + 20,000)
+Result path     : ...\Run_20261030_172426\iterations\6848
+
+
+BUG-05  Half-cent rounding of component premiums
+-----------------------------------------------
+Defect          : API (rounding method - please confirm with the BA)
+Cases           : 100 HO3 / HO8 / DP3 cases - 843, 851, 883, 886, 888-889, 900-901, 917-918, 921, 924, 934, 938, 949,
+                  961, 1148, 1157, 1164, 1203, 1215, 1220-1221, 1247, 1261, 1266, 1276, 1292, 1311, 1321, 1330, 1342,
+                  1348-1349, 1352, 1360, 1362, 1367, 1378, 1397, 1594, 1864, ... (full list in the Results sheet filter)
+Bug Summary     : A component premium that lands on half a cent is rounded to the other cent than the Rater (e.g. Age
+                  of Roof -42.435: Rater -42.43, API -42.44); the cent carries into the totals, sometimes tips the
+                  whole-dollar Base Premium by 1 (1266, 1378, 1397, 1594, 1864), and is multiplied by large Misc
+                  Surcharge factors in the test data.
+Expected Result : 917: PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : 917: PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ) - also filled in the project Rater (Rater sheet C123, C153, C166)
+Result path     : ...\Run_20261030_172426\iterations\917
+
+
+Notes (not bugs)
+----------------
+- Skipped, invalid test data (1,435): 1,377 DP1 with Dwelling/Contents valuation RCV/ACV (the Rater rates only ACV/ACV
+  for DP1); 49 CoastalWaterDistance empty; 8 ConstructionType empty; 1 InsuranceScoreRange empty.
+- Insurance Score "Not Applicable" (HI / KY / MA / MD) and the wind cases rated without wind (TigerCQ N) pass.
+- The HO6 cases with TIV above 200,000 are in test-data-HO6-TIV-above-200000.xlsx and were not part of this run.

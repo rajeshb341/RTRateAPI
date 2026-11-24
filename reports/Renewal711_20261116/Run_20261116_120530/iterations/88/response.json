@@ -1,0 +1,253 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.5350053",
+  "MinimumEarnedPremium" : "500.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.4720635",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO6",
+  "TotalBasePremium" : "500.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "799",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$250,000 - $349,999",
+          "BOBAdjustedNonWindFDR" : "0.29897355",
+          "ProtectionclassPremium" : "1.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "55.0",
+          "TotalPropertyPremium" : "405.32",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.5970576996560947",
+          "RenewalConstructionTypeRiskFactor" : "1.0000",
+          "RenewalTermNonWindFDR" : "0.4720635",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Rental - Short Term/Seasonal",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.29000",
+          "CoastalWaterDistance" : "10000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "4",
+          "OccupancyFactor" : "1.08000",
+          "MaximumTiv" : "90000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "80000",
+          "CoverageABandFactor" : "1.0",
+          "FamilyFactor" : "1.0",
+          "NonWindFDR" : "0.314709",
+          "RenewalAgeOfHomeRiskFactor" : "1.00000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "395.3248574400001",
+          "AlarmCreditAmount" : "1.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "1.0000",
+          "BasePremium" : "500.0",
+          "FinalPropertyPremium" : "395.32",
+          "LossSurchargeAmount" : "1.0",
+          "AdjustedRenewalNonWindFDR" : "0.26907619499999996",
+          "AgeOfHomeRiskPremium" : "1.0",
+          "AgeOfHome" : "41",
+          "DateBuilt" : "1985",
+          "OccupancyTypePremium" : "1.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "1.37",
+          "ConstructionTypePremium" : "1.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.0",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "502.46",
+            "PolicyformFactor" : "1.0",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "5.0",
+              "Limit" : "1000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "IncreasedLossAssessment" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "TermInMonths" : "0",
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "MinimumNonWindRatePremium" : "125.616",
+            "TotalBaseNonWindPremium" : "0.0",
+            "PLNonWind" : {
+              "Premium" : "395.3248574400001"
+            },
+            "InsuranceScoreFactor" : "0.800",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "25773"
+            },
+            "TotalBaseNonWindFactor" : "0.0",
+            "PersonalInjuryCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.600000",
+            "TerritoryRelativityFactor" : "0.45",
+            "TIVFactor" : "1.0687200000000001",
+            "MinimumNonWindRate" : "0.15",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "50.0",
+              "Limit" : "500000"
+            },
+            "DwellingCoverage" : {
+              "Limit" : "35000"
+            },
+            "BaseNonWindPremium" : "500.0",
+            "WindAalFactor" : "",
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "1.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "0.0",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "10.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "1.000000",
+              "Premium" : "1.0",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "263.55",
+            "CombinedAdditiveFactor" : "1.37",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "22971"
+            },
+            "NonWindBaseRateFactor" : "1.0",
+            "OtherStructureCoverage" : {
+              "Limit" : "0"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "668.94",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "83744.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.5270927040000001",
+            "TIVRateRelativityFactor" : "1.050"
+          } ],
+          "CoverageABandPremium" : "0.0",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.000000",
+          "TotalLiabilityPremium" : "44.0",
+          "ProtectionClass" : "2",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "10.0",
+          "TotalCalculatedPropertyPremium" : "395.32",
+          "Creditpercent" : "0"
+        } ],
+        "Latitude" : "29.271734",
+        "City" : "GALVESTON",
+        "RatingTerritory" : "TX8",
+        "LocationFullAddress" : "6807 STEWART RD, GALVESTON, TX, 77551, United States",
+        "County" : "GALVESTON",
+        "Longitude" : "-94.838444",
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "TX",
+        "State" : "Texas",
+        "HO6TerritoryCode" : "TX8",
+        "BasePremium" : "500.0",
+        "Zipcode1" : "77551"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

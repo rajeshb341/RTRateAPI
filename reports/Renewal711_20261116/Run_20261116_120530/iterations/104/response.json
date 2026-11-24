@@ -1,0 +1,253 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "2.0230136",
+  "MinimumEarnedPremium" : "750.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "1.785012",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO6",
+  "TotalBasePremium" : "1415.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "Yes",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "549",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "1.1305075999999998",
+          "ProtectionclassPremium" : "1.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "20.0",
+          "TotalPropertyPremium" : "1381.21",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "1.8420161941211697",
+          "RenewalConstructionTypeRiskFactor" : "-0.0300",
+          "RenewalTermNonWindFDR" : "1.785012",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Rental - Short Term/Seasonal",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.17000",
+          "CoastalWaterDistance" : "80000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "3",
+          "OccupancyFactor" : "1.08000",
+          "MaximumTiv" : "80000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "70000",
+          "CoverageABandFactor" : "1.0",
+          "FamilyFactor" : "1.0",
+          "NonWindFDR" : "1.190008",
+          "RenewalAgeOfHomeRiskFactor" : "0.02000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "1371.21051816",
+          "AlarmCreditAmount" : "1.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.0600",
+          "BasePremium" : "1415.0",
+          "FinalPropertyPremium" : "1371.21",
+          "LossSurchargeAmount" : "1.0",
+          "AdjustedRenewalNonWindFDR" : "1.06707210534576",
+          "AgeOfHomeRiskPremium" : "1.0",
+          "AgeOfHome" : "30",
+          "DateBuilt" : "1996",
+          "OccupancyTypePremium" : "1.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "1.3",
+          "ConstructionTypePremium" : "1.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.0",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "1421.13",
+            "PolicyformFactor" : "1.0",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "5.0",
+              "Limit" : "1000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.900",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "IncreasedLossAssessment" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "TermInMonths" : "0",
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "MinimumNonWindRatePremium" : "192.045",
+            "TotalBaseNonWindPremium" : "0.0",
+            "PLNonWind" : {
+              "Premium" : "1371.21051816"
+            },
+            "InsuranceScoreFactor" : "1.700",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "15606"
+            },
+            "TotalBaseNonWindFactor" : "0.0",
+            "PersonalInjuryCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "WindDeductiblePercentage" : "0.01",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "1.850000",
+            "TerritoryRelativityFactor" : "0.8",
+            "TIVFactor" : "1.03409",
+            "MinimumNonWindRate" : "0.25",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "15.0",
+              "Limit" : "100000"
+            },
+            "DwellingCoverage" : {
+              "Limit" : "30000"
+            },
+            "BaseNonWindPremium" : "500.0",
+            "WindAalFactor" : "",
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "1.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "0.0",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "10.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "1.000000",
+              "Premium" : "1.0",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "914.14",
+            "CombinedAdditiveFactor" : "1.3",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "31212"
+            },
+            "NonWindBaseRateFactor" : "1.0",
+            "OtherStructureCoverage" : {
+              "Limit" : "0"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "0",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "76818.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "1.8282711200000001",
+            "TIVRateRelativityFactor" : "1.000"
+          } ],
+          "CoverageABandPremium" : "0.0",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.050000",
+          "TotalLiabilityPremium" : "34.0",
+          "ProtectionClass" : "2",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "10.0",
+          "TotalCalculatedPropertyPremium" : "1371.21",
+          "Creditpercent" : "0"
+        } ],
+        "Latitude" : "29.932559",
+        "City" : "NEW ORLEANS",
+        "RatingTerritory" : "LA5",
+        "LocationFullAddress" : "1116 FELICITY ST, NEW ORLEANS, LA, 70130, United States",
+        "County" : "ORLEANS",
+        "Longitude" : "-90.073549",
+        "BoBApplicableFactor" : "-0.050",
+        "StateRegionCode" : "LA",
+        "State" : "Louisiana",
+        "HO6TerritoryCode" : "LA5",
+        "BasePremium" : "1415.0",
+        "Zipcode1" : "70130"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

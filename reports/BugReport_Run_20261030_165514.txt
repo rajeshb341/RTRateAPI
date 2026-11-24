@@ -1,0 +1,52 @@
+RT Rate API - Bug Report
+========================
+Run            : Run_20261030_165514
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_165514
+Rater          : LloydsRater_BRD_V4.0_10302026_Final_ISFFix.xlsx
+API headers    : Mode TEST, Environment 20
+Test data      : test-data.xlsx - 8,784 cases (ids 1-8784). The 524 HO6 cases with TIV above 200,000 (HO6-01) are in
+                 test-data-HO6-TIV-above-200000.xlsx (ids 1-524; old ids in its ChangeLog). HO6 cases after them are
+                 renumbered (old 6585 -> 6584, 6587 -> 6586, 6600 -> 6597, 6612 -> 6608, 6657 -> 6647, 6921 -> 6859, ...).
+Iterations     : 917, 6391, 6392, 6408, 6527, 6530, 6531, 6536, 6540-6545, 6555, 6557, 6584, 6586, 6597, 6608, 6647, 6859
+                 (the 22 bugged test cases still in test-data.xlsx, new ids)
+Totals         : 1,892 attribute checks - 1,454 Pass, 12 Fail, 426 N/A; 0 skipped; every request HTTP 200
+                 20 of the 22 test cases pass fully
+
+Fixed / passing
+---------------
+BUG-A   Insurance Score Factor "Not Applicable" (MD / MA)   6527, 6530, 6542-6545, 6586, 6597   Pass - the ISF-fix Rater
+        now takes the "Not Applicable" factor of the Rate Tables (0) for these states, as the API does
+HO6-01  TIV above 200,000                                   moved out to test-data-HO6-TIV-above-200000.xlsx (524 cases)
+All other bugged cases                                      6391, 6392, 6408, 6531, 6536, 6540, 6541, 6555, 6557,
+                                                            6584, 6608, 6859   Pass
+
+Open bugs (by iteration id)
+---------------------------
+Bug     Defect  Iterations   Summary
+HO6-09  API     6647         Max Additive Credit rounded to 2 decimals (old id 6657)
+BUG-05  API     917          Half-cent rounding (1 - 2 cents)
+
+
+HO6-09  Max Additive Credit rounded to 2 decimals
+------------------------------------------------
+Defect          : API (rounding - please confirm with the BA)
+Iterations      : 6647 (old id 6657)
+Bug Summary     : Every factor matches, but the API rounds the Max Additive Credit to 2 decimals before multiplying:
+                  1.185 -> 1.19. The Rater multiplies 1.185.
+Expected Result : Calculated Non-Wind Premium 991.64, Final Property Premium 1,026.64, Base Premium 1,069
+Actual Result   : Calculated Non-Wind Premium 995.82, Final Property Premium 1,030.82, Base Premium 1,073
+Evidence        : 6647 (HO6, BALDWIN AL, AOP 5,000, Water Damage Deductible 5,000)
+                  Combined Total Factor: Rater 1.49433 x 0.8 x 1.185 x 1.4 = 1.983275; API ... x 1.19 x 1.4 = 1.991643
+Result path     : ...\Run_20261030_165514\iterations\6647
+
+
+BUG-05  Half-cent rounding
+-------------------------
+Defect          : API (rounding method - confirm with the BA)
+Iterations      : 917
+Bug Summary     : Age of Roof premium = ROUND(0.975 x 1,697.40 - 1,697.40, 2) = ROUND(-42.435, 2): Rater -42.43 (binary
+                  value just above -42.435), API -42.44. The 1 cent carries into the totals as 2 cents (x 1.2).
+Expected Result : PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ) - case 917 is filled in the project Rater (Rater sheet C123, C153, C166)
+Result path     : ...\Run_20261030_165514\iterations\917

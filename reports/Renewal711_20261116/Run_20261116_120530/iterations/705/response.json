@@ -1,0 +1,248 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.0516341",
+  "MinimumEarnedPremium" : "200.000000",
+  "State" : "CW",
+  "RatingTerm" : "Monthly",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.0455595",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "09/15/2026",
+  "SublineName" : "DP3 Vacant",
+  "TotalBasePremium" : "2067.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "741",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$150,000-$249,999",
+          "BOBAdjustedNonWindFDR" : "0.030373",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "0.0",
+          "TotalPropertyPremium" : "172.21",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.5468253968253968",
+          "RenewalConstructionTypeRiskFactor" : "1.0000",
+          "RenewalTermNonWindFDR" : "0.0455595",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Vacant",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.20000",
+          "CoastalWaterDistance" : "25000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "1",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "1.200000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.030373",
+          "RenewalAgeOfHomeRiskFactor" : "1.00000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "172.21491",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "1.0000",
+          "BasePremium" : "2067.0",
+          "FinalPropertyPremium" : "172.21",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.0242984",
+          "AgeOfHomeRiskPremium" : "18.9",
+          "AgeOfHome" : "70",
+          "DateBuilt" : "1956",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "1.000000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "110.38",
+            "PolicyformFactor" : "1.58",
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.800",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "12",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "127.57",
+            "PLNonWind" : {
+              "Premium" : "172.21491"
+            },
+            "InsuranceScoreFactor" : "0.900",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "42000"
+            },
+            "TotalBaseNonWindFactor" : "0.0337",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "1500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.02",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.029200",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "BaseRate" : "0.015800000000000",
+            "DwellingCoverage" : {
+              "Limit" : "210000"
+            },
+            "BaseNonWindPremium" : "94.5",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "61.43",
+            "InsuranceScoreAgeInMonths" : "0",
+            "AOPDeductible" : {
+              "DeductibleType" : "",
+              "Factor" : "0.950000",
+              "Premium" : "-4.73",
+              "Limit" : "1500"
+            },
+            "CalculatedNonWindPremium" : "114.81",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "105000"
+            },
+            "NonWindBaseRateFactor" : "0.025",
+            "OtherStructureCoverage" : {
+              "Limit" : "21000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ALL",
+            "RMSModeledPremium" : "224.13",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "378000.0",
+            "DwellingValuation" : "ALL",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "18.9",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "0.0",
+          "ProtectionClass" : "3",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "0.0",
+          "TotalCalculatedPropertyPremium" : "172.21",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "VA",
+        "State" : "Virginia",
+        "Latitude" : "37.936721",
+        "City" : "CHINCOTEAGUE",
+        "RatingTerritory" : "VA1",
+        "LocationFullAddress" : "6141 MADDOX BLVD, CHINCOTEAGUE, VA, 23336, United States",
+        "County" : "Accomack",
+        "Longitude" : "-75.370018",
+        "BasePremium" : "2067.0",
+        "Zipcode1" : "23336"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "09/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "09/15/2027",
+  "ApplicableDate" : "09/15/2026",
+  "PolicyExpirationDate" : "09/15/2027"
+}

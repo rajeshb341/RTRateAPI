@@ -8,7 +8,8 @@ param(
     [Parameter(Mandatory)][string]$OutputRows,
     [string]$Dependent = '',          # e.g. "16=15" => the list in row 16 depends on the value in row 15
     [Parameter(Mandatory)][string]$OutFile,
-    [string]$ProgId = 'KET.Application'
+    [string]$ProgId = 'KET.Application',
+    [string]$CountyRange = ''           # optional: "County!A2:C30000" => the rows of the county table (County, State, Subline)
 )
 . "$PSScriptRoot\RaterCommon.ps1"
 
@@ -65,6 +66,7 @@ try {
                 parent = [string]$ws.Range("D$row").Value2
                 entity = [string]$ws.Range("E$row").Value2
                 name = $name
+                entityType = [string]$ws.Range("I$row").Value2      # ENTITY TYPE: Req/Resp = request input, Resp = output
                 current = (ConvertTo-PlainValue $cell.Value2)
                 values = @(); valuesByParent = @{}; dependsOnRow = $null; validation = $null
             }
@@ -89,7 +91,19 @@ try {
             $result.Add($item)
         }
     }
-    Write-Utf8 $OutFile (ConvertTo-Json -InputObject @{ attributes = $result.ToArray() } -Depth 8)
+    # County table rows (all columns as text, read in one call; rows with a blank first column skipped)
+    $countyRows = New-Object System.Collections.Generic.List[object]
+    if ($CountyRange) {
+        $at = $CountyRange.LastIndexOf('!')
+        $values = $wb.Worksheets.Item($CountyRange.Substring(0, $at).Trim("'")).Range($CountyRange.Substring($at + 1)).Value2
+        for ($r = 1; $r -le $values.GetLength(0); $r++) {
+            if (-not ([string]$values[$r, 1]).Trim()) { continue }
+            $cells = New-Object System.Collections.Generic.List[string]
+            for ($c = 1; $c -le $values.GetLength(1); $c++) { $cells.Add(([string]$values[$r, $c]).Trim()) }
+            $countyRows.Add($cells.ToArray())
+        }
+    }
+    Write-Utf8 $OutFile (ConvertTo-Json -InputObject @{ attributes = $result.ToArray(); countyTable = $countyRows.ToArray() } -Depth 8)
     Write-Output "Inspected $($result.Count) attributes -> $OutFile"
 }
 finally { Close-RaterApp $app $wb $copy }

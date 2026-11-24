@@ -1,0 +1,167 @@
+{
+  "method" : "POST",
+  "url" : "https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3",
+  "headers" : {
+    "EventName" : "RTConnectorPLRating",
+    "OwnerId" : "15793",
+    "Mode" : "TEST",
+    "Environment" : "20",
+    "Content-Type" : "application/json",
+    "Token" : "c+Morv...(1152 chars)"
+  },
+  "body" : {
+    "OwnerId" : "15793",
+    "ServiceRequestDetail" : {
+      "OwnerId" : "15793",
+      "EndClientUserUniqueSessionId" : "1.0",
+      "ServiceRequestVersion" : "1.0",
+      "LanguageCode" : "en",
+      "UserName" : "TestUser_02",
+      "RegionCode" : "US",
+      "ServiceResponseVersion" : "1.0",
+      "ResponseType" : "json",
+      "Token" : "****",
+      "Lob" : "PL",
+      "BrowserIp" : "192.158.1.38.",
+      "UserRole" : "Underwriter"
+    },
+    "EventName" : "RTConnectorPLRating",
+    "LOB" : "PL",
+    "TransactionType" : "Renewal",
+    "Account" : {
+      "Insured" : [ {
+        "ServiceRequestDetail" : { },
+        "InsuranceScoreStatus" : "1",
+        "InsuranceScoreRange" : "769",
+        "InsuranceScoreFetchedDate" : "06/21/2026",
+        "Location" : [ {
+          "City" : "HAMPTON",
+          "County" : "HAMPTON CITY",
+          "Latitude" : "37.04353",
+          "State" : "Virginia",
+          "LocationFullAddress" : "61 E MERCURY BLVD, HAMPTON, VA, 23669, United States",
+          "Longitude" : "-76.342016",
+          "StateRegionCode" : "VA",
+          "Zipcode1" : "23669",
+          "Building" : [ {
+            "CoastalWaterDistance" : "1000",
+            "NumberOfUnits" : "SingleFamilyDwelling",
+            "ConstructionType" : "Frame",
+            "ExteriorSiding" : "MetalSteel",
+            "RoofType" : "ConcreteClaySlateTiles",
+            "RoofShape" : "Gable",
+            "RoofSlope" : "Lessthanorequalto612265",
+            "RoofBrace" : "Braced",
+            "RoofParapetsAvailable" : "",
+            "Fasteners" : "",
+            "GuttersPresent" : "",
+            "WindRating" : "",
+            "SecondaryWaterResistance" : "",
+            "RoofToWallConnection" : "SingleWraps",
+            "MitigationOpenings" : "Allopeningsareprotected",
+            "ProtectionMissilesSize" : "Large",
+            "RoofUpdated" : "2006",
+            "AgeOfRoof" : "6",
+            "DateBuilt" : "1973",
+            "NumberOfStories" : "1",
+            "SquareFt" : "1403",
+            "Occupancy" : "Primary",
+            "AgeOfHome" : "53",
+            "NumberOfLosses" : "1",
+            "CoverageABandCredit" : "$250,000 - $349,999",
+            "ExtendedReplacementCost" : "Yes",
+            "NumberOfFamilies" : "1",
+            "ProtectionClass" : "1",
+            "Alarm" : "None",
+            "Creditpercent" : "0",
+            "MinimumTiv" : "200000",
+            "MaximumTiv" : "10000000",
+            "Coverage" : [ {
+              "CoastalDistance" : "1000",
+              "TigerCQApplicable" : "N",
+              "PLWindCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "DwellingCoverage" : {
+                "Limit" : "299000"
+              },
+              "OtherStructureCoverage" : {
+                "Limit" : "29900"
+              },
+              "PersonalPropertyCoverage" : {
+                "Limit" : "149500"
+              },
+              "LossOfUseCoverage" : {
+                "Limit" : "59800"
+              },
+              "PLNonWind" : {
+                "Premium" : "0.0"
+              },
+              "NonWindBaseRateFactor" : "0.2",
+              "DwellingValuation" : "ACV",
+              "PersonalPropertyValuation" : "ACV",
+              "WindDeductiblePercentage" : "0.01",
+              "MiscsurchargeFactor" : "0",
+              "TIVFactor" : "1",
+              "WaterDamageSublimit" : {
+                "Limit" : ""
+              },
+              "WaterDamageDeductible" : {
+                "Limit" : "1500"
+              },
+              "LimitedMoldCoverage" : {
+                "Limit" : "5000"
+              },
+              "WaterBackupCoverage" : {
+                "Limit" : "5000"
+              },
+              "EarthquakeCoverage" : {
+                "CoverageSelected" : "No",
+                "Deductible" : "",
+                "EarthquakeDeductiblePercentage" : ""
+              },
+              "PersonalLiabilityCoverageL" : {
+                "Limit" : "300000"
+              },
+              "MedicalPaymentsCoverageM" : {
+                "Limit" : "1000"
+              },
+              "AOPDeductible" : {
+                "Limit" : "1500",
+                "DeductibleType" : "1500"
+              },
+              "PersonalProperty" : {
+                "PersonalArticleFloater" : [ {
+                  "ItemCategory" : "Mens",
+                  "ItemDescription" : "Abc",
+                  "ItemValue" : "0.0"
+                } ]
+              }
+            } ]
+          } ]
+        } ]
+      } ]
+    },
+    "ProductVerNumber" : "PL_15793_208_V1",
+    "ProductNumber" : "PL_15793_208",
+    "PolicyEffectiveDate" : "10/15/2026",
+    "QuoteType" : "Renewal",
+    "EffectiveDate" : "10/15/2026",
+    "PolicyExpirationDate" : "10/15/2027",
+    "CarrierName" : "One London",
+    "ExpirationDate" : "10/15/2027",
+    "SublineName" : "HO3",
+    "State" : "CW",
+    "ApplicableDate" : "10/15/2026",
+    "ProductName" : "RTConnectorPLRating",
+    "RatingTerm" : "Annual",
+    "ProductVersionNumber" : "PL_15793_208_V1",
+    "ContractName" : "ALL",
+    "ObjectID" : "SN10191",
+    "ObjectType" : "Submission",
+    "BookOfBusinessAdjustment" : "Yes",
+    "MinimumRenewalReserveFactor" : "0.5",
+    "MaximumRenewalReserveFactor" : "0.7",
+    "RenewalAdjustmentType" : "No Adjustment"
+  }
+}

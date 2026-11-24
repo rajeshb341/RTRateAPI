@@ -1,0 +1,253 @@
+{
+  "CarrierName" : "ALL",
+  "FDRCeiling" : "0.568973",
+  "MinimumEarnedPremium" : "700.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.502035",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO8",
+  "TotalBasePremium" : "3800.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "614",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "1",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$350,000 - $499,999",
+          "BOBAdjustedNonWindFDR" : "0.33469",
+          "ProtectionclassPremium" : "470.48",
+          "NumberofLosses" : "1",
+          "LiabilityPremium" : "50.0",
+          "TotalPropertyPremium" : "3730.02",
+          "ConstructionTypeFactor" : "0.90000",
+          "RenewalFinalPremiumRate" : "0.5149051490514905",
+          "RenewalConstructionTypeRiskFactor" : "-0.0250",
+          "RenewalTermNonWindFDR" : "0.502035",
+          "ProtectionFactor" : "1.300000",
+          "Occupancy" : "Primary",
+          "ExtendedReplacementCost" : "No",
+          "AgeOfHomeRiskFactor" : "1.10000",
+          "CoastalWaterDistance" : "260000",
+          "RenewalCoverageInflationFactor" : "0.0",
+          "NumberOfStories" : "1",
+          "OccupancyFactor" : "1.00000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Masonry",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "0.950000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.33469",
+          "RenewalAgeOfHomeRiskFactor" : "0.02000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "-78.41",
+          "CalculatedPropertyPremium" : "3705.0183",
+          "AlarmCreditAmount" : "0.0",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "0.0600",
+          "BasePremium" : "3800.0",
+          "FinalPropertyPremium" : "3705.02",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.21169209438",
+          "AgeOfHomeRiskPremium" : "156.83",
+          "AgeOfHome" : "38",
+          "DateBuilt" : "1988",
+          "OccupancyTypePremium" : "0.0",
+          "ExtendedReplacementCostAmount" : "1.0",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "-156.83",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "0.0",
+          "AgeOfRoofFactor" : "0.950000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "2583.0",
+            "PolicyformFactor" : "0.85",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "0.0",
+              "Limit" : "1000"
+            },
+            "IdentityFraudCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "",
+              "CoverageSelected" : "No"
+            },
+            "MiscsurchargeFactor" : "0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.600",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "InsuranceScoreFactorDecision" : "No",
+            "TermInMonths" : "0",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "ReplacementCostOnContentsCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "TotalBaseNonWindPremium" : "1764.29",
+            "PLNonWind" : {
+              "Premium" : "3705.0183"
+            },
+            "InsuranceScoreFactor" : "1.400",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "82000"
+            },
+            "TotalBaseNonWindFactor" : "0.2391",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "WindDeductiblePercentage" : "0.05",
+            "SpecialCoverageA" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "MinimumPropertyRateFactor" : "0.350000",
+            "TerritoryRelativityFactor" : "1.0",
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "50.0",
+              "Limit" : "300000"
+            },
+            "BaseRate" : "0.250000000000000",
+            "DwellingCoverage" : {
+              "Limit" : "410000"
+            },
+            "BaseNonWindPremium" : "1568.25",
+            "WindAalFactor" : "",
+            "TheftCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "WaterDamageSublimit" : {
+              "Factor" : "",
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "VandalismOrMaliciousMischiefCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "Excluded"
+            },
+            "MaxCreditAmount" : "1019.36",
+            "InsuranceScoreAgeInMonths" : "0",
+            "WaterBackupCoverage" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-117.62",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "2470.01",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "205000"
+            },
+            "NonWindBaseRateFactor" : "0.2125",
+            "OtherStructureCoverage" : {
+              "Limit" : "41000"
+            },
+            "ExtendedCoverage" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : ""
+            },
+            "PersonalPropertyValuation" : "ACV",
+            "RMSModeledPremium" : "45.87",
+            "SpecialCoverageC" : {
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TotalInsuredValue" : "738000.0",
+            "DwellingValuation" : "ACV",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0"
+          } ],
+          "CoverageABandPremium" : "-78.41",
+          "AgeOfRoof" : "0",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "70.0",
+          "ProtectionClass" : "8",
+          "AlarmCreditFactor" : "1.000000",
+          "Alarm" : "None",
+          "TotalOptionalCoveragePremium" : "25.0",
+          "TotalCalculatedPropertyPremium" : "3705.02",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "FL",
+        "State" : "Florida",
+        "Latitude" : "30.286996",
+        "City" : "GLEN ST MARY",
+        "RatingTerritory" : "FL6",
+        "LocationFullAddress" : "9525 CLAUDE HARVEY RD, GLEN ST MARY, FL, 32040, United States",
+        "County" : "Baker",
+        "Longitude" : "-82.189709",
+        "BasePremium" : "3800.0",
+        "Zipcode1" : "32040"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "ServiceResponseVersion" : "1.0",
+    "LanguageCode" : "en",
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "kailash_d",
+    "UserRole" : "Underwriter",
+    "ServiceRequestDetail" : { },
+    "RegionCode" : "US",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38."
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

@@ -123,7 +123,7 @@
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
-            <scope>test</scope>
+            <!-- main scope: the UI flow generates insured names (com.automation.ui.pages.AgencyAndAgent) -->
         </dependency>
     </dependencies>
 

@@ -1,0 +1,170 @@
+{
+  "method" : "POST",
+  "url" : "https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3",
+  "headers" : {
+    "EventName" : "RTConnectorPLRating",
+    "OwnerId" : "15793",
+    "Mode" : "TEST",
+    "Environment" : "20",
+    "Content-Type" : "application/json",
+    "Token" : "c+Morv...(1152 chars)"
+  },
+  "body" : {
+    "OwnerId" : "15793",
+    "ServiceRequestDetail" : {
+      "OwnerId" : "15793",
+      "EndClientUserUniqueSessionId" : "1.0",
+      "ServiceRequestVersion" : "1.0",
+      "LanguageCode" : "en",
+      "UserName" : "kailash_d",
+      "RegionCode" : "US",
+      "ServiceResponseVersion" : "1.0",
+      "ResponseType" : "json",
+      "Token" : "****",
+      "Lob" : "PL",
+      "BrowserIp" : "192.158.1.38.",
+      "UserRole" : "Underwriter",
+      "ServiceRequestDetail" : { }
+    },
+    "EventName" : "RTConnectorPLRating",
+    "LOB" : "PL",
+    "TransactionType" : "Renewal",
+    "Account" : {
+      "Insured" : [ {
+        "ServiceRequestDetail" : { },
+        "InsuranceScoreStatus" : "1",
+        "InsuranceScoreRange" : "799",
+        "InsuranceScoreFetchedDate" : "06/21/2026",
+        "Location" : [ {
+          "State" : "Washington_DC",
+          "County" : "Washington D.C.",
+          "Zipcode1" : "20008",
+          "StateRegionCode" : "DC",
+          "City" : "WASHINGTON",
+          "Building" : [ {
+            "CoastalWaterDistance" : "25000",
+            "DateBuilt" : "1957",
+            "ConstructionType" : "Frame",
+            "Occupancy" : "Long-Term Rental",
+            "AgeOfHome" : "69",
+            "AgeOfRoof" : "11",
+            "NumberOfStories" : "1",
+            "NumberOfLosses" : "1",
+            "CoverageABandCredit" : "$150,000-$249,999",
+            "ExtendedReplacementCost" : "No",
+            "NumberOfFamilies" : "1",
+            "ProtectionClass" : "9",
+            "Alarm" : "None",
+            "Creditpercent" : "0",
+            "MinimumTiv" : "200000",
+            "MaximumTiv" : "10000000",
+            "Coverage" : [ {
+              "PLNonWind" : {
+                "Premium" : "0.0"
+              },
+              "DwellingValuation" : "RCV",
+              "PersonalPropertyValuation" : "ACV",
+              "RMSModeledPremium" : "200.55",
+              "WindDeductiblePercentage" : "0.01",
+              "MiscsurchargeFactor" : "0",
+              "TIVFactor" : "1",
+              "WaterDamageSublimit" : {
+                "Limit" : ""
+              },
+              "DwellingCoverage" : {
+                "Limit" : "210000"
+              },
+              "OtherStructureCoverage" : {
+                "Limit" : "21000"
+              },
+              "PersonalPropertyCoverage" : {
+                "Limit" : "105000"
+              },
+              "LossOfUseCoverage" : {
+                "Limit" : "42000"
+              },
+              "WaterDamageDeductible" : {
+                "Limit" : "2500"
+              },
+              "PLWindCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "LimitedMoldCoverage" : {
+                "Limit" : "5000"
+              },
+              "WaterBackupCoverage" : {
+                "Limit" : "5000"
+              },
+              "PersonalLiabilityCoverageL" : {
+                "Limit" : "500000"
+              },
+              "MedicalPaymentsCoverageM" : {
+                "Limit" : "5000"
+              },
+              "AOPDeductible" : {
+                "Limit" : "2500",
+                "DeductibleType" : "1500"
+              },
+              "PersonalProperty" : {
+                "PersonalArticleFloater" : [ {
+                  "ItemCategory" : "Mens",
+                  "ItemDescription" : "Abc",
+                  "ItemValue" : "0.0"
+                } ]
+              },
+              "IdentityFraudCoverage" : {
+                "Limit" : "",
+                "CoverageSelected" : "No"
+              },
+              "SpecialCoverageA" : {
+                "CoverageSelected" : "No"
+              },
+              "SpecialCoverageC" : {
+                "CoverageSelected" : "No"
+              },
+              "ReplacementCostOnContentsCoverage" : {
+                "CoverageSelected" : "No"
+              },
+              "EarthquakeCoverage" : {
+                "CoverageSelected" : "No",
+                "EarthquakeDeductiblePercentage" : "",
+                "Deductible" : ""
+              },
+              "TheftCoverage" : {
+                "Limit" : ""
+              },
+              "VandalismOrMaliciousMischiefCoverage" : {
+                "CoverageSelected" : "Excluded"
+              },
+              "ExtendedCoverage" : {
+                "CoverageSelected" : ""
+              }
+            } ]
+          } ],
+          "Latitude" : "38.944281",
+          "LocationFullAddress" : "4200 CONNECTICUT AVE NW, WASHINGTON, DC, 20008, United States",
+          "Longitude" : "-77.063656"
+        } ]
+      } ]
+    },
+    "ProductVerNumber" : "PL_15793_208_V1",
+    "ProductNumber" : "PL_15793_208",
+    "PolicyEffectiveDate" : "10/15/2026",
+    "QuoteType" : "Renewal",
+    "EffectiveDate" : "10/15/2026",
+    "PolicyExpirationDate" : "10/15/2027",
+    "CarrierName" : "ALL",
+    "ExpirationDate" : "10/15/2027",
+    "SublineName" : "DP3",
+    "State" : "CW",
+    "ApplicableDate" : "10/15/2026",
+    "ProductName" : "RTConnectorPLRating",
+    "RatingTerm" : "Annual",
+    "ProductVersionNumber" : "PL_15793_208_V1",
+    "ContractName" : "ALL",
+    "BookOfBusinessAdjustment" : "No",
+    "MinimumRenewalReserveFactor" : "0.5",
+    "MaximumRenewalReserveFactor" : "0.7",
+    "RenewalAdjustmentType" : "No Adjustment"
+  }
+}

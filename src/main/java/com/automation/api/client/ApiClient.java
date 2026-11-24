@@ -19,6 +19,16 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 public class ApiClient implements AutoCloseable {
+    // A "Token" field, also where a body holds the request as an escaped JSON string (\"Token\":\"...\", with \/ inside).
+    // Possessive "unrolled loop" form: no recursion per character, so a 3,500-character token cannot overflow the stack
+    private static final java.util.regex.Pattern TOKEN_FIELD = java.util.regex.Pattern.compile(
+        "(\\\\?\"Token\\\\?\"\\s*:\\s*\\\\?\")[^\"\\\\]*+(?:\\\\/[^\"\\\\]*+)*+(\\\\?\")");
+
+    /** Replaces every Token value in the text with **** (so request / response bodies can be logged or saved). */
+    public static String maskTokens(String text) {
+        return text == null ? null : TOKEN_FIELD.matcher(text).replaceAll("$1****$2");
+    }
+
     private final Config config;
     private final Playwright playwright;
     private final APIRequestContext requestContext;
@@ -86,7 +96,7 @@ public class ApiClient implements AutoCloseable {
                 log.debug("Headers: {}", shown);
             }
             log.debug("Query Params: {}", request.getQueryParams());
-            log.debug("Body: {}", request.getBody());
+            if (log.isDebugEnabled()) log.debug("Body: {}", maskTokens(String.valueOf(request.getBody())));
 
             APIResponse apiResponse = requestContext.fetch(resolvedUrl, options);
             

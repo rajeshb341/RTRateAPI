@@ -1,0 +1,109 @@
+HO8
+HO6
+HO4
+
+D:\Automation files\RT Script\NonConfigUpdatedInspectionUpdate\src\main\java\Pages\HybridConfig\BN100Coverages.java
+
+try
+{
+   clearAndFill(page, covC, inputData.get("coverage_C"));
+   clearAndFill(page, covD, inputData.get("coverage_D"));
+}
+catch(Exception e)
+{
+	System.out.println("Hybrid Coverages");
+}
+
+(//input[@id='Dob'])[2]
+
+
+188 + 
+
+
+D:\Automation files\RT Script\NonConfigUpdatedInspectionUpdate\src\main\java\Pages\HybridConfig\LocationDetailsHybridConfig.java
+
+saveLocation 
+
+line number 250
+
+
+
+click AddInformationBtn : "//h6[text()='Additional Interests/Additional Insureds & Mortgagees']//button[contains(@class,'addicon')]"
+
+wait for pageload
+
+click AddInformationType : "//div[@id='Type']" and select //li[text()='Additional Interest'], //li[text()='Additional Insured'], //li[text()='Mortgagee']
+
+if("//li[text()='Additional Interest']")
+{
+	
+	AdditionalIntType : //div[@id='AdditionalInterestType'], select //li[text()='Property Manager'], //li[text()='HOA'], //li[text()='Other']
+	
+	AdditionalIntFName = "//input[@name='FirstName']", 
+	
+	AdditionalIntLName = "//input[@name='LastName']"
+	
+	AddInterestAddressline1 = "//input[@name='LastName']/following::input[@name='StreetNumberAddress1']",
+	
+	AddInterestAddressline2 = "//input[@name='LastName']/following::input[@name='StreetNameAddress2']",
+	
+	AddInterestCity = "//input[@name='LastName']/following::input[@name='City']",
+	
+	AddInterestState = "//input[@name='LastName']/following::input[@name='StateRegionCode']",
+	
+	AddInterestCounty = "//input[@name='LastName']/following::input[@name='County']",
+	
+	AddInterestZipcode = "//input[@name='LastName']/following::input[@name='Zipcode1']",
+	
+	AddInterestZipcode2 = "//input[@name='LastName']/following::input[@name='Zipcode2']"
+
+	AddInterestSaveBtn = "//input[@name='LastName']/following::button[@name='SaveInformation']"
+	
+}
+if(//li[text()='Additional Insured'])
+{
+	AdditionalInsuredType : //div[@id='AdditionalInterestType'], select //li[text()='Co-Owner'], //li[text()='Trust/Estate'], //li[text()='Other']
+	 
+	AddInsFName = "//input[@name='FirstName']", 
+	
+	AddInsLName = "//input[@name='LastName']"
+	
+	AddInsAddressline1 = "//input[@name='LastName']/following::input[@name='StreetNumberAddress1']",
+	
+	AddInsAddressline2 = "//input[@name='LastName']/following::input[@name='StreetNameAddress2']",
+	
+	AddInsCity = "//input[@name='LastName']/following::input[@name='City']",
+	
+	AddInsState = "//input[@name='LastName']/following::input[@name='StateRegionCode']",
+	
+	AddInsCounty = "//input[@name='LastName']/following::input[@name='County']",
+	
+	AddInsZipcode = "//input[@name='LastName']/following::input[@name='Zipcode1']",
+	
+	AddInsZipcode2 = "//input[@name='LastName']/following::input[@name='Zipcode2']"
+
+	SaveBtn = "//input[@name='LastName']/following::button[@name='SaveInformation']"
+
+}
+if(//li[text()='Mortgagee'])
+{
+	Mortgagee first name input tag : //input[@name='FirstName']
+	MortagageeLoanNumber : //input[@name='LoanNumber']
+	
+	MortgageeAddline1: //input[@name='LoanNumber']/following::input[@name='StreetNumberAddress1']
+
+	MortgageeAddline2 : //input[@name='LoanNumber']/following::input[@name='StreetNameAddress2']
+	
+	Mortgageecity: //input[@name='LoanNumber']/following::input[@name='City']
+	
+	MortgageeState : //input[@name='LoanNumber']/following::input[@name='StateRegionCode']
+	
+	MortgageeCounty : //input[@name='LoanNumber']/following::input[@name='County']
+	
+	MortgageeZipcode : //input[@name='LoanNumber']/following::input[@name='Zipcode1']
+	
+	MortgageeZipcode2 : //input[@name='LoanNumber']/following::input[@name='Zipcode2']
+	
+	SaveBtn = "//input[@name='LastName']/following::button[@name='SaveInformation']"
+	
+}

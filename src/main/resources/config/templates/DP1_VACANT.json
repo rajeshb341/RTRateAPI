@@ -1,0 +1,123 @@
+{
+    "OwnerId": "15793",
+    "ServiceRequestDetail": {
+        "OwnerId": "15793",
+        "EndClientUserUniqueSessionId": "1.0",
+        "ServiceRequestVersion": "1.0",
+        "LanguageCode": "en",
+        "UserName": "kailash_d",
+        "RegionCode": "US",
+        "ServiceResponseVersion": "1.0",
+        "ResponseType": "json",
+        "Token": "",
+        "Lob": "PL",
+        "BrowserIp": "192.158.1.38.",
+        "UserRole": "Underwriter",
+        "ServiceRequestDetail": {}
+    },
+    "EventName": "RTConnectorPLRating",
+    "LOB": "PL",
+    "TransactionType": "New Business",
+    "Account": {
+        "Insured": [
+            {
+                "ServiceRequestDetail": {},
+                "InsuranceScoreStatus": "6",
+                "InsuranceScoreRange": "835",
+                "InsuranceScoreFetchedDate": "06/21/2026",
+                "Location": [
+                    {
+                        "State": "Mississippi",
+                        "County": "Harrison",
+                        "Zipcode1": "ALL",
+                        "StateRegionCode": "MS",
+                        "City": "Orlando",
+                        "Building": [
+                            {
+                                "CoastalWaterDistance": "2500",
+                                "DateBuilt": "1948",
+                                "ConstructionType": "Frame",
+                                "Occupancy": "Vacant",
+                                "AgeOfHome": "78",
+                                "AgeOfRoof": "12",
+                                "NumberOfStories": "2",
+                                "NumberOfLosses": "1",
+                                "CoverageABandCredit": "$150,000-$249,999",
+                                "ExtendedReplacementCost": "No",
+                                "NumberOfFamilies": "1",
+                                "ProtectionClass": "2",
+                                "Alarm": "None",
+                                "Creditpercent": "-0.1",
+                                "MinimumTiv": "1",
+                                "MaximumTiv": "0.88",
+                                "Coverage": [
+                                    {
+                                        "PLNonWind": {},
+                                        "DwellingValuation": "ALL",
+                                        "PersonalPropertyValuation": "ALL",
+                                        "RMSModeledPremium": "0.00",
+                                        "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                                        "MiscsurchargeFactor": "0",
+                                        "TIVFactor": "1",
+                                        "WaterDamageSublimit": {
+                                            "Limit": "0.0"
+                                        },
+                                        "DwellingCoverage": {
+                                            "Limit": "192000"
+                                        },
+                                        "OtherStructureCoverage": {
+                                            "Limit": "5000"
+                                        },
+                                        "PersonalPropertyCoverage": {
+                                            "Limit": "50000"
+                                        },
+                                        "LossOfUseCoverage": {
+                                            "Limit": "0"
+                                        },
+                                        "WaterDamageDeductible": {
+                                            "Limit": "5000"
+                                        },
+                                        "PLWindCoverage": {
+                                            "CoverageSelected": "No"
+                                        },
+                                        "LimitedMoldCoverage": {
+                                            "Limit": "5000"
+                                        },
+                                        "AOPDeductible": {
+                                            "Limit": "5000",
+                                            "DeductibleType": "5000"
+                                        },
+                                        "PersonalProperty": {
+                                            "PersonalArticleFloater": [
+                                                {
+                                                    "ItemCategory": "Mens",
+                                                    "ItemDescription": "Abc",
+                                                    "ItemValue": "0.0"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "ProductVerNumber": "PL_15793_208_V1",
+    "ProductNumber": "PL_15793_208",
+    "PolicyEffectiveDate": "09/15/2026",
+    "QuoteType": "New Business",
+    "EffectiveDate": "09/15/2026",
+    "PolicyExpirationDate": "09/15/2027",
+    "CarrierName": "ALL",
+    "ExpirationDate": "09/15/2027",
+    "SublineName": "DP1",
+    "State": "CW",
+    "ApplicableDate": "09/15/2026",
+    "ProductName": "RTConnectorPLRating",
+    "RatingTerm": "Monthly",
+    "ProductVersionNumber": "PL_15793_208_V1",
+    "ContractName": "ALL"
+}

@@ -1,0 +1,797 @@
+# NOTE (copy): iteration ids in this log are the ORIGINAL ids of the run; the folders and the report use the new
+# ids 1-711 - see ../iteration-id-map.csv
+2026-11-16 12:05:30.495 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - Run folder: D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261116_120530
+2026-11-16 12:05:45.301 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.rater.RaterTestData - Read 7951 test case(s) from src\test\resources\testdata\test-data.xlsx
+2026-11-16 12:05:45.353 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - rater.iterations=1,831-832,1183-1184,1638-1639,1717,1723,2123,2502,2506,2705-2706,2837-2838,3045,3047,3132-3133,3169-3170,3194-3195,3215-3216,3221-3222,3229,3793-3794,4435-4436,4792-4793,4845-4846,4860,4862,4883,4888,4899,4903,4908,4912-4913,4925-4926,4940,4942,4956,4963,4977,4999,5002,5031,5034,5040-5041,5049,5053,5068,5071,5076,5084-5085,5090,5093,5095,5098,5104,5106,5108,5110,5113,5116,5121,5149-5154,5156,5158,5165,5170-5172,5178,5189,5194,5196,5199,5202,5204,5219-5220,5239,5270,5276,5285,5300,5347,5418,5491,6915,6948,7057,7350-7951 -> running 711 test case(s): [1, 831, 832, 1183, 1184, 1638, 1639, 1717, 1723, 2123, 2502, 2506, 2705, 2706, 2837, 2838, 3045, 3047, 3132, 3133, 3169, 3170, 3194, 3195, 3215, 3216, 3221, 3222, 3229, 3793, 3794, 4435, 4436, 4792, 4793, 4845, 4846, 4860, 4862, 4883, 4888, 4899, 4903, 4908, 4912, 4913, 4925, 4926, 4940, 4942, 4956, 4963, 4977, 4999, 5002, 5031, 5034, 5040, 5041, 5049, 5053, 5068, 5071, 5076, 5084, 5085, 5090, 5093, 5095, 5098, 5104, 5106, 5108, 5110, 5113, 5116, 5121, 5149, 5150, 5151, 5152, 5153, 5154, 5156, 5158, 5165, 5170, 5171, 5172, 5178, 5189, 5194, 5196, 5199, 5202, 5204, 5219, 5220, 5239, 5270, 5276, 5285, 5300, 5347, 5418, 5491, 6915, 6948, 7057, 7350, 7351, 7352, 7353, 7354, 7355, 7356, 7357, 7358, 7359, 7360, 7361, 7362, 7363, 7364, 7365, 7366, 7367, 7368, 7369, 7370, 7371, 7372, 7373, 7374, 7375, 7376, 7377, 7378, 7379, 7380, 7381, 7382, 7383, 7384, 7385, 7386, 7387, 7388, 7389, 7390, 7391, 7392, 7393, 7394, 7395, 7396, 7397, 7398, 7399, 7400, 7401, 7402, 7403, 7404, 7405, 7406, 7407, 7408, 7409, 7410, 7411, 7412, 7413, 7414, 7415, 7416, 7417, 7418, 7419, 7420, 7421, 7422, 7423, 7424, 7425, 7426, 7427, 7428, 7429, 7430, 7431, 7432, 7433, 7434, 7435, 7436, 7437, 7438, 7439, 7440, 7441, 7442, 7443, 7444, 7445, 7446, 7447, 7448, 7449, 7450, 7451, 7452, 7453, 7454, 7455, 7456, 7457, 7458, 7459, 7460, 7461, 7462, 7463, 7464, 7465, 7466, 7467, 7468, 7469, 7470, 7471, 7472, 7473, 7474, 7475, 7476, 7477, 7478, 7479, 7480, 7481, 7482, 7483, 7484, 7485, 7486, 7487, 7488, 7489, 7490, 7491, 7492, 7493, 7494, 7495, 7496, 7497, 7498, 7499, 7500, 7501, 7502, 7503, 7504, 7505, 7506, 7507, 7508, 7509, 7510, 7511, 7512, 7513, 7514, 7515, 7516, 7517, 7518, 7519, 7520, 7521, 7522, 7523, 7524, 7525, 7526, 7527, 7528, 7529, 7530, 7531, 7532, 7533, 7534, 7535, 7536, 7537, 7538, 7539, 7540, 7541, 7542, 7543, 7544, 7545, 7546, 7547, 7548, 7549, 7550, 7551, 7552, 7553, 7554, 7555, 7556, 7557, 7558, 7559, 7560, 7561, 7562, 7563, 7564, 7565, 7566, 7567, 7568, 7569, 7570, 7571, 7572, 7573, 7574, 7575, 7576, 7577, 7578, 7579, 7580, 7581, 7582, 7583, 7584, 7585, 7586, 7587, 7588, 7589, 7590, 7591, 7592, 7593, 7594, 7595, 7596, 7597, 7598, 7599, 7600, 7601, 7602, 7603, 7604, 7605, 7606, 7607, 7608, 7609, 7610, 7611, 7612, 7613, 7614, 7615, 7616, 7617, 7618, 7619, 7620, 7621, 7622, 7623, 7624, 7625, 7626, 7627, 7628, 7629, 7630, 7631, 7632, 7633, 7634, 7635, 7636, 7637, 7638, 7639, 7640, 7641, 7642, 7643, 7644, 7645, 7646, 7647, 7648, 7649, 7650, 7651, 7652, 7653, 7654, 7655, 7656, 7657, 7658, 7659, 7660, 7661, 7662, 7663, 7664, 7665, 7666, 7667, 7668, 7669, 7670, 7671, 7672, 7673, 7674, 7675, 7676, 7677, 7678, 7679, 7680, 7681, 7682, 7683, 7684, 7685, 7686, 7687, 7688, 7689, 7690, 7691, 7692, 7693, 7694, 7695, 7696, 7697, 7698, 7699, 7700, 7701, 7702, 7703, 7704, 7705, 7706, 7707, 7708, 7709, 7710, 7711, 7712, 7713, 7714, 7715, 7716, 7717, 7718, 7719, 7720, 7721, 7722, 7723, 7724, 7725, 7726, 7727, 7728, 7729, 7730, 7731, 7732, 7733, 7734, 7735, 7736, 7737, 7738, 7739, 7740, 7741, 7742, 7743, 7744, 7745, 7746, 7747, 7748, 7749, 7750, 7751, 7752, 7753, 7754, 7755, 7756, 7757, 7758, 7759, 7760, 7761, 7762, 7763, 7764, 7765, 7766, 7767, 7768, 7769, 7770, 7771, 7772, 7773, 7774, 7775, 7776, 7777, 7778, 7779, 7780, 7781, 7782, 7783, 7784, 7785, 7786, 7787, 7788, 7789, 7790, 7791, 7792, 7793, 7794, 7795, 7796, 7797, 7798, 7799, 7800, 7801, 7802, 7803, 7804, 7805, 7806, 7807, 7808, 7809, 7810, 7811, 7812, 7813, 7814, 7815, 7816, 7817, 7818, 7819, 7820, 7821, 7822, 7823, 7824, 7825, 7826, 7827, 7828, 7829, 7830, 7831, 7832, 7833, 7834, 7835, 7836, 7837, 7838, 7839, 7840, 7841, 7842, 7843, 7844, 7845, 7846, 7847, 7848, 7849, 7850, 7851, 7852, 7853, 7854, 7855, 7856, 7857, 7858, 7859, 7860, 7861, 7862, 7863, 7864, 7865, 7866, 7867, 7868, 7869, 7870, 7871, 7872, 7873, 7874, 7875, 7876, 7877, 7878, 7879, 7880, 7881, 7882, 7883, 7884, 7885, 7886, 7887, 7888, 7889, 7890, 7891, 7892, 7893, 7894, 7895, 7896, 7897, 7898, 7899, 7900, 7901, 7902, 7903, 7904, 7905, 7906, 7907, 7908, 7909, 7910, 7911, 7912, 7913, 7914, 7915, 7916, 7917, 7918, 7919, 7920, 7921, 7922, 7923, 7924, 7925, 7926, 7927, 7928, 7929, 7930, 7931, 7932, 7933, 7934, 7935, 7936, 7937, 7938, 7939, 7940, 7941, 7942, 7943, 7944, 7945, 7946, 7947, 7948, 7949, 7950, 7951]
+2026-11-16 12:05:45.369 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.rater.PowerShellRunner - Running Rater-Inspect.ps1
+2026-11-16 12:05:53.260 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.rater.PowerShellRunner - Inspected 231 attributes -> D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261116_120530\working\rater-attributes.json
+2026-11-16 12:05:54.595 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5104: TigerCQ does not apply in GA (HO8) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.596 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5106: TigerCQ does not apply in VA (DP3) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.596 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5108: TigerCQ does not apply in GA (HO5) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.596 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5110: TigerCQ does not apply in SC (HO5) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.597 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5113: TigerCQ does not apply in DE (HO5) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.597 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5116: TigerCQ does not apply in MD (DP1_BUILDERS_RISK) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.597 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - 5121: TigerCQ does not apply in VA (HO3) - rated without wind (PLWindCoverage No, TigerCQApplicable N)
+2026-11-16 12:05:54.620 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - Test cases per configuration: {DP1=76, DP1_BUILDERS_RISK=71, DP1_VACANT=76, DP3=76, DP3_BUILDERS_RISK=76, DP3_VACANT=73, HO3=76, HO5=75, HO6=36, HO8=76}
+2026-11-16 12:05:54.688 WARN  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - Input rows written to the Rater but NOT sent in any configuration's request (no mapping): [62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 92, 93]
+2026-11-16 12:05:54.698 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Loaded configuration from: config/default.properties
+2026-11-16 12:05:54.699 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Loaded configuration from: config/local.properties
+2026-11-16 12:05:54.700 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - === Framework Configuration ===
+2026-11-16 12:05:54.701 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Environment: local
+2026-11-16 12:05:54.701 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Base URL: http://localhost:8080
+2026-11-16 12:05:54.701 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Timeout (ms): 30000
+2026-11-16 12:05:54.702 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Retry Count: 3
+2026-11-16 12:05:54.702 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Excel File: D:\Automation files\RT Script\RT API Automation\src\test\resources\testdata\test-data.xlsx
+2026-11-16 12:05:54.702 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Sheet Name: TestCases
+2026-11-16 12:05:54.702 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Report Output: target/allure-results
+2026-11-16 12:05:54.703 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - Headless: true
+2026-11-16 12:05:54.703 INFO  [com.automation.rater.RaterValidationRunner.main()] com.automation.config.Config - ================================
+2026-11-16 12:05:54.703 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - API endpoint: https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3
+2026-11-16 12:05:54.710 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - Calling the API with 4 parallel worker(s) (rater.api.threads)
+2026-11-16 12:05:54.780 INFO  [rater] c.a.rater.PowerShellRunner - Running Rater-Recalc.ps1
+2026-11-16 12:06:00.445 INFO  [api-4] c.a.api.client.ApiClient - API Client initialized with base URL: http://localhost:8080
+2026-11-16 12:06:00.499 INFO  [api-1] c.a.api.client.ApiClient - API Client initialized with base URL: http://localhost:8080
+2026-11-16 12:06:00.807 INFO  [api-3] c.a.api.client.ApiClient - API Client initialized with base URL: http://localhost:8080
+2026-11-16 12:06:00.878 INFO  [api-2] c.a.api.client.ApiClient - API Client initialized with base URL: http://localhost:8080
+2026-11-16 12:06:03.229 INFO  [api-3] c.a.r.RaterValidationRunner - 832: HTTP 200 in 2319 ms
+2026-11-16 12:06:03.252 INFO  [api-4] c.a.r.RaterValidationRunner - 1: HTTP 200 in 2735 ms
+2026-11-16 12:06:03.284 INFO  [api-1] c.a.r.RaterValidationRunner - 831: HTTP 200 in 2715 ms
+2026-11-16 12:06:03.293 INFO  [api-2] c.a.r.RaterValidationRunner - 1183: HTTP 200 in 2331 ms
+2026-11-16 12:06:05.340 INFO  [api-1] c.a.r.RaterValidationRunner - 1639: HTTP 200 in 2025 ms
+2026-11-16 12:06:05.350 INFO  [api-4] c.a.r.RaterValidationRunner - 1184: HTTP 200 in 2063 ms
+2026-11-16 12:06:05.369 INFO  [api-3] c.a.r.RaterValidationRunner - 1638: HTTP 200 in 2078 ms
+2026-11-16 12:06:05.476 INFO  [api-2] c.a.r.RaterValidationRunner - 1717: HTTP 200 in 2106 ms
+2026-11-16 12:06:07.222 INFO  [api-1] c.a.r.RaterValidationRunner - 1723: HTTP 200 in 1836 ms
+2026-11-16 12:06:07.252 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 35/711 done (0 min elapsed, about 5 min left)
+2026-11-16 12:06:07.258 INFO  [api-4] c.a.r.RaterValidationRunner - 2123: HTTP 200 in 1890 ms
+2026-11-16 12:06:07.294 INFO  [api-3] c.a.r.RaterValidationRunner - 2502: HTTP 200 in 1907 ms
+2026-11-16 12:06:07.341 INFO  [api-2] c.a.r.RaterValidationRunner - 2506: HTTP 200 in 1831 ms
+2026-11-16 12:06:09.064 INFO  [api-3] c.a.r.RaterValidationRunner - 2837: HTTP 200 in 1758 ms
+2026-11-16 12:06:09.088 INFO  [api-1] c.a.r.RaterValidationRunner - 2705: HTTP 200 in 1847 ms
+2026-11-16 12:06:09.145 INFO  [api-4] c.a.r.RaterValidationRunner - 2706: HTTP 200 in 1863 ms
+2026-11-16 12:06:09.150 INFO  [api-2] c.a.r.RaterValidationRunner - 2838: HTTP 200 in 1802 ms
+2026-11-16 12:06:10.897 INFO  [api-1] c.a.r.RaterValidationRunner - 3047: HTTP 200 in 1790 ms
+2026-11-16 12:06:10.908 INFO  [api-3] c.a.r.RaterValidationRunner - 3045: HTTP 200 in 1804 ms
+2026-11-16 12:06:10.911 INFO  [api-2] c.a.r.RaterValidationRunner - 3133: HTTP 200 in 1722 ms
+2026-11-16 12:06:10.950 INFO  [api-4] c.a.r.RaterValidationRunner - 3132: HTTP 200 in 1775 ms
+2026-11-16 12:06:12.676 INFO  [api-1] c.a.r.RaterValidationRunner - 3169: HTTP 200 in 1738 ms
+2026-11-16 12:06:12.708 INFO  [api-4] c.a.r.RaterValidationRunner - 3195: HTTP 200 in 1729 ms
+2026-11-16 12:06:12.715 INFO  [api-3] c.a.r.RaterValidationRunner - 3170: HTTP 200 in 1794 ms
+2026-11-16 12:06:12.737 INFO  [api-2] c.a.r.RaterValidationRunner - 3194: HTTP 200 in 1822 ms
+2026-11-16 12:06:13.893 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 70/711 done (0 min elapsed, about 3 min left)
+2026-11-16 12:06:14.478 INFO  [api-4] c.a.r.RaterValidationRunner - 3216: HTTP 200 in 1749 ms
+2026-11-16 12:06:14.510 INFO  [api-1] c.a.r.RaterValidationRunner - 3215: HTTP 200 in 1799 ms
+2026-11-16 12:06:14.524 INFO  [api-3] c.a.r.RaterValidationRunner - 3221: HTTP 200 in 1797 ms
+2026-11-16 12:06:14.573 INFO  [api-2] c.a.r.RaterValidationRunner - 3222: HTTP 200 in 1801 ms
+2026-11-16 12:06:16.309 INFO  [api-3] c.a.r.RaterValidationRunner - 3794: HTTP 200 in 1772 ms
+2026-11-16 12:06:16.331 INFO  [api-4] c.a.r.RaterValidationRunner - 3229: HTTP 200 in 1835 ms
+2026-11-16 12:06:16.331 INFO  [api-1] c.a.r.RaterValidationRunner - 3793: HTTP 200 in 1805 ms
+2026-11-16 12:06:16.381 INFO  [api-2] c.a.r.RaterValidationRunner - 4435: HTTP 200 in 1799 ms
+2026-11-16 12:06:18.137 INFO  [api-3] c.a.r.RaterValidationRunner - 4436: HTTP 200 in 1793 ms
+2026-11-16 12:06:18.185 INFO  [api-2] c.a.r.RaterValidationRunner - 4845: HTTP 200 in 1782 ms
+2026-11-16 12:06:18.309 INFO  [api-1] c.a.r.RaterValidationRunner - 4793: HTTP 200 in 1947 ms
+2026-11-16 12:06:18.309 INFO  [api-1] c.a.r.RaterValidationRunner - API: 35/711 done (0 min elapsed, about 8 min left)
+2026-11-16 12:06:18.318 INFO  [api-4] c.a.r.RaterValidationRunner - 4792: HTTP 200 in 1969 ms
+2026-11-16 12:06:19.943 INFO  [api-3] c.a.r.RaterValidationRunner - 4846: HTTP 200 in 1774 ms
+2026-11-16 12:06:20.030 INFO  [api-2] c.a.r.RaterValidationRunner - 4860: HTTP 200 in 1815 ms
+2026-11-16 12:06:20.070 INFO  [api-4] c.a.r.RaterValidationRunner - 4883: HTTP 200 in 1722 ms
+2026-11-16 12:06:20.105 INFO  [api-1] c.a.r.RaterValidationRunner - 4862: HTTP 200 in 1766 ms
+2026-11-16 12:06:21.657 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 105/711 done (0 min elapsed, about 3 min left)
+2026-11-16 12:06:21.742 INFO  [api-3] c.a.r.RaterValidationRunner - 4888: HTTP 200 in 1785 ms
+2026-11-16 12:06:21.869 INFO  [api-2] c.a.r.RaterValidationRunner - 4899: HTTP 200 in 1809 ms
+2026-11-16 12:06:21.928 INFO  [api-1] c.a.r.RaterValidationRunner - 4908: HTTP 200 in 1803 ms
+2026-11-16 12:06:21.930 INFO  [api-4] c.a.r.RaterValidationRunner - 4903: HTTP 200 in 1841 ms
+2026-11-16 12:06:23.546 INFO  [api-3] c.a.r.RaterValidationRunner - 4912: HTTP 200 in 1780 ms
+2026-11-16 12:06:23.659 INFO  [api-2] c.a.r.RaterValidationRunner - 4913: HTTP 200 in 1769 ms
+2026-11-16 12:06:23.704 INFO  [api-4] c.a.r.RaterValidationRunner - 4926: HTTP 200 in 1761 ms
+2026-11-16 12:06:23.740 INFO  [api-1] c.a.r.RaterValidationRunner - 4925: HTTP 200 in 1797 ms
+2026-11-16 12:06:25.421 INFO  [api-3] c.a.r.RaterValidationRunner - 4940: HTTP 200 in 1857 ms
+2026-11-16 12:06:25.454 INFO  [api-4] c.a.r.RaterValidationRunner - 4956: HTTP 200 in 1723 ms
+2026-11-16 12:06:25.473 INFO  [api-1] c.a.r.RaterValidationRunner - 4963: HTTP 200 in 1697 ms
+2026-11-16 12:06:25.499 INFO  [api-2] c.a.r.RaterValidationRunner - 4942: HTTP 200 in 1825 ms
+2026-11-16 12:06:27.225 INFO  [api-4] c.a.r.RaterValidationRunner - 4999: HTTP 200 in 1752 ms
+2026-11-16 12:06:27.238 INFO  [api-3] c.a.r.RaterValidationRunner - 4977: HTTP 200 in 1804 ms
+2026-11-16 12:06:27.303 INFO  [api-1] c.a.r.RaterValidationRunner - 5002: HTTP 200 in 1810 ms
+2026-11-16 12:06:27.331 INFO  [api-2] c.a.r.RaterValidationRunner - 5031: HTTP 200 in 1811 ms
+2026-11-16 12:06:29.023 INFO  [api-4] c.a.r.RaterValidationRunner - 5034: HTTP 200 in 1761 ms
+2026-11-16 12:06:29.071 INFO  [api-3] c.a.r.RaterValidationRunner - 5040: HTTP 200 in 1816 ms
+2026-11-16 12:06:29.104 INFO  [api-1] c.a.r.RaterValidationRunner - 5041: HTTP 200 in 1773 ms
+2026-11-16 12:06:29.137 INFO  [api-2] c.a.r.RaterValidationRunner - 5049: HTTP 200 in 1788 ms
+2026-11-16 12:06:29.237 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 140/711 done (0 min elapsed, about 3 min left)
+2026-11-16 12:06:30.802 INFO  [api-4] c.a.r.RaterValidationRunner - 5053: HTTP 200 in 1758 ms
+2026-11-16 12:06:30.838 INFO  [api-3] c.a.r.RaterValidationRunner - 5068: HTTP 200 in 1741 ms
+2026-11-16 12:06:30.920 INFO  [api-2] c.a.r.RaterValidationRunner - 5076: HTTP 200 in 1752 ms
+2026-11-16 12:06:30.972 INFO  [api-1] c.a.r.RaterValidationRunner - 5071: HTTP 200 in 1855 ms
+2026-11-16 12:06:32.628 INFO  [api-3] c.a.r.RaterValidationRunner - 5085: HTTP 200 in 1764 ms
+2026-11-16 12:06:32.670 INFO  [api-4] c.a.r.RaterValidationRunner - 5084: HTTP 200 in 1840 ms
+2026-11-16 12:06:32.770 INFO  [api-2] c.a.r.RaterValidationRunner - 5090: HTTP 200 in 1828 ms
+2026-11-16 12:06:32.807 INFO  [api-1] c.a.r.RaterValidationRunner - 5093: HTTP 200 in 1814 ms
+2026-11-16 12:06:34.500 INFO  [api-4] c.a.r.RaterValidationRunner - 5098: HTTP 200 in 1809 ms
+2026-11-16 12:06:34.500 INFO  [api-3] c.a.r.RaterValidationRunner - 5095: HTTP 200 in 1845 ms
+2026-11-16 12:06:34.501 INFO  [api-3] c.a.r.RaterValidationRunner - API: 70/711 done (0 min elapsed, about 7 min left)
+2026-11-16 12:06:34.627 INFO  [api-2] c.a.r.RaterValidationRunner - 5104: HTTP 200 in 1829 ms
+2026-11-16 12:06:34.671 INFO  [api-1] c.a.r.RaterValidationRunner - 5106: HTTP 200 in 1841 ms
+2026-11-16 12:06:36.308 INFO  [api-3] c.a.r.RaterValidationRunner - 5110: HTTP 200 in 1797 ms
+2026-11-16 12:06:36.346 INFO  [api-4] c.a.r.RaterValidationRunner - 5108: HTTP 200 in 1828 ms
+2026-11-16 12:06:36.543 INFO  [api-1] c.a.r.RaterValidationRunner - 5116: HTTP 200 in 1808 ms
+2026-11-16 12:06:36.594 INFO  [api-2] c.a.r.RaterValidationRunner - 5113: HTTP 200 in 1818 ms
+2026-11-16 12:06:38.133 INFO  [api-4] c.a.r.RaterValidationRunner - 5149: HTTP 200 in 1774 ms
+2026-11-16 12:06:38.159 INFO  [api-3] c.a.r.RaterValidationRunner - 5121: HTTP 200 in 1806 ms
+2026-11-16 12:06:38.379 INFO  [api-2] c.a.r.RaterValidationRunner - 5151: HTTP 200 in 1760 ms
+2026-11-16 12:06:38.468 INFO  [api-1] c.a.r.RaterValidationRunner - 5150: HTTP 200 in 1864 ms
+2026-11-16 12:06:39.915 INFO  [api-4] c.a.r.RaterValidationRunner - 5152: HTTP 200 in 1749 ms
+2026-11-16 12:06:39.991 INFO  [api-3] c.a.r.RaterValidationRunner - 5153: HTTP 200 in 1806 ms
+2026-11-16 12:06:40.140 INFO  [api-2] c.a.r.RaterValidationRunner - 5154: HTTP 200 in 1740 ms
+2026-11-16 12:06:40.208 INFO  [api-1] c.a.r.RaterValidationRunner - 5156: HTTP 200 in 1731 ms
+2026-11-16 12:06:40.663 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 175/711 done (0 min elapsed, about 3 min left)
+2026-11-16 12:06:41.765 INFO  [api-4] c.a.r.RaterValidationRunner - 5158: HTTP 200 in 1824 ms
+2026-11-16 12:06:41.767 INFO  [api-3] c.a.r.RaterValidationRunner - 5165: HTTP 200 in 1752 ms
+2026-11-16 12:06:42.007 INFO  [api-2] c.a.r.RaterValidationRunner - 5170: HTTP 200 in 1844 ms
+2026-11-16 12:06:42.034 INFO  [api-1] c.a.r.RaterValidationRunner - 5171: HTTP 200 in 1806 ms
+2026-11-16 12:06:43.503 INFO  [api-3] c.a.r.RaterValidationRunner - 5178: HTTP 200 in 1715 ms
+2026-11-16 12:06:43.533 INFO  [api-4] c.a.r.RaterValidationRunner - 5172: HTTP 200 in 1760 ms
+2026-11-16 12:06:43.812 INFO  [api-2] c.a.r.RaterValidationRunner - 5189: HTTP 200 in 1789 ms
+2026-11-16 12:06:43.893 INFO  [api-1] c.a.r.RaterValidationRunner - 5194: HTTP 200 in 1828 ms
+2026-11-16 12:06:45.241 INFO  [api-3] c.a.r.RaterValidationRunner - 5196: HTTP 200 in 1717 ms
+2026-11-16 12:06:45.305 INFO  [api-4] c.a.r.RaterValidationRunner - 5199: HTTP 200 in 1766 ms
+2026-11-16 12:06:45.600 INFO  [api-2] c.a.r.RaterValidationRunner - 5202: HTTP 200 in 1757 ms
+2026-11-16 12:06:45.647 INFO  [api-1] c.a.r.RaterValidationRunner - 5204: HTTP 200 in 1727 ms
+2026-11-16 12:06:47.031 INFO  [api-4] c.a.r.RaterValidationRunner - 5220: HTTP 200 in 1707 ms
+2026-11-16 12:06:47.054 INFO  [api-3] c.a.r.RaterValidationRunner - 5219: HTTP 200 in 1788 ms
+2026-11-16 12:06:47.371 INFO  [api-2] c.a.r.RaterValidationRunner - 5239: HTTP 200 in 1754 ms
+2026-11-16 12:06:47.397 INFO  [api-1] c.a.r.RaterValidationRunner - 5270: HTTP 200 in 1724 ms
+2026-11-16 12:06:47.976 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 210/711 done (0 min elapsed, about 3 min left)
+2026-11-16 12:06:48.812 INFO  [api-3] c.a.r.RaterValidationRunner - 5285: HTTP 200 in 1739 ms
+2026-11-16 12:06:48.816 INFO  [api-4] c.a.r.RaterValidationRunner - 5276: HTTP 200 in 1748 ms
+2026-11-16 12:06:49.109 INFO  [api-2] c.a.r.RaterValidationRunner - 5300: HTTP 200 in 1709 ms
+2026-11-16 12:06:49.153 INFO  [api-1] c.a.r.RaterValidationRunner - 5347: HTTP 200 in 1723 ms
+2026-11-16 12:06:50.574 INFO  [api-4] c.a.r.RaterValidationRunner - 5491: HTTP 200 in 1734 ms
+2026-11-16 12:06:50.575 INFO  [api-4] c.a.r.RaterValidationRunner - API: 105/711 done (0 min elapsed, about 6 min left)
+2026-11-16 12:06:50.581 INFO  [api-3] c.a.r.RaterValidationRunner - 5418: HTTP 200 in 1742 ms
+2026-11-16 12:06:50.880 INFO  [api-2] c.a.r.RaterValidationRunner - 6915: HTTP 200 in 1749 ms
+2026-11-16 12:06:50.932 INFO  [api-1] c.a.r.RaterValidationRunner - 6948: HTTP 200 in 1747 ms
+2026-11-16 12:06:52.372 INFO  [api-3] c.a.r.RaterValidationRunner - 7350: HTTP 200 in 1759 ms
+2026-11-16 12:06:52.374 INFO  [api-4] c.a.r.RaterValidationRunner - 7057: HTTP 200 in 1773 ms
+2026-11-16 12:06:52.773 INFO  [api-1] c.a.r.RaterValidationRunner - 7352: HTTP 200 in 1801 ms
+2026-11-16 12:06:52.776 INFO  [api-2] c.a.r.RaterValidationRunner - 7351: HTTP 200 in 1833 ms
+2026-11-16 12:06:54.120 INFO  [api-4] c.a.r.RaterValidationRunner - 7354: HTTP 200 in 1714 ms
+2026-11-16 12:06:54.148 INFO  [api-3] c.a.r.RaterValidationRunner - 7353: HTTP 200 in 1748 ms
+2026-11-16 12:06:54.555 INFO  [api-1] c.a.r.RaterValidationRunner - 7355: HTTP 200 in 1760 ms
+2026-11-16 12:06:54.580 INFO  [api-2] c.a.r.RaterValidationRunner - 7356: HTTP 200 in 1782 ms
+2026-11-16 12:06:55.858 INFO  [api-4] c.a.r.RaterValidationRunner - 7357: HTTP 200 in 1714 ms
+2026-11-16 12:06:56.043 INFO  [api-3] c.a.r.RaterValidationRunner - 7358: HTTP 200 in 1736 ms
+2026-11-16 12:06:56.315 INFO  [api-1] c.a.r.RaterValidationRunner - 7359: HTTP 200 in 1742 ms
+2026-11-16 12:06:56.344 INFO  [api-2] c.a.r.RaterValidationRunner - 7360: HTTP 200 in 1734 ms
+2026-11-16 12:06:57.652 INFO  [api-4] c.a.r.RaterValidationRunner - 7361: HTTP 200 in 1769 ms
+2026-11-16 12:06:57.882 INFO  [api-3] c.a.r.RaterValidationRunner - 7362: HTTP 200 in 1813 ms
+2026-11-16 12:06:58.153 INFO  [api-1] c.a.r.RaterValidationRunner - 7363: HTTP 200 in 1814 ms
+2026-11-16 12:06:58.223 INFO  [api-2] c.a.r.RaterValidationRunner - 7364: HTTP 200 in 1852 ms
+2026-11-16 12:06:58.766 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 245/711 done (1 min elapsed, about 3 min left)
+2026-11-16 12:06:59.492 INFO  [api-4] c.a.r.RaterValidationRunner - 7365: HTTP 200 in 1813 ms
+2026-11-16 12:06:59.579 INFO  [api-3] c.a.r.RaterValidationRunner - 7366: HTTP 200 in 1675 ms
+2026-11-16 12:06:59.941 INFO  [api-1] c.a.r.RaterValidationRunner - 7367: HTTP 200 in 1738 ms
+2026-11-16 12:07:00.027 INFO  [api-2] c.a.r.RaterValidationRunner - 7368: HTTP 200 in 1770 ms
+2026-11-16 12:07:01.311 INFO  [api-4] c.a.r.RaterValidationRunner - 7369: HTTP 200 in 1805 ms
+2026-11-16 12:07:01.383 INFO  [api-3] c.a.r.RaterValidationRunner - 7370: HTTP 200 in 1781 ms
+2026-11-16 12:07:01.723 INFO  [api-1] c.a.r.RaterValidationRunner - 7371: HTTP 200 in 1743 ms
+2026-11-16 12:07:01.968 INFO  [api-2] c.a.r.RaterValidationRunner - 7372: HTTP 200 in 1916 ms
+2026-11-16 12:07:03.114 INFO  [api-4] c.a.r.RaterValidationRunner - 7373: HTTP 200 in 1782 ms
+2026-11-16 12:07:03.151 INFO  [api-3] c.a.r.RaterValidationRunner - 7374: HTTP 200 in 1748 ms
+2026-11-16 12:07:03.591 INFO  [api-1] c.a.r.RaterValidationRunner - 7375: HTTP 200 in 1842 ms
+2026-11-16 12:07:03.728 INFO  [api-2] c.a.r.RaterValidationRunner - 7376: HTTP 200 in 1738 ms
+2026-11-16 12:07:04.945 INFO  [api-3] c.a.r.RaterValidationRunner - 7378: HTTP 200 in 1772 ms
+2026-11-16 12:07:04.954 INFO  [api-4] c.a.r.RaterValidationRunner - 7377: HTTP 200 in 1812 ms
+2026-11-16 12:07:05.470 INFO  [api-1] c.a.r.RaterValidationRunner - 7379: HTTP 200 in 1813 ms
+2026-11-16 12:07:05.525 INFO  [api-2] c.a.r.RaterValidationRunner - 7380: HTTP 200 in 1765 ms
+2026-11-16 12:07:05.525 INFO  [api-2] c.a.r.RaterValidationRunner - API: 140/711 done (1 min elapsed, about 5 min left)
+2026-11-16 12:07:06.782 INFO  [api-4] c.a.r.RaterValidationRunner - 7382: HTTP 200 in 1800 ms
+2026-11-16 12:07:06.890 INFO  [api-3] c.a.r.RaterValidationRunner - 7381: HTTP 200 in 1919 ms
+2026-11-16 12:07:07.219 INFO  [api-1] c.a.r.RaterValidationRunner - 7383: HTTP 200 in 1721 ms
+2026-11-16 12:07:07.322 INFO  [api-2] c.a.r.RaterValidationRunner - 7384: HTTP 200 in 1775 ms
+2026-11-16 12:07:08.033 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 280/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:08.519 INFO  [api-4] c.a.r.RaterValidationRunner - 7385: HTTP 200 in 1728 ms
+2026-11-16 12:07:08.689 INFO  [api-3] c.a.r.RaterValidationRunner - 7386: HTTP 200 in 1777 ms
+2026-11-16 12:07:08.962 INFO  [api-1] c.a.r.RaterValidationRunner - 7387: HTTP 200 in 1727 ms
+2026-11-16 12:07:09.101 INFO  [api-2] c.a.r.RaterValidationRunner - 7388: HTTP 200 in 1757 ms
+2026-11-16 12:07:10.313 INFO  [api-4] c.a.r.RaterValidationRunner - 7389: HTTP 200 in 1758 ms
+2026-11-16 12:07:10.472 INFO  [api-3] c.a.r.RaterValidationRunner - 7390: HTTP 200 in 1749 ms
+2026-11-16 12:07:10.677 INFO  [api-1] c.a.r.RaterValidationRunner - 7391: HTTP 200 in 1694 ms
+2026-11-16 12:07:10.800 INFO  [api-2] c.a.r.RaterValidationRunner - 7392: HTTP 200 in 1672 ms
+2026-11-16 12:07:12.061 INFO  [api-4] c.a.r.RaterValidationRunner - 7393: HTTP 200 in 1726 ms
+2026-11-16 12:07:12.271 INFO  [api-3] c.a.r.RaterValidationRunner - 7394: HTTP 200 in 1770 ms
+2026-11-16 12:07:12.439 INFO  [api-1] c.a.r.RaterValidationRunner - 7395: HTTP 200 in 1741 ms
+2026-11-16 12:07:12.572 INFO  [api-2] c.a.r.RaterValidationRunner - 7396: HTTP 200 in 1767 ms
+2026-11-16 12:07:13.876 INFO  [api-4] c.a.r.RaterValidationRunner - 7397: HTTP 200 in 1799 ms
+2026-11-16 12:07:14.077 INFO  [api-3] c.a.r.RaterValidationRunner - 7398: HTTP 200 in 1780 ms
+2026-11-16 12:07:14.205 INFO  [api-1] c.a.r.RaterValidationRunner - 7399: HTTP 200 in 1731 ms
+2026-11-16 12:07:14.371 INFO  [api-2] c.a.r.RaterValidationRunner - 7400: HTTP 200 in 1765 ms
+2026-11-16 12:07:15.656 INFO  [api-4] c.a.r.RaterValidationRunner - 7401: HTTP 200 in 1749 ms
+2026-11-16 12:07:15.689 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 315/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:15.854 INFO  [api-3] c.a.r.RaterValidationRunner - 7402: HTTP 200 in 1746 ms
+2026-11-16 12:07:16.008 INFO  [api-1] c.a.r.RaterValidationRunner - 7403: HTTP 200 in 1774 ms
+2026-11-16 12:07:16.121 INFO  [api-2] c.a.r.RaterValidationRunner - 7404: HTTP 200 in 1734 ms
+2026-11-16 12:07:17.420 INFO  [api-4] c.a.r.RaterValidationRunner - 7405: HTTP 200 in 1733 ms
+2026-11-16 12:07:17.705 INFO  [api-3] c.a.r.RaterValidationRunner - 7406: HTTP 200 in 1818 ms
+2026-11-16 12:07:17.824 INFO  [api-1] c.a.r.RaterValidationRunner - 7407: HTTP 200 in 1793 ms
+2026-11-16 12:07:17.902 INFO  [api-2] c.a.r.RaterValidationRunner - 7408: HTTP 200 in 1753 ms
+2026-11-16 12:07:19.183 INFO  [api-4] c.a.r.RaterValidationRunner - 7409: HTTP 200 in 1744 ms
+2026-11-16 12:07:19.560 INFO  [api-3] c.a.r.RaterValidationRunner - 7410: HTTP 200 in 1817 ms
+2026-11-16 12:07:19.670 INFO  [api-2] c.a.r.RaterValidationRunner - 7412: HTTP 200 in 1733 ms
+2026-11-16 12:07:19.676 INFO  [api-1] c.a.r.RaterValidationRunner - 7411: HTTP 200 in 1819 ms
+2026-11-16 12:07:20.943 INFO  [api-4] c.a.r.RaterValidationRunner - 7413: HTTP 200 in 1733 ms
+2026-11-16 12:07:21.342 INFO  [api-3] c.a.r.RaterValidationRunner - 7414: HTTP 200 in 1756 ms
+2026-11-16 12:07:21.476 INFO  [api-2] c.a.r.RaterValidationRunner - 7415: HTTP 200 in 1776 ms
+2026-11-16 12:07:21.478 INFO  [api-2] c.a.r.RaterValidationRunner - API: 175/711 done (1 min elapsed, about 5 min left)
+2026-11-16 12:07:21.612 INFO  [api-1] c.a.r.RaterValidationRunner - 7416: HTTP 200 in 1909 ms
+2026-11-16 12:07:22.668 INFO  [api-4] c.a.r.RaterValidationRunner - 7417: HTTP 200 in 1707 ms
+2026-11-16 12:07:22.939 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 350/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:23.143 INFO  [api-3] c.a.r.RaterValidationRunner - 7418: HTTP 200 in 1780 ms
+2026-11-16 12:07:23.243 INFO  [api-2] c.a.r.RaterValidationRunner - 7419: HTTP 200 in 1744 ms
+2026-11-16 12:07:23.377 INFO  [api-1] c.a.r.RaterValidationRunner - 7420: HTTP 200 in 1743 ms
+2026-11-16 12:07:24.501 INFO  [api-4] c.a.r.RaterValidationRunner - 7421: HTTP 200 in 1799 ms
+2026-11-16 12:07:24.886 INFO  [api-3] c.a.r.RaterValidationRunner - 7422: HTTP 200 in 1722 ms
+2026-11-16 12:07:25.009 INFO  [api-2] c.a.r.RaterValidationRunner - 7423: HTTP 200 in 1748 ms
+2026-11-16 12:07:25.107 INFO  [api-1] c.a.r.RaterValidationRunner - 7424: HTTP 200 in 1708 ms
+2026-11-16 12:07:26.323 INFO  [api-4] c.a.r.RaterValidationRunner - 7425: HTTP 200 in 1799 ms
+2026-11-16 12:07:26.642 INFO  [api-3] c.a.r.RaterValidationRunner - 7426: HTTP 200 in 1738 ms
+2026-11-16 12:07:26.772 INFO  [api-2] c.a.r.RaterValidationRunner - 7427: HTTP 200 in 1728 ms
+2026-11-16 12:07:26.862 INFO  [api-1] c.a.r.RaterValidationRunner - 7428: HTTP 200 in 1753 ms
+2026-11-16 12:07:28.066 INFO  [api-4] c.a.r.RaterValidationRunner - 7429: HTTP 200 in 1728 ms
+2026-11-16 12:07:28.459 INFO  [api-3] c.a.r.RaterValidationRunner - 7430: HTTP 200 in 1786 ms
+2026-11-16 12:07:28.631 INFO  [api-2] c.a.r.RaterValidationRunner - 7431: HTTP 200 in 1834 ms
+2026-11-16 12:07:28.708 INFO  [api-1] c.a.r.RaterValidationRunner - 7432: HTTP 200 in 1818 ms
+2026-11-16 12:07:29.883 INFO  [api-4] c.a.r.RaterValidationRunner - 7433: HTTP 200 in 1793 ms
+2026-11-16 12:07:30.230 INFO  [api-3] c.a.r.RaterValidationRunner - 7434: HTTP 200 in 1765 ms
+2026-11-16 12:07:30.489 INFO  [api-1] c.a.r.RaterValidationRunner - 7436: HTTP 200 in 1764 ms
+2026-11-16 12:07:30.519 INFO  [api-2] c.a.r.RaterValidationRunner - 7435: HTTP 200 in 1874 ms
+2026-11-16 12:07:31.156 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 385/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:31.798 INFO  [api-4] c.a.r.RaterValidationRunner - 7437: HTTP 200 in 1887 ms
+2026-11-16 12:07:32.030 INFO  [api-3] c.a.r.RaterValidationRunner - 7438: HTTP 200 in 1767 ms
+2026-11-16 12:07:32.288 INFO  [api-1] c.a.r.RaterValidationRunner - 7439: HTTP 200 in 1768 ms
+2026-11-16 12:07:32.338 INFO  [api-2] c.a.r.RaterValidationRunner - 7440: HTTP 200 in 1791 ms
+2026-11-16 12:07:33.652 INFO  [api-4] c.a.r.RaterValidationRunner - 7441: HTTP 200 in 1784 ms
+2026-11-16 12:07:33.776 INFO  [api-3] c.a.r.RaterValidationRunner - 7442: HTTP 200 in 1734 ms
+2026-11-16 12:07:34.101 INFO  [api-1] c.a.r.RaterValidationRunner - 7443: HTTP 200 in 1788 ms
+2026-11-16 12:07:34.107 INFO  [api-2] c.a.r.RaterValidationRunner - 7444: HTTP 200 in 1745 ms
+2026-11-16 12:07:35.402 INFO  [api-4] c.a.r.RaterValidationRunner - 7445: HTTP 200 in 1721 ms
+2026-11-16 12:07:35.573 INFO  [api-3] c.a.r.RaterValidationRunner - 7446: HTTP 200 in 1777 ms
+2026-11-16 12:07:35.838 INFO  [api-1] c.a.r.RaterValidationRunner - 7447: HTTP 200 in 1710 ms
+2026-11-16 12:07:35.902 INFO  [api-2] c.a.r.RaterValidationRunner - 7448: HTTP 200 in 1768 ms
+2026-11-16 12:07:37.250 INFO  [api-4] c.a.r.RaterValidationRunner - 7449: HTTP 200 in 1836 ms
+2026-11-16 12:07:37.319 INFO  [api-3] c.a.r.RaterValidationRunner - 7450: HTTP 200 in 1731 ms
+2026-11-16 12:07:37.319 INFO  [api-3] c.a.r.RaterValidationRunner - API: 210/711 done (1 min elapsed, about 5 min left)
+2026-11-16 12:07:37.628 INFO  [api-1] c.a.r.RaterValidationRunner - 7451: HTTP 200 in 1769 ms
+2026-11-16 12:07:37.656 INFO  [api-2] c.a.r.RaterValidationRunner - 7452: HTTP 200 in 1730 ms
+2026-11-16 12:07:38.864 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 420/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:39.030 INFO  [api-4] c.a.r.RaterValidationRunner - 7453: HTTP 200 in 1754 ms
+2026-11-16 12:07:39.066 INFO  [api-3] c.a.r.RaterValidationRunner - 7454: HTTP 200 in 1742 ms
+2026-11-16 12:07:39.400 INFO  [api-1] c.a.r.RaterValidationRunner - 7455: HTTP 200 in 1740 ms
+2026-11-16 12:07:39.433 INFO  [api-2] c.a.r.RaterValidationRunner - 7456: HTTP 200 in 1756 ms
+2026-11-16 12:07:40.833 INFO  [api-4] c.a.r.RaterValidationRunner - 7457: HTTP 200 in 1786 ms
+2026-11-16 12:07:40.844 INFO  [api-3] c.a.r.RaterValidationRunner - 7458: HTTP 200 in 1764 ms
+2026-11-16 12:07:41.136 INFO  [api-1] c.a.r.RaterValidationRunner - 7459: HTTP 200 in 1724 ms
+2026-11-16 12:07:41.252 INFO  [api-2] c.a.r.RaterValidationRunner - 7460: HTTP 200 in 1795 ms
+2026-11-16 12:07:42.565 INFO  [api-3] c.a.r.RaterValidationRunner - 7462: HTTP 200 in 1703 ms
+2026-11-16 12:07:42.621 INFO  [api-4] c.a.r.RaterValidationRunner - 7461: HTTP 200 in 1774 ms
+2026-11-16 12:07:42.884 INFO  [api-1] c.a.r.RaterValidationRunner - 7463: HTTP 200 in 1746 ms
+2026-11-16 12:07:43.037 INFO  [api-2] c.a.r.RaterValidationRunner - 7464: HTTP 200 in 1764 ms
+2026-11-16 12:07:44.425 INFO  [api-3] c.a.r.RaterValidationRunner - 7465: HTTP 200 in 1847 ms
+2026-11-16 12:07:44.588 INFO  [api-4] c.a.r.RaterValidationRunner - 7466: HTTP 200 in 1945 ms
+2026-11-16 12:07:44.750 INFO  [api-1] c.a.r.RaterValidationRunner - 7467: HTTP 200 in 1843 ms
+2026-11-16 12:07:44.805 INFO  [api-2] c.a.r.RaterValidationRunner - 7468: HTTP 200 in 1754 ms
+2026-11-16 12:07:46.152 INFO  [api-3] c.a.r.RaterValidationRunner - 7469: HTTP 200 in 1712 ms
+2026-11-16 12:07:46.354 INFO  [api-4] c.a.r.RaterValidationRunner - 7470: HTTP 200 in 1747 ms
+2026-11-16 12:07:46.529 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 455/711 done (1 min elapsed, about 2 min left)
+2026-11-16 12:07:46.575 INFO  [api-1] c.a.r.RaterValidationRunner - 7471: HTTP 200 in 1796 ms
+2026-11-16 12:07:46.684 INFO  [api-2] c.a.r.RaterValidationRunner - 7472: HTTP 200 in 1853 ms
+2026-11-16 12:07:47.958 INFO  [api-3] c.a.r.RaterValidationRunner - 7473: HTTP 200 in 1789 ms
+2026-11-16 12:07:48.070 INFO  [api-4] c.a.r.RaterValidationRunner - 7474: HTTP 200 in 1709 ms
+2026-11-16 12:07:48.355 INFO  [api-1] c.a.r.RaterValidationRunner - 7475: HTTP 200 in 1767 ms
+2026-11-16 12:07:48.466 INFO  [api-2] c.a.r.RaterValidationRunner - 7476: HTTP 200 in 1763 ms
+2026-11-16 12:07:49.820 INFO  [api-3] c.a.r.RaterValidationRunner - 7477: HTTP 200 in 1848 ms
+2026-11-16 12:07:49.830 INFO  [api-4] c.a.r.RaterValidationRunner - 7478: HTTP 200 in 1753 ms
+2026-11-16 12:07:50.111 INFO  [api-1] c.a.r.RaterValidationRunner - 7479: HTTP 200 in 1734 ms
+2026-11-16 12:07:50.229 INFO  [api-2] c.a.r.RaterValidationRunner - 7480: HTTP 200 in 1739 ms
+2026-11-16 12:07:51.575 INFO  [api-4] c.a.r.RaterValidationRunner - 7482: HTTP 200 in 1719 ms
+2026-11-16 12:07:51.615 INFO  [api-3] c.a.r.RaterValidationRunner - 7481: HTTP 200 in 1785 ms
+2026-11-16 12:07:51.804 INFO  [api-1] c.a.r.RaterValidationRunner - 7483: HTTP 200 in 1686 ms
+2026-11-16 12:07:51.978 INFO  [api-2] c.a.r.RaterValidationRunner - 7484: HTTP 200 in 1748 ms
+2026-11-16 12:07:53.312 INFO  [api-4] c.a.r.RaterValidationRunner - 7485: HTTP 200 in 1731 ms
+2026-11-16 12:07:53.312 INFO  [api-4] c.a.r.RaterValidationRunner - API: 245/711 done (1 min elapsed, about 4 min left)
+2026-11-16 12:07:53.398 INFO  [api-3] c.a.r.RaterValidationRunner - 7486: HTTP 200 in 1750 ms
+2026-11-16 12:07:53.608 INFO  [api-1] c.a.r.RaterValidationRunner - 7487: HTTP 200 in 1789 ms
+2026-11-16 12:07:53.772 INFO  [api-2] c.a.r.RaterValidationRunner - 7488: HTTP 200 in 1760 ms
+2026-11-16 12:07:54.033 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 490/711 done (1 min elapsed, about 1 min left)
+2026-11-16 12:07:55.085 INFO  [api-4] c.a.r.RaterValidationRunner - 7489: HTTP 200 in 1751 ms
+2026-11-16 12:07:55.177 INFO  [api-3] c.a.r.RaterValidationRunner - 7490: HTTP 200 in 1766 ms
+2026-11-16 12:07:55.405 INFO  [api-1] c.a.r.RaterValidationRunner - 7491: HTTP 200 in 1781 ms
+2026-11-16 12:07:55.507 INFO  [api-2] c.a.r.RaterValidationRunner - 7492: HTTP 200 in 1718 ms
+2026-11-16 12:07:56.877 INFO  [api-4] c.a.r.RaterValidationRunner - 7493: HTTP 200 in 1777 ms
+2026-11-16 12:07:56.926 INFO  [api-3] c.a.r.RaterValidationRunner - 7494: HTTP 200 in 1729 ms
+2026-11-16 12:07:57.208 INFO  [api-1] c.a.r.RaterValidationRunner - 7495: HTTP 200 in 1788 ms
+2026-11-16 12:07:57.247 INFO  [api-2] c.a.r.RaterValidationRunner - 7496: HTTP 200 in 1735 ms
+2026-11-16 12:07:58.682 INFO  [api-3] c.a.r.RaterValidationRunner - 7498: HTTP 200 in 1742 ms
+2026-11-16 12:07:58.695 INFO  [api-4] c.a.r.RaterValidationRunner - 7497: HTTP 200 in 1803 ms
+2026-11-16 12:07:58.940 INFO  [api-1] c.a.r.RaterValidationRunner - 7499: HTTP 200 in 1727 ms
+2026-11-16 12:07:59.049 INFO  [api-2] c.a.r.RaterValidationRunner - 7500: HTTP 200 in 1782 ms
+2026-11-16 12:08:00.475 INFO  [api-3] c.a.r.RaterValidationRunner - 7501: HTTP 200 in 1789 ms
+2026-11-16 12:08:00.527 INFO  [api-4] c.a.r.RaterValidationRunner - 7502: HTTP 200 in 1812 ms
+2026-11-16 12:08:00.800 INFO  [api-1] c.a.r.RaterValidationRunner - 7503: HTTP 200 in 1835 ms
+2026-11-16 12:08:00.895 INFO  [api-2] c.a.r.RaterValidationRunner - 7504: HTTP 200 in 1832 ms
+2026-11-16 12:08:01.029 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 525/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:02.309 INFO  [api-3] c.a.r.RaterValidationRunner - 7505: HTTP 200 in 1818 ms
+2026-11-16 12:08:02.342 INFO  [api-4] c.a.r.RaterValidationRunner - 7506: HTTP 200 in 1810 ms
+2026-11-16 12:08:02.535 INFO  [api-1] c.a.r.RaterValidationRunner - 7507: HTTP 200 in 1723 ms
+2026-11-16 12:08:02.680 INFO  [api-2] c.a.r.RaterValidationRunner - 7508: HTTP 200 in 1771 ms
+2026-11-16 12:08:04.112 INFO  [api-4] c.a.r.RaterValidationRunner - 7510: HTTP 200 in 1741 ms
+2026-11-16 12:08:04.112 INFO  [api-3] c.a.r.RaterValidationRunner - 7509: HTTP 200 in 1788 ms
+2026-11-16 12:08:04.277 INFO  [api-1] c.a.r.RaterValidationRunner - 7511: HTTP 200 in 1736 ms
+2026-11-16 12:08:04.457 INFO  [api-2] c.a.r.RaterValidationRunner - 7512: HTTP 200 in 1759 ms
+2026-11-16 12:08:05.996 INFO  [api-4] c.a.r.RaterValidationRunner - 7513: HTTP 200 in 1876 ms
+2026-11-16 12:08:06.095 INFO  [api-3] c.a.r.RaterValidationRunner - 7514: HTTP 200 in 1965 ms
+2026-11-16 12:08:06.195 INFO  [api-1] c.a.r.RaterValidationRunner - 7515: HTTP 200 in 1892 ms
+2026-11-16 12:08:06.259 INFO  [api-2] c.a.r.RaterValidationRunner - 7516: HTTP 200 in 1762 ms
+2026-11-16 12:08:07.859 INFO  [api-3] c.a.r.RaterValidationRunner - 7518: HTTP 200 in 1744 ms
+2026-11-16 12:08:07.889 INFO  [api-4] c.a.r.RaterValidationRunner - 7517: HTTP 200 in 1880 ms
+2026-11-16 12:08:07.938 INFO  [api-1] c.a.r.RaterValidationRunner - 7519: HTTP 200 in 1737 ms
+2026-11-16 12:08:08.074 INFO  [api-2] c.a.r.RaterValidationRunner - 7520: HTTP 200 in 1799 ms
+2026-11-16 12:08:08.074 INFO  [api-2] c.a.r.RaterValidationRunner - API: 280/711 done (2 min elapsed, about 4 min left)
+2026-11-16 12:08:08.140 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 560/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:09.752 INFO  [api-4] c.a.r.RaterValidationRunner - 7522: HTTP 200 in 1842 ms
+2026-11-16 12:08:09.757 INFO  [api-3] c.a.r.RaterValidationRunner - 7521: HTTP 200 in 1884 ms
+2026-11-16 12:08:09.763 INFO  [api-1] c.a.r.RaterValidationRunner - 7523: HTTP 200 in 1815 ms
+2026-11-16 12:08:09.838 INFO  [api-2] c.a.r.RaterValidationRunner - 7524: HTTP 200 in 1764 ms
+2026-11-16 12:08:11.472 INFO  [api-4] c.a.r.RaterValidationRunner - 7525: HTTP 200 in 1703 ms
+2026-11-16 12:08:11.498 INFO  [api-3] c.a.r.RaterValidationRunner - 7526: HTTP 200 in 1728 ms
+2026-11-16 12:08:11.571 INFO  [api-1] c.a.r.RaterValidationRunner - 7527: HTTP 200 in 1802 ms
+2026-11-16 12:08:11.611 INFO  [api-2] c.a.r.RaterValidationRunner - 7528: HTTP 200 in 1749 ms
+2026-11-16 12:08:13.269 INFO  [api-4] c.a.r.RaterValidationRunner - 7529: HTTP 200 in 1792 ms
+2026-11-16 12:08:13.449 INFO  [api-1] c.a.r.RaterValidationRunner - 7531: HTTP 200 in 1853 ms
+2026-11-16 12:08:13.491 INFO  [api-2] c.a.r.RaterValidationRunner - 7532: HTTP 200 in 1866 ms
+2026-11-16 12:08:13.537 INFO  [api-3] c.a.r.RaterValidationRunner - 7530: HTTP 200 in 2033 ms
+2026-11-16 12:08:13.893 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 595/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:15.140 INFO  [api-4] c.a.r.RaterValidationRunner - 7533: HTTP 200 in 1863 ms
+2026-11-16 12:08:15.374 INFO  [api-3] c.a.r.RaterValidationRunner - 7536: HTTP 200 in 1809 ms
+2026-11-16 12:08:15.374 INFO  [api-1] c.a.r.RaterValidationRunner - 7534: HTTP 200 in 1915 ms
+2026-11-16 12:08:16.589 INFO  [api-2] c.a.r.RaterValidationRunner - 7535: HTTP 200 in 3095 ms
+2026-11-16 12:08:16.959 INFO  [api-4] c.a.r.RaterValidationRunner - 7537: HTTP 200 in 1803 ms
+2026-11-16 12:08:17.121 INFO  [api-1] c.a.r.RaterValidationRunner - 7539: HTTP 200 in 1727 ms
+2026-11-16 12:08:17.159 INFO  [api-3] c.a.r.RaterValidationRunner - 7538: HTTP 200 in 1778 ms
+2026-11-16 12:08:18.369 INFO  [api-2] c.a.r.RaterValidationRunner - 7540: HTTP 200 in 1767 ms
+2026-11-16 12:08:18.731 INFO  [api-4] c.a.r.RaterValidationRunner - 7541: HTTP 200 in 1752 ms
+2026-11-16 12:08:18.908 INFO  [api-1] c.a.r.RaterValidationRunner - 7542: HTTP 200 in 1779 ms
+2026-11-16 12:08:19.026 INFO  [api-3] c.a.r.RaterValidationRunner - 7543: HTTP 200 in 1850 ms
+2026-11-16 12:08:19.954 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 630/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:20.142 INFO  [api-2] c.a.r.RaterValidationRunner - 7544: HTTP 200 in 1753 ms
+2026-11-16 12:08:20.498 INFO  [api-4] c.a.r.RaterValidationRunner - 7545: HTTP 200 in 1754 ms
+2026-11-16 12:08:20.759 INFO  [api-3] c.a.r.RaterValidationRunner - 7547: HTTP 200 in 1717 ms
+2026-11-16 12:08:20.806 INFO  [api-1] c.a.r.RaterValidationRunner - 7546: HTTP 200 in 1875 ms
+2026-11-16 12:08:22.056 INFO  [api-2] c.a.r.RaterValidationRunner - 7548: HTTP 200 in 1885 ms
+2026-11-16 12:08:22.293 INFO  [api-4] c.a.r.RaterValidationRunner - 7549: HTTP 200 in 1785 ms
+2026-11-16 12:08:22.525 INFO  [api-3] c.a.r.RaterValidationRunner - 7550: HTTP 200 in 1753 ms
+2026-11-16 12:08:22.543 INFO  [api-1] c.a.r.RaterValidationRunner - 7551: HTTP 200 in 1725 ms
+2026-11-16 12:08:23.915 INFO  [api-2] c.a.r.RaterValidationRunner - 7552: HTTP 200 in 1839 ms
+2026-11-16 12:08:24.059 INFO  [api-4] c.a.r.RaterValidationRunner - 7553: HTTP 200 in 1753 ms
+2026-11-16 12:08:24.318 INFO  [api-3] c.a.r.RaterValidationRunner - 7554: HTTP 200 in 1782 ms
+2026-11-16 12:08:24.354 INFO  [api-1] c.a.r.RaterValidationRunner - 7555: HTTP 200 in 1797 ms
+2026-11-16 12:08:24.354 INFO  [api-1] c.a.r.RaterValidationRunner - API: 315/711 done (2 min elapsed, about 4 min left)
+2026-11-16 12:08:25.732 INFO  [api-2] c.a.r.RaterValidationRunner - 7556: HTTP 200 in 1802 ms
+2026-11-16 12:08:25.930 INFO  [api-4] c.a.r.RaterValidationRunner - 7557: HTTP 200 in 1849 ms
+2026-11-16 12:08:26.095 INFO  [api-3] c.a.r.RaterValidationRunner - 7558: HTTP 200 in 1766 ms
+2026-11-16 12:08:26.136 INFO  [api-1] c.a.r.RaterValidationRunner - 7559: HTTP 200 in 1756 ms
+2026-11-16 12:08:26.993 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 665/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:27.522 INFO  [api-2] c.a.r.RaterValidationRunner - 7560: HTTP 200 in 1778 ms
+2026-11-16 12:08:27.668 INFO  [api-4] c.a.r.RaterValidationRunner - 7561: HTTP 200 in 1734 ms
+2026-11-16 12:08:27.908 INFO  [api-3] c.a.r.RaterValidationRunner - 7562: HTTP 200 in 1801 ms
+2026-11-16 12:08:27.939 INFO  [api-1] c.a.r.RaterValidationRunner - 7563: HTTP 200 in 1801 ms
+2026-11-16 12:08:29.317 INFO  [api-2] c.a.r.RaterValidationRunner - 7564: HTTP 200 in 1787 ms
+2026-11-16 12:08:29.469 INFO  [api-4] c.a.r.RaterValidationRunner - 7565: HTTP 200 in 1791 ms
+2026-11-16 12:08:29.675 INFO  [api-3] c.a.r.RaterValidationRunner - 7566: HTTP 200 in 1749 ms
+2026-11-16 12:08:29.685 INFO  [api-1] c.a.r.RaterValidationRunner - 7567: HTTP 200 in 1739 ms
+2026-11-16 12:08:31.198 INFO  [api-2] c.a.r.RaterValidationRunner - 7568: HTTP 200 in 1860 ms
+2026-11-16 12:08:31.276 INFO  [api-4] c.a.r.RaterValidationRunner - 7569: HTTP 200 in 1778 ms
+2026-11-16 12:08:31.374 INFO  [api-3] c.a.r.RaterValidationRunner - 7570: HTTP 200 in 1683 ms
+2026-11-16 12:08:31.522 INFO  [api-1] c.a.r.RaterValidationRunner - 7571: HTTP 200 in 1820 ms
+2026-11-16 12:08:33.063 INFO  [api-2] c.a.r.RaterValidationRunner - 7572: HTTP 200 in 1839 ms
+2026-11-16 12:08:33.076 INFO  [api-4] c.a.r.RaterValidationRunner - 7573: HTTP 200 in 1777 ms
+2026-11-16 12:08:33.104 INFO  [api-3] c.a.r.RaterValidationRunner - 7574: HTTP 200 in 1711 ms
+2026-11-16 12:08:33.307 INFO  [api-1] c.a.r.RaterValidationRunner - 7575: HTTP 200 in 1764 ms
+2026-11-16 12:08:33.558 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 700/711 done (2 min elapsed, about 1 min left)
+2026-11-16 12:08:34.830 INFO  [api-2] c.a.r.RaterValidationRunner - 7576: HTTP 200 in 1742 ms
+2026-11-16 12:08:34.880 INFO  [api-4] c.a.r.RaterValidationRunner - 7577: HTTP 200 in 1786 ms
+2026-11-16 12:08:34.892 INFO  [api-3] c.a.r.RaterValidationRunner - 7578: HTTP 200 in 1773 ms
+2026-11-16 12:08:35.091 INFO  [api-1] c.a.r.RaterValidationRunner - 7579: HTTP 200 in 1758 ms
+2026-11-16 12:08:35.554 INFO  [rater] c.a.r.RaterValidationRunner - Rater: 711/711 done (2 min elapsed, about 0 min left)
+2026-11-16 12:08:36.646 INFO  [api-2] c.a.r.RaterValidationRunner - 7580: HTTP 200 in 1791 ms
+2026-11-16 12:08:36.718 INFO  [api-3] c.a.r.RaterValidationRunner - 7582: HTTP 200 in 1787 ms
+2026-11-16 12:08:36.722 INFO  [api-4] c.a.r.RaterValidationRunner - 7581: HTTP 200 in 1808 ms
+2026-11-16 12:08:36.767 INFO  [rater] c.a.rater.PowerShellRunner - Recalculated 711 test case(s) -> D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261116_120530\working\rater-expected.json
+2026-11-16 12:08:37.027 INFO  [api-1] c.a.r.RaterValidationRunner - 7583: HTTP 200 in 1799 ms
+2026-11-16 12:08:37.290 INFO  [rater] c.a.rater.RaterWorkbook - Expected values calculated for 711 test case(s)
+2026-11-16 12:08:38.434 INFO  [api-2] c.a.r.RaterValidationRunner - 7584: HTTP 200 in 1757 ms
+2026-11-16 12:08:38.536 INFO  [api-3] c.a.r.RaterValidationRunner - 7585: HTTP 200 in 1795 ms
+2026-11-16 12:08:38.538 INFO  [api-4] c.a.r.RaterValidationRunner - 7586: HTTP 200 in 1791 ms
+2026-11-16 12:08:39.012 INFO  [api-1] c.a.r.RaterValidationRunner - 7587: HTTP 200 in 1959 ms
+2026-11-16 12:08:40.260 INFO  [api-2] c.a.r.RaterValidationRunner - 7588: HTTP 200 in 1803 ms
+2026-11-16 12:08:40.327 INFO  [api-4] c.a.r.RaterValidationRunner - 7590: HTTP 200 in 1766 ms
+2026-11-16 12:08:40.379 INFO  [api-3] c.a.r.RaterValidationRunner - 7589: HTTP 200 in 1801 ms
+2026-11-16 12:08:40.379 INFO  [api-3] c.a.r.RaterValidationRunner - API: 350/711 done (2 min elapsed, about 3 min left)
+2026-11-16 12:08:40.769 INFO  [api-1] c.a.r.RaterValidationRunner - 7591: HTTP 200 in 1735 ms
+2026-11-16 12:08:42.000 INFO  [api-2] c.a.r.RaterValidationRunner - 7592: HTTP 200 in 1720 ms
+2026-11-16 12:08:42.108 INFO  [api-4] c.a.r.RaterValidationRunner - 7593: HTTP 200 in 1758 ms
+2026-11-16 12:08:42.252 INFO  [api-3] c.a.r.RaterValidationRunner - 7594: HTTP 200 in 1858 ms
+2026-11-16 12:08:42.700 INFO  [api-1] c.a.r.RaterValidationRunner - 7595: HTTP 200 in 1915 ms
+2026-11-16 12:08:43.782 INFO  [api-2] c.a.r.RaterValidationRunner - 7596: HTTP 200 in 1762 ms
+2026-11-16 12:08:43.941 INFO  [api-4] c.a.r.RaterValidationRunner - 7597: HTTP 200 in 1808 ms
+2026-11-16 12:08:44.021 INFO  [api-3] c.a.r.RaterValidationRunner - 7598: HTTP 200 in 1746 ms
+2026-11-16 12:08:44.471 INFO  [api-1] c.a.r.RaterValidationRunner - 7599: HTTP 200 in 1746 ms
+2026-11-16 12:08:45.562 INFO  [api-2] c.a.r.RaterValidationRunner - 7600: HTTP 200 in 1762 ms
+2026-11-16 12:08:45.746 INFO  [api-4] c.a.r.RaterValidationRunner - 7601: HTTP 200 in 1785 ms
+2026-11-16 12:08:45.846 INFO  [api-3] c.a.r.RaterValidationRunner - 7602: HTTP 200 in 1809 ms
+2026-11-16 12:08:46.226 INFO  [api-1] c.a.r.RaterValidationRunner - 7603: HTTP 200 in 1736 ms
+2026-11-16 12:08:47.305 INFO  [api-2] c.a.r.RaterValidationRunner - 7604: HTTP 200 in 1721 ms
+2026-11-16 12:08:47.525 INFO  [api-4] c.a.r.RaterValidationRunner - 7605: HTTP 200 in 1760 ms
+2026-11-16 12:08:47.694 INFO  [api-3] c.a.r.RaterValidationRunner - 7606: HTTP 200 in 1832 ms
+2026-11-16 12:08:48.063 INFO  [api-1] c.a.r.RaterValidationRunner - 7607: HTTP 200 in 1824 ms
+2026-11-16 12:08:49.041 INFO  [api-2] c.a.r.RaterValidationRunner - 7608: HTTP 200 in 1723 ms
+2026-11-16 12:08:49.277 INFO  [api-4] c.a.r.RaterValidationRunner - 7609: HTTP 200 in 1737 ms
+2026-11-16 12:08:49.515 INFO  [api-3] c.a.r.RaterValidationRunner - 7610: HTTP 200 in 1806 ms
+2026-11-16 12:08:49.854 INFO  [api-1] c.a.r.RaterValidationRunner - 7611: HTTP 200 in 1777 ms
+2026-11-16 12:08:50.840 INFO  [api-2] c.a.r.RaterValidationRunner - 7612: HTTP 200 in 1784 ms
+2026-11-16 12:08:51.103 INFO  [api-4] c.a.r.RaterValidationRunner - 7613: HTTP 200 in 1776 ms
+2026-11-16 12:08:51.295 INFO  [api-3] c.a.r.RaterValidationRunner - 7614: HTTP 200 in 1748 ms
+2026-11-16 12:08:51.634 INFO  [api-1] c.a.r.RaterValidationRunner - 7615: HTTP 200 in 1760 ms
+2026-11-16 12:08:52.577 INFO  [api-2] c.a.r.RaterValidationRunner - 7616: HTTP 200 in 1724 ms
+2026-11-16 12:08:52.963 INFO  [api-4] c.a.r.RaterValidationRunner - 7617: HTTP 200 in 1785 ms
+2026-11-16 12:08:53.027 INFO  [api-3] c.a.r.RaterValidationRunner - 7618: HTTP 200 in 1713 ms
+2026-11-16 12:08:53.408 INFO  [api-1] c.a.r.RaterValidationRunner - 7619: HTTP 200 in 1754 ms
+2026-11-16 12:08:54.309 INFO  [api-2] c.a.r.RaterValidationRunner - 7620: HTTP 200 in 1718 ms
+2026-11-16 12:08:54.736 INFO  [api-4] c.a.r.RaterValidationRunner - 7621: HTTP 200 in 1763 ms
+2026-11-16 12:08:54.792 INFO  [api-3] c.a.r.RaterValidationRunner - 7622: HTTP 200 in 1760 ms
+2026-11-16 12:08:55.138 INFO  [api-1] c.a.r.RaterValidationRunner - 7623: HTTP 200 in 1707 ms
+2026-11-16 12:08:56.102 INFO  [api-2] c.a.r.RaterValidationRunner - 7624: HTTP 200 in 1775 ms
+2026-11-16 12:08:56.497 INFO  [api-3] c.a.r.RaterValidationRunner - 7626: HTTP 200 in 1699 ms
+2026-11-16 12:08:56.498 INFO  [api-3] c.a.r.RaterValidationRunner - API: 385/711 done (3 min elapsed, about 3 min left)
+2026-11-16 12:08:56.509 INFO  [api-4] c.a.r.RaterValidationRunner - 7625: HTTP 200 in 1763 ms
+2026-11-16 12:08:56.893 INFO  [api-1] c.a.r.RaterValidationRunner - 7627: HTTP 200 in 1748 ms
+2026-11-16 12:08:57.853 INFO  [api-2] c.a.r.RaterValidationRunner - 7628: HTTP 200 in 1735 ms
+2026-11-16 12:08:58.287 INFO  [api-3] c.a.r.RaterValidationRunner - 7629: HTTP 200 in 1761 ms
+2026-11-16 12:08:58.298 INFO  [api-4] c.a.r.RaterValidationRunner - 7630: HTTP 200 in 1775 ms
+2026-11-16 12:08:58.653 INFO  [api-1] c.a.r.RaterValidationRunner - 7631: HTTP 200 in 1741 ms
+2026-11-16 12:08:59.640 INFO  [api-2] c.a.r.RaterValidationRunner - 7632: HTTP 200 in 1780 ms
+2026-11-16 12:09:00.031 INFO  [api-3] c.a.r.RaterValidationRunner - 7633: HTTP 200 in 1738 ms
+2026-11-16 12:09:00.100 INFO  [api-4] c.a.r.RaterValidationRunner - 7634: HTTP 200 in 1780 ms
+2026-11-16 12:09:00.458 INFO  [api-1] c.a.r.RaterValidationRunner - 7635: HTTP 200 in 1788 ms
+2026-11-16 12:09:01.439 INFO  [api-2] c.a.r.RaterValidationRunner - 7636: HTTP 200 in 1789 ms
+2026-11-16 12:09:01.771 INFO  [api-3] c.a.r.RaterValidationRunner - 7637: HTTP 200 in 1731 ms
+2026-11-16 12:09:01.855 INFO  [api-4] c.a.r.RaterValidationRunner - 7638: HTTP 200 in 1750 ms
+2026-11-16 12:09:02.241 INFO  [api-1] c.a.r.RaterValidationRunner - 7639: HTTP 200 in 1770 ms
+2026-11-16 12:09:03.329 INFO  [api-2] c.a.r.RaterValidationRunner - 7640: HTTP 200 in 1867 ms
+2026-11-16 12:09:03.592 INFO  [api-3] c.a.r.RaterValidationRunner - 7641: HTTP 200 in 1798 ms
+2026-11-16 12:09:03.634 INFO  [api-4] c.a.r.RaterValidationRunner - 7642: HTTP 200 in 1754 ms
+2026-11-16 12:09:03.957 INFO  [api-1] c.a.r.RaterValidationRunner - 7643: HTTP 200 in 1705 ms
+2026-11-16 12:09:05.119 INFO  [api-2] c.a.r.RaterValidationRunner - 7644: HTTP 200 in 1781 ms
+2026-11-16 12:09:05.375 INFO  [api-3] c.a.r.RaterValidationRunner - 7645: HTTP 200 in 1772 ms
+2026-11-16 12:09:05.399 INFO  [api-4] c.a.r.RaterValidationRunner - 7646: HTTP 200 in 1743 ms
+2026-11-16 12:09:05.738 INFO  [api-1] c.a.r.RaterValidationRunner - 7647: HTTP 200 in 1763 ms
+2026-11-16 12:09:06.921 INFO  [api-2] c.a.r.RaterValidationRunner - 7648: HTTP 200 in 1802 ms
+2026-11-16 12:09:07.136 INFO  [api-3] c.a.r.RaterValidationRunner - 7649: HTTP 200 in 1733 ms
+2026-11-16 12:09:07.180 INFO  [api-4] c.a.r.RaterValidationRunner - 7650: HTTP 200 in 1761 ms
+2026-11-16 12:09:07.530 INFO  [api-1] c.a.r.RaterValidationRunner - 7651: HTTP 200 in 1768 ms
+2026-11-16 12:09:08.767 INFO  [api-2] c.a.r.RaterValidationRunner - 7652: HTTP 200 in 1822 ms
+2026-11-16 12:09:08.920 INFO  [api-3] c.a.r.RaterValidationRunner - 7653: HTTP 200 in 1771 ms
+2026-11-16 12:09:08.961 INFO  [api-4] c.a.r.RaterValidationRunner - 7654: HTTP 200 in 1764 ms
+2026-11-16 12:09:09.256 INFO  [api-1] c.a.r.RaterValidationRunner - 7655: HTTP 200 in 1712 ms
+2026-11-16 12:09:10.524 INFO  [api-2] c.a.r.RaterValidationRunner - 7656: HTTP 200 in 1745 ms
+2026-11-16 12:09:10.658 INFO  [api-3] c.a.r.RaterValidationRunner - 7657: HTTP 200 in 1722 ms
+2026-11-16 12:09:10.700 INFO  [api-4] c.a.r.RaterValidationRunner - 7658: HTTP 200 in 1739 ms
+2026-11-16 12:09:11.007 INFO  [api-1] c.a.r.RaterValidationRunner - 7659: HTTP 200 in 1746 ms
+2026-11-16 12:09:12.342 INFO  [api-2] c.a.r.RaterValidationRunner - 7660: HTTP 200 in 1797 ms
+2026-11-16 12:09:12.342 INFO  [api-2] c.a.r.RaterValidationRunner - API: 420/711 done (3 min elapsed, about 3 min left)
+2026-11-16 12:09:12.394 INFO  [api-3] c.a.r.RaterValidationRunner - 7661: HTTP 200 in 1722 ms
+2026-11-16 12:09:12.455 INFO  [api-4] c.a.r.RaterValidationRunner - 7662: HTTP 200 in 1729 ms
+2026-11-16 12:09:12.768 INFO  [api-1] c.a.r.RaterValidationRunner - 7663: HTTP 200 in 1739 ms
+2026-11-16 12:09:14.163 INFO  [api-2] c.a.r.RaterValidationRunner - 7664: HTTP 200 in 1797 ms
+2026-11-16 12:09:14.262 INFO  [api-3] c.a.r.RaterValidationRunner - 7665: HTTP 200 in 1836 ms
+2026-11-16 12:09:14.273 INFO  [api-4] c.a.r.RaterValidationRunner - 7666: HTTP 200 in 1796 ms
+2026-11-16 12:09:14.463 INFO  [api-1] c.a.r.RaterValidationRunner - 7667: HTTP 200 in 1665 ms
+2026-11-16 12:09:15.897 INFO  [api-2] c.a.r.RaterValidationRunner - 7668: HTTP 200 in 1724 ms
+2026-11-16 12:09:16.006 INFO  [api-3] c.a.r.RaterValidationRunner - 7669: HTTP 200 in 1733 ms
+2026-11-16 12:09:16.044 INFO  [api-4] c.a.r.RaterValidationRunner - 7670: HTTP 200 in 1758 ms
+2026-11-16 12:09:16.245 INFO  [api-1] c.a.r.RaterValidationRunner - 7671: HTTP 200 in 1752 ms
+2026-11-16 12:09:17.817 INFO  [api-3] c.a.r.RaterValidationRunner - 7673: HTTP 200 in 1793 ms
+2026-11-16 12:09:18.053 INFO  [api-1] c.a.r.RaterValidationRunner - 7675: HTTP 200 in 1803 ms
+2026-11-16 12:09:18.818 INFO  [api-2] c.a.r.RaterValidationRunner - 7672: HTTP 200 in 2907 ms
+2026-11-16 12:09:19.090 INFO  [api-4] c.a.r.RaterValidationRunner - 7674: HTTP 200 in 3046 ms
+2026-11-16 12:09:19.799 INFO  [api-3] c.a.r.RaterValidationRunner - 7676: HTTP 200 in 1969 ms
+2026-11-16 12:09:19.908 INFO  [api-1] c.a.r.RaterValidationRunner - 7677: HTTP 200 in 1838 ms
+2026-11-16 12:09:20.582 INFO  [api-2] c.a.r.RaterValidationRunner - 7678: HTTP 200 in 1736 ms
+2026-11-16 12:09:20.885 INFO  [api-4] c.a.r.RaterValidationRunner - 7679: HTTP 200 in 1778 ms
+2026-11-16 12:09:21.606 INFO  [api-3] c.a.r.RaterValidationRunner - 7680: HTTP 200 in 1795 ms
+2026-11-16 12:09:21.688 INFO  [api-1] c.a.r.RaterValidationRunner - 7681: HTTP 200 in 1763 ms
+2026-11-16 12:09:22.324 INFO  [api-2] c.a.r.RaterValidationRunner - 7682: HTTP 200 in 1711 ms
+2026-11-16 12:09:22.631 INFO  [api-4] c.a.r.RaterValidationRunner - 7683: HTTP 200 in 1729 ms
+2026-11-16 12:09:23.362 INFO  [api-3] c.a.r.RaterValidationRunner - 7684: HTTP 200 in 1733 ms
+2026-11-16 12:09:23.446 INFO  [api-1] c.a.r.RaterValidationRunner - 7685: HTTP 200 in 1748 ms
+2026-11-16 12:09:24.124 INFO  [api-2] c.a.r.RaterValidationRunner - 7686: HTTP 200 in 1780 ms
+2026-11-16 12:09:24.465 INFO  [api-4] c.a.r.RaterValidationRunner - 7687: HTTP 200 in 1797 ms
+2026-11-16 12:09:25.107 INFO  [api-3] c.a.r.RaterValidationRunner - 7688: HTTP 200 in 1729 ms
+2026-11-16 12:09:25.241 INFO  [api-1] c.a.r.RaterValidationRunner - 7689: HTTP 200 in 1779 ms
+2026-11-16 12:09:25.879 INFO  [api-2] c.a.r.RaterValidationRunner - 7690: HTTP 200 in 1744 ms
+2026-11-16 12:09:26.293 INFO  [api-4] c.a.r.RaterValidationRunner - 7691: HTTP 200 in 1799 ms
+2026-11-16 12:09:26.923 INFO  [api-3] c.a.r.RaterValidationRunner - 7692: HTTP 200 in 1788 ms
+2026-11-16 12:09:27.024 INFO  [api-1] c.a.r.RaterValidationRunner - 7693: HTTP 200 in 1763 ms
+2026-11-16 12:09:27.712 INFO  [api-2] c.a.r.RaterValidationRunner - 7694: HTTP 200 in 1810 ms
+2026-11-16 12:09:28.012 INFO  [api-4] c.a.r.RaterValidationRunner - 7695: HTTP 200 in 1713 ms
+2026-11-16 12:09:28.012 INFO  [api-4] c.a.r.RaterValidationRunner - API: 455/711 done (3 min elapsed, about 2 min left)
+2026-11-16 12:09:28.681 INFO  [api-3] c.a.r.RaterValidationRunner - 7696: HTTP 200 in 1741 ms
+2026-11-16 12:09:28.955 INFO  [api-1] c.a.r.RaterValidationRunner - 7697: HTTP 200 in 1914 ms
+2026-11-16 12:09:29.536 INFO  [api-2] c.a.r.RaterValidationRunner - 7698: HTTP 200 in 1804 ms
+2026-11-16 12:09:29.920 INFO  [api-4] c.a.r.RaterValidationRunner - 7699: HTTP 200 in 1876 ms
+2026-11-16 12:09:30.427 INFO  [api-3] c.a.r.RaterValidationRunner - 7700: HTTP 200 in 1722 ms
+2026-11-16 12:09:30.709 INFO  [api-1] c.a.r.RaterValidationRunner - 7701: HTTP 200 in 1731 ms
+2026-11-16 12:09:31.315 INFO  [api-2] c.a.r.RaterValidationRunner - 7702: HTTP 200 in 1752 ms
+2026-11-16 12:09:31.744 INFO  [api-4] c.a.r.RaterValidationRunner - 7703: HTTP 200 in 1819 ms
+2026-11-16 12:09:32.206 INFO  [api-3] c.a.r.RaterValidationRunner - 7704: HTTP 200 in 1760 ms
+2026-11-16 12:09:32.625 INFO  [api-1] c.a.r.RaterValidationRunner - 7705: HTTP 200 in 1865 ms
+2026-11-16 12:09:33.044 INFO  [api-2] c.a.r.RaterValidationRunner - 7706: HTTP 200 in 1699 ms
+2026-11-16 12:09:33.593 INFO  [api-4] c.a.r.RaterValidationRunner - 7707: HTTP 200 in 1822 ms
+2026-11-16 12:09:33.977 INFO  [api-3] c.a.r.RaterValidationRunner - 7708: HTTP 200 in 1751 ms
+2026-11-16 12:09:34.533 INFO  [api-1] c.a.r.RaterValidationRunner - 7709: HTTP 200 in 1873 ms
+2026-11-16 12:09:34.876 INFO  [api-2] c.a.r.RaterValidationRunner - 7710: HTTP 200 in 1804 ms
+2026-11-16 12:09:35.381 INFO  [api-4] c.a.r.RaterValidationRunner - 7711: HTTP 200 in 1779 ms
+2026-11-16 12:09:35.710 INFO  [api-3] c.a.r.RaterValidationRunner - 7712: HTTP 200 in 1716 ms
+2026-11-16 12:09:36.360 INFO  [api-1] c.a.r.RaterValidationRunner - 7713: HTTP 200 in 1807 ms
+2026-11-16 12:09:36.632 INFO  [api-2] c.a.r.RaterValidationRunner - 7714: HTTP 200 in 1752 ms
+2026-11-16 12:09:37.294 INFO  [api-4] c.a.r.RaterValidationRunner - 7715: HTTP 200 in 1902 ms
+2026-11-16 12:09:37.464 INFO  [api-3] c.a.r.RaterValidationRunner - 7716: HTTP 200 in 1753 ms
+2026-11-16 12:09:38.181 INFO  [api-1] c.a.r.RaterValidationRunner - 7717: HTTP 200 in 1797 ms
+2026-11-16 12:09:38.395 INFO  [api-2] c.a.r.RaterValidationRunner - 7718: HTTP 200 in 1750 ms
+2026-11-16 12:09:39.065 INFO  [api-4] c.a.r.RaterValidationRunner - 7719: HTTP 200 in 1747 ms
+2026-11-16 12:09:39.215 INFO  [api-3] c.a.r.RaterValidationRunner - 7720: HTTP 200 in 1730 ms
+2026-11-16 12:09:39.949 INFO  [api-1] c.a.r.RaterValidationRunner - 7721: HTTP 200 in 1751 ms
+2026-11-16 12:09:40.188 INFO  [api-2] c.a.r.RaterValidationRunner - 7722: HTTP 200 in 1757 ms
+2026-11-16 12:09:40.820 INFO  [api-4] c.a.r.RaterValidationRunner - 7723: HTTP 200 in 1736 ms
+2026-11-16 12:09:41.021 INFO  [api-3] c.a.r.RaterValidationRunner - 7724: HTTP 200 in 1806 ms
+2026-11-16 12:09:41.767 INFO  [api-1] c.a.r.RaterValidationRunner - 7725: HTTP 200 in 1807 ms
+2026-11-16 12:09:41.995 INFO  [api-2] c.a.r.RaterValidationRunner - 7726: HTTP 200 in 1789 ms
+2026-11-16 12:09:42.622 INFO  [api-4] c.a.r.RaterValidationRunner - 7727: HTTP 200 in 1797 ms
+2026-11-16 12:09:42.738 INFO  [api-3] c.a.r.RaterValidationRunner - 7728: HTTP 200 in 1708 ms
+2026-11-16 12:09:43.515 INFO  [api-1] c.a.r.RaterValidationRunner - 7729: HTTP 200 in 1728 ms
+2026-11-16 12:09:43.707 INFO  [api-2] c.a.r.RaterValidationRunner - 7730: HTTP 200 in 1705 ms
+2026-11-16 12:09:43.707 INFO  [api-2] c.a.r.RaterValidationRunner - API: 490/711 done (3 min elapsed, about 2 min left)
+2026-11-16 12:09:44.376 INFO  [api-4] c.a.r.RaterValidationRunner - 7731: HTTP 200 in 1747 ms
+2026-11-16 12:09:44.540 INFO  [api-3] c.a.r.RaterValidationRunner - 7732: HTTP 200 in 1769 ms
+2026-11-16 12:09:45.356 INFO  [api-1] c.a.r.RaterValidationRunner - 7733: HTTP 200 in 1825 ms
+2026-11-16 12:09:45.563 INFO  [api-2] c.a.r.RaterValidationRunner - 7734: HTTP 200 in 1833 ms
+2026-11-16 12:09:46.236 INFO  [api-4] c.a.r.RaterValidationRunner - 7735: HTTP 200 in 1844 ms
+2026-11-16 12:09:46.319 INFO  [api-3] c.a.r.RaterValidationRunner - 7736: HTTP 200 in 1767 ms
+2026-11-16 12:09:47.099 INFO  [api-1] c.a.r.RaterValidationRunner - 7737: HTTP 200 in 1728 ms
+2026-11-16 12:09:47.323 INFO  [api-2] c.a.r.RaterValidationRunner - 7738: HTTP 200 in 1742 ms
+2026-11-16 12:09:48.029 INFO  [api-4] c.a.r.RaterValidationRunner - 7739: HTTP 200 in 1782 ms
+2026-11-16 12:09:48.067 INFO  [api-3] c.a.r.RaterValidationRunner - 7740: HTTP 200 in 1724 ms
+2026-11-16 12:09:48.867 INFO  [api-1] c.a.r.RaterValidationRunner - 7741: HTTP 200 in 1754 ms
+2026-11-16 12:09:49.054 INFO  [api-2] c.a.r.RaterValidationRunner - 7742: HTTP 200 in 1704 ms
+2026-11-16 12:09:49.747 INFO  [api-4] c.a.r.RaterValidationRunner - 7743: HTTP 200 in 1697 ms
+2026-11-16 12:09:49.830 INFO  [api-3] c.a.r.RaterValidationRunner - 7744: HTTP 200 in 1746 ms
+2026-11-16 12:09:50.645 INFO  [api-1] c.a.r.RaterValidationRunner - 7745: HTTP 200 in 1754 ms
+2026-11-16 12:09:50.855 INFO  [api-2] c.a.r.RaterValidationRunner - 7746: HTTP 200 in 1768 ms
+2026-11-16 12:09:51.527 INFO  [api-4] c.a.r.RaterValidationRunner - 7747: HTTP 200 in 1765 ms
+2026-11-16 12:09:51.566 INFO  [api-3] c.a.r.RaterValidationRunner - 7748: HTTP 200 in 1711 ms
+2026-11-16 12:09:52.434 INFO  [api-1] c.a.r.RaterValidationRunner - 7749: HTTP 200 in 1781 ms
+2026-11-16 12:09:52.622 INFO  [api-2] c.a.r.RaterValidationRunner - 7750: HTTP 200 in 1767 ms
+2026-11-16 12:09:53.313 INFO  [api-3] c.a.r.RaterValidationRunner - 7752: HTTP 200 in 1734 ms
+2026-11-16 12:09:53.333 INFO  [api-4] c.a.r.RaterValidationRunner - 7751: HTTP 200 in 1784 ms
+2026-11-16 12:09:54.211 INFO  [api-1] c.a.r.RaterValidationRunner - 7753: HTTP 200 in 1748 ms
+2026-11-16 12:09:54.390 INFO  [api-2] c.a.r.RaterValidationRunner - 7754: HTTP 200 in 1744 ms
+2026-11-16 12:09:55.096 INFO  [api-3] c.a.r.RaterValidationRunner - 7755: HTTP 200 in 1769 ms
+2026-11-16 12:09:55.109 INFO  [api-4] c.a.r.RaterValidationRunner - 7756: HTTP 200 in 1769 ms
+2026-11-16 12:09:56.007 INFO  [api-1] c.a.r.RaterValidationRunner - 7757: HTTP 200 in 1777 ms
+2026-11-16 12:09:56.266 INFO  [api-2] c.a.r.RaterValidationRunner - 7758: HTTP 200 in 1857 ms
+2026-11-16 12:09:56.888 INFO  [api-4] c.a.r.RaterValidationRunner - 7760: HTTP 200 in 1752 ms
+2026-11-16 12:09:56.926 INFO  [api-3] c.a.r.RaterValidationRunner - 7759: HTTP 200 in 1807 ms
+2026-11-16 12:09:57.729 INFO  [api-1] c.a.r.RaterValidationRunner - 7761: HTTP 200 in 1696 ms
+2026-11-16 12:09:58.016 INFO  [api-2] c.a.r.RaterValidationRunner - 7762: HTTP 200 in 1717 ms
+2026-11-16 12:09:58.655 INFO  [api-4] c.a.r.RaterValidationRunner - 7763: HTTP 200 in 1758 ms
+2026-11-16 12:09:58.713 INFO  [api-3] c.a.r.RaterValidationRunner - 7764: HTTP 200 in 1764 ms
+2026-11-16 12:09:59.484 INFO  [api-1] c.a.r.RaterValidationRunner - 7765: HTTP 200 in 1729 ms
+2026-11-16 12:09:59.484 INFO  [api-1] c.a.r.RaterValidationRunner - API: 525/711 done (4 min elapsed, about 2 min left)
+2026-11-16 12:09:59.786 INFO  [api-2] c.a.r.RaterValidationRunner - 7766: HTTP 200 in 1755 ms
+2026-11-16 12:10:00.406 INFO  [api-4] c.a.r.RaterValidationRunner - 7767: HTTP 200 in 1731 ms
+2026-11-16 12:10:00.476 INFO  [api-3] c.a.r.RaterValidationRunner - 7768: HTTP 200 in 1743 ms
+2026-11-16 12:10:01.264 INFO  [api-1] c.a.r.RaterValidationRunner - 7769: HTTP 200 in 1766 ms
+2026-11-16 12:10:01.622 INFO  [api-2] c.a.r.RaterValidationRunner - 7770: HTTP 200 in 1814 ms
+2026-11-16 12:10:02.123 INFO  [api-4] c.a.r.RaterValidationRunner - 7771: HTTP 200 in 1704 ms
+2026-11-16 12:10:02.265 INFO  [api-3] c.a.r.RaterValidationRunner - 7772: HTTP 200 in 1767 ms
+2026-11-16 12:10:03.020 INFO  [api-1] c.a.r.RaterValidationRunner - 7773: HTTP 200 in 1728 ms
+2026-11-16 12:10:03.429 INFO  [api-2] c.a.r.RaterValidationRunner - 7774: HTTP 200 in 1799 ms
+2026-11-16 12:10:04.049 INFO  [api-3] c.a.r.RaterValidationRunner - 7776: HTTP 200 in 1754 ms
+2026-11-16 12:10:04.535 INFO  [api-4] c.a.r.RaterValidationRunner - 7775: HTTP 200 in 2382 ms
+2026-11-16 12:10:04.827 INFO  [api-1] c.a.r.RaterValidationRunner - 7777: HTTP 200 in 1775 ms
+2026-11-16 12:10:05.204 INFO  [api-2] c.a.r.RaterValidationRunner - 7778: HTTP 200 in 1747 ms
+2026-11-16 12:10:05.861 INFO  [api-3] c.a.r.RaterValidationRunner - 7779: HTTP 200 in 1780 ms
+2026-11-16 12:10:06.316 INFO  [api-4] c.a.r.RaterValidationRunner - 7780: HTTP 200 in 1753 ms
+2026-11-16 12:10:06.645 INFO  [api-1] c.a.r.RaterValidationRunner - 7781: HTTP 200 in 1803 ms
+2026-11-16 12:10:06.982 INFO  [api-2] c.a.r.RaterValidationRunner - 7782: HTTP 200 in 1763 ms
+2026-11-16 12:10:07.691 INFO  [api-3] c.a.r.RaterValidationRunner - 7783: HTTP 200 in 1825 ms
+2026-11-16 12:10:08.476 INFO  [api-1] c.a.r.RaterValidationRunner - 7785: HTTP 200 in 1819 ms
+2026-11-16 12:10:08.738 INFO  [api-2] c.a.r.RaterValidationRunner - 7786: HTTP 200 in 1728 ms
+2026-11-16 12:10:08.989 INFO  [api-4] c.a.r.RaterValidationRunner - 7784: HTTP 200 in 2654 ms
+2026-11-16 12:10:09.492 INFO  [api-3] c.a.r.RaterValidationRunner - 7787: HTTP 200 in 1776 ms
+2026-11-16 12:10:10.295 INFO  [api-1] c.a.r.RaterValidationRunner - 7788: HTTP 200 in 1801 ms
+2026-11-16 12:10:10.537 INFO  [api-2] c.a.r.RaterValidationRunner - 7789: HTTP 200 in 1778 ms
+2026-11-16 12:10:10.788 INFO  [api-4] c.a.r.RaterValidationRunner - 7790: HTTP 200 in 1783 ms
+2026-11-16 12:10:11.283 INFO  [api-3] c.a.r.RaterValidationRunner - 7791: HTTP 200 in 1764 ms
+2026-11-16 12:10:12.120 INFO  [api-1] c.a.r.RaterValidationRunner - 7792: HTTP 200 in 1815 ms
+2026-11-16 12:10:12.304 INFO  [api-2] c.a.r.RaterValidationRunner - 7793: HTTP 200 in 1766 ms
+2026-11-16 12:10:12.572 INFO  [api-4] c.a.r.RaterValidationRunner - 7794: HTTP 200 in 1764 ms
+2026-11-16 12:10:13.023 INFO  [api-3] c.a.r.RaterValidationRunner - 7795: HTTP 200 in 1728 ms
+2026-11-16 12:10:13.979 INFO  [api-1] c.a.r.RaterValidationRunner - 7796: HTTP 200 in 1829 ms
+2026-11-16 12:10:14.141 INFO  [api-2] c.a.r.RaterValidationRunner - 7797: HTTP 200 in 1810 ms
+2026-11-16 12:10:14.826 INFO  [api-3] c.a.r.RaterValidationRunner - 7799: HTTP 200 in 1780 ms
+2026-11-16 12:10:14.949 INFO  [api-4] c.a.r.RaterValidationRunner - 7798: HTTP 200 in 2363 ms
+2026-11-16 12:10:15.799 INFO  [api-1] c.a.r.RaterValidationRunner - 7800: HTTP 200 in 1796 ms
+2026-11-16 12:10:15.799 INFO  [api-1] c.a.r.RaterValidationRunner - API: 560/711 done (4 min elapsed, about 2 min left)
+2026-11-16 12:10:15.936 INFO  [api-2] c.a.r.RaterValidationRunner - 7801: HTTP 200 in 1784 ms
+2026-11-16 12:10:16.526 INFO  [api-3] c.a.r.RaterValidationRunner - 7802: HTTP 200 in 1673 ms
+2026-11-16 12:10:16.745 INFO  [api-4] c.a.r.RaterValidationRunner - 7803: HTTP 200 in 1777 ms
+2026-11-16 12:10:17.601 INFO  [api-1] c.a.r.RaterValidationRunner - 7804: HTTP 200 in 1778 ms
+2026-11-16 12:10:17.725 INFO  [api-2] c.a.r.RaterValidationRunner - 7805: HTTP 200 in 1765 ms
+2026-11-16 12:10:18.367 INFO  [api-3] c.a.r.RaterValidationRunner - 7806: HTTP 200 in 1822 ms
+2026-11-16 12:10:18.585 INFO  [api-4] c.a.r.RaterValidationRunner - 7807: HTTP 200 in 1819 ms
+2026-11-16 12:10:19.501 INFO  [api-1] c.a.r.RaterValidationRunner - 7808: HTTP 200 in 1883 ms
+2026-11-16 12:10:19.580 INFO  [api-2] c.a.r.RaterValidationRunner - 7809: HTTP 200 in 1843 ms
+2026-11-16 12:10:20.143 INFO  [api-3] c.a.r.RaterValidationRunner - 7810: HTTP 200 in 1759 ms
+2026-11-16 12:10:20.404 INFO  [api-4] c.a.r.RaterValidationRunner - 7811: HTTP 200 in 1810 ms
+2026-11-16 12:10:21.326 INFO  [api-1] c.a.r.RaterValidationRunner - 7812: HTTP 200 in 1801 ms
+2026-11-16 12:10:21.412 INFO  [api-2] c.a.r.RaterValidationRunner - 7813: HTTP 200 in 1811 ms
+2026-11-16 12:10:21.866 INFO  [api-3] c.a.r.RaterValidationRunner - 7814: HTTP 200 in 1700 ms
+2026-11-16 12:10:22.268 INFO  [api-4] c.a.r.RaterValidationRunner - 7815: HTTP 200 in 1841 ms
+2026-11-16 12:10:23.097 INFO  [api-1] c.a.r.RaterValidationRunner - 7816: HTTP 200 in 1742 ms
+2026-11-16 12:10:23.198 INFO  [api-2] c.a.r.RaterValidationRunner - 7817: HTTP 200 in 1770 ms
+2026-11-16 12:10:23.655 INFO  [api-3] c.a.r.RaterValidationRunner - 7818: HTTP 200 in 1785 ms
+2026-11-16 12:10:24.056 INFO  [api-4] c.a.r.RaterValidationRunner - 7819: HTTP 200 in 1759 ms
+2026-11-16 12:10:24.862 INFO  [api-1] c.a.r.RaterValidationRunner - 7820: HTTP 200 in 1745 ms
+2026-11-16 12:10:25.012 INFO  [api-2] c.a.r.RaterValidationRunner - 7821: HTTP 200 in 1780 ms
+2026-11-16 12:10:25.415 INFO  [api-3] c.a.r.RaterValidationRunner - 7822: HTTP 200 in 1743 ms
+2026-11-16 12:10:25.795 INFO  [api-4] c.a.r.RaterValidationRunner - 7823: HTTP 200 in 1728 ms
+2026-11-16 12:10:26.662 INFO  [api-1] c.a.r.RaterValidationRunner - 7824: HTTP 200 in 1779 ms
+2026-11-16 12:10:26.765 INFO  [api-2] c.a.r.RaterValidationRunner - 7825: HTTP 200 in 1744 ms
+2026-11-16 12:10:27.179 INFO  [api-3] c.a.r.RaterValidationRunner - 7826: HTTP 200 in 1740 ms
+2026-11-16 12:10:27.560 INFO  [api-4] c.a.r.RaterValidationRunner - 7827: HTTP 200 in 1731 ms
+2026-11-16 12:10:28.394 INFO  [api-1] c.a.r.RaterValidationRunner - 7828: HTTP 200 in 1699 ms
+2026-11-16 12:10:28.568 INFO  [api-2] c.a.r.RaterValidationRunner - 7829: HTTP 200 in 1787 ms
+2026-11-16 12:10:28.928 INFO  [api-3] c.a.r.RaterValidationRunner - 7830: HTTP 200 in 1721 ms
+2026-11-16 12:10:29.292 INFO  [api-4] c.a.r.RaterValidationRunner - 7831: HTTP 200 in 1722 ms
+2026-11-16 12:10:30.180 INFO  [api-1] c.a.r.RaterValidationRunner - 7832: HTTP 200 in 1769 ms
+2026-11-16 12:10:30.345 INFO  [api-2] c.a.r.RaterValidationRunner - 7833: HTTP 200 in 1759 ms
+2026-11-16 12:10:30.683 INFO  [api-3] c.a.r.RaterValidationRunner - 7834: HTTP 200 in 1753 ms
+2026-11-16 12:10:31.076 INFO  [api-4] c.a.r.RaterValidationRunner - 7835: HTTP 200 in 1759 ms
+2026-11-16 12:10:31.076 INFO  [api-4] c.a.r.RaterValidationRunner - API: 595/711 done (4 min elapsed, about 1 min left)
+2026-11-16 12:10:31.930 INFO  [api-1] c.a.r.RaterValidationRunner - 7836: HTTP 200 in 1736 ms
+2026-11-16 12:10:32.158 INFO  [api-2] c.a.r.RaterValidationRunner - 7837: HTTP 200 in 1796 ms
+2026-11-16 12:10:32.441 INFO  [api-3] c.a.r.RaterValidationRunner - 7838: HTTP 200 in 1737 ms
+2026-11-16 12:10:32.882 INFO  [api-4] c.a.r.RaterValidationRunner - 7839: HTTP 200 in 1788 ms
+2026-11-16 12:10:33.716 INFO  [api-1] c.a.r.RaterValidationRunner - 7840: HTTP 200 in 1773 ms
+2026-11-16 12:10:33.939 INFO  [api-2] c.a.r.RaterValidationRunner - 7841: HTTP 200 in 1777 ms
+2026-11-16 12:10:34.178 INFO  [api-3] c.a.r.RaterValidationRunner - 7842: HTTP 200 in 1717 ms
+2026-11-16 12:10:34.688 INFO  [api-4] c.a.r.RaterValidationRunner - 7843: HTTP 200 in 1778 ms
+2026-11-16 12:10:35.513 INFO  [api-1] c.a.r.RaterValidationRunner - 7844: HTTP 200 in 1776 ms
+2026-11-16 12:10:35.696 INFO  [api-2] c.a.r.RaterValidationRunner - 7845: HTTP 200 in 1727 ms
+2026-11-16 12:10:35.912 INFO  [api-3] c.a.r.RaterValidationRunner - 7846: HTTP 200 in 1723 ms
+2026-11-16 12:10:36.497 INFO  [api-4] c.a.r.RaterValidationRunner - 7847: HTTP 200 in 1790 ms
+2026-11-16 12:10:37.283 INFO  [api-1] c.a.r.RaterValidationRunner - 7848: HTTP 200 in 1765 ms
+2026-11-16 12:10:37.475 INFO  [api-2] c.a.r.RaterValidationRunner - 7849: HTTP 200 in 1774 ms
+2026-11-16 12:10:37.636 INFO  [api-3] c.a.r.RaterValidationRunner - 7850: HTTP 200 in 1719 ms
+2026-11-16 12:10:38.237 INFO  [api-4] c.a.r.RaterValidationRunner - 7851: HTTP 200 in 1713 ms
+2026-11-16 12:10:39.037 INFO  [api-1] c.a.r.RaterValidationRunner - 7852: HTTP 200 in 1733 ms
+2026-11-16 12:10:39.200 INFO  [api-2] c.a.r.RaterValidationRunner - 7853: HTTP 200 in 1705 ms
+2026-11-16 12:10:39.341 INFO  [api-3] c.a.r.RaterValidationRunner - 7854: HTTP 200 in 1683 ms
+2026-11-16 12:10:40.074 INFO  [api-4] c.a.r.RaterValidationRunner - 7855: HTTP 200 in 1830 ms
+2026-11-16 12:10:40.797 INFO  [api-1] c.a.r.RaterValidationRunner - 7856: HTTP 200 in 1746 ms
+2026-11-16 12:10:40.986 INFO  [api-2] c.a.r.RaterValidationRunner - 7857: HTTP 200 in 1772 ms
+2026-11-16 12:10:41.070 INFO  [api-3] c.a.r.RaterValidationRunner - 7858: HTTP 200 in 1720 ms
+2026-11-16 12:10:41.797 INFO  [api-4] c.a.r.RaterValidationRunner - 7859: HTTP 200 in 1705 ms
+2026-11-16 12:10:42.517 INFO  [api-1] c.a.r.RaterValidationRunner - 7860: HTTP 200 in 1704 ms
+2026-11-16 12:10:42.760 INFO  [api-2] c.a.r.RaterValidationRunner - 7861: HTTP 200 in 1758 ms
+2026-11-16 12:10:42.798 INFO  [api-3] c.a.r.RaterValidationRunner - 7862: HTTP 200 in 1713 ms
+2026-11-16 12:10:43.577 INFO  [api-4] c.a.r.RaterValidationRunner - 7863: HTTP 200 in 1755 ms
+2026-11-16 12:10:44.223 INFO  [api-1] c.a.r.RaterValidationRunner - 7864: HTTP 200 in 1696 ms
+2026-11-16 12:10:44.547 INFO  [api-2] c.a.r.RaterValidationRunner - 7865: HTTP 200 in 1769 ms
+2026-11-16 12:10:44.607 INFO  [api-3] c.a.r.RaterValidationRunner - 7866: HTTP 200 in 1785 ms
+2026-11-16 12:10:45.381 INFO  [api-4] c.a.r.RaterValidationRunner - 7867: HTTP 200 in 1795 ms
+2026-11-16 12:10:45.996 INFO  [api-1] c.a.r.RaterValidationRunner - 7868: HTTP 200 in 1751 ms
+2026-11-16 12:10:46.301 INFO  [api-2] c.a.r.RaterValidationRunner - 7869: HTTP 200 in 1739 ms
+2026-11-16 12:10:46.345 INFO  [api-3] c.a.r.RaterValidationRunner - 7870: HTTP 200 in 1719 ms
+2026-11-16 12:10:46.345 INFO  [api-3] c.a.r.RaterValidationRunner - API: 630/711 done (4 min elapsed, about 1 min left)
+2026-11-16 12:10:47.112 INFO  [api-4] c.a.r.RaterValidationRunner - 7871: HTTP 200 in 1702 ms
+2026-11-16 12:10:47.753 INFO  [api-1] c.a.r.RaterValidationRunner - 7872: HTTP 200 in 1736 ms
+2026-11-16 12:10:48.059 INFO  [api-2] c.a.r.RaterValidationRunner - 7873: HTTP 200 in 1747 ms
+2026-11-16 12:10:48.129 INFO  [api-3] c.a.r.RaterValidationRunner - 7874: HTTP 200 in 1779 ms
+2026-11-16 12:10:48.913 INFO  [api-4] c.a.r.RaterValidationRunner - 7875: HTTP 200 in 1788 ms
+2026-11-16 12:10:49.504 INFO  [api-1] c.a.r.RaterValidationRunner - 7876: HTTP 200 in 1734 ms
+2026-11-16 12:10:49.798 INFO  [api-2] c.a.r.RaterValidationRunner - 7877: HTTP 200 in 1718 ms
+2026-11-16 12:10:49.936 INFO  [api-3] c.a.r.RaterValidationRunner - 7878: HTTP 200 in 1776 ms
+2026-11-16 12:10:50.758 INFO  [api-4] c.a.r.RaterValidationRunner - 7879: HTTP 200 in 1821 ms
+2026-11-16 12:10:51.230 INFO  [api-1] c.a.r.RaterValidationRunner - 7880: HTTP 200 in 1710 ms
+2026-11-16 12:10:51.522 INFO  [api-2] c.a.r.RaterValidationRunner - 7881: HTTP 200 in 1683 ms
+2026-11-16 12:10:51.674 INFO  [api-3] c.a.r.RaterValidationRunner - 7882: HTTP 200 in 1718 ms
+2026-11-16 12:10:52.484 INFO  [api-4] c.a.r.RaterValidationRunner - 7883: HTTP 200 in 1704 ms
+2026-11-16 12:10:52.974 INFO  [api-1] c.a.r.RaterValidationRunner - 7884: HTTP 200 in 1727 ms
+2026-11-16 12:10:53.198 INFO  [api-2] c.a.r.RaterValidationRunner - 7885: HTTP 200 in 1664 ms
+2026-11-16 12:10:53.415 INFO  [api-3] c.a.r.RaterValidationRunner - 7886: HTTP 200 in 1719 ms
+2026-11-16 12:10:54.250 INFO  [api-4] c.a.r.RaterValidationRunner - 7887: HTTP 200 in 1750 ms
+2026-11-16 12:10:54.723 INFO  [api-1] c.a.r.RaterValidationRunner - 7888: HTTP 200 in 1729 ms
+2026-11-16 12:10:54.926 INFO  [api-2] c.a.r.RaterValidationRunner - 7889: HTTP 200 in 1701 ms
+2026-11-16 12:10:55.129 INFO  [api-3] c.a.r.RaterValidationRunner - 7890: HTTP 200 in 1694 ms
+2026-11-16 12:10:56.021 INFO  [api-4] c.a.r.RaterValidationRunner - 7891: HTTP 200 in 1743 ms
+2026-11-16 12:10:56.503 INFO  [api-1] c.a.r.RaterValidationRunner - 7892: HTTP 200 in 1757 ms
+2026-11-16 12:10:56.689 INFO  [api-2] c.a.r.RaterValidationRunner - 7893: HTTP 200 in 1744 ms
+2026-11-16 12:10:56.880 INFO  [api-3] c.a.r.RaterValidationRunner - 7894: HTTP 200 in 1726 ms
+2026-11-16 12:10:57.775 INFO  [api-4] c.a.r.RaterValidationRunner - 7895: HTTP 200 in 1734 ms
+2026-11-16 12:10:58.209 INFO  [api-1] c.a.r.RaterValidationRunner - 7896: HTTP 200 in 1689 ms
+2026-11-16 12:10:58.430 INFO  [api-2] c.a.r.RaterValidationRunner - 7897: HTTP 200 in 1725 ms
+2026-11-16 12:10:58.593 INFO  [api-3] c.a.r.RaterValidationRunner - 7898: HTTP 200 in 1701 ms
+2026-11-16 12:10:59.508 INFO  [api-4] c.a.r.RaterValidationRunner - 7899: HTTP 200 in 1717 ms
+2026-11-16 12:10:59.950 INFO  [api-1] c.a.r.RaterValidationRunner - 7900: HTTP 200 in 1724 ms
+2026-11-16 12:11:00.180 INFO  [api-2] c.a.r.RaterValidationRunner - 7901: HTTP 200 in 1721 ms
+2026-11-16 12:11:00.355 INFO  [api-3] c.a.r.RaterValidationRunner - 7902: HTTP 200 in 1731 ms
+2026-11-16 12:11:01.321 INFO  [api-4] c.a.r.RaterValidationRunner - 7903: HTTP 200 in 1786 ms
+2026-11-16 12:11:01.698 INFO  [api-1] c.a.r.RaterValidationRunner - 7904: HTTP 200 in 1729 ms
+2026-11-16 12:11:01.902 INFO  [api-2] c.a.r.RaterValidationRunner - 7905: HTTP 200 in 1707 ms
+2026-11-16 12:11:01.902 INFO  [api-2] c.a.r.RaterValidationRunner - API: 665/711 done (5 min elapsed, about 1 min left)
+2026-11-16 12:11:02.132 INFO  [api-3] c.a.r.RaterValidationRunner - 7906: HTTP 200 in 1763 ms
+2026-11-16 12:11:03.101 INFO  [api-4] c.a.r.RaterValidationRunner - 7907: HTTP 200 in 1751 ms
+2026-11-16 12:11:03.442 INFO  [api-1] c.a.r.RaterValidationRunner - 7908: HTTP 200 in 1734 ms
+2026-11-16 12:11:03.692 INFO  [api-2] c.a.r.RaterValidationRunner - 7909: HTTP 200 in 1767 ms
+2026-11-16 12:11:03.827 INFO  [api-3] c.a.r.RaterValidationRunner - 7910: HTTP 200 in 1679 ms
+2026-11-16 12:11:04.921 INFO  [api-4] c.a.r.RaterValidationRunner - 7911: HTTP 200 in 1798 ms
+2026-11-16 12:11:05.215 INFO  [api-1] c.a.r.RaterValidationRunner - 7912: HTTP 200 in 1739 ms
+2026-11-16 12:11:05.430 INFO  [api-2] c.a.r.RaterValidationRunner - 7913: HTTP 200 in 1710 ms
+2026-11-16 12:11:05.544 INFO  [api-3] c.a.r.RaterValidationRunner - 7914: HTTP 200 in 1704 ms
+2026-11-16 12:11:06.756 INFO  [api-4] c.a.r.RaterValidationRunner - 7915: HTTP 200 in 1803 ms
+2026-11-16 12:11:06.967 INFO  [api-1] c.a.r.RaterValidationRunner - 7916: HTTP 200 in 1732 ms
+2026-11-16 12:11:07.188 INFO  [api-2] c.a.r.RaterValidationRunner - 7917: HTTP 200 in 1736 ms
+2026-11-16 12:11:07.301 INFO  [api-3] c.a.r.RaterValidationRunner - 7918: HTTP 200 in 1734 ms
+2026-11-16 12:11:08.510 INFO  [api-4] c.a.r.RaterValidationRunner - 7919: HTTP 200 in 1729 ms
+2026-11-16 12:11:08.751 INFO  [api-1] c.a.r.RaterValidationRunner - 7920: HTTP 200 in 1771 ms
+2026-11-16 12:11:08.997 INFO  [api-2] c.a.r.RaterValidationRunner - 7921: HTTP 200 in 1779 ms
+2026-11-16 12:11:09.086 INFO  [api-3] c.a.r.RaterValidationRunner - 7922: HTTP 200 in 1777 ms
+2026-11-16 12:11:10.266 INFO  [api-4] c.a.r.RaterValidationRunner - 7923: HTTP 200 in 1740 ms
+2026-11-16 12:11:10.445 INFO  [api-1] c.a.r.RaterValidationRunner - 7924: HTTP 200 in 1692 ms
+2026-11-16 12:11:10.742 INFO  [api-2] c.a.r.RaterValidationRunner - 7925: HTTP 200 in 1730 ms
+2026-11-16 12:11:10.825 INFO  [api-3] c.a.r.RaterValidationRunner - 7926: HTTP 200 in 1735 ms
+2026-11-16 12:11:12.060 INFO  [api-4] c.a.r.RaterValidationRunner - 7927: HTTP 200 in 1753 ms
+2026-11-16 12:11:12.237 INFO  [api-1] c.a.r.RaterValidationRunner - 7928: HTTP 200 in 1770 ms
+2026-11-16 12:11:12.506 INFO  [api-2] c.a.r.RaterValidationRunner - 7929: HTTP 200 in 1752 ms
+2026-11-16 12:11:12.571 INFO  [api-3] c.a.r.RaterValidationRunner - 7930: HTTP 200 in 1728 ms
+2026-11-16 12:11:13.790 INFO  [api-4] c.a.r.RaterValidationRunner - 7931: HTTP 200 in 1711 ms
+2026-11-16 12:11:14.018 INFO  [api-1] c.a.r.RaterValidationRunner - 7932: HTTP 200 in 1766 ms
+2026-11-16 12:11:14.270 INFO  [api-2] c.a.r.RaterValidationRunner - 7933: HTTP 200 in 1758 ms
+2026-11-16 12:11:14.319 INFO  [api-3] c.a.r.RaterValidationRunner - 7934: HTTP 200 in 1732 ms
+2026-11-16 12:11:15.526 INFO  [api-4] c.a.r.RaterValidationRunner - 7935: HTTP 200 in 1714 ms
+2026-11-16 12:11:15.749 INFO  [api-1] c.a.r.RaterValidationRunner - 7936: HTTP 200 in 1703 ms
+2026-11-16 12:11:16.021 INFO  [api-2] c.a.r.RaterValidationRunner - 7937: HTTP 200 in 1747 ms
+2026-11-16 12:11:16.054 INFO  [api-3] c.a.r.RaterValidationRunner - 7938: HTTP 200 in 1734 ms
+2026-11-16 12:11:17.309 INFO  [api-4] c.a.r.RaterValidationRunner - 7939: HTTP 200 in 1762 ms
+2026-11-16 12:11:17.526 INFO  [api-1] c.a.r.RaterValidationRunner - 7940: HTTP 200 in 1768 ms
+2026-11-16 12:11:17.526 INFO  [api-1] c.a.r.RaterValidationRunner - API: 700/711 done (5 min elapsed, about 1 min left)
+2026-11-16 12:11:17.734 INFO  [api-3] c.a.r.RaterValidationRunner - 7942: HTTP 200 in 1666 ms
+2026-11-16 12:11:17.811 INFO  [api-2] c.a.r.RaterValidationRunner - 7941: HTTP 200 in 1781 ms
+2026-11-16 12:11:19.088 INFO  [api-4] c.a.r.RaterValidationRunner - 7943: HTTP 200 in 1765 ms
+2026-11-16 12:11:19.334 INFO  [api-1] c.a.r.RaterValidationRunner - 7944: HTTP 200 in 1778 ms
+2026-11-16 12:11:19.507 INFO  [api-3] c.a.r.RaterValidationRunner - 7945: HTTP 200 in 1741 ms
+2026-11-16 12:11:19.526 INFO  [api-2] c.a.r.RaterValidationRunner - 7946: HTTP 200 in 1694 ms
+2026-11-16 12:11:20.850 INFO  [api-4] c.a.r.RaterValidationRunner - 7947: HTTP 200 in 1729 ms
+2026-11-16 12:11:21.146 INFO  [api-1] c.a.r.RaterValidationRunner - 7948: HTTP 200 in 1781 ms
+2026-11-16 12:11:21.166 INFO  [api-1] c.a.api.client.ApiClient - API Client closed
+2026-11-16 12:11:21.248 INFO  [api-3] c.a.r.RaterValidationRunner - 7949: HTTP 200 in 1716 ms
+2026-11-16 12:11:21.257 INFO  [api-2] c.a.r.RaterValidationRunner - 7950: HTTP 200 in 1714 ms
+2026-11-16 12:11:21.266 INFO  [api-3] c.a.api.client.ApiClient - API Client closed
+2026-11-16 12:11:21.272 INFO  [api-2] c.a.api.client.ApiClient - API Client closed
+2026-11-16 12:11:22.598 INFO  [api-4] c.a.r.RaterValidationRunner - 7951: HTTP 200 in 1734 ms
+2026-11-16 12:11:22.598 INFO  [api-4] c.a.r.RaterValidationRunner - API: 711/711 done (5 min elapsed, about 0 min left)
+2026-11-16 12:11:22.616 INFO  [api-4] c.a.api.client.ApiClient - API Client closed
+2026-11-16 12:11:32.997 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.rater.RaterReportWriter - Report written to D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261116_120530\RaterValidationReport_20261116_120530.xlsx
+2026-11-16 12:11:33.047 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - === Rater validation: 69678 attribute checks, 57031 Pass, 509 Fail, 12138 N/A; 0 test case(s) skipped ===
+2026-11-16 12:11:33.047 INFO  [com.automation.rater.RaterValidationRunner.main()] c.a.r.RaterValidationRunner - Results are in D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261116_120530

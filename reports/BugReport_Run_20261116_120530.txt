@@ -1,0 +1,119 @@
+RT RATE API vs LLOYDS RATER - RENEWAL BUG LIST
+==============================================================================
+Run           : Run_20261116_120530  (target/rater-output/Run_20261116_120530)
+Rater         : Worksheet in RT Common Lloyds Rater BRD V4.0 11-11-2026.xlsx (updated file of 16 Nov 2026)
+Test cases    : 711 Renewal iterations (rater.iterations in rater.properties)
+Result        : 564 passed, 147 failed, 0 skipped - every API call HTTP 200
+Comparison    : Renewal cases are compared with the Rater renewal section (rows 232-333); New Business rows 104-229
+Evidence      : iterations/<id>/request.json and response.json in the run folder; RaterValidationReport_*.xlsx
+
+------------------------------------------------------------------------------
+BUG-01  Renewal: NonWindFDR is calculated from the unrounded non-wind premium, so every renewal premium is off by 1-4 cents
+------------------------------------------------------------------------------
+Issue Type      : API issue
+Bug Summary     : The Rater calculates the New Business Non-Wind FDR as C229 = ROUND(C153 / (C108/100), 6) with C153 (Final Non-Wind Property Premium) rounded to 2 decimals. The API returns a NonWindFDR that differs in the 6th decimal (it is calculated from the unrounded premium). The renewal floor / ceiling (FDR x 1.5 / 1.7) and the renewal premium (FDR x TIV / 100) multiply the difference.
+Expected Result : NonWindFDR = ROUND(ROUND(non-wind premium, 2) / (TIV/100), 6) as the Rater; renewal premiums equal to the Rater (C281, C288, C322) within 0.01.
+Actual Result   : NonWindFDR differs by 0.000001 - 0.000005; renewal Non-Wind Premium, Calculated / Final Property Premium differ by 0.01 - 0.04.
+
+Evidence (one per combination):
+  [DP1_BUILDERS_RISK - 16 case(s): 7689, 7691, 7697, 7701, 7703, 7713, 7715, 7719, 7723, 7727, 7729, 7733, 7737, 7739, 7741, 7743]
+    Iteration 7689 | DP1_BUILDERS_RISK | Arizona | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Prior Term Non-Wind FDR (C232 = C229 NonWindFDR)    Rater 0.05926 | API 0.059259
+    Renewal Term Non-Wind FDR (C241 RenewalTermNonWindFDR) Rater 0.08889 | API 0.0888885
+    Renewal Non-Wind Premium (C281 / API PLNonWind.Premium) Rater 937.61172 | API 937.59589799
+    Calculated Property Premium (C288 / API C162)       Rater 937.61172 | API 937.6
+    Final Property Premium (C322 / API C166)            Rater 937.61 | API 937.6 (within tolerance)
+  [DP3 - 31 case(s): 3229, 3794, 4435, 4436, 4792, 4793, 5106, 7618, 7620, 7624, 7625, 7627, 7628, 7632, 7636, 7638, 7640, 7642, 7650, 7653, 7654, 7660, 7664, 7666, 7668, 7673, 7674, 7678, 7680, 7682, 7684]
+    Iteration 3229 | DP3 | Virginia | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Prior Term Non-Wind FDR (C232 = C229 NonWindFDR)    Rater 0.189762 | API 0.189763
+    Renewal Term Non-Wind FDR (C241 RenewalTermNonWindFDR) Rater 0.284643 | API 0.28464449999999997
+    Renewal Non-Wind Premium (C281 / API PLNonWind.Premium) Rater 2174.1886268 | API 2174.2000843
+    Calculated Property Premium (C288 / API C162)       Rater 2174.1886268 | API 2174.2
+    Final Property Premium (C322 / API C166)            Rater 2199.19 | API 2199.2 (within tolerance)
+  [DP3_BUILDERS_RISK - 2 case(s): 7751, 7785]
+    Iteration 7751 | DP3_BUILDERS_RISK | Colorado | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Prior Term Non-Wind FDR (C232 = C229 NonWindFDR)    Rater 0.06829 | API 0.068289
+    Renewal Term Non-Wind FDR (C241 RenewalTermNonWindFDR) Rater 0.102435 | API 0.10243350000000001
+    Renewal Non-Wind Premium (C281 / API PLNonWind.Premium) Rater 1080.4843799 | API 1080.468558
+    Calculated Property Premium (C288 / API C162)       Rater 1080.4843799 | API 1080.47
+    Final Property Premium (C322 / API C166)            Rater 1080.48 | API 1080.47 (within tolerance)
+  [HO3 - 45 case(s): 831, 1183, 1184, 7350, 7353, 7354, 7355, 7357, 7359, 7360, 7362, 7365, 7367, 7369, 7370, 7371, 7373, 7374, 7375, 7376, 7379, 7381, 7383, 7384, 7385, 7387, 7388, 7389, 7390, 7393, 7394, 7395, 7397, 7398, 7399, 7401, 7403, 7405, 7409, 7411, 7413, 7415, 7416, 7417, 7419]
+    Iteration 831 | HO3 | New_Jersey | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Prior Term Non-Wind FDR (C232 = C229 NonWindFDR)    Rater 0.19665 | API 0.196651
+    Renewal Term Non-Wind FDR (C241 RenewalTermNonWindFDR) Rater 0.294975 | API 0.2949765
+    Renewal Non-Wind Premium (C281 / API PLNonWind.Premium) Rater 1643.1198907 | API 1643.1282463
+    Calculated Property Premium (C288 / API C162)       Rater 1643.1198907 | API 1643.13
+    Final Property Premium (C322 / API C166)            Rater 1668.12 | API 1668.13 (within tolerance)
+  [HO5 - 47 case(s): 5085, 5090, 5093, 5095, 5108, 5110, 7420, 7421, 7422, 7423, 7424, 7429, 7430, 7432, 7433, 7435, 7438, 7439, 7442, 7443, 7444, 7445, 7448, 7453, 7456, 7458, 7459, 7460, 7464, 7465, 7466, 7467, 7468, 7469, 7470, 7471, 7472, 7473, 7474, 7476, 7477, 7478, 7479, 7480, 7481, 7484, 7485]
+    Iteration 5085 | HO5 | Virginia | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Prior Term Non-Wind FDR (C232 = C229 NonWindFDR)    Rater 0.235201 | API 0.235199
+    Renewal Term Non-Wind FDR (C241 RenewalTermNonWindFDR) Rater 0.3528015 | API 0.3527985
+    Renewal Non-Wind Premium (C281 / API PLNonWind.Premium) Rater 2694.8036974 | API 2694.7807825
+    Calculated Property Premium (C288 / API C162)       Rater 2694.8036974 | API 2694.78
+    Final Property Premium (C322 / API C166)            Rater 2719.8 | API 2719.78
+
+------------------------------------------------------------------------------
+BUG-02  Renewal: Total Policy Premium (BasePremium) differs by 1 because of the NonWindFDR rounding (BUG-01)
+------------------------------------------------------------------------------
+Issue Type      : API issue (consequence of BUG-01)
+Bug Summary     : When the BUG-01 cent difference crosses a whole-dollar rounding boundary, the renewal Total Policy Premium (rounded to whole dollars) differs by 1.
+Expected Result : BasePremium = Rater C332.
+Actual Result   : BasePremium 1 higher or lower than the Rater.
+
+Evidence (one per combination):
+  [DP3 - 3 case(s): 3793, 7626, 7675]
+    Iteration 3793 | DP3 | New_Jersey | Wind No | BookOfBusinessAdjustment No | MiscsurchargeFactor 0
+    NonWindFDR (C232)                                   Rater 0.27 | API 0.270005
+    Final Property Premium (C322 / API C166)            Rater 1609.48 | API 1609.51
+    Total Policy Premium (C332 / API BasePremium)       Rater 1705 | API 1706.0
+  [HO5 - 2 case(s): 7431, 7461]
+    Iteration 7431 | HO5 | Florida | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    NonWindFDR (C232)                                   Rater 0.294001 | API 0.294
+    Final Property Premium (C322 / API C166)            Rater 3393.5 | API 3393.49
+    Total Policy Premium (C332 / API BasePremium)       Rater 3490 | API 3489.0
+
+------------------------------------------------------------------------------
+BUG-03  Renewal: Total Base Non-Wind Premium is the sum of rounded credit / surcharge amounts - half-cent rounding
+------------------------------------------------------------------------------
+Issue Type      : API issue (same half-cent rounding as reported earlier)
+Bug Summary     : The Total Base Non-Wind Rate Premium (sum of the base premium and the rounded credit / surcharge amounts) differs by 1-2 cents; the difference carries into the Calculated Non-Wind Premium.
+Expected Result : C273 / C276 as the Rater (each credit / surcharge ROUND(...,2), then summed).
+Actual Result   : TotalBaseNonWindPremium 2 cents lower (147.59 vs 147.61).
+
+Evidence (one per combination):
+  [DP3_VACANT - 1 case(s): 7944]
+    Iteration 7944 | DP3_VACANT | Virginia | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Renewal Total Base Non-Wind Rate Premium (C273)     Rater 147.61 | API 147.59
+    Renewal Intermediate Calculated Non-Wind (C276)     Rater 110.70750000000001 | API 110.69
+  [DP3_BUILDERS_RISK - iteration 7751 (also in BUG-01)]
+    Iteration 7751 | DP3_BUILDERS_RISK | Colorado | Wind No | BookOfBusinessAdjustment Yes | MiscsurchargeFactor 0
+    Renewal Intermediate Calculated Non-Wind (C276)     Rater 720.3209999999999 | API 720.31
+  [DP3_BUILDERS_RISK - iteration 7785 (also in BUG-01)]
+    Iteration 7785 | DP3_BUILDERS_RISK | Missouri | Wind No | BookOfBusinessAdjustment No | MiscsurchargeFactor 0
+    Renewal Intermediate Calculated Non-Wind (C276)     Rater 720.3209999999999 | API 720.31
+
+------------------------------------------------------------------------------
+BUG-04  API answers HTTP 500 (no validation message) when WindDeductiblePercentage is not a fraction
+------------------------------------------------------------------------------
+Issue Type      : API issue (fixed on the automation side: every request now sends the fraction 0.01 - 0.1)
+Bug Summary     : Since 16 Nov 2026 the API answers "HTTP 500 Internal Server Error - ResponseStatus :: Failed :: form ::RTConnectorPLRating" for every request (also without wind) whose WindDeductiblePercentage is the Rater wording ("Greater of $2,500 or 1%") or empty. Before, the wording was accepted when wind was not selected.
+Expected Result : A rated response, or a validation error (HTTP 400) naming WindDeductiblePercentage.
+Actual Result   : HTTP 500, ErrorCode 500, MessageType SERVER_ERROR, AlgorithmName InvokeSingleStateRating.
+
+Evidence (one per combination):
+  [HO3 - all sublines affected (Run_20261116_100756: 238 of 245 requests, every non-wind request)]
+    Iteration 1 | HO3 | Virginia | Wind No - Run_20261116_105138/iterations/1
+    Request : WindDeductiblePercentage "Greater of $2,500 or 1%"  ->  HTTP 500
+    Same request with WindDeductiblePercentage "0.01" (Run_20261116_105344)  ->  HTTP 200
+
+==============================================================================
+OBSERVATION (not a bug)
+  C244 Insurance Score Factor Reinvocation Required: the Rater gives an explanation ("No - Carry prior ISF (4 months)"),
+  the API the answer only ("No"). Compared by the first word (rater.compare.firstWord=244): all 711 pass.
+
+FIXED SINCE THE LAST RUN
+  Insurance Score Factor "Not Applicable" (HI / KY / MA / MD): the updated Rater gives 0 like the API; the Maryland /
+  Massachusetts cases (e.g. 3170, 5151, 7572, 7647) now pass.
+  Misc Surcharge on the renewal premium (Run_20261116_111505 BUG-01, 82 cases): the test data now has
+  MiscsurchargeFactor 0 for every Renewal case, so the API adds no surcharge; those cases now pass or show only
+  the rounding of BUG-01 above. (The API still applies the factor at renewal when one is given; the Rater does not.)

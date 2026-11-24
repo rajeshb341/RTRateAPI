@@ -1,0 +1,239 @@
+{
+  "CarrierName" : "One London",
+  "FDRCeiling" : "0.34807669999999996",
+  "MinimumEarnedPremium" : "750.000000",
+  "State" : "CW",
+  "RatingTerm" : "Annual",
+  "QuoteType" : "Renewal",
+  "TransactionType" : "Renewal",
+  "OwnerId" : "15793",
+  "MaximumRenewalReserveFactor" : "0.7",
+  "ContractName" : "ALL",
+  "PolicyTerm" : "",
+  "ObjectType" : "Submission",
+  "ProductName" : "RTConnectorPLRating",
+  "ObjectID" : "SN10191",
+  "ProductNumber" : "PL_15793_208",
+  "FDRFloor" : "0.30712649999999997",
+  "ResponseStatus" : "Success",
+  "EffectiveDate" : "10/15/2026",
+  "SublineName" : "HO5",
+  "TotalBasePremium" : "1856.0",
+  "EventName" : "RTConnectorPL_SingleLocation_Rating",
+  "BookOfBusinessAdjustment" : "No",
+  "MinimumRenewalReserveFactor" : "0.5",
+  "ProductVersionNumber" : "PL_15793_208_V1",
+  "Account" : {
+    "Insured" : [ {
+      "ServiceRequestDetail" : { },
+      "InsuranceScoreRange" : "",
+      "InsuranceScoreFetchedDate" : "06/21/2026",
+      "InsuranceScoreStatus" : "",
+      "Location" : [ {
+        "Building" : [ {
+          "CoverageABandCredit" : "$250,000 - $349,999",
+          "BOBAdjustedNonWindFDR" : "0.204751",
+          "ProtectionclassPremium" : "0.0",
+          "NumberofLosses" : "1",
+          "Fasteners" : "",
+          "LiabilityPremium" : "120.0",
+          "TotalPropertyPremium" : "1735.81",
+          "ConstructionTypeFactor" : "1.00000",
+          "RenewalFinalPremiumRate" : "0.33319151151539306",
+          "RenewalConstructionTypeRiskFactor" : "1.0000",
+          "RenewalTermNonWindFDR" : "0.30712649999999997",
+          "ProtectionFactor" : "1.000000",
+          "Occupancy" : "Secondary/Seasonal",
+          "ExtendedReplacementCost" : "Yes",
+          "RoofToWallConnection" : "SingleWraps",
+          "ProtectionMissilesSize" : "Large",
+          "AgeOfHomeRiskFactor" : "1.00000",
+          "RoofUpdated" : "2006",
+          "CoastalWaterDistance" : "2500",
+          "RenewalCoverageInflationFactor" : "0.035",
+          "ExteriorSiding" : "MetalSteel",
+          "RoofSlope" : "Lessthanorequalto612265",
+          "NumberOfStories" : "2",
+          "OccupancyFactor" : "1.05000",
+          "MaximumTiv" : "10000000",
+          "ConstructionType" : "Frame",
+          "MinimumTiv" : "200000",
+          "CoverageABandFactor" : "1.000000",
+          "FamilyFactor" : "1.000000",
+          "NonWindFDR" : "0.204751",
+          "RenewalAgeOfHomeRiskFactor" : "1.00000",
+          "NumberofFamilyPremium" : "0.0",
+          "AgeOfRoofPremium" : "0.0",
+          "CalculatedPropertyPremium" : "1710.8082418049999",
+          "AlarmCreditAmount" : "-116.98",
+          "NumberOfFamilies" : "1",
+          "RenewalRoofAgeRiskFactor" : "1.0000",
+          "BasePremium" : "1856.0",
+          "FinalPropertyPremium" : "1710.81",
+          "RoofShape" : "Gable",
+          "SquareFt" : "1403",
+          "LossSurchargeAmount" : "0.0",
+          "AdjustedRenewalNonWindFDR" : "0.12285059999999999",
+          "AgeOfHomeRiskPremium" : "0.0",
+          "AgeOfHome" : "18",
+          "DateBuilt" : "2008",
+          "WindRating" : "",
+          "RoofBrace" : "Braced",
+          "OccupancyTypePremium" : "58.49",
+          "GuttersPresent" : "",
+          "ExtendedReplacementCostAmount" : "1.1",
+          "SecondaryWaterResistance" : "",
+          "MaxAdditiveCredit" : "0.0",
+          "ConstructionTypePremium" : "0.0",
+          "LossSurchargeFactor" : "1.000000",
+          "ExtendedReplacementcostPremium" : "116.98",
+          "AgeOfRoofFactor" : "1.000000",
+          "Coverage" : [ {
+            "MinimumPropertyRatePremium" : "5013.33",
+            "PolicyformFactor" : "1.05",
+            "MedicalPaymentsCoverageM" : {
+              "Premium" : "20.0",
+              "Limit" : "5000"
+            },
+            "MiscsurchargeFactor" : "0",
+            "TerritoryRelativityFactor" : "1.0",
+            "PLWindCoverage" : {
+              "WindHailDeductibleFactorRenewal" : "0.600",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "TIVFactor" : "0.0",
+            "MinimumNonWindRate" : "0.0",
+            "PersonalLiabilityCoverageL" : {
+              "Premium" : "100.0",
+              "Limit" : "500000"
+            },
+            "BaseRate" : "0.200000000000000",
+            "InsuranceScoreFactorDecision" : "No",
+            "DwellingCoverage" : {
+              "Limit" : "299000"
+            },
+            "BaseNonWindPremium" : "1169.78",
+            "TermInMonths" : "0",
+            "PersonalProperty" : {
+              "TotalPersonalPropertyPremium" : "0.0",
+              "PersonalArticleFloater" : [ {
+                "ItemCategory" : "Mens",
+                "ItemValue" : "0.0",
+                "Rate" : "0.0",
+                "Premium" : "0.0",
+                "ItemDescription" : "Abc"
+              } ]
+            },
+            "MinimumNonWindRatePremium" : "0.0",
+            "WindAalFactor" : "",
+            "TotalBaseNonWindPremium" : "1140.54",
+            "TigerCQApplicable" : "N",
+            "WaterDamageSublimit" : {
+              "Factor" : "1.0",
+              "Premium" : "0.0",
+              "Limit" : ""
+            },
+            "PLNonWind" : {
+              "Premium" : "1710.8082418049999"
+            },
+            "InsuranceScoreFactor" : "1.0",
+            "MaxCreditAmount" : "760.36",
+            "InsuranceScoreAgeInMonths" : "0",
+            "CreditsSurchargesTotal" : "0.0",
+            "LossOfUseCoverage" : {
+              "Limit" : "59800"
+            },
+            "TotalBaseNonWindFactor" : "0.2048",
+            "LimitedMoldCoverage" : {
+              "Premium" : "0.0",
+              "Limit" : "5000"
+            },
+            "WaterBackupCoverage" : {
+              "Premium" : "25.0",
+              "Limit" : "5000"
+            },
+            "AOPDeductible" : {
+              "DeductibleType" : "0",
+              "Factor" : "0.925000",
+              "Premium" : "-87.73",
+              "Limit" : "2500"
+            },
+            "CalculatedNonWindPremium" : "1140.54",
+            "CombinedAdditiveFactor" : "1.0",
+            "PersonalPropertyCoverage" : {
+              "Limit" : "149500"
+            },
+            "NonWindBaseRateFactor" : "0.21",
+            "WaterDamageDeductible" : {
+              "Factor" : "1.0",
+              "Limit" : "2500"
+            },
+            "OtherStructureCoverage" : {
+              "Limit" : "29900"
+            },
+            "EarthquakeCoverage" : {
+              "Deductible" : "",
+              "DeductibleFactor" : "0.0",
+              "DeductiblePremium" : "0.0",
+              "Factor" : "0.0",
+              "Premium" : "0.0",
+              "CoverageSelected" : "No"
+            },
+            "PersonalPropertyValuation" : "RCV",
+            "TotalInsuredValue" : "557037.0",
+            "DwellingValuation" : "RCV",
+            "MiscSurchargeAmount" : "0.0",
+            "CombinedTotalFactor" : "0.0",
+            "WindDeductiblePercentage" : "0.05",
+            "MinimumPropertyRateFactor" : "0.900000"
+          } ],
+          "CoverageABandPremium" : "0.0",
+          "AgeOfRoof" : "11",
+          "NumberOfStoriesFactor" : "1.0",
+          "TotalLiabilityPremium" : "120.0",
+          "RoofType" : "ConcreteClaySlateTiles",
+          "ProtectionClass" : "3",
+          "NumberOfUnits" : "SingleFamilyDwelling",
+          "AlarmCreditFactor" : "0.900000",
+          "Alarm" : "CentralStationBurglar&Firealarm",
+          "TotalOptionalCoveragePremium" : "25.0",
+          "TotalCalculatedPropertyPremium" : "1710.81",
+          "MitigationOpenings" : "Allopeningsareprotected",
+          "RoofParapetsAvailable" : "",
+          "Creditpercent" : "0"
+        } ],
+        "StateRegionCode" : "SC",
+        "State" : "South_Carolina",
+        "Latitude" : "32.156763",
+        "City" : "HILTON HEAD ISLAND",
+        "RatingTerritory" : "SC1",
+        "LocationFullAddress" : "1000 WILLIAM HILTON PKWY, HILTON HEAD ISLAND, SC, 29928, United States",
+        "County" : "Beaufort",
+        "Longitude" : "-80.758683",
+        "BasePremium" : "1856.0",
+        "Zipcode1" : "29928"
+      } ]
+    } ]
+  },
+  "ServiceRequestDetail" : {
+    "OwnerId" : "15793",
+    "ServiceRequestVersion" : "1.0",
+    "UserName" : "TestUser_02",
+    "EndClientUserUniqueSessionId" : "1.0",
+    "ResponseType" : "json",
+    "Lob" : "PL",
+    "UserRole" : "Underwriter",
+    "RegionCode" : "US",
+    "ServiceResponseVersion" : "1.0",
+    "Token" : "****",
+    "BrowserIp" : "192.158.1.38.",
+    "LanguageCode" : "en"
+  },
+  "PolicyEffectiveDate" : "10/15/2026",
+  "LOB" : "PL",
+  "RenewalAdjustmentType" : "No Adjustment",
+  "ExpirationDate" : "10/15/2027",
+  "ApplicableDate" : "10/15/2026",
+  "PolicyExpirationDate" : "10/15/2027"
+}

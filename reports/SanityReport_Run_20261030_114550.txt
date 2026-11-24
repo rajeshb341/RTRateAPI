@@ -1,0 +1,60 @@
+RT Rate API - Sanity Run
+========================
+Run            : Run_20261030_114550
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\Run_20261030_114550
+Rater          : LloydsRater_BRD_V3.0_10302026_Updated.xlsx
+API headers    : Mode TEST, Environment 20
+Request rules  : insurance score N/A (HI/KY/MA/MD), TigerCQApplicable N (listed states), MinimumTiv/MaximumTiv from the
+                 TIV band, Medical Payments always sent, fetched street address in every request
+Totals         : 28 test cases, 2,408 attribute checks - 1,322 Pass, 640 Fail, 446 N/A; 0 skipped
+
+
+1. NO-WIND TEST CASE FOR EACH SUBLINE
+-------------------------------------
+Iteration  Subline              State  Result
+1          HO3                  VA     PASS (0 fails)
+6509       HO5                  VA     PASS (0 fails)
+1640       HO8                  MS     PASS (0 fails)
+3279       DP3                  VA     PASS (0 fails)
+6391       DP1 Builders Risk    VA     PASS (0 fails)  - Base Premium difference of BUG-03 no longer seen
+6259       DP1 Vacant           VA     PASS (0 fails)
+6325       DP3 Vacant           FL     PASS (0 fails)
+6584       HO6                  VA     FAIL (10)       - HO6-01 (TIV above 200,000) and HO6-07
+6530       DP3 Builders Risk    MA     FAIL - HTTP 500 - the only DP3 Builders Risk case has wind (BUG-01B)
+-          DP1                  -      NOT RUN - every DP1 case in the test data is RCV/ACV, which DP1 does not rate
+
+
+2. BUGGED TEST CASES - INCLUDE WIND
+-----------------------------------
+Bug      Iterations                               Status   Result in this run
+BUG-01A  6542, 6543, 6544, 6545                   OPEN     HTTP 200, Insurance Score Factor 0.000 (Rater 1);
+         (DP1 Builders Risk, MD)                           6542 PLNonWind Premium 176.53 vs 291.95
+BUG-01B  6527 (HO5 MA), 6530 (DP3 BR MA),          OPEN     HTTP 500 with TigerCQApplicable N
+         6531 (DP3 VA), 6536 (HO5 SC),
+         6555 (HO3 VA), 6557 (HO3 VA)
+BUG-02   6540, 6541 (DP1 Builders Risk, CT)       OPEN     WindAalFactor 0.0 (Rater 1), Wind premium 0
+                                                           (6540: 12.26 vs 0.0)
+
+
+3. BUGGED TEST CASES - HO6
+--------------------------
+Bug     Iterations            Status          Result in this run
+HO6-01  6587, 6600            FIXED <= 200k   TIV factor matches (MinimumTiv/MaximumTiv now sent from the TIV band)
+        6584, 6615, 7040      OPEN  > 200k    API 1.5 (flat), Rater keeps increasing above 200,000:
+                                              6584 TIV 256,519: 1.669557 vs 1.5; 6615 TIV 662,600: 2.8878 vs 1.5
+HO6-02  6612                  FIXED (API)     Number Of Stories Factor 0.95 = 0.95 (API now matches the Rater)
+HO6-03  6921                  FIXED (Rater)   Protection Factor PC 9 = 2.0 (updated Rater)
+HO6-04  6615                  FIXED (Rater)   Alarm Burglary & Fire = 0.9 (updated Rater)
+HO6-05  6657                  OPEN (Rater)    Water Damage Deductible "Equal to AOP": Rater 1, API 0.95
+HO6-06  6587, 6600, 7040      OPEN (API)      Insurance Score Factor 0.000 in MD / MA (now sent as "Not Applicable");
+                                              6587 Final Property Premium 349.02 vs 35.00
+HO6-07  all HO6 cases         OPEN (API)      Minimum Non-Wind Rate Premium 0.0 (6585: Rater 111.79). Where the minimum
+                                              applies it now changes the premium: 6615 PLNonWind 1,656.50 vs 372.30
+HO6-08  6585, 6587, 6612      FIXED (Rater)   Minimum Earned Premium matches (6585: 500 = 500), Base Premium matches
+
+
+Still open after this run
+-------------------------
+API   : BUG-01A, BUG-01B, BUG-02, HO6-01 (TIV above 200,000 - confirm which side is right), HO6-06, HO6-07
+Rater : HO6-05
+Test data gaps: no DP1 case with ACV/ACV valuation; no DP3 Builders Risk case without wind

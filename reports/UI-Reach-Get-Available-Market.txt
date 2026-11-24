@@ -1,0 +1,46 @@
+UI reach check - does every kind of test case reach Carrier Selection > Get Available Market? (dev, 23 Nov 2026)
+Run mode: ui.flow.stopAt=markets. Each case's UI fields are read back and compared with the API request built for it.
+Dev answers Get Available Market with "No policy forms available for the chosen risk." (environment issue, to be fixed by dev).
+
+Result: 26 of 27 REACHED, 1 STOPPED (test data). All reached cases: every UI field = the API request value (0 differ).
+
+case | form | state | occupancy    | transaction  | fields checked | result  | UI message / reason
+839  | HO3  | NJ    | OwnerPrimary  | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+918  | HO3  | NJ    | OwnerSeasonal | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+1184 | HO3  | MS    | OwnerSeasonal | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+1192 | HO3  | MS    | OwnerPrimary  | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+5120 | HO3  |       | OwnerPrimary  | New_Business | 66 | REACHED | No policy forms available for the chosen risk.
+5089 | HO5  | NJ    | OwnerPrimary  | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+5093 | HO5  |       | OwnerPrimary  | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+5095 | HO5  | SC    | OwnerSeasonal | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+5100 | HO5  | CT    | OwnerSeasonal | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+5102 | HO5  |       | OwnerSeasonal | New_Business | 66 | REACHED | No policy forms available for the chosen risk.
+5110 | HO5  |       | OwnerSeasonal | Renewal      | 66 | REACHED | No policy forms available for the chosen risk.
+5113 | HO5  |       | OwnerPrimary  | Renewal      | 45 | STOPPED | Risk Details: "Enter a valid year" - test data: Year Built 2024 but
+     |      |       |               |              |    |         | roof/plumbing/wiring update years 2020 (also foreclosure year "85hnb")
+1768 | HO8  | FL    | OwnerSeasonal | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+3050 | HO8  | NY    | OwnerPrimary  | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+3219 | HO8  |       | OwnerSeasonal | New_Business | 67 | REACHED | No policy forms available for the chosen risk.
+3221 | HO8  | RI    | OwnerPrimary  | Renewal      | 67 | REACHED | No policy forms available for the chosen risk.
+5104 | HO8  | GA    | OwnerPrimary  | Renewal      | 66 | REACHED | No policy forms available for the chosen risk.
+5154 | HO6  | NC    | OwnerSeasonal | Renewal      | 64 | REACHED | No policy forms available for the chosen risk.
+5155 | HO6  | FL    | OwnerPrimary  | New_Business | 64 | REACHED | No policy forms available for the chosen risk.
+5162 | HO6  | MD    | OwnerPrimary  | Renewal      | 64 | REACHED | No policy forms available for the chosen risk.
+5409 | HO6  | LA    | OwnerSeasonal | New_Business | 64 | REACHED | No policy forms available for the chosen risk.
+6000 | HO6  | DC    | Vacant        | Renewal      | 64 | REACHED | No policy forms available for the chosen risk.
+6841 | HO6  | DC    | Vacant        | New_Business | 64 | REACHED | No policy forms available for the chosen risk.
+3476 | DP3  |       | OwnerPrimary  | New_Business | 58 | REACHED | No policy forms available for the chosen risk.
+3486 | DP3  |       | OwnerSeasonal | Renewal      | 58 | REACHED | No policy forms available for the chosen risk.
+3977 | DP3  | NJ    | OwnerPrimary  | Renewal      | 58 | REACHED | No policy forms available for the chosen risk.
+4603 | DP3  |       | OwnerSeasonal | New_Business | 58 | REACHED | No policy forms available for the chosen risk.
+(state blank = reached in the first run, before the summary's state column was fixed)
+
+Not covered: DP1 and DP Vacant - no UI-ready case in the test data (Liability / Med Pay None, AOP 1500 or rental occupancy).
+
+Other observations on dev:
+- Rating API returned HTTP 500 "ResponseStatus :: Failed :: form ::RTConnectorPLRating" (InvokeSingleStateRating) for
+  6 cases at 13:55 and again during the re-run - intermittent server error.
+- Carrier Selection Effective Date: often shows "Enter a valid date" (or keeps a broken internal date, e.g. Expiration
+  11/23/0203) right after the date is entered, so Get Available Market does nothing. The automation now checks that the
+  markets request is really sent and re-enters the date when it is not.
+- Insured / LOB Details: once the risk address lookup returned nothing (address fields empty, 120 s timeout); passed on retry.

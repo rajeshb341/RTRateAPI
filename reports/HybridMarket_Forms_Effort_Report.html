@@ -1,0 +1,282 @@
+<title>Hybrid Market Forms Effort</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: report column — summary tiles, effort-type comparison, coverage table, then editable assumptions */
+:root {
+  --bg: #f5f7f8; --surface: #ffffff; --fg: #1b2830; --muted: #5b6b75; --line: #dde3e7;
+  --manual: #b4552d; --manual-soft: #f6e4db; --auto: #1d6f8a; --auto-soft: #d9ebf1;
+  --good: #2f7a4b; --input-bg: #fffbe8; --input-line: #e3d48a;
+  --f-body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12191e; --surface: #1a242a; --fg: #e3eaee; --muted: #93a3ad; --line: #2c3a42;
+  --manual: #e08a62; --manual-soft: #3a2a22; --auto: #5fb6d2; --auto-soft: #1d3540;
+  --good: #6cc48f; --input-bg: #2a2716; --input-line: #5c5428; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12191e; --surface: #1a242a; --fg: #e3eaee; --muted: #93a3ad; --line: #2c3a42;
+  --manual: #e08a62; --manual-soft: #3a2a22; --auto: #5fb6d2; --auto-soft: #1d3540;
+  --good: #6cc48f; --input-bg: #2a2716; --input-line: #5c5428; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+header { display: grid; gap: 8px }
+.eyebrow { font: 500 12px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+h1 { font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; font-weight: 700 }
+h2 { font-size: 18px; margin: 0; font-weight: 600 }
+.scope { color: var(--muted); max-width: 72ch; margin: 0 }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px }
+.chip { font: 500 12px var(--f-mono); padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface) }
+.num { font-variant-numeric: tabular-nums; font-family: var(--f-mono) }
+
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 4px }
+.tile .lbl { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 500 }
+.tile .val { font: 500 28px/1.1 var(--f-mono); font-variant-numeric: tabular-nums }
+.tile .sub { font-size: 13px; color: var(--muted) }
+.tile.m .val { color: var(--manual) } .tile.a .val { color: var(--auto) } .tile.s .val { color: var(--good) }
+
+section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 16px; min-width: 0 }
+.panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px }
+.legend { display: flex; gap: 14px; font-size: 13px; color: var(--muted) }
+.legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--c) }
+
+.cmp { display: grid; gap: 18px }
+.cmp-row { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 12px; align-items: center }
+.cmp-row .name { font-weight: 600; font-size: 14px }
+.cmp-row .name small { display: block; font-weight: 400; color: var(--muted); font-size: 12px }
+.bars { display: grid; gap: 6px; min-width: 0 }
+.bar { display: flex; align-items: center; gap: 8px; min-width: 0 }
+.bar i { display: block; height: 18px; border-radius: 3px; background: var(--c); min-width: 2px; transition: width .3s }
+.bar b { font: 500 13px var(--f-mono); white-space: nowrap }
+.axis { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 12px; font: 12px var(--f-mono); color: var(--muted) }
+.ticks { position: relative; height: 22px; border-top: 1px solid var(--line) }
+.ticks span { position: absolute; top: 4px; transform: translateX(-50%); white-space: nowrap }
+.ticks span:first-child { transform: none }
+
+.tbl-wrap { overflow-x: auto }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 760px }
+th, td { padding: 10px 10px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: middle }
+th:first-child, td:first-child { text-align: left }
+thead th { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; vertical-align: bottom }
+thead tr.grp th { border-bottom: 0; padding-bottom: 0 }
+th.gm { color: var(--manual) } th.ga { color: var(--auto) }
+td { font-variant-numeric: tabular-nums; font-family: var(--f-mono) }
+td:first-child { font-family: var(--f-body) }
+td:first-child small { display: block; color: var(--muted); font-size: 12px }
+tfoot td { font-weight: 600; border-bottom: 0; border-top: 2px solid var(--fg) }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 500; background: var(--auto-soft); color: var(--fg) }
+.pill.hi { background: color-mix(in srgb, var(--good) 22%, transparent) }
+td.tm { color: var(--manual) } td.ta { color: var(--auto) }
+
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden }
+.fact { padding: 14px 16px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 2px }
+.fact:nth-child(3n) { border-right: 0 }
+.fact:nth-last-child(-n+3) { border-bottom: 0 }
+.fact .v { font: 500 20px var(--f-mono); font-variant-numeric: tabular-nums }
+.fact .k { font-size: 13px; color: var(--muted) }
+
+.assume-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px }
+.field { display: grid; gap: 4px }
+.field label { font-size: 13px; color: var(--muted) }
+input[type=number] { width: 100%; font: 500 14px var(--f-mono); padding: 7px 9px; border: 1px solid var(--input-line); background: var(--input-bg); color: var(--fg); border-radius: 4px }
+input[type=number]:focus-visible, button:focus-visible { outline: 2px solid var(--auto); outline-offset: 2px }
+.cov-inputs table { min-width: 820px }
+.cov-inputs td { padding: 6px 8px }
+.cov-inputs input { max-width: 110px; margin-left: auto; display: block }
+.cov-inputs .na { color: var(--muted); font-size: 12px }
+button { font: 600 13px var(--f-body); padding: 8px 14px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer }
+button:hover { border-color: var(--auto) }
+.note { font-size: 13px; color: var(--muted); margin: 0; max-width: 90ch }
+.note strong { color: var(--fg) }
+.edited { display: none; font-size: 12px; font-weight: 600; color: var(--manual) }
+.is-edited .edited { display: inline }
+
+@media (max-width: 760px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .facts { grid-template-columns: minmax(0, 1fr) }
+  .fact { border-right: 0 } .fact:nth-last-child(-n+3) { border-bottom: 1px solid var(--line) } .fact:last-child { border-bottom: 0 }
+  .cmp-row { grid-template-columns: minmax(0, 1fr) }
+  .axis { grid-template-columns: minmax(0, 1fr) } .axis > div:first-child { display: none }
+  h1 { font-size: 24px }
+}
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none } }
+</style>
+
+<div class="wrap" id="app">
+  <header>
+    <div class="eyebrow">Hybrid Market · Forms verification · Effort estimate</div>
+    <h1>Manual vs Automation Effort for Forms Verification</h1>
+    <p class="scope" id="scopeLine"></p>
+    <div class="chips">
+      <span class="chip">Form Name</span><span class="chip">Form Number</span><span class="chip">Form Print Order</span>
+      <span class="chip">View Forms</span><span class="chip">Schedule of Forms</span><span class="chip">UI PDFs</span>
+      <span class="chip">Issuance PDF template matching</span>
+    </div>
+  </header>
+
+  <div class="tiles">
+    <div class="tile m"><span class="lbl">Manual effort</span><span class="val" id="tManual"></span><span class="sub" id="tManualD"></span></div>
+    <div class="tile a"><span class="lbl">Automation effort</span><span class="val" id="tAuto"></span><span class="sub" id="tAutoD"></span></div>
+    <div class="tile s"><span class="lbl">Hours saved</span><span class="val" id="tSaved"></span><span class="sub" id="tSavedD"></span></div>
+    <div class="tile s"><span class="lbl">Effort saving</span><span class="val" id="tPct"></span><span class="sub" id="tFactor"></span></div>
+  </div>
+
+  <section class="panel">
+    <div class="panel-head">
+      <h2>Execution and failure analysis effort</h2>
+      <div class="legend"><span style="--c: var(--manual)">Manual</span><span style="--c: var(--auto)">Automation</span></div>
+    </div>
+    <div class="cmp" id="cmp"></div>
+    <div class="axis num" id="axis"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Effort by coverage area</h2><span class="note">Hours across all cycles</span></div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr class="grp"><th></th><th colspan="4" class="gm">Manual</th><th colspan="3" class="ga">Automation</th><th colspan="2"></th></tr>
+          <tr><th>Coverage area</th><th>Min / TC</th><th>Execution</th><th>Failure analysis</th><th>Total</th>
+              <th>Execution</th><th>Failure analysis</th><th>Total</th><th>Failed TCs</th><th>Saving</th></tr>
+        </thead>
+        <tbody id="covBody"></tbody>
+        <tfoot id="covFoot"></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Key figures</h2>
+    <div class="facts" id="facts"></div>
+  </section>
+
+  <section class="panel" id="assumePanel">
+    <div class="panel-head">
+      <h2>Assumptions <span class="edited">· edited</span></h2>
+      <button type="button" id="reset">Reset to estimates</button>
+    </div>
+    <p class="note">Every timing below is an <strong>estimate</strong>, not a measured value. Change any yellow field and the whole report recalculates. Replace these with your team's real timings before sharing figures.</p>
+    <div class="assume-grid" id="genInputs"></div>
+    <div class="tbl-wrap cov-inputs">
+      <table>
+        <thead><tr><th>Coverage area</th><th>Manual navigate / open (min per TC)</th><th>Manual template compare (min per form)</th>
+          <th>Automation report review (min per TC)</th><th>Failure rate (%)</th><th>Manual analysis (min per failure)</th><th>Automation analysis (min per failure)</th></tr></thead>
+        <tbody id="covInputs"></tbody>
+      </table>
+    </div>
+    <p class="note"><strong>How it is calculated.</strong> Manual execution for View Forms, Schedule of Forms and UI PDFs = navigate time + forms × 3 attributes × seconds per check. Issuance PDF = open time + forms × template-compare minutes per form. Failure analysis = failed TCs × analysis minutes (manual: find the mismatch, screenshot, compare, log the defect; automation: read the mismatch report, confirm, log the defect). Automation execution = report review per TC + run setup per cycle, split across the four areas. Unattended machine run time is shown separately and is not counted as effort. One-time script development and maintenance are excluded.</p>
+  </section>
+</div>
+
+<script>
+const DEFAULTS = {
+  gen: { tcs: 399, forms: 12, attrs: 3, secPerCheck: 10, cycles: 1, hrsPerDay: 8, setupHrs: 1, machineMin: 2 },
+  cov: [
+    { name: "View Forms", sub: "UI screen · Name, Number, Print Order", nav: 3, tpl: null, review: 0.25, fail: 10, mAn: 20, aAn: 5 },
+    { name: "Schedule of Forms", sub: "Name, Number, Print Order", nav: 2, tpl: null, review: 0.25, fail: 10, mAn: 20, aAn: 5 },
+    { name: "UI PDFs", sub: "Name, Number, Print Order", nav: 3, tpl: null, review: 0.25, fail: 10, mAn: 20, aAn: 5 },
+    { name: "Issuance PDF", sub: "Template matching per form", nav: 2, tpl: 2.5, review: 0.5, fail: 15, mAn: 30, aAn: 10 }
+  ]
+};
+const GEN_FIELDS = [
+  ["tcs", "Total test cases", 1], ["forms", "Avg. forms per test case", 1], ["attrs", "Attributes per form", 1],
+  ["secPerCheck", "Manual check time per attribute (sec)", 1], ["cycles", "Execution cycles", 1],
+  ["hrsPerDay", "Working hours per person-day", 0.5], ["setupHrs", "Automation setup per cycle (hrs)", 0.25],
+  ["machineMin", "Automation machine run time per TC (min)", 0.5]
+];
+const COV_FIELDS = [["nav", 0.5], ["tpl", 0.5], ["review", 0.25], ["fail", 1], ["mAn", 1], ["aAn", 1]];
+let S = JSON.parse(JSON.stringify(DEFAULTS));
+try { const saved = localStorage.getItem("hm-forms-effort"); if (saved) S = JSON.parse(saved); } catch (e) {}
+
+const $ = id => document.getElementById(id);
+const f1 = n => n.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const f0 = n => Math.round(n).toLocaleString("en-US");
+const pct = n => (n * 100).toFixed(1) + "%";
+
+function compute() {
+  const g = S.gen, rows = S.cov.map(c => {
+    const minPerTc = c.tpl == null ? c.nav + g.forms * g.attrs * g.secPerCheck / 60 : c.nav + g.forms * c.tpl;
+    const mExec = minPerTc * g.tcs * g.cycles / 60;
+    const failed = Math.round(g.tcs * c.fail / 100) * g.cycles;
+    const mFail = failed * c.mAn / 60;
+    const aExec = c.review * g.tcs * g.cycles / 60 + g.setupHrs * g.cycles / S.cov.length;
+    const aFail = failed * c.aAn / 60;
+    return { ...c, minPerTc, mExec, failed, mFail, mTot: mExec + mFail, aExec, aFail, aTot: aExec + aFail };
+  });
+  const sum = k => rows.reduce((s, r) => s + r[k], 0);
+  return { rows, t: { minPerTc: sum("minPerTc"), mExec: sum("mExec"), mFail: sum("mFail"), mTot: sum("mTot"),
+    aExec: sum("aExec"), aFail: sum("aFail"), aTot: sum("aTot"), failed: sum("failed") } };
+}
+
+function render() {
+  const g = S.gen, { rows, t } = compute(), saved = t.mTot - t.aTot, sp = t.mTot ? saved / t.mTot : 0;
+  $("scopeLine").textContent = `${f0(g.tcs)} test cases × ${g.cycles} cycle${g.cycles == 1 ? "" : "s"}, about ${g.forms} forms per test case. Covers Form Name, Form Number and Form Print Order in View Forms, Schedule of Forms and UI PDFs, plus template matching for each form in the issuance PDF.`;
+  $("tManual").textContent = f1(t.mTot) + " h"; $("tManualD").textContent = f1(t.mTot / g.hrsPerDay) + " person-days";
+  $("tAuto").textContent = f1(t.aTot) + " h"; $("tAutoD").textContent = f1(t.aTot / g.hrsPerDay) + " person-days";
+  $("tSaved").textContent = f1(saved) + " h"; $("tSavedD").textContent = f1(saved / g.hrsPerDay) + " person-days";
+  $("tPct").textContent = pct(sp); $("tFactor").textContent = (t.aTot ? (t.mTot / t.aTot).toFixed(1) : "–") + "× less effort";
+
+  // comparison bars on one shared scale
+  const items = [["Execution", "Running the checks", t.mExec, t.aExec], ["Failure analysis", t.failed + " failed TCs", t.mFail, t.aFail],
+                 ["Total", "Execution + analysis", t.mTot, t.aTot]];
+  const step = niceStep(t.mTot), max = Math.ceil(t.mTot / step) * step || 1;
+  $("cmp").innerHTML = items.map(([n, s, m, a]) => {
+    const sv = m ? (m - a) / m : 0;
+    return `<div class="cmp-row"><div class="name">${n}<small>${s} · ${pct(sv)} saved</small></div><div class="bars">
+      <div class="bar"><i style="--c:var(--manual);width:${m / max * 85}%"></i><b>${f1(m)} h</b></div>
+      <div class="bar"><i style="--c:var(--auto);width:${a / max * 85}%"></i><b>${f1(a)} h</b></div></div></div>`;
+  }).join("");
+  const ticks = []; for (let v = 0; v <= max; v += step) ticks.push(v);
+  $("axis").innerHTML = `<div></div><div class="ticks">${ticks.map(v => `<span style="left:${v / max * 85}%">${f0(v)} h</span>`).join("")}</div>`;
+
+  $("covBody").innerHTML = rows.map(r => {
+    const s = r.mTot ? (r.mTot - r.aTot) / r.mTot : 0;
+    return `<tr><td>${r.name}<small>${r.sub}</small></td><td>${f1(r.minPerTc)}</td><td class="tm">${f1(r.mExec)}</td><td class="tm">${f1(r.mFail)}</td><td class="tm"><b>${f1(r.mTot)}</b></td>
+      <td class="ta">${f1(r.aExec)}</td><td class="ta">${f1(r.aFail)}</td><td class="ta"><b>${f1(r.aTot)}</b></td><td>${f0(r.failed)}</td>
+      <td><span class="pill ${s >= .9 ? "hi" : ""}">${pct(s)}</span></td></tr>`;
+  }).join("");
+  $("covFoot").innerHTML = `<tr><td>Total</td><td>${f1(t.minPerTc)}</td><td>${f1(t.mExec)}</td><td>${f1(t.mFail)}</td><td>${f1(t.mTot)}</td>
+    <td>${f1(t.aExec)}</td><td>${f1(t.aFail)}</td><td>${f1(t.aTot)}</td><td>${f0(t.failed)}</td><td><span class="pill hi">${pct(sp)}</span></td></tr>`;
+
+  const runs = g.tcs * g.cycles, facts = [
+    [f1(t.mTot * 60 / runs) + " min", "Manual effort per test case"],
+    [f1(t.aTot * 60 / runs) + " min", "Automation effort per test case"],
+    [f1(g.tcs * g.machineMin * g.cycles / 60) + " h", "Unattended automation run time (not counted as effort)"],
+    [f0(g.tcs * g.forms * g.attrs * 3 * g.cycles), "Form attribute checks across View Forms, Schedule of Forms and UI PDFs"],
+    [f0(g.tcs * g.forms * g.cycles), "Forms template-matched in issuance PDFs"],
+    [f0(t.failed), "Expected failed test cases to analyse"]
+  ];
+  $("facts").innerHTML = facts.map(([v, k]) => `<div class="fact"><span class="v">${v}</span><span class="k">${k}</span></div>`).join("");
+  $("assumePanel").classList.toggle("is-edited", JSON.stringify(S) !== JSON.stringify(DEFAULTS));
+}
+function niceStep(max) {
+  const raw = max / 5, p = Math.pow(10, Math.floor(Math.log10(raw || 1))), n = raw / p;
+  return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * p;
+}
+
+function buildInputs() {
+  $("genInputs").innerHTML = GEN_FIELDS.map(([k, l, st]) =>
+    `<div class="field"><label for="g-${k}">${l}</label><input type="number" id="g-${k}" min="0" step="${st}" value="${S.gen[k]}" data-g="${k}"></div>`).join("");
+  $("covInputs").innerHTML = S.cov.map((c, i) => `<tr><td>${c.name}</td>${COV_FIELDS.map(([k, st]) => c[k] == null
+    ? `<td class="na">n/a</td>` : `<td><input type="number" id="c-${i}-${k}" min="0" step="${st}" value="${c[k]}" data-c="${i}" data-k="${k}" aria-label="${c.name} ${k}"></td>`).join("")}</tr>`).join("");
+}
+document.addEventListener("input", e => {
+  const el = e.target, v = parseFloat(el.value);
+  if (isNaN(v) || v < 0) return;
+  if (el.dataset.g) S.gen[el.dataset.g] = v;
+  else if (el.dataset.c) S.cov[+el.dataset.c][el.dataset.k] = v;
+  else return;
+  try { localStorage.setItem("hm-forms-effort", JSON.stringify(S)); } catch (err) {}
+  render();
+});
+$("reset").addEventListener("click", () => {
+  S = JSON.parse(JSON.stringify(DEFAULTS));
+  try { localStorage.removeItem("hm-forms-effort"); } catch (err) {}
+  buildInputs(); render();
+});
+buildInputs(); render();
+</script>

@@ -1,0 +1,159 @@
+{
+  "OwnerId": "15793",
+  "ServiceRequestDetail": {
+    "OwnerId": "15793",
+    "EndClientUserUniqueSessionId": "1.0",
+    "ServiceRequestVersion": "1.0",
+    "LanguageCode": "en",
+    "UserName": "TestUser_02",
+    "RegionCode": "US",
+    "ServiceResponseVersion": "1.0",
+    "ResponseType": "json",
+    "Token": "<removed>",
+    "Lob": "PL",
+    "BrowserIp": "192.158.1.38.",
+    "UserRole": "Underwriter"
+  },
+  "EventName": "RTConnectorPLRating",
+  "LOB": "PL",
+  "TransactionType": "New Business",
+  "Account": {
+    "Insured": [
+      {
+        "ServiceRequestDetail": {},
+        "InsuranceScoreStatus": "6",
+        "InsuranceScoreRange": "614",
+        "InsuranceScoreFetchedDate": "06/21/2026",
+        "Location": [
+          {
+            "City": "FORT LAUDERDALE",
+            "County": "BROWARD",
+            "Latitude": "26.1109",
+            "State": "Florida",
+            "LocationFullAddress": "3950 Riverland Road, FORT LAUDERDALE, FL 33317 United States",
+            "Longitude": "-80.2273",
+            "StateRegionCode": "FL",
+            "Zipcode1": "33317",
+            "Building": [
+              {
+                "CoastalWaterDistance": "50000",
+                "NumberOfUnits": "SingleFamilyDwelling",
+                "ConstructionType": "Masonry",
+                "ExteriorSiding": "MetalSteel",
+                "RoofType": "ConcreteClaySlateTiles",
+                "RoofShape": "Gable",
+                "RoofSlope": "Lessthanorequalto612265",
+                "RoofBrace": "Braced",
+                "RoofParapetsAvailable": "",
+                "Fasteners": "",
+                "GuttersPresent": "",
+                "WindRating": "",
+                "SecondaryWaterResistance": "",
+                "RoofToWallConnection": "SingleWraps",
+                "MitigationOpenings": "Allopeningsareprotected",
+                "ProtectionMissilesSize": "Large",
+                "RoofUpdated": "2006",
+                "AgeOfRoof": "20",
+                "DateBuilt": "1955",
+                "NumberOfStories": "1",
+                "SquareFt": "1403",
+                "Occupancy": "Builders Risk",
+                "AgeOfHome": "71",
+                "NumberOfLosses": "1",
+                "CoverageABandCredit": "$350,000 - $499,999",
+                "ExtendedReplacementCost": "No",
+                "NumberOfFamilies": "1",
+                "ProtectionClass": "1",
+                "Alarm": "None",
+                "Creditpercent": "-0.1",
+                "MinimumTiv": "1",
+                "MaximumTiv": "0.88",
+                "Coverage": [
+                  {
+                    "CoastalDistance": "1000",
+                    "TigerCQApplicable": "Y",
+                    "PLWindCoverage": {
+                      "CoverageSelected": "Yes"
+                    },
+                    "DwellingCoverage": {
+                      "Limit": "350000"
+                    },
+                    "OtherStructureCoverage": {
+                      "Limit": "0"
+                    },
+                    "PersonalPropertyCoverage": {
+                      "Limit": "0"
+                    },
+                    "LossOfUseCoverage": {
+                      "Limit": "0"
+                    },
+                    "PLNonWind": {
+                      "Premium": "0.0"
+                    },
+                    "NonWindBaseRateFactor": "0.2",
+                    "DwellingValuation": "ALL",
+                    "PersonalPropertyValuation": "ALL",
+                    "RMSModeledPremium": "0.00",
+                    "WindDeductiblePercentage": "0.02",
+                    "MiscsurchargeFactor": "0",
+                    "TIVFactor": "1",
+                    "WaterDamageSublimit": {
+                      "Limit": ""
+                    },
+                    "WaterDamageDeductible": {
+                      "Limit": "Equal to AOP"
+                    },
+                    "LimitedMoldCoverage": {
+                      "Limit": "5000"
+                    },
+                    "EarthquakeCoverage": {
+                      "CoverageSelected": "Yes",
+                      "Deductible": "5.0",
+                      "EarthquakeDeductiblePercentage": "5.0"
+                    },
+                    "PersonalLiabilityCoverageL": {
+                      "Limit": ""
+                    },
+                    "MedicalPaymentsCoverageM": {
+                      "Limit": ""
+                    },
+                    "AOPDeductible": {
+                      "Limit": "5000",
+                      "DeductibleType": "5000"
+                    },
+                    "PersonalProperty": {
+                      "PersonalArticleFloater": [
+                        {
+                          "ItemCategory": "Mens",
+                          "ItemDescription": "Abc",
+                          "ItemValue": "0.0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ProductVerNumber": "PL_15793_208_V1",
+  "ProductNumber": "PL_15793_208",
+  "PolicyEffectiveDate": "10/15/2026",
+  "QuoteType": "New Business",
+  "EffectiveDate": "10/15/2026",
+  "PolicyExpirationDate": "10/15/2027",
+  "CarrierName": "One London",
+  "ExpirationDate": "10/15/2027",
+  "SublineName": "DP3",
+  "State": "CW",
+  "ApplicableDate": "10/15/2026",
+  "ProductName": "RTConnectorPLRating",
+  "RatingTerm": "Monthly",
+  "ProductVersionNumber": "PL_15793_208_V1",
+  "ContractName": "ALL",
+  "ObjectID": "SN10191",
+  "ObjectType": "Submission"
+}

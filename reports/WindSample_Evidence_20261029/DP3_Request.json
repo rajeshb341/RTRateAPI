@@ -1,0 +1,160 @@
+{
+  "OwnerId": "15793",
+  "ServiceRequestDetail": {
+    "OwnerId": "15793",
+    "EndClientUserUniqueSessionId": "1.0",
+    "ServiceRequestVersion": "1.0",
+    "LanguageCode": "en",
+    "UserName": "TestUser_02",
+    "RegionCode": "US",
+    "ServiceResponseVersion": "1.0",
+    "ResponseType": "json",
+    "Token": "<removed>",
+    "Lob": "PL",
+    "BrowserIp": "192.158.1.38.",
+    "UserRole": "Underwriter"
+  },
+  "EventName": "RTConnectorPLRating",
+  "LOB": "PL",
+  "TransactionType": "New Business",
+  "Account": {
+    "Insured": [
+      {
+        "ServiceRequestDetail": {},
+        "InsuranceScoreStatus": "6",
+        "InsuranceScoreRange": "769",
+        "InsuranceScoreFetchedDate": "06/21/2026",
+        "Location": [
+          {
+            "City": "VIRGINIA BEACH",
+            "County": "ACCOMACK",
+            "Latitude": "36.84668",
+            "State": "Virginia",
+            "LocationFullAddress": "544 North Witchduck Road, VIRGINIA BEACH, VA 23462 United States",
+            "Longitude": "-76.07531",
+            "StateRegionCode": "VA",
+            "Zipcode1": "23336",
+            "Building": [
+              {
+                "CoastalWaterDistance": "25000",
+                "NumberOfUnits": "SingleFamilyDwelling",
+                "ConstructionType": "Frame",
+                "ExteriorSiding": "MetalSteel",
+                "RoofType": "ConcreteClaySlateTiles",
+                "RoofShape": "Gable",
+                "RoofSlope": "Lessthanorequalto612265",
+                "RoofBrace": "Braced",
+                "RoofParapetsAvailable": "",
+                "Fasteners": "",
+                "GuttersPresent": "",
+                "WindRating": "",
+                "SecondaryWaterResistance": "",
+                "RoofToWallConnection": "SingleWraps",
+                "MitigationOpenings": "Allopeningsareprotected",
+                "ProtectionMissilesSize": "Large",
+                "RoofUpdated": "2006",
+                "AgeOfRoof": "10",
+                "DateBuilt": "1904",
+                "NumberOfStories": "2",
+                "SquareFt": "1403",
+                "Occupancy": "Short-Term Rental",
+                "AgeOfHome": "122",
+                "NumberOfLosses": "1",
+                "CoverageABandCredit": "$350,000 - $499,999",
+                "ExtendedReplacementCost": "No",
+                "NumberOfFamilies": "1",
+                "ProtectionClass": "6",
+                "Alarm": "None",
+                "Creditpercent": "-0.1",
+                "Coverage": [
+                  {
+                    "CoastalDistance": "1000",
+                    "TigerCQApplicable": "Y",
+                    "PLWindCoverage": {
+                      "CoverageSelected": "Yes"
+                    },
+                    "DwellingCoverage": {
+                      "Limit": "494000"
+                    },
+                    "OtherStructureCoverage": {
+                      "Limit": "0"
+                    },
+                    "PersonalPropertyCoverage": {
+                      "Limit": "12579"
+                    },
+                    "LossOfUseCoverage": {
+                      "Limit": "23899"
+                    },
+                    "PLNonWind": {
+                      "Premium": "0.0"
+                    },
+                    "NonWindBaseRateFactor": "0.2",
+                    "DwellingValuation": "RCV",
+                    "PersonalPropertyValuation": "ACV",
+                    "RMSModeledPremium": "269.78",
+                    "WindDeductiblePercentage": "0.001",
+                    "MiscsurchargeFactor": "4.46",
+                    "TIVFactor": "1",
+                    "WaterDamageSublimit": {
+                      "Limit": ""
+                    },
+                    "WaterDamageDeductible": {
+                      "Limit": "Equal to AOP"
+                    },
+                    "LimitedMoldCoverage": {
+                      "Limit": "5000"
+                    },
+                    "WaterBackupCoverage": {
+                      "Limit": "5000"
+                    },
+                    "EarthquakeCoverage": {
+                      "CoverageSelected": "No",
+                      "Deductible": "",
+                      "EarthquakeDeductiblePercentage": "5.0"
+                    },
+                    "PersonalLiabilityCoverageL": {
+                      "Limit": "500000"
+                    },
+                    "MedicalPaymentsCoverageM": {
+                      "Limit": "1000"
+                    },
+                    "AOPDeductible": {
+                      "Limit": "1500",
+                      "DeductibleType": "1500"
+                    },
+                    "PersonalProperty": {
+                      "PersonalArticleFloater": [
+                        {
+                          "ItemCategory": "Mens",
+                          "ItemDescription": "Abc",
+                          "ItemValue": "0.0"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ProductVerNumber": "PL_15793_208_V1",
+  "ProductNumber": "PL_15793_208",
+  "PolicyEffectiveDate": "10/15/2026",
+  "QuoteType": "New Business",
+  "EffectiveDate": "10/15/2026",
+  "PolicyExpirationDate": "10/15/2027",
+  "CarrierName": "One London",
+  "ExpirationDate": "10/15/2027",
+  "SublineName": "DP3",
+  "State": "CW",
+  "ApplicableDate": "10/15/2026",
+  "ProductName": "RTConnectorPLRating",
+  "RatingTerm": "Annual",
+  "ProductVersionNumber": "PL_15793_208_V1",
+  "ContractName": "ALL",
+  "ObjectID": "SN10191",
+  "ObjectType": "Submission"
+}

@@ -1,0 +1,301 @@
+RT RATING API vs LLOYDS RATER - BUG REPORT
+Run folder        : target/rater-output/Run_20261023_155049
+Report workbook   : target/rater-output/Run_20261023_155049/RaterValidationReport_20261023_155049.xlsx (sheets Results / Summary / Configurations)
+Endpoint          : https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3
+Rater             : LloydsRater_BRD_V3.0_08052026.xlsx (RT Common Lloyds Rater BRD V3.0)
+Test data         : src/test/resources/testdata/test-data.xlsx (sheet TestData), first 1000 test cases
+
+OVERALL RESULT
+  Test cases            : 998 run, 2 skipped as invalid test data (247, 708: empty Construction Type)
+  HTTP responses        : 998 x HTTP 200, 0 API errors
+  Configurations        : HO3 only (the first 1000 rows of the test data are all HO3)
+  States                : Virginia (830), New_Jersey (168)
+  Attribute checks      : 85828  ->  Pass 68101, Fail 3755, N/A 13972
+  Failing test cases    : 998 of 998 (every case fails at least BUG-01)
+  All 3755 failing checks trace to the 6 bugs below; O-1..O-3 are test data / framework observations.
+  Expected = Lloyds Rater (column C of the Rater sheet after recalculation); Actual = API response.
+  Per iteration evidence: target/rater-output/Run_20261023_155049/iterations/<TestCaseId>/request.json, response.json, response-status.txt
+  Rater expected values : target/rater-output/Run_20261023_155049/working/rater-expected.json
+
+SUMMARY
+  BUG-01 High    Rater  Minimum Property Rate (C164) is hard-coded 0.0583 in the BRD V3.0 Rater         998 cases
+  BUG-02 High    Rater  New Jersey territory not found (state 'New_Jersey' vs table 'New Jersey')       168 cases
+  BUG-03 Medium  API    Base Non-Wind Rate Factor rounded to 4 decimals (VA7) -> premium differences     56 cases
+  BUG-04 Low     API    Wind AAL (TCQ) Factor is not returned by the API                                942 cases
+  BUG-05 Low     API    AOP Deductible 1000 has no API rate (AOPDeductible.Factor empty)                  2 cases
+  BUG-06 Low     Both   Total Policy Premium rounds to a different dollar (0.01 difference upstream)      3 cases
+
+======================================================================================================================
+BUG-01  Minimum Property Rate is hard-coded to 0.0583 in the new Rater; Minimum Property Premium is wrong for every case
+======================================================================================================================
+Severity     : High
+Category     : Rater defect (BRD V3.0 workbook)
+Summary      : In LloydsRater_BRD_V3.0_08052026.xlsx cell C164 (Building/Coverage/MinimumPropertyRateFactor) holds the
+               constant 0.0583 instead of the rate-table lookup by subline / territory / distance to coast that the previous
+               Rater had. Minimum Property Premium (C165 = rate x TIV / 100) is therefore wrong for every case; the API uses
+               the rate table. In the earlier old-vs-new Rater comparison on the same 30 cases C164 failed 2/29 with the old
+               Rater and 29/29 with the new one - the hard-coding is the only formula difference between the two Raters.
+Expected     : C164 = 0.0583 for every case ; C165 = 0.0583 x TIV / 100, e.g. iteration 1: 313.77
+Actual       : API rate-table value, e.g. iteration 1 (VA1, 5000 ft): MinimumPropertyRateFactor 0.37,
+               MinimumPropertyRatePremium 1991.34
+Failing cells: Building/Coverage/MinimumPropertyRateFactor (C164), Building/Coverage/MinimumPropertyRatePremium (C165)
+Iterations   : 998 test case(s) (TestCaseId)
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+    30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
+    56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81,
+    82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+    107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127,
+    128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148,
+    149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169,
+    170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190,
+    191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211,
+    212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232,
+    233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 248, 249, 250, 251, 252, 253, 254,
+    255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275,
+    276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296,
+    297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317,
+    318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338,
+    339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359,
+    360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380,
+    381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401,
+    402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422,
+    423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443,
+    444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464,
+    465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485,
+    486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506,
+    507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527,
+    528, 529, 530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548,
+    549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569,
+    570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590,
+    591, 592, 593, 594, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611,
+    612, 613, 614, 615, 616, 617, 618, 619, 620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632,
+    633, 634, 635, 636, 637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653,
+    654, 655, 656, 657, 658, 659, 660, 661, 662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674,
+    675, 676, 677, 678, 679, 680, 681, 682, 683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695,
+    696, 697, 698, 699, 700, 701, 702, 703, 704, 705, 706, 707, 709, 710, 711, 712, 713, 714, 715, 716, 717,
+    718, 719, 720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738,
+    739, 740, 741, 742, 743, 744, 745, 746, 747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759,
+    760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780,
+    781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801,
+    802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 814, 815, 816, 817, 818, 819, 820, 821, 822,
+    823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843,
+    844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864,
+    865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885,
+    886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906,
+    907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927,
+    928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948,
+    949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969,
+    970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990,
+    991, 992, 993, 994, 995, 996, 997, 998, 999, 1000
+State        : Virginia (830), New_Jersey (168)
+Subline      : HO3 (998)
+Occupancy    : Primary (829), Secondary/Seasonal (138), Short-Term Rental (31)
+Evidences    :
+    - Iteration 1 (Virginia / ACCOMACK / Short-Term Rental): C164 Expected 0.0583 / Actual 0.370000 ; C165 Expected 313.77 / Actual 1991.34
+    - target/rater-output/Run_20261023_155049/iterations/1/response.json -> Account.Insured[0].Location[0].Building[0].Coverage[0].MinimumPropertyRateFactor 0.370000
+    - Iteration 57 (Virginia / ARLINGTON, VA7, >100 Mi.): C164 Expected 0.0583 / Actual 0.300000 ; C165 Expected 430.25 / Actual 2214.0
+    - Rater formula: previous LloydsRater.xlsx C164 = LOOKUP on 'Rate Tables'!FG:FL (subline, state, territory, distance band);
+    -   LloydsRater_BRD_V3.0_08052026.xlsx C164 = 0.0583 (constant). Rate Tables and State TFS sheets are identical in both workbooks.
+    - Impact: the property premium only uses C165 when wind is selected (C166 = MAX(C162, C165) with wind) - no premium
+    -   impact in this run because wind is No.
+
+======================================================================================================================
+BUG-02  Rater cannot find the territory of New Jersey counties - Rating Territory, state code and base rate are blank
+======================================================================================================================
+Severity     : High
+Category     : Rater defect (Rate Tables data); it also leaves the API request without a state code
+Summary      : The State dropdown value is 'New_Jersey', but the non-HO6 territory table ('Rate Tables'!AF8:AH2851) lists
+               the New Jersey counties under 'New Jersey' (with a space). The lookup in C106 (RatingTerritory) fails, so the
+               territory, the state code C7 = LEFT(C106,2) and the territory-based Base Non-Wind Rate stay blank / 1.
+               The request's StateRegionCode is taken from C7, so it is sent empty and the API cannot rate either: it
+               returns NonWindBaseRateFactor 1.0 and no minimum rate. Both sides being wrong the same way makes the premium
+               checks of these cases pass falsely - only C106 fails.
+Expected     : C106 RatingTerritory = '' (blank), C7 state code = '' , C111 NonWindBaseRateFactor = 1
+Actual       : API RatingTerritory = NJ1 / NJ2 / NJ7 / NJ8 (derived from the county); NonWindBaseRateFactor 1.0 because
+               StateRegionCode was empty
+Verification : Iteration 833 resent with StateRegionCode 'NJ' -> NonWindBaseRateFactor 0.23, BaseNonWindPremium 1237.86,
+               MinimumPropertyRateFactor 0.30, BasePremium 1041 (the run sent '' and got BasePremium 4229).
+Failing cells: Insured/Location/RatingTerritory (C106)  (the premium cells pass falsely - see Summary)
+Iterations   : 168 test case(s) (TestCaseId)
+    833, 834, 835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853,
+    854, 855, 856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874,
+    875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895,
+    896, 897, 898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916,
+    917, 918, 919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937,
+    938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958,
+    959, 960, 961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979,
+    980, 981, 982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000
+State        : New_Jersey (168)
+Subline      : HO3 (168)
+Occupancy    : Primary (130), Secondary/Seasonal (32), Short-Term Rental (6)
+County       : ATLANTIC (117), CAPE MAY (40), BURLINGTON (6), BERGEN (5)
+Evidences    :
+    - Iteration 833 (New_Jersey / ATLANTIC / Primary): C106 Expected '' / Actual NJ2
+    - target/rater-output/Run_20261023_155049/iterations/833/request.json -> Account.Insured[0].Location[0].StateRegionCode = ""
+    - target/rater-output/Run_20261023_155049/iterations/833/response.json -> RatingTerritory NJ2, Coverage[0].NonWindBaseRateFactor 1.0, MinimumPropertyRateFactor ""
+    - Rate Tables AF:AH: ('Atlantic','New Jersey','NJ2'), ('Cape May','New Jersey','NJ1'), ... in the non-HO6 rows 8-2851;
+    -   'New_Jersey' appears only in the HO6 rows 2852-3123. Every Virginia county resolves (no space in the state name).
+    - Fix: rename the non-HO6 New Jersey rows to 'New_Jersey' (or SUBSTITUTE the underscore in the C106 lookup).
+
+======================================================================================================================
+BUG-03  API rounds the Base Non-Wind Rate Factor to 4 decimals (Virginia territory VA7) - property premiums differ
+======================================================================================================================
+Severity     : Medium
+Category     : API defect (rounding) - confirm the expected precision against the BRD
+Summary      : For territory VA7 the Rater's base rate factor is 0.308 x policy form factor 0.92 = 0.28336; the API returns
+               0.2834 and rates with it. The difference flows into every premium of the case (Base Non-Wind, Total Base
+               Non-Wind, Calculated Non-Wind, credits, Total / Final Property Premium, Policy Premium and the additive
+               credit/surcharge rows). Other VA territories pass because their factor has 4 decimals or fewer (VA1 0.1748,
+               VA2/VA3 0.1656, VA4/VA5 0.184, VA6 0.2116). Difference per case $0.24 - $0.42 on the premium, up to
+               $317.59 on Misc Surcharge Amount where the surcharge factor is large (see O-1).
+
+Expected     : NonWindBaseRateFactor 0.28336 (within the 0.01 tolerance itself); 
+			iteration 57: BaseNonWindPremium 2091.2,
+               TotalBaseNonWindPremium 2404.88, CalculatedNonWindPremium 1803.66, FinalPropertyPremium 1648.29, BasePremium 1723
+
+Actual       : NonWindBaseRateFactor 0.2834; iteration 57: 2091.49, 2405.22, 1803.92, 1648.53, BasePremium 1724
+
+Failing cells: C112, C144, C149, C150, C153, C159, C161, C162, C166 (all cases); C121, C228, C128, C130, C140, C134, C160,
+               C119, C123, C136 (some cases, depending on which credits/surcharges apply)
+Iterations   : 56 test case(s) (TestCaseId)
+    57, 58, 59, 60, 61, 97, 98, 99, 102, 105, 106, 107, 108, 109, 110, 111, 112, 219, 220, 221, 222, 223, 224,
+    225, 226, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 245, 246, 254, 264, 431, 432,
+    460, 465, 466, 467, 468, 515, 516, 517, 816, 817, 818, 819
+State        : Virginia (56)
+Subline      : HO3 (56)
+Occupancy    : Primary (42), Secondary/Seasonal (13), Short-Term Rental (1)
+Territory    : VA7 (all) ; County: HENRICO (7), ISLE OF WIGHT (7), JAMES CITY (6), FAIRFAX (4), WESTMORELAND (4), CHESTERFIELD (3), STAFFORD (3), SURRY (3), ESSEX (2), LOUDOUN (2), ORANGE (2), ARLINGTON (1), AUGUSTA (1), BATH (1), BEDFORD (1), CAROLINE (1), CULPEPER (1), FAUQUIER (1), FREDERICK (1), HANOVER (1), MECKLENBURG (1), NEW KENT (1), PRINCE GEORGE (1), SHENANDOAH (1)
+Evidences    :
+    - Iteration 57 (Virginia / ARLINGTON / Primary): C111 Expected 0.28336 / Actual 0.2834 (Pass within tolerance);
+    -   C112 Expected 2091.2 / Actual 2091.49 ; C228 Expected 1723 / Actual 1724
+    - target/rater-output/Run_20261023_155049/iterations/57/response.json -> Coverage[0].NonWindBaseRateFactor 0.2834, BaseNonWindPremium 2091.49
+    - Iteration 58 (Misc Surcharge Factor 1024.48): C160 Expected 2249512.2048 / Actual 2249829.7936
+    - Check: 738000 x 0.28336 / 100 = 2091.20 (Rater) ; 738000 x 0.2834 / 100 = 2091.49 (API)
+
+======================================================================================================================
+BUG-04  API does not return the Wind AAL (TCQ) Factor
+======================================================================================================================
+Severity     : Low
+Category     : API defect / discrepancy (no premium impact while wind is not selected)
+Summary      : The Rater calculates the TCQ AAL Factor (C155) from the state for every case; the API returns
+               Coverage[0].WindAalFactor empty in every response (also in all RequestResponse samples). Wind coverage is
+               sent as 'No', so the wind premium is 0 on both sides; only the factor itself is missing. Cases where the
+               Rater factor is 0 pass.
+Expected     : C155 = 2.5 (353 cases), 2.75 (326 cases), 1 (263 cases)
+Actual       : WindAalFactor = "" (empty)
+Failing cells: Building/Coverage/WindAalFactor (C155)
+Iterations   : 942 test case(s) (TestCaseId)
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
+    30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
+    56, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86,
+    87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 100, 101, 103, 104, 113, 114, 115, 116, 117, 118, 119, 120, 121,
+    122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142,
+    143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163,
+    164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184,
+    185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205,
+    206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 227, 241, 242, 243, 244, 248, 249, 250,
+    251, 252, 253, 255, 256, 257, 258, 259, 260, 261, 262, 263, 265, 266, 267, 268, 269, 270, 271, 272, 273,
+    274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294,
+    295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315,
+    316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336,
+    337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357,
+    358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378,
+    379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399,
+    400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420,
+    421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443,
+    444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 461, 462, 463, 464, 469,
+    470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490,
+    491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511,
+    512, 513, 514, 518, 519, 520, 521, 522, 523, 524, 525, 526, 527, 528, 529, 530, 531, 532, 533, 534, 535,
+    536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556,
+    557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577,
+    578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 594, 595, 596, 597, 598,
+    599, 600, 601, 602, 603, 604, 605, 606, 607, 608, 609, 610, 611, 612, 613, 614, 615, 616, 617, 618, 619,
+    620, 621, 622, 623, 624, 625, 626, 627, 628, 629, 630, 631, 632, 633, 634, 635, 636, 637, 638, 639, 640,
+    641, 642, 643, 644, 645, 646, 647, 648, 649, 650, 651, 652, 653, 654, 655, 656, 657, 658, 659, 660, 661,
+    662, 663, 664, 665, 666, 667, 668, 669, 670, 671, 672, 673, 674, 675, 676, 677, 678, 679, 680, 681, 682,
+    683, 684, 685, 686, 687, 688, 689, 690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703,
+    704, 705, 706, 707, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725,
+    726, 727, 728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741, 742, 743, 744, 745, 746,
+    747, 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767,
+    768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788,
+    789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807, 808, 809,
+    810, 811, 812, 813, 814, 815, 820, 821, 822, 823, 824, 825, 826, 827, 828, 829, 830, 831, 832, 833, 834,
+    835, 836, 837, 838, 839, 840, 841, 842, 843, 844, 845, 846, 847, 848, 849, 850, 851, 852, 853, 854, 855,
+    856, 857, 858, 859, 860, 861, 862, 863, 864, 865, 866, 867, 868, 869, 870, 871, 872, 873, 874, 875, 876,
+    877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 891, 892, 893, 894, 895, 896, 897,
+    898, 899, 900, 901, 902, 903, 904, 905, 906, 907, 908, 909, 910, 911, 912, 913, 914, 915, 916, 917, 918,
+    919, 920, 921, 922, 923, 924, 925, 926, 927, 928, 929, 930, 931, 932, 933, 934, 935, 936, 937, 938, 939,
+    940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960,
+    961, 962, 963, 964, 965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981,
+    982, 983, 984, 985, 986, 987, 988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999, 1000
+State        : Virginia (774), New_Jersey (168)
+Subline      : HO3 (942)
+Occupancy    : Primary (787), Secondary/Seasonal (125), Short-Term Rental (30)
+Evidences    :
+    - Iteration 1 (Virginia / ACCOMACK / Short-Term Rental): C155 Expected 2.5 / Actual '' - 'Actual value is empty in the response'
+    - target/rater-output/Run_20261023_155049/iterations/1/response.json -> Coverage[0].WindAalFactor "" ; Coverage[0].PLWindCoverage.Premium 0.0 (Rater C157 = 0)
+    - Iteration 833 (New_Jersey / ATLANTIC): C155 Expected 1 / Actual ''
+
+======================================================================================================================
+BUG-05  API has no rate for an AOP deductible of 1000 - AOPDeductible.Factor is empty
+======================================================================================================================
+Severity     : Low
+Category     : API defect (rate table gap)
+Summary      : The Rater's AOP deductible table ('Rate Tables'!DY:ED) has 1000 -> factor 1 and 500 -> 1.1 for HO3; the API
+               returns an empty AOPDeductible.Factor for 1000 (and for 500 - seen in the earlier 30-case run, where the
+               missing 1.1 factor changed the whole premium chain). With 1000 the factor is 1, so no premium difference here.
+Expected     : C139 AOPDeductible Factor = 1
+Actual       : AOPDeductible.Factor = "" (empty)
+Failing cells: Coverage/AOPDeductible/Factor (C139)
+Iterations   : 2 test case(s) (TestCaseId)
+    79, 351
+State        : Virginia (2)
+Subline      : HO3 (2)
+Occupancy    : Primary (2)
+AOP input    : 1000
+Evidences    :
+    - Iteration 79 (Virginia / CHESAPEAKE CITY / Primary): C139 Expected 1 / Actual ''
+    - target/rater-output/Run_20261023_155049/iterations/79/request.json -> Coverage[0].AOPDeductible.Limit "1000"
+    - target/rater-output/Run_20261023_155049/iterations/79/response.json -> Coverage[0].AOPDeductible.Factor ""
+    - Iteration 351 (Virginia / NORFOLK CITY / Primary): same
+    - Earlier 30-case run: AOP 500 -> Rater 1.1 / API empty factor (iterations 211, 948, 1396).
+
+======================================================================================================================
+BUG-06  Total Policy Premium rounds to a different dollar when Final Property Premium differs by 0.01
+======================================================================================================================
+Severity     : Low
+Category     : Rounding difference (Rater rounds C166 to 2 decimals before the total; the API keeps more precision)
+Summary      : Final Property Premium (C166) is 709.50 in the Rater and 709.49 in the API (within tolerance, Pass).
+               Total Policy Premium = ROUND(MAX(C166 + C223, C226), 0) rounds 754.50 up to 755 in the Rater while the
+               API's 754.49 rounds to 754.
+Expected     : C228 BasePremium 755 / 818 / 755
+Actual       : BasePremium 754.0 / 817.0 / 754.0
+Failing cells: Location/Building/BasePremium (C228)
+Iterations   : 3 test case(s) (TestCaseId)
+    589, 590, 803
+State        : Virginia (3)
+Subline      : HO3 (3)
+Occupancy    : Primary (3)
+Evidences    :
+    - Iteration 589: C166 Expected 709.5 / Actual 709.49 (Pass) ; C223 45 ; C228 Expected 755 / Actual 754.0
+    - Iteration 590: C166 Expected 709.5 / Actual 709.49 (Pass) ; C223 108 ; C228 Expected 818 / Actual 817.0
+    - Iteration 803: C166 Expected 709.5 / Actual 709.49 (Pass) ; C223 45 ; C228 Expected 755 / Actual 754.0
+    - target/rater-output/Run_20261023_155049/iterations/589/response.json -> Building[0].TotalPropertyPremium 709.49, BasePremium 754.0
+
+======================================================================================================================
+OBSERVATIONS (not product bugs)
+======================================================================================================================
+O-1  Test data: Miscellaneous Surcharge Factor (row 47) holds values such as -13.33, -272.8, 504.8, 1024.48 in 156 cases
+     (the Rater sample uses 0). The surcharge is factor x premium, so these give surcharges in the millions or negative
+     property premiums: 21 cases have a negative Final Property Premium on BOTH sides (e.g. iteration 1: -11668.77;
+     only the 750 minimum keeps the policy premium positive). Rater and API agree, but the values are unrealistic and
+     neither side floors the property premium at 0. Negative cases:
+    1, 63, 67, 79, 106, 115, 117, 136, 141, 174, 313, 351, 361, 519, 527, 585, 626, 664, 666, 704, 709
+O-2  Test data: iterations 247 and 708 have an empty Construction Type (row 25) and were skipped (not run).
+O-3  Framework: the request's StateRegionCode comes from the Rater (C7). When the Rater cannot resolve the territory
+     (BUG-02) the request goes out without a state code. Fixing BUG-02 fixes both; alternatively the framework can
+     derive the state code from the State name.
+
+Not bugs: the 13972 N/A checks are attributes the Rater marks N/A / additive for HO3 or that the API does not return
+(Special Coverage A/C and Replacement Cost On Contents factors, Policy Term Factor).

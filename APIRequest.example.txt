@@ -1,23 +1,18 @@
 {
-  "OwnerId": "15793",
-  "ServiceRequestDetail": {
-    "OwnerId": "15793",
-    "EndClientUserUniqueSessionId": "1.0",
-    "ServiceRequestVersion": "1.0",
-    "LanguageCode": "en",
-    "UserName": "swetha_p",
-    "RegionCode": "US",
-    "ServiceResponseVersion": "1.0",
-    "ResponseType": "json",
-    "Token": "<PASTE-YOUR-TOKEN>",
-    "Lob": "PL",
-    "BrowserIp": "192.158.1.38.",
-    "UserRole": "Underwriter",
-    "ServiceRequestDetail": {}
-  },
-  "EventName": "RTConnectorPLRating",
-  "LOB": "PL",
+  "CarrierName": "ALL",
+  "MinimumEarnedPremium": "750.000000",
+  "State": "CW",
+  "QuoteType": "New Business",
   "TransactionType": "New_Business",
+  "OwnerId": "15793",
+  "ContractName": "ALL",
+  "PolicyTerm": "Annual",
+  "ProductName": "RTConnectorPLRating",
+  "ProductNumber": "PL_15793_208",
+  "EffectiveDate": "01/01/2021",
+  "SublineName": "HO3",
+  "EventName": "RTConnectorPLRating",
+  "ProductVersionNumber": "PL_15793_208_V1",
   "Account": {
     "Insured": [
       {
@@ -26,122 +21,167 @@
         "InsuranceScoreFetchedDate": "06/21/2026",
         "Location": [
           {
-            "State": "Texas",
-            "County": "Bailey",
-            "Zipcode1": "8260",
-            "StateRegionCode": "FL",
-            "City": "Orlando",
             "Building": [
               {
-                "CoastalWaterDistance": "50 - 75 Mi.",
-                "DateBuilt": "1974",
-                "ConstructionType": "Masonry",
-                "Occupancy": "Builders Risk",
-                "AgeOfHome": "52",
-                "AgeOfRoof": "11 or more Years",
-                "NumberOfStories": "1",
-                "NumberOfLosses": "0",
                 "CoverageABandCredit": "$250,000 - $349,999",
+                "ProtectionclassPremium": "0.0",
+                "NumberofLosses": "0",
+                "ConstructionTypeFactor": "0.90000",
+                "ProtectionFactor": "",
+                "Occupancy": "Builders Risk",
                 "ExtendedReplacementCost": "No",
-                "NumberOfFamilies": "1",
-                "ProtectionClass": "10",
-                "Alarm": "None",
-                "Creditpercent": "-0.1",
-                "MinimumTiv": "1",
+                "AgeOfHomeRiskFactor": "1.20000",
+                "CoastalWaterDistance": "1000",
+                "RenewalCoverageInflationFactor": "0.035",
+                "NumberOfStories": "1",
+                "OccupancyFactor": "1.00000",
                 "MaximumTiv": "0.88",
+                "ConstructionType": "Masonry",
+                "MinimumTiv": "1",
+                "CoverageABandFactor": "0.900000",
+                "FamilyFactor": "1.000000",
+                "NumberofFamilyPremium": "0.0",
+                "AgeOfRoofPremium": "0.0",
+                "AlarmCreditAmount": "0.0",
+                "NumberOfFamilies": "1",
+                "BasePremium": "750.0",
+                "FinalPropertyPremium": "0.0",
+                "LossSurchargeAmount": "-28.06",
+                "AgeOfHomeRiskPremium": "280.6",
+                "AgeOfHome": "52",
+                "DateBuilt": "1974",
+                "OccupancyTypePremium": "0.0",
+                "ExtendedReplacementCostAmount": "1.0",
+                "MaxAdditiveCredit": "0.0",
+                "ConstructionTypePremium": "-140.3",
+                "LossSurchargeFactor": "0.980000",
+                "ExtendedReplacementcostPremium": "0.0",
+                "AgeOfRoofFactor": "1.000000",
                 "Coverage": [
                   {
-                    "DwellingValuation": "Replacement Cost",
-                    "PersonalPropertyValuation": "Replacement Cost",
-                    "RMSModeledPremium": "430.4",
-                    "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                    "MinimumPropertyRatePremium": "0.0",
+                    "PolicyformFactor": "1.0",
+                    "IdentityFraudCoverage": {
+                      "Premium": "25.0",
+                      "Limit": "15000.00",
+                      "CoverageSelected": "15000"
+                    },
                     "MiscsurchargeFactor": "0",
                     "WaterDamageSublimit": {
-                      "Limit": "Full Policy Limits"
+                      "Limit": ""
                     },
+                    "TerritoryRelativityFactor": "1.0",
+                    "PLWindCoverage": {
+                      "Premium": "0.0",
+                      "CoverageSelected": "No"
+                    },
+                    "TIVFactor": "0.0",
+                    "MinimumNonWindRate": "0.0",
+                    "BaseRate": "0.230000000000000",
                     "DwellingCoverage": {
                       "Limit": "610000"
+                    },
+                    "IncreasedLossAssessment": {
+                      "Premium": "0.0",
+                      "Limit": ""
+                    },
+                    "BaseNonWindPremium": "1403.0",
+                    "TermInMonths": "0",
+                    "ReplacementCostOnContentsCoverage": {
+                      "Premium": "0.0",
+                      "CoverageSelected": "No"
+                    },
+                    "MinimumNonWindRatePremium": "0.0",
+                    "WindAalFactor": "",
+                    "PLNonWind": {
+                      "Premium": "911.9500000000002"
+                    },
+                    "InsuranceScoreFactor": "1.0",
+                    "MaxCreditAmount": "911.9500000000002",
+                    "CreditsSurchargesTotal": "0.0",
+                    "LossOfUseCoverage": {
+                      "Limit": "0"
+                    },
+                    "TotalBaseNonWindFactor": "1.0",
+                    "LimitedMoldCoverage": {
+                      "Premium": "0.0",
+                      "Limit": "5000"
+                    },
+                    "WaterBackupCoverage": {
+                      "Premium": "25.0",
+                      "Limit": "5000"
+                    },
+                    "GrossAal": "430.4",
+                    "CalculatedNonWindPremium": "0.0",
+                    "PersonalPropertyCoverage": {
+                      "Limit": "0"
+                    },
+                    "NonWindBaseRateFactor": "0.23",
+                    "WaterDamageDeductible": {
+                      "Limit": "2500"
                     },
                     "OtherStructureCoverage": {
                       "Limit": "0"
                     },
-                    "PersonalPropertyCoverage": {
-                      "Limit": "0"
-                    },
-                    "LossOfUseCoverage": {
-                      "Limit": "0"
-                    },
-                    "WaterDamageDeductible": {
-                      "Limit": "Excluded"
-                    },
-                    "PLWindCoverage": {
-                      "CoverageSelected": "Yes"
-                    },
-                    "LimitedMoldCoverage": {
-                      "Limit": "5000"
-                    },
-                    "WaterBackupCoverage": {
-                      "Limit": "NONE"
-                    },
-                    "IdentityFraudCoverage": {
-                      "CoverageSelected": "15000",
-                      "Limit": "15000.00"
-                    },
-                    "SpecialCoverageA": {
-                      "CoverageSelected": "No"
-                    },
+                    "PersonalPropertyValuation": "ALL",
+                    "RMSModeledPremium": "430.4",
                     "SpecialCoverageC": {
+                      "Premium": "0.0",
                       "CoverageSelected": "No"
                     },
-                    "ReplacementCostOnContentsCoverage": {
+                    "TotalInsuredValue": "610000.0",
+                    "DwellingValuation": "ALL",
+                    "MiscSurchargeAmount": "0.0",
+                    "CombinedTotalFactor": "0.0",
+                    "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                    "SpecialCoverageA": {
+                      "Premium": "0.0",
                       "CoverageSelected": "No"
                     },
-                    "IncreasedLossAssessment": {
-                      "Limit": "Not Applicable"
-                    },
-                    "PersonalInjuryCoverage": {
-                      "CoverageSelected": "No"
-                    },
-                    "EarthquakeCoverage": {
-                      "CoverageSelected": "No",
-                      "Deductible": "EXCLUDED"
-                    },
-                    "TheftCoverage": {
-                      "Limit": "5000"
-                    },
-                    "VandalismOrMaliciousMischiefCoverage": {
-                      "CoverageSelected": "Excluded"
-                    },
-                    "ExtendedCoverage": {
-                      "CoverageSelected": "Excluded"
-                    },
-                    "PersonalLiabilityCoverageL": {
-                      "Limit": "500000"
-                    },
-                    "MedicalPaymentsCoverageM": {
-                      "Limit": "None"
-                    },
-                    "AOPDeductible": {
-                      "Limit": "2500",
-                      "DeductibleType": "1000"
-                    }
+                    "MinimumPropertyRateFactor": ""
                   }
-                ]
+                ],
+                "CoverageABandPremium": "-140.3",
+                "AgeOfRoof": "13",
+                "NumberOfStoriesFactor": "1.0",
+                "TotalLiabilityPremium": "0.0",
+                "ProtectionClass": "10",
+                "AlarmCreditFactor": "1.000000",
+                "Alarm": "None",
+                "TotalCalculatedPropertyPremium": "0.0",
+                "Creditpercent": "0.1"
               }
-            ]
+            ],
+            "StateRegionCode": "GA",
+            "State": "Georgia",
+            "City": "Orlando",
+            "RatingTerritory": "GA1",
+            "HO6TerritoryCode": "",
+            "County": "Chatham",
+            "Zipcode1": "ALL"
           }
         ]
       }
     ]
   },
-  "QuoteType": "New Business",
-  "EffectiveDate": "01/01/2021",
-  "CarrierName": "XYZ Company",
+  "ServiceRequestDetail": {
+    "EndClientUserUniqueSessionId": "1.0",
+    "ResponseType": "json",
+    "Lob": "PL",
+    "ServiceResponseVersion": "1.0",
+    "LanguageCode": "en",
+    "OwnerId": "15793",
+    "ServiceRequestVersion": "1.0",
+    "UserName": "kailash_d",
+    "UserRole": "Underwriter",
+    "ServiceRequestDetail": {},
+    "RegionCode": "US",
+    "Token": "<PASTE-YOUR-TOKEN>",
+    "BrowserIp": "192.158.1.38."
+  },
+  "PolicyEffectiveDate": "01/01/2021",
+  "LOB": "PL",
   "ExpirationDate": "01/01/2022",
-  "SublineName": "HO3",
-  "PolicyFee": "0",
   "ApplicableDate": "01/01/2021",
-  "ProductName": "RTConnectorPLRating",
-  "PolicyTerm": "12 months",
-  "ProductVersionNumber": "123456"
+  "PolicyExpirationDate": "01/01/2022"
 }

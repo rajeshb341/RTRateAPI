@@ -1,0 +1,251 @@
+RT Rate API - Bug Report
+========================
+Run            : HO6AndBugTCs  (Run_20261029_164149)
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\HO6AndBugTCs
+Rater          : LloydsRater_BRD_V3.0_10292026_Final.xlsx
+API headers    : Mode TEST, Environment 20
+Test cases     : 2,743 run, 0 skipped - HO6 6584-9308 (2,725) + 18 re-test cases of the previous bugs
+Totals         : 235,898 attribute checks - 133,260 Pass, 31,565 Fail, 71,073 N/A
+Run time       : 20 min (16:41:49 - 17:01:56)
+
+Every HO6 case fails at least one attribute: two Rater defects (HO6-07, HO6-08) affect all 2,725 HO6 cases.
+The premium differences (Non-Wind, Property, Final, Base premium, Combined factors) all come from HO6-01 to HO6-08.
+
+
+PART 1 - HO6 BUGS
+=================
+
+Summary
+-------
+Bug     Defect  Cases   Attribute                                   Summary
+HO6-01  API     1,839   TIV Factor (C113)                           API TIV factor differs from the Rater's TIV table
+                                                                    below 70,000 and above 110,000
+HO6-02  Rater   1,194   Number Of Stories Factor (C124)             Rate Table has two conflicting HO6 wind "No" blocks;
+                                                                    the Rater uses the stories-only block
+HO6-03  API        14   Protection Factor (C133)                    Protection Class 7-10 factors differ from the Rate Table
+HO6-04  API        68   Alarm Credit Factor (C135)                  Central Station Burglary & Fire Alarm: 0.90 instead of 0.95
+HO6-05  Rater      83   Water Damage Deductible Factor (C141)       "Equal to AOP" not resolved to the AOP amount
+HO6-06  API       263   Insurance Score Factor (C147 / C222)        Factor 0 in Maryland and Massachusetts: non-wind and
+                                                                    liability premium become 0
+HO6-07  API     2,725   Minimum Non-Wind Rate Premium (C152)        API returns 0.0 although it returns the rate (0.12)
+HO6-08  Rater   2,725   Minimum Earned Premium (C226)               Rater lookup never matches (territory stored as text):
+                                                                    0 instead of 300-1,000; Base Premium follows (2,627 cases)
+
+Follow-on differences (no separate bug): Combined Additive Factor / Max Additive Credit (C145 / C146: sum of the
+factors above), Combined Total Factor (C148), Calculated Non-Wind Premium (C149), PLNonWind Premium (C153),
+Calculated / Total / Final Property Premium (C159 / C162 / C166), FDR Without Insurance Score Factor (C229),
+Misc Surcharge Amount (C160), Total Liability Premium (C223), Base Premium (C228).
+
+
+HO6-01  TIV Factor differs from the Rater's TIV table below 70,000 and above 110,000 => "MinimumTiv" : "80000", "MaximumTiv" : "90000",
+-----------------------------------------------------------------------------------
+Defect          : API (please confirm which TIV table is current)
+Cases           : 1,839 HO6 cases with TIV below 70,000 or above 110,000 (plus 103 with a difference under 0.01
+                  that still changes the premium). TIV 70,000 - 109,999 matches.
+Bug Summary     : The Rater interpolates its TIV table (Rate Tables Q8:T29, e.g. 190,000 -> 1.47, 200,000 -> 1.50).
+                  The API uses a straight line instead: 0.65 + 0.000005 x TIV below 70,000 and
+                  1.15 + 0.000005 x (TIV - 100,000) above 110,000.
+Expected Result : 6587 TIV 195,611: 1.47 + 5,611 x (1.50 - 1.47) / 10,000 = 1.486833
+Actual Result   : 6587: 1.628055
+Evidence        : 6587 (HO6, WORCESTER MD, TIV 195,611)  -  also 6600: TIV 48,000 -> Rater 0.979 / API 0.89
+Result path     : ...\HO6AndBugTCs\iterations\6587
+
+HO6-02  Number Of Stories Factor: the Rater uses the wrong block of its Rate Table => InProgress Rater Issue
+--------------------------------------------------------------------------------
+Defect          : Rater (Rate Tables BQ8:BX78)
+Cases           : 1,194 HO6 cases (e.g. 6585, 6586, 6612)
+Bug Summary     : The table has two HO6 blocks for wind not selected: one written "NO" (factor by construction type
+                  and stories: Reinforced Concrete / Steel / Superior 8-14 stories 0.85, 15+ 0.75, Masonry 4+ 1.10 ...)
+                  and one written "No" (stories only: 0-3 1.05, 4-7 1.00, 8+ 0.95). Excel compares text without case
+                  and LOOKUP takes the last match, so the Rater always uses the "No" block; the API uses the "NO" block.
+Expected Result : 6612 (Reinforced Concrete, 8 stories): 0.85 ("NO" block, as the API)
+Actual Result   : Rater 0.95 ("No" block)
+                  Combined Additive Factor 1.29 vs 1.19, Final Property Premium 530.57 vs 493.95
+Evidence        : 6612 (HO6, BREVARD FL, Reinforced Concrete, 8 stories)
+Result path     : ...\HO6AndBugTCs\iterations\6612
+Note            : Remove the block that does not apply. If the "No" block is the intended one, this is an API defect.
+
+
+HO6-03  Protection Factor for Protection Class 7-10 differs from the Rate Table => InProgress Rater Issue
+------------------------------------------------------------------------------
+Defect          : API
+Cases           : 6804, 6921, 6926, 7526, 7648, 7927, 7956, 8157, 8792, 8826, 8852, 8970, 9011, 9017
+Bug Summary     : HO6 Rate Table (DA:DE): PC 7 = 1.1, PC 8 = 1.2, PC 9 = 1.4, PC 10 = 1.5. The API returns
+                  1.2 / 1.3 / 2.0 / 2.0.
+Expected Result : 6921 (Protection Class 9): 1.4
+Actual Result   : 6921: 2.0; Non-Wind premium 475.28 vs 707.51
+Evidence        : 6921 (HO6, ACCOMACK VA, Protection Class 9)
+Result path     : ...\HO6AndBugTCs\iterations\6921
+
+
+HO6-04  Alarm Credit: Central Station Burglary & Fire Alarm is 0.90 instead of 0.95 => InProgress Rater Issue
+----------------------------------------------------------------------------------
+Defect          : API
+Cases           : 68 HO6 cases with "Central Station Burglary & Fire Alarm" (e.g. 6615, 6647, 6666, 6714)
+                  (Burglary only and Fire only match: 0.95)
+Bug Summary     : HO6 Rate Table (DH:DL): CentralStationBurglar&Firealarm = 0.95. The API returns 0.90.
+Expected Result : 6615: 0.95
+Actual Result   : 6615: 0.90; Combined Additive Factor 0.78 vs 0.53
+Evidence        : 6615 (HO6, MIAMI-DADE FL, Central Station Burglary & Fire Alarm)
+Result path     : ...\HO6AndBugTCs\iterations\6615
+
+
+HO6-05  Water Damage Deductible Factor: "Equal to AOP" is not resolved => 
+---------------------------------------------------------------------
+Defect          : Rater
+Cases           : 83 HO6 cases with AOP 5,000 or 10,000 and Water Damage Deductible "Equal to AOP"
+                  (e.g. 6657, 6683, 6750); AOP 2,500 matches (factor 1)
+Bug Summary     : The Rater looks up the text "Equal to AOP" in the deductible table (EI:EK), finds nothing and uses
+                  1. The API uses the AOP amount: 5,000 / 5,000 = 0.95 and 10,000 / 10,000 = 0.90, as in the table.
+Expected Result : 6657 (AOP 5,000, Equal to AOP): 0.95 (as the API)
+Actual Result   : Rater 1; Non-Wind premium 1,033.48 (Rater) vs 1,001.39 (API)
+Evidence        : 6657 (HO6, BALDWIN AL, AOP 5,000)
+Result path     : ...\HO6AndBugTCs\iterations\6657
+
+
+HO6-06  Insurance Score Factor is 0 in Maryland and Massachusetts
+----------------------------------------------------------------
+Defect          : API (please confirm with the BA whether MD / MA should get factor 1)
+Cases           : 263 - 259 of the 275 Maryland cases and all 4 Massachusetts cases (e.g. 6587, 6588, 6600)
+Bug Summary     : For HO6 in MD and MA the API returns Insurance Score Factor 0, so the Calculated Non-Wind premium,
+                  the PLNonWind premium and the Total Liability premium become 0 (the property premium is then only
+                  the 25 / 35 fees). The Rater applies the normal insurance score factor.
+Expected Result : 6587 (score 799-834): Insurance Score Factor 0.8, Non-Wind premium 314.02, Total Liability 44,
+                  Final Property Premium 349.02
+Actual Result   : 6587: Insurance Score Factor 0.0, Non-Wind premium 0.0, Total Liability 0.0,
+                  Final Property Premium 35.00
+Evidence        : 6587 (HO6, WORCESTER MD, request InsuranceScoreStatus 1 / Range 799)
+Result path     : ...\HO6AndBugTCs\iterations\6587
+
+
+HO6-07  Minimum Non-Wind Rate Premium is 0 => Rater Related Issue
+-----------------------------------------
+Defect          : API
+Cases           : all 2,725 HO6 cases (6584-9308)
+Bug Summary     : The API returns the Minimum Non-Wind Rate (0.12) but Minimum Non-Wind Rate Premium 0.0.
+                  The Rater: Minimum Non-Wind Rate x TIV / 100.
+Expected Result : 6584: 0.12 x 256,519 / 100 = 307.82
+Actual Result   : 6584: 0.0
+Evidence        : 6584 (HO6, VIRGINIA BEACH CITY VA, TIV 256,519)
+Result path     : ...\HO6AndBugTCs\iterations\6584
+
+
+HO6-08  Minimum Earned Premium is 0 in the Rater (lookup never matches) => Rater Related Issue
+----------------------------------------------------------------------
+Defect          : Rater (C226 / Rate Tables IX:JA)
+Cases           : all 2,725 HO6 cases; Base Premium (C228) differs in 2,627 of them
+Bug Summary     : The HO6 rows of the Minimum Earned Premium table hold the territory number as text ('1', '2' ...),
+                  but C226 compares it with VALUE(MID(RatingTerritory,3,10)), a number, so no row matches and IFERROR
+                  returns 0. The API returns the table value (300 / 350 / 500 / 750 / 1,000). Base Premium =
+                  MAX(premium, Minimum Earned Premium) therefore differs whenever the premium is below the minimum.
+Expected Result : 6585 (SC8): Minimum Earned Premium 500 (table HO6 / SC / 8), Base Premium 500 (as the API)
+Actual Result   : Rater: Minimum Earned Premium 0, Base Premium 344
+Evidence        : 6585 (HO6, HORRY SC, territory SC8)
+Result path     : ...\HO6AndBugTCs\iterations\6585
+
+
+Test data note (not a bug)
+--------------------------
+Some HO6 cases carry the large or negative Misc Surcharge factors copied from the HO3/HO5 cases (e.g. 6584: -13.33,
+6600: 504.8), which gives negative or very large premiums (6584 Final Property Premium -5,610.88 / -6,496.54).
+The Misc Surcharge differences (C160, 296 cases) are those premium differences multiplied by such factors.
+
+
+PART 2 - PREVIOUS BUGS STILL OPEN IN THIS RUN (re-test of 18 cases)
+====================================================================
+
+Summary (by iteration id)
+-------------------------
+Bug     Defect  Iterations                          Summary
+BUG-01A API     6542-6545                           DP1 Builders Risk wind (Maryland): Insurance Score Factor 0 after
+                                                    the TigerCQ change, non-wind premium too low
+BUG-01B API     6527, 6531, 6536, 6555, 6557        Wind cases of the non-TigerCQ states: HTTP 500 with
+                                                    TigerCQApplicable N
+BUG-02  API     6540, 6541                          DP1 Builders Risk wind: WindAalFactor 0, wind premium 0
+BUG-03  API     6391, 6392, 6408                    DP1 Builders Risk with Personal Liability: Base Premium lower
+                                                    than the Rater (liability not included)
+BUG-05  API     917                                 Half-cent amounts rounded differently from the Rater
+
+Closed / not comparable
+- BUG-04 Water Damage Sublimit factor (1718, 6321): Pass - closed (N/A for HO8 / DP1 Vacant as agreed).
+- BUG-06 Misc Surcharge on the rounded property premium (6531, 6536, 6557): not comparable in this run, these
+  cases return HTTP 500 (BUG-01B).
+
+
+BUG-01A  DP1 Builders Risk wind (Maryland): Insurance Score Factor 0, non-wind premium too low
+---------------------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6542-6545
+Bug Summary     : With the non-TigerCQ values (InsuranceScoreStatus "Not Applicable", InsuranceScoreRange "-1",
+                  TigerCQApplicable "N") the HTTP 500 is gone, but the API returns Insurance Score Factor 0. The
+                  Calculated Non-Wind Premium becomes 0 and the PLNonWind / Property / Final / Base premiums are too low.
+                  The Rater uses factor 1 (Insurance Score "Not Needed").
+Expected Result : Insurance Score Factor 1, Calculated Non-Wind Premium 291.95, PLNonWind Premium 291.95
+Actual Result   : Insurance Score Factor 0.000, Calculated Non-Wind Premium 0.0, PLNonWind Premium 176.53
+                  (Final Property Premium 103,852.45 vs 62,795.25 - large because of the test data Misc Surcharge factor)
+Evidence        : 6542 (DP1_BUILDERS_RISK, BALTIMORE MD, wind Yes)
+                  Request : StateRegionCode MD, InsuranceScoreStatus Not Applicable, InsuranceScoreRange -1,
+                            TigerCQApplicable N
+                  Response: HTTP 200, InsuranceScoreFactor 0.000, CalculatedNonWindPremium 0.0, PLNonWind Premium 176.53
+Result path     : ...\HO6AndBugTCs\iterations\6542
+
+
+BUG-01B  Wind cases of the non-TigerCQ states: HTTP 500 with TigerCQApplicable N
+-------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6527 (HO5, MA), 6531 (DP3, VA), 6536 (HO5, SC), 6555 (HO3, VA), 6557 (HO3, VA)
+Bug Summary     : These states are in the non-TigerCQ list, so their wind requests now send InsuranceScoreStatus
+                  "Not Applicable", InsuranceScoreRange "-1" and TigerCQApplicable "N". The API fails with HTTP 500.
+                  The same requests with TigerCQApplicable "Y" rate correctly (Gross AAL returned), so the cause is
+                  TigerCQApplicable "N" (checked on 6531).
+Expected Result : HTTP 200 with a rated response (6531: SublineName DP3, RatingTerritory VA1, Wind premium 1,719.60)
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating"
+                  (all retries fail; nothing can be compared)
+Evidence        : 6531 (DP3, ACCOMACK VA, wind Yes)
+                  Request : StateRegionCode VA, InsuranceScoreStatus Not Applicable, InsuranceScoreRange -1,
+                            TigerCQApplicable N
+                  Response: HTTP 500 Internal Server Error
+Result path     : ...\HO6AndBugTCs\iterations\6531
+Note            : Please confirm whether these states should really send TigerCQApplicable "N" with wind.
+
+
+BUG-02  DP1 Builders Risk wind: WindAalFactor is 0, so the wind premium is 0
+---------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6540, 6541
+Bug Summary     : StateRegionCode is now sent correctly (CT, was blank) and the API returns the Gross AAL, but
+                  WindAalFactor is still 0, so the wind premium is 0 and the property premiums are short by it.
+                  The Rater's WindAalFactor is 1 (wind premium = 1 x Gross AAL / 12).
+Expected Result : WindAalFactor 1, Wind premium 12.26, Calculated Property Premium 9,505.46
+Actual Result   : WindAalFactor 0.0, Wind premium 0.0, Calculated Property Premium 9,493.20
+                  (Total Calculated Property Premium 8,554.91 vs 8,543.88)
+Evidence        : 6540 (DP1_BUILDERS_RISK, SOUTH CENTRAL CONNECTICUT PLANNING REGION CT, wind Yes)
+                  Request : StateRegionCode CT, TigerCQApplicable Y
+                  Response: HTTP 200, GrossAal returned, WindAalFactor 0.0, PLWindCoverage Premium 0.0
+Result path     : ...\HO6AndBugTCs\iterations\6540
+
+
+BUG-03  DP1 Builders Risk with Personal Liability: Base Premium lower than the Rater => Medical Payment attribute need to be added
+----------------------------------------------------------------------------------
+Defect          : API (please confirm with the BA whether the Base Premium should include the liability premium)
+Iterations      : 6391, 6392, 6408
+Bug Summary     : As agreed, Liability Premium and Total Liability Premium are not compared for DP1 Builders Risk
+                  (the API returns only the selected coverage's premium). The Base Premium still differs: the Rater
+                  adds the Total Liability Premium (x 12 months), the API does not.
+Expected Result : 6391: Base Premium 1,008  ((Final Property Premium + Total Liability Premium 21.25) x 12)
+Actual Result   : 6391: Base Premium 753  (6392: 1,583 vs 1,223; 6408: 1,511 vs 1,151)
+Evidence        : 6391 (DP1_BUILDERS_RISK, CHESAPEAKE CITY VA, Personal Liability 500,000)
+Result path     : ...\HO6AndBugTCs\iterations\6391
+
+
+BUG-05  Half-cent amounts are rounded differently from the Rater
+---------------------------------------------------------------
+Defect          : API (rounding method - please confirm with the BA)
+Iterations      : 917 (re-test case; the full list is in BugReport_ExecutionForWithAndWithoutWindNonHO6.txt)
+Bug Summary     : When a premium lands exactly on half a cent the API rounds it to the other cent than the Rater
+                  (Age of Roof premium -42.435: Rater -42.43, API -42.44). The 1 cent difference carries into the
+                  totals as 2 cents.
+Expected Result : Total Base Non-Wind Premium 1,909.58, PLNonWind Premium 2,291.50, Final Property Premium 2,087.35
+Actual Result   : Total Base Non-Wind Premium 1,909.57, PLNonWind Premium 2,291.48, Final Property Premium 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ, wind No)
+Result path     : ...\HO6AndBugTCs\iterations\917

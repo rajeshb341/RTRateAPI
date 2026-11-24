@@ -1,0 +1,136 @@
+RT Rate API - Bug Report
+========================
+Run            : ExecutionForWithAndWithoutWindNonHO6  (Run_20261029_124949)
+Result folder  : D:\Automation files\RT Script\RT API Automation\target\rater-output\ExecutionForWithAndWithoutWindNonHO6
+Rater          : LloydsRater_BRD_V3.0_10282026_Final.xlsx
+API headers    : Mode TEST, Environment 20
+Test cases     : 6,583 read, 5,148 run, 1,435 skipped (test data, see Notes)
+                 HO3 1,652 | HO5 26 | HO8 1,592 | DP3 1,627 | DP3 Vacant 61 | DP3 Builders Risk 1 |
+                 DP1 Vacant 66 | DP1 Builders Risk 123   (43 of them with wind coverage)
+Totals         : 444,163 attribute checks - 359,561 Pass, 949 Fail, 82,218 N/A
+                 448 test cases have at least one failure; 4,700 test cases pass fully.
+Run time       : 38 min (12:49:49 - 13:27:47)
+
+Summary (by iteration id)
+-------------------------
+Bug     Defect  Iterations                                  Summary
+BUG-01  API     6542-6545                                   HTTP 500 - DP1 Builders Risk, Maryland, with wind
+BUG-02  API     6540-6541                                   DP1 Builders Risk: WindAalFactor 0, wind premium 0
+BUG-03  API     6391, 6392, 6408                            DP1 Builders Risk: Liability premium missing when
+                                                            Personal Liability is selected
+BUG-04  API     348 HO8 iterations (1718-2121) and 6321      Water Damage Sublimit factor not returned for a
+                                                            5,000 / 10,000 sublimit (HO8, DP1 Vacant)
+BUG-05  API     102 HO3 / HO8 iterations (843-2699)          Half-cent amounts rounded differently from the Rater;
+                                                            the 1 cent carries into the totals
+BUG-06  API     6531, 6536, 6538, 6557, 6563-6564, 6567,     Misc Surcharge applied to the rounded property premium
+                6570, 6572, 6583                            (wind cases)
+
+
+BUG-01  HTTP 500 for DP1 Builders Risk (Maryland) with wind
+----------------------------------------------------------
+Defect          : API
+Iterations      : 6542-6545
+Bug Summary     : DP1 Builders Risk requests in Maryland with PLWindCoverage = Yes fail with HTTP 500. All retries
+                  fail, so nothing can be compared for these cases.
+Expected Result : HTTP 200 with a rated response (6542: SublineName "DP1 Builders Risk", RatingTerritory MD3,
+                  PLNonWind Premium 291.95)
+Actual Result   : HTTP 500 Internal Server Error - "ResponseStatus :: Failed :: form ::RTConnectorPLRating"
+Evidence        : 6542 (DP1_BUILDERS_RISK, Maryland, wind Yes)
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\6542
+
+
+BUG-02  DP1 Builders Risk: WindAalFactor is 0, so the wind premium is 0
+----------------------------------------------------------------------
+Defect          : API
+Iterations      : 6540-6541
+Bug Summary     : With wind selected, DP1 Builders Risk returns the Gross AAL but WindAalFactor 0, so the wind
+                  premium is 0. The Rater's WindAalFactor is 1 (wind premium = 1 x Gross AAL / 12).
+Expected Result : WindAalFactor 1, Wind premium 34.42 (6541)
+Actual Result   : WindAalFactor 0.0, Wind premium 0.0; Final Property Premium 14,420.29 vs 14,389.32
+Evidence        : 6541 (DP1_BUILDERS_RISK, wind Yes): WindAalFactor Rater 1 / API 0.0
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\6541
+
+
+BUG-03  DP1 Builders Risk: Liability premium missing when Personal Liability is selected
+---------------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 6391, 6392, 6408 (all DP1 Builders Risk cases with a Personal Liability limit; the other
+                  120 DP1 Builders Risk cases have no liability and pass)
+Bug Summary     : The API prices Personal Liability (Premium 25.0) but does not carry it into the Liability
+                  Premium, so the Total Liability Premium and the Base Premium are short.
+Expected Result : Liability Premium 25, Total Liability Premium 21.25 (25 x insurance score factor 0.85)
+Actual Result   : Liability Premium missing from the response, Total Liability Premium 0.0,
+                  Base Premium 255 to 360 lower (the missing liability x 12 months; 6391: 1,008 vs 753)
+Evidence        : 6391 (DP1_BUILDERS_RISK, CHESAPEAKE CITY VA, Personal Liability 500,000)
+                  PersonalLiabilityCoverageL Premium: Rater 25 / API 25.0 (Pass)
+                  LiabilityPremium:      Rater 25    / API (not in response)
+                  TotalLiabilityPremium: Rater 21.25 / API 0.0
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\6391
+
+
+BUG-04  Water Damage Sublimit factor not returned for a 5,000 / 10,000 sublimit (HO8, DP1 Vacant)
+------------------------------------------------------------------------------------------------
+Defect          : API
+Iterations      : 348 iterations - every HO8 case with Water Damage Sublimit 5,000 or 10,000
+                  (1718-2121, see the Results sheet filter: Configuration HO8, Attribute C137, Fail) and 6321 (DP1 Vacant)
+Bug Summary     : With a 5,000 or 10,000 Water Damage Sublimit the API leaves the Water Damage Sublimit Factor empty
+                  for HO8 and DP1 Vacant. DP3 returns it (1.000000) for the same sublimits. The premium is 0 on
+                  both sides, so the total premium is not affected.
+Expected Result : WaterDamageSublimit Factor = 1
+Actual Result   : WaterDamageSublimit Factor = "" (empty); Premium 0.0
+Evidence        : 1718 (HO8, Florida, Water Damage Sublimit 5,000)
+                  Request : WaterDamageSublimit Limit 5000
+                  Response: WaterDamageSublimit { Factor "", Premium 0.0, Limit 5000 }
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\1718
+Note            : If the factor is intentionally not returned for HO8, mark it N/A in the framework instead.
+
+
+BUG-05  Half-cent amounts are rounded differently from the Rater (1 cent difference that carries into totals)
+------------------------------------------------------------------------------------------------------------
+Defect          : API (rounding method) - please confirm the intended rounding with the BA
+Iterations      : 102 HO3 / HO8 iterations: 843, 851, 876, 883, 886, 888-889, 900-901, 917-918, 921, 924, 934,
+                  938, 949, 961, 1148, 1157, 1164, 1187, 1203, 1215, 1220-1221, 1247, 1261, 1266, 1276, 1292,
+                  1311, 1321, 1330, 1342, 1348-1349, 1352, 1360, 1362, 1367, 1371, 1378, 1397, 1425, 1428, 1445,
+                  1468, 1473, 1485, 1487, 1493, 1498, 1504, 1513, 1520, 1538, 1554, 1566, 1592, 1594, 1599,
+                  1604, 1637, 1639, 1732, 1738, 1748, 1848, 1858, 1861, 1864, 1866, 1875, 1885-1886, 1892, 1902,
+                  1909, 1911, 1913, 1916, 1921, 1924, 1926-1927, 2033, 2038, 2462, 2468, 2477, 2597, 2632-2634,
+                  2645, 2648, 2660, 2664, 2670, 2673, 2684, 2699
+Bug Summary     : When a premium lands exactly on half a cent (e.g. -42.435), the API rounds it to the other cent
+                  than the Rater. Each component is only 1 cent off (within tolerance), but they add up to 2 cents
+                  in the Non-Wind / Property / Final premium. In some cases it also tips the whole-dollar Base
+                  Premium by 1, and where the test data has a very large Misc Surcharge factor (e.g. 75.4) the
+                  1 cent is multiplied (up to 18.31 in 1858).
+                  The API also returns some amounts unrounded (e.g. 1027.6599999999999).
+Expected Result : 917: Age of Roof premium 1,697.40 x (0.975 - 1) = -42.435 -> -42.43 (Rater)
+                  Final Property Premium 2,087.35
+Actual Result   : 917: Age of Roof premium -42.44 (API)
+                  Total Base Non-Wind 1,909.58 vs 1,909.57, Non-Wind premium 2,291.50 vs 2,291.48,
+                  Final Property Premium 2,087.35 vs 2,087.33
+Evidence        : 917 (HO3, ATLANTIC NJ)
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\917
+
+
+BUG-06  Misc Surcharge applied to the rounded property premium (wind cases)
+--------------------------------------------------------------------------
+Defect          : API (same as BUG-03 of BugReport_Run_20261029_110421)
+Iterations      : 6531, 6536, 6538, 6557, 6563-6564, 6567, 6570, 6572, 6583
+Bug Summary     : Misc Surcharge = Property Premium x Misc Surcharge Factor. The Rater uses the full Property
+                  Premium (it includes the unrounded wind premium); the API rounds it to 2 decimals first. These
+                  cases have very large factors in the test data, so the small gap becomes a few dollars.
+Expected Result : 6531: 2,707.1162 x 991.93 = 2,685,269.77
+Actual Result   : 6531: 2,707.12   x 991.93 = 2,685,273.54  (3.78 higher; Final premium also 3.78 higher)
+Evidence        : 6531 (DP3, ACCOMACK VA, wind Yes)
+Result path     : ...\ExecutionForWithAndWithoutWindNonHO6\iterations\6531
+
+
+Notes (not bugs)
+----------------
+- Skipped, invalid test data (1,435):
+    1,377  DP1 with Dwelling/Contents valuation RCV/ACV (the Rater rates only ACV/ACV for DP1)
+       49  CoastalWaterDistance empty
+        8  ConstructionType empty
+        1  InsuranceScoreRange empty
+- Wind cases: GrossAal, WindAalFactor and Wind premium match the Rater in every wind case except BUG-01 / BUG-02.
+- WindAalFactor and GrossAal without wind are N/A by design (returned only with wind coverage).
+- Rater input rows 62-75 are written to the Rater but have no request mapping (unchanged from earlier runs).
+- Misc Surcharge factors such as 75.4 or 991.93 in the test data look unrealistic; please confirm they are intended.

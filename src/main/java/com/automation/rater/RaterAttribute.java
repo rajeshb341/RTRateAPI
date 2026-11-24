@@ -18,6 +18,7 @@ public class RaterAttribute {
     private String parent;             // column D
     private String entity;             // column E
     private String name;               // column F
+    private String entityType;         // column I: Req/Resp (request attribute) or Resp (response-only)
     private JsonNode current;          // current value of column C
     private List<String> values = new ArrayList<>();
     private Map<String, List<String>> valuesByParent = new LinkedHashMap<>();

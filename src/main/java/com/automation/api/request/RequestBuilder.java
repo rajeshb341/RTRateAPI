@@ -3,8 +3,6 @@ package com.automation.api.request;
 import com.automation.api.model.ApiRequest;
 import com.automation.config.TestCaseData;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -83,7 +81,8 @@ public class RequestBuilder {
         return result;
     }
 
-    private Map<String, String> resolvePlaceholders(Map<String, String> map) {
+    private Map<String, String> resolvePlaceholders(Map<String, String> map)
+    {
         Map<String, String> resolved = new LinkedHashMap<>();
         for (Map.Entry<String, String> entry : map.entrySet()) {
             resolved.put(entry.getKey(), resolvePlaceholders(entry.getValue()));
@@ -91,7 +90,8 @@ public class RequestBuilder {
         return resolved;
     }
 
-    private String resolvePlaceholders(String input) {
+    private String resolvePlaceholders(String input)
+    {
         if (input == null) return "";
         
         Matcher matcher = PLACEHOLDER_PATTERN.matcher(input);

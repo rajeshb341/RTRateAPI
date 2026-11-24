@@ -1,0 +1,134 @@
+{
+    "OwnerId": "15793",
+    "ServiceRequestDetail": {
+        "OwnerId": "15793",
+        "EndClientUserUniqueSessionId": "1.0",
+        "ServiceRequestVersion": "1.0",
+        "LanguageCode": "en",
+        "UserName": "kailash_d",
+        "RegionCode": "US",
+        "ServiceResponseVersion": "1.0",
+        "ResponseType": "json",
+        "Token": "",
+        "Lob": "PL",
+        "BrowserIp": "192.158.1.38.",
+        "UserRole": "Underwriter",
+        "ServiceRequestDetail": {}
+    },
+    "EventName": "RTConnectorPLRating",
+    "LOB": "PL",
+    "TransactionType": "New_Business",
+    "Account": {
+        "Insured": [
+            {
+                "ServiceRequestDetail": {},
+                "InsuranceScoreStatus": "6",
+                "InsuranceScoreRange": "686",
+                "InsuranceScoreFetchedDate": "06/21/2026",
+                "Location": [
+                    {
+                        "State": "Rhode_Island",
+                        "County": "KENT",
+                        "Zipcode1": "02893",
+                        "StateRegionCode": "RI",
+                        "City": "Orlando",
+                        "Building": [
+                            {
+                                "CoastalWaterDistance": "130000",
+                                "DateBuilt": "1949",
+                                "ConstructionType": "Frame",
+                                "Occupancy": "Primary",
+                                "AgeOfHome": "77",
+                                "AgeOfRoof": "2",
+                                "NumberOfStories": "2",
+                                "NumberOfLosses": "1",
+                                "CoverageABandCredit": "$500,000 - $1,000,000",
+                                "ExtendedReplacementCost": "No",
+                                "NumberOfFamilies": "1",
+                                "ProtectionClass": "6",
+                                "Alarm": "None",
+                                "Creditpercent": "-0.1",
+                                "MinimumTiv": "1",
+                                "MaximumTiv": "0.88",
+                                "Coverage": [
+                                    {
+                                        "PLNonWind": {
+                                            "Premium": "0.0"
+                                        },
+                                        "DwellingValuation": "RCV",
+                                        "PersonalPropertyValuation": "RCV",
+                                        "RMSModeledPremium": "0.00",
+                                        "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                                        "MiscsurchargeFactor": "0",
+                                        "TIVFactor": "1",
+                                        "WaterDamageSublimit": {
+                                            "Limit": "0.0"
+                                        },
+                                        "DwellingCoverage": {
+                                            "Limit": "567000"
+                                        },
+                                        "OtherStructureCoverage": {
+                                            "Limit": "56700"
+                                        },
+                                        "PersonalPropertyCoverage": {
+                                            "Limit": "283500"
+                                        },
+                                        "LossOfUseCoverage": {
+                                            "Limit": "113400"
+                                        },
+                                        "WaterDamageDeductible": {
+                                            "Limit": "Equal to AOP"
+                                        },
+                                        "PLWindCoverage": {
+                                            "CoverageSelected": "No"
+                                        },
+                                        "LimitedMoldCoverage": {
+                                            "Limit": "5000"
+                                        },
+                                        "WaterBackupCoverage": {
+                                            "Limit": "5000"
+                                        },
+                                        "PersonalLiabilityCoverageL": {
+                                            "Limit": "500000"
+                                        },
+                                        "MedicalPaymentsCoverageM": {
+                                            "Limit": "5000"
+                                        },
+                                        "AOPDeductible": {
+                                            "Limit": "2500",
+                                            "DeductibleType": "1500"
+                                        },
+                                        "PersonalProperty": {
+                                            "PersonalArticleFloater": [
+                                                {
+                                                    "ItemCategory": "Mens",
+                                                    "ItemDescription": "Abc",
+                                                    "ItemValue": "0.0"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "ProductVerNumber": "PL_15793_208_V1",
+    "ProductNumber": "PL_15793_208",
+    "PolicyEffectiveDate": "10/15/2026",
+    "QuoteType": "New Business",
+    "EffectiveDate": "10/15/2026",
+    "PolicyExpirationDate": "10/15/2027",
+    "CarrierName": "ALL",
+    "ExpirationDate": "10/15/2027",
+    "SublineName": "HO3",
+    "State": "CW",
+    "ApplicableDate": "10/15/2026",
+    "ProductName": "RTConnectorPLRating",
+    "RatingTerm": "Annual",
+    "ProductVersionNumber": "PL_15793_208_V1",
+    "ContractName": "ALL"
+}

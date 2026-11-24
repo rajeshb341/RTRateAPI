@@ -58,6 +58,11 @@ public class RtRequestLoader {
             .build();
     }
 
+    /** The token file (read again for every request, so an updated token is picked up during a run). */
+    public Path tokenFile() {
+        return tokenFile;
+    }
+
     /** The "Token:value" entry of the token file, or null when the file or entry is missing. */
     public static String readToken(Path tokenFile) {
         try {
@@ -77,7 +82,7 @@ public class RtRequestLoader {
             return body;
         }
         ((ObjectNode) detail).put("Token", token);
-        log.info("Body ServiceRequestDetail.Token set from header token");
+        log.debug("Body ServiceRequestDetail.Token set from header token");
         return MAPPER.writeValueAsString(root);
     }
 

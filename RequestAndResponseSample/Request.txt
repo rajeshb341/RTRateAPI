@@ -1,0 +1,187 @@
+{
+    "CarrierName": "ALL",
+    "MinimumEarnedPremium": "750.000000",
+    "State": "CW",
+    "QuoteType": "New Business",
+    "TransactionType": "New_Business",
+    "OwnerId": "15793",
+    "ContractName": "ALL",
+    "PolicyTerm": "Annual",
+    "ProductName": "RTConnectorPLRating",
+    "ProductNumber": "PL_15793_208",
+    "EffectiveDate": "01/01/2021",
+    "SublineName": "HO3",
+    "EventName": "RTConnectorPLRating",
+    "ProductVersionNumber": "PL_15793_208_V1",
+    "Account": {
+        "Insured": [
+            {
+                "ServiceRequestDetail": {},
+                "InsuranceScoreRange": "741-768",
+                "InsuranceScoreFetchedDate": "06/21/2026",
+                "Location": [
+                    {
+                        "Building": [
+                            {
+                                "CoverageABandCredit": "$250,000 - $349,999",
+                                "ProtectionclassPremium": "0.0",
+                                "NumberofLosses": "0",
+                                "ConstructionTypeFactor": "0.90000",
+                                "ProtectionFactor": "",
+                                "Occupancy": "Builders Risk",
+                                "ExtendedReplacementCost": "No",
+                                "AgeOfHomeRiskFactor": "1.20000",
+                                "CoastalWaterDistance": "1000",
+                                "RenewalCoverageInflationFactor": "0.035",
+                                "NumberOfStories": "1",
+                                "OccupancyFactor": "1.00000",
+                                "MaximumTiv": "0.88",
+                                "ConstructionType": "Masonry",
+                                "MinimumTiv": "1",
+                                "CoverageABandFactor": "0.900000",
+                                "FamilyFactor": "1.000000",
+                                "NumberofFamilyPremium": "0.0",
+                                "AgeOfRoofPremium": "0.0",
+                                "AlarmCreditAmount": "0.0",
+                                "NumberOfFamilies": "1",
+                                "BasePremium": "750.0",
+                                "FinalPropertyPremium": "0.0",
+                                "LossSurchargeAmount": "-28.06",
+                                "AgeOfHomeRiskPremium": "280.6",
+                                "AgeOfHome": "52",
+                                "DateBuilt": "1974",
+                                "OccupancyTypePremium": "0.0",
+                                "ExtendedReplacementCostAmount": "1.0",
+                                "MaxAdditiveCredit": "0.0",
+                                "ConstructionTypePremium": "-140.3",
+                                "LossSurchargeFactor": "0.980000",
+                                "ExtendedReplacementcostPremium": "0.0",
+                                "AgeOfRoofFactor": "1.000000",
+                                "Coverage": [
+                                    {
+                                        "MinimumPropertyRatePremium": "0.0",
+                                        "PolicyformFactor": "1.0",
+                                        "IdentityFraudCoverage": {
+                                            "Premium": "25.0",
+                                            "Limit": "15000.00",
+                                            "CoverageSelected": "15000"
+                                        },
+                                        "MiscsurchargeFactor": "0",
+                                        "WaterDamageSublimit": {
+                                            "Limit": ""
+                                        },
+                                        "TerritoryRelativityFactor": "1.0",
+                                        "PLWindCoverage": {
+                                            "Premium": "0.0",
+                                            "CoverageSelected": "No"
+                                        },
+                                        "TIVFactor": "0.0",
+                                        "MinimumNonWindRate": "0.0",
+                                        "BaseRate": "0.230000000000000",
+                                        "DwellingCoverage": {
+                                            "Limit": "610000"
+                                        },
+                                        "IncreasedLossAssessment": {
+                                            "Premium": "0.0",
+                                            "Limit": ""
+                                        },
+                                        "BaseNonWindPremium": "1403.0",
+                                        "TermInMonths": "0",
+                                        "ReplacementCostOnContentsCoverage": {
+                                            "Premium": "0.0",
+                                            "CoverageSelected": "No"
+                                        },
+                                        "MinimumNonWindRatePremium": "0.0",
+                                        "WindAalFactor": "",
+                                        "PLNonWind": {
+                                            "Premium": "911.9500000000002"
+                                        },
+                                        "InsuranceScoreFactor": "1.0",
+                                        "MaxCreditAmount": "911.9500000000002",
+                                        "CreditsSurchargesTotal": "0.0",
+                                        "LossOfUseCoverage": {
+                                            "Limit": "0"
+                                        },
+                                        "TotalBaseNonWindFactor": "1.0",
+                                        "LimitedMoldCoverage": {
+                                            "Premium": "0.0",
+                                            "Limit": "5000"
+                                        },
+                                        "WaterBackupCoverage": {
+                                            "Premium": "25.0",
+                                            "Limit": "5000"
+                                        },
+                                        "GrossAal": "430.4",
+                                        "CalculatedNonWindPremium": "0.0",
+                                        "PersonalPropertyCoverage": {
+                                            "Limit": "0"
+                                        },
+                                        "NonWindBaseRateFactor": "0.23",
+                                        "WaterDamageDeductible": {
+                                            "Limit": "2500"
+                                        },
+                                        "OtherStructureCoverage": {
+                                            "Limit": "0"
+                                        },
+                                        "PersonalPropertyValuation": "ALL",
+                                        "RMSModeledPremium": "430.4",
+                                        "SpecialCoverageC": {
+                                            "Premium": "0.0",
+                                            "CoverageSelected": "No"
+                                        },
+                                        "TotalInsuredValue": "610000.0",
+                                        "DwellingValuation": "ALL",
+                                        "MiscSurchargeAmount": "0.0",
+                                        "CombinedTotalFactor": "0.0",
+                                        "WindDeductiblePercentage": "Greater of $5,000 or 2%",
+                                        "SpecialCoverageA": {
+                                            "Premium": "0.0",
+                                            "CoverageSelected": "No"
+                                        },
+                                        "MinimumPropertyRateFactor": ""
+                                    }
+                                ],
+                                "CoverageABandPremium": "-140.3",
+                                "AgeOfRoof": "13",
+                                "NumberOfStoriesFactor": "1.0",
+                                "TotalLiabilityPremium": "0.0",
+                                "ProtectionClass": "10",
+                                "AlarmCreditFactor": "1.000000",
+                                "Alarm": "None",
+                                "TotalCalculatedPropertyPremium": "0.0",
+                                "Creditpercent": "0.1"
+                            }
+                        ],
+                        "StateRegionCode": "GA",
+                        "State": "Georgia",
+                        "City": "Orlando",
+                        "RatingTerritory": "GA1",
+                        "HO6TerritoryCode": "",
+                        "County": "Chatham",
+                        "Zipcode1": "ALL"
+                    }
+                ]
+            }
+        ]
+    },
+    "ServiceRequestDetail": {
+        "EndClientUserUniqueSessionId": "1.0",
+        "ResponseType": "json",
+        "Lob": "PL",
+        "ServiceResponseVersion": "1.0",
+        "LanguageCode": "en",
+        "OwnerId": "15793",
+        "ServiceRequestVersion": "1.0",
+        "UserName": "kailash_d",
+        "UserRole": "Underwriter",
+        "ServiceRequestDetail": {},
+        "RegionCode": "US",
+        "Token": "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",
+        "BrowserIp": "192.158.1.38."
+    },
+    "PolicyEffectiveDate": "01/01/2021",
+    "LOB": "PL",
+    "ExpirationDate": "01/01/2022",
+    "ApplicableDate": "01/01/2021",
+    "PolicyExpirationDate": "01/01/2022"
+}

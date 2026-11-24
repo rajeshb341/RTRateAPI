@@ -44,6 +44,8 @@ playwright/.local-browsers/
 APIToken.txt
 APIRequest.txt
 API Specs.txt
+RenewalRequest.txt
+.env
 
 # Misc local output
 test-output/

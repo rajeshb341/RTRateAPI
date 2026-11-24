@@ -1,0 +1,214 @@
+RT RATING API vs LLOYDS RATER - BUG REPORT (WIND COVERAGE CASES)
+Run folder        : target/rater-output/Run_20261028_180920
+Report workbook   : target/rater-output/Run_20261028_180920/RaterValidationReport_20261028_180920.xlsx (sheets Results / Summary / Configurations)
+Endpoint          : https://rtconnectorplratekb.solartis.net/KnowledgeEngineV6_11/KnowledgeBase/FireEventV3
+Rater             : LloydsRater_BRD_V3.0_10282026_Final.xlsx (RT Common Lloyds Rater BRD V3.0, 10/28/2026 Final)
+Test data         : src/test/resources/testdata/test-data.xlsx (sheet TestData), TestCaseId 6527 - 6583 (PLWindCoverage = Yes)
+Run date          : 28 Oct 2026, 18:09 - 18:16
+
+OVERALL RESULT
+  Test cases            : 57 -> 47 executed, 10 skipped as invalid test data (O-1)
+  HTTP responses        : 43 x HTTP 200, 4 x HTTP 500 (BUG-02)
+  Configurations        : DP3 (15), HO3 (15), HO5 (8), DP1_BUILDERS_RISK (7), DP3_BUILDERS_RISK (1), HO8 (1) executed
+  Attribute checks      : 4042  ->  Pass 2841, Fail 599, N/A 602
+  Failing test cases    : 46; every failing check traces to the bugs below
+  Outside wind, nothing fails: no territory, Renewal Coverage Inflation, Minimum Property Rate or rounding difference in
+  these 47 cases (the 10/28 Rater fixes for territory C106 and C107 hold here).
+  Expected = Lloyds Rater (column C of the Rater sheet after recalculation); Actual = API response.
+  Per iteration evidence: target/rater-output/Run_20261028_180920/iterations/<TestCaseId>/request.json, response.json, response-status.txt
+
+SUMMARY
+  BUG-01 High   API         Wind premium 0.00 with wind selected - no Gross AAL from the wind model
+         Iteration ids: 6527-6531, 6533-6535, 6537-6541, 6555-6583
+  BUG-02 Medium API         HTTP 500 for DP1 Builders Risk Maryland with wind selected
+         Iteration ids: 6542-6545
+  BUG-03 High   Rater / API Gross AAL source differs: Rater RMSModeledPremium vs API wind model
+         Iteration ids: 6527-6531, 6533-6535, 6537-6541, 6555-6583 (same as BUG-01)
+  BUG-04 Low    Rater / API Wind AAL Factor with no territory: Rater 1 vs API 0.0
+         Iteration ids: 6540-6541
+
+========================================================================================================================
+BUG-01  Wind premium is 0.00 although wind coverage is selected - the wind model returns no Gross AAL and the API rates the quote without wind, with no error
+========================================================================================================================
+Severity        : High
+Category        : API
+Bug Summary     :
+                  Wind premium is 0.00 although wind coverage is selected - the wind model returns no Gross AAL and
+                  the API rates the quote without wind, with no error.
+Expected Result :
+                  With PLWindCoverage = Yes the API rates wind: Gross AAL from its wind model (TigerCQApplicable = Y)
+                  and PLWindCoverage Premium = WindAalFactor x Gross AAL (/12 for Builders Risk / Vacant). If the
+                  model cannot run, the API should reject the request with a message.
+Actual Result   :
+                  Every rated wind case returns HTTP 200 with CoverageSelected = Yes, no GrossAal attribute and
+                  PLWindCoverage Premium = 0.0, so Calculated / Total / Final premiums exclude wind. Re-tested against
+                  the API on 28 Oct with the wind sample request (HO3, Palm Bay FL): (1) without Latitude / Longitude
+                  / LocationFullAddress there is no Gross AAL - the run's requests carry no location because the test
+                  data has none; (2) even with a location, these values give no Gross AAL: RoofType Shingle,
+                  BuiltuprooforSinglePlyMembraneRoofTarGravel, MetalRoof, ArchitecturalShingle; MitigationOpenings
+                  Atleastoneglassexterioropening..., Unknown, Noglazedexterioropenings...; ProtectionMissilesSize
+                  Coveredwithplywoodorientedstrandboard; RoofParapetsAvailable Yes and No (only an empty value works).
+                  Every wind case of this run has at least one of these values (RoofParapetsAvailable is Yes or No in
+                  all of them).
+Wind attribute values re-tested one at a time on the wind sample (location kept) - Gross AAL returned:
+    RoofType                 ConcreteClaySlateTiles 1057.08, WoodShake 847.70, Unknown 873.60 | NONE: Shingle, BuiltuprooforSinglePlyMembraneRoofTarGravel, MetalRoof, ArchitecturalShingle
+    MitigationOpenings       Allopeningsareprotected 1057.08, Onlyglassopeningsareprotected 1142.21 | NONE: Atleastoneglass..., Unknown, Noglazed...
+    ProtectionMissilesSize   Large 1057.08, Unknown 1088.89 | NONE: Coveredwithplywoodorientedstrandboard
+    RoofParapetsAvailable    "" (empty) 1057.08 | NONE: Yes, No
+    RoofToWallConnection     all six values return a Gross AAL (913.98 - 1563.83)
+    RoofBrace / RoofSlope    all values return a Gross AAL
+Failing cells   :
+    Building/Coverage/GrossAal (C156)                                   42
+    Coverage/PLWindCoverage/Premium (C157)                              42
+    Location/Building/CalculatedPropertyPremium (C159)                  42
+    Building/Coverage/MiscSurchargeAmount (C160)                         9
+    Building/Coverage/CreditsSurchargesTotal (C161)                     42
+    Location/Building/TotalCalculatedPropertyPremium (C162)             42
+    Location/Building/FinalPropertyPremium (C166)                       17
+    Location/Building/BasePremium (C228)                                17
+Iterations      : 42 test case(s). One evidence per configuration:
+      HO3  (15 iteration(s))
+        Evidence iteration : 6555   (Subline HO3, Occupancy Primary, State Virginia, County HAMPTON CITY, Zip 23669, RMSModeledPremium 64.65)
+          Building/Coverage/GrossAal (C156)                              Expected          64.65   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected       177.7875   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected      1685.3175   Actual 1507.53
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected        -168.53   Actual -150.75
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected        1516.79   Actual 1356.78
+          Location/Building/FinalPropertyPremium (C166)                  Expected        1541.79   Actual 1461.4
+          Location/Building/BasePremium (C228)                           Expected           1746   Actual 1665
+        Files              : target/rater-output/Run_20261028_180920/iterations/6555/request.json , response.json
+        Iterations         : 6555-6569
+
+      HO5  (7 iteration(s))
+        Evidence iteration : 6527   (Subline HO5, Occupancy Secondary/Seasonal, State Massachusetts, County BARNSTABLE, Zip 2540, RMSModeledPremium 262.39)
+          Building/Coverage/GrossAal (C156)                              Expected         262.39   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected        655.975   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected       2923.655   Actual 2267.68
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected        -292.37   Actual -226.77
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected        2631.29   Actual 2040.91
+        Files              : target/rater-output/Run_20261028_180920/iterations/6527/request.json , response.json
+        Iterations         : 6527, 6533-6535, 6537-6539
+
+      HO8  (1 iteration(s))
+        Evidence iteration : 6529   (Subline HO8, Occupancy Primary, State Georgia, County BRYAN, Zip 31324, RMSModeledPremium 142.54)
+          Building/Coverage/GrossAal (C156)                              Expected         142.54   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected        449.001   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected       2096.461   Actual 1647.46
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected        -209.65   Actual -164.75
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected        1886.81   Actual 1482.71
+        Files              : target/rater-output/Run_20261028_180920/iterations/6529/request.json , response.json
+        Iterations         : 6529
+
+      DP3  (15 iteration(s))
+        Evidence iteration : 6531   (Subline DP3, Occupancy Short-Term Rental, State Virginia, County ACCOMACK, Zip 23336, RMSModeledPremium 467.12)
+          Building/Coverage/GrossAal (C156)                              Expected         467.12   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected         1167.8   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected        2155.32   Actual 987.52
+          Building/Coverage/MiscSurchargeAmount (C160)                   Expected   2137926.5676   Actual 979550.7136
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected        -215.53   Actual -98.75
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected     2139866.36   Actual 980439.48
+          Location/Building/FinalPropertyPremium (C166)                  Expected     2139891.36   Actual 980464.48
+          Location/Building/BasePremium (C228)                           Expected        2139961   Actual 980534
+        Files              : target/rater-output/Run_20261028_180920/iterations/6531/request.json , response.json
+        Iterations         : 6531, 6570-6583
+
+      DP1_BUILDERS_RISK  (3 iteration(s))
+        Evidence iteration : 6528   (Subline DP1, Occupancy Builders Risk, State Massachusetts, County ESSEX, Zip 1951, RMSModeledPremium 126.99)
+          Building/Coverage/GrossAal (C156)                              Expected         126.99   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected       26.45625   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected      243.35625   Actual 216.9
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected         -24.34   Actual -21.69
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected         219.02   Actual 195.21
+        Files              : target/rater-output/Run_20261028_180920/iterations/6528/request.json , response.json
+        Iterations         : 6528, 6540-6541
+
+      DP3_BUILDERS_RISK  (1 iteration(s))
+        Evidence iteration : 6530   (Subline DP3, Occupancy Builders Risk, State Massachusetts, County ESSEX, Zip 1951, RMSModeledPremium 126.99)
+          Building/Coverage/GrossAal (C156)                              Expected         126.99   Actual (empty)
+          Coverage/PLWindCoverage/Premium (C157)                         Expected       26.45625   Actual 0
+          Location/Building/CalculatedPropertyPremium (C159)             Expected      265.66625   Actual 239.21
+          Building/Coverage/CreditsSurchargesTotal (C161)                Expected         -26.57   Actual -23.92
+          Location/Building/TotalCalculatedPropertyPremium (C162)        Expected          239.1   Actual 215.29
+        Files              : target/rater-output/Run_20261028_180920/iterations/6530/request.json , response.json
+        Iterations         : 6530
+
+========================================================================================================================
+BUG-02  HTTP 500 for DP1 Builders Risk in Maryland when wind coverage is selected
+========================================================================================================================
+Severity        : Medium
+Category        : API
+Bug Summary     :
+                  HTTP 500 for DP1 Builders Risk in Maryland when wind coverage is selected.
+Expected Result :
+                  A rated quote, or a validation message when wind cannot be written for the location (the Rater's
+                  Wind AAL Factor C155 is 0 for these cases).
+Actual Result   :
+                  HTTP 500 "ResponseStatus :: Failed :: form ::RTConnectorPLRating" (AlgorithmName
+                  InvokeSingleStateRating), after 2 retries. The same requests with PLWindCoverage = No and without
+                  the wind attributes rate normally (re-tested 28 Oct: iteration 6542 -> Final Property Premium
+                  103852.45, 6543 -> 118.93).
+Failing cells   :
+    every compared cell of the iteration (no rating returned): 86 per iteration, 344 in total
+Iterations      : 4 test case(s). One evidence per configuration:
+      DP1_BUILDERS_RISK  (4 iteration(s))
+        Evidence iteration : 6542   (Subline DP1, Occupancy Builders Risk, State Maryland, County BALTIMORE, Zip 21234, Year built 1936)
+          API failure: HTTP 500 Internal Server Error - ResponseStatus :: Failed :: form ::RTConnectorPLRating
+        Files              : target/rater-output/Run_20261028_180920/iterations/6542/request.json , response.json
+        Iterations         : 6542-6545
+
+========================================================================================================================
+BUG-03  Gross AAL source differs - the Rater uses RMSModeledPremium (C156 = C44), the API ignores RMSModeledPremium and uses its wind model
+========================================================================================================================
+Severity        : High
+Category        : Rater / API
+Bug Summary     :
+                  Gross AAL source differs - the Rater uses RMSModeledPremium (C156 = C44), the API ignores
+                  RMSModeledPremium and uses its wind model.
+Expected Result :
+                  One agreed source for Gross AAL (C156), so that the wind premium C157 = C155 x C156 can be
+                  reproduced from the Rater.
+Actual Result   :
+                  Rater C156 GrossAal = C44 RMSModeledPremium (test data input). The API does not use
+                  RMSModeledPremium: the wind sample request gave Gross AAL 1057.08 both without RMSModeledPremium and
+                  with RMSModeledPremium = 500, and 330.76 when only the latitude / longitude changed (re-tested 28
+                  Oct). Until this is aligned, the automation recalculates the Rater with the API's Gross AAL for
+                  every wind case that returns one; in this run no case returned one (BUG-01). Business / BA to
+                  confirm which side is correct.
+Evidence        : wind sample "HO3 WindCoverage Request.json" sent to the API on 28 Oct 2026:
+                    as given (no RMSModeledPremium)          -> GrossAal 1057.08, WindAalFactor 5.25, Wind Premium 5549.65
+                    RMSModeledPremium = 500                  -> GrossAal 1057.08, Wind Premium 5549.65 (unchanged)
+                    Latitude / Longitude of Hampton, VA      -> GrossAal 330.76,  Wind Premium 1736.51
+                    no Latitude / Longitude / Address        -> no GrossAal,      Wind Premium 0.0
+
+========================================================================================================================
+BUG-04  Wind AAL Factor when the territory is not found: Rater 1 (IFERROR default), API 0.0
+========================================================================================================================
+Severity        : Low
+Category        : Rater / API
+Bug Summary     :
+                  Wind AAL Factor when the territory is not found: Rater 1 (IFERROR default), API 0.0.
+Expected Result :
+                  The same Wind AAL Factor on both sides when the county has no territory.
+Actual Result   :
+                  County "SOUTH CENTRAL CONNECTICUT PLANNING REGION" (Connecticut, zip 6511) has no row in
+                  RTPL_RATINGTERRITORY, so both sides have an empty Rating Territory. Rater C155 falls back to 1
+                  (IFERROR(...,1)); the API returns 0.0. Also see O-3 (test data county).
+Failing cells   :
+    Building/Coverage/WindAalFactor (C155)                               2
+Iterations      : 2 test case(s). One evidence per configuration:
+      DP1_BUILDERS_RISK  (2 iteration(s))
+        Evidence iteration : 6540   (Subline DP1, Occupancy Builders Risk, State Connecticut, County SOUTH CENTRAL CONNECTICUT PLANNING REGION, Zip 6511, Year built 1960)
+          Building/Coverage/WindAalFactor (C155)                         Expected              1   Actual 0
+        Files              : target/rater-output/Run_20261028_180920/iterations/6540/request.json , response.json
+        Iterations         : 6540-6541
+
+OBSERVATIONS (not product bugs)
+  O-1  10 test cases skipped (not run): DP1 with Dwelling/Contents valuation RCV/ACV, which DP1 does not rate
+       (DP1 rates ACV/ACV only). Iterations: 6532, 6546-6554.
+  O-2  The test data has no Latitude / Longitude / LocationFullAddress, which the wind model needs (BUG-01). Add the
+       columns Request:Latitude, Request:Longitude and Request:LocationFullAddress (real values for each zip); the
+       automation already sends them when present.
+  O-3  Iterations 6540 and 6541 use county "SOUTH CENTRAL CONNECTICUT PLANNING REGION", which is not in the territory
+       table: no territory on either side (BUG-04).
+  O-4  Where the Misc Surcharge Factor (row 47) is large, the missing wind premium is multiplied into C160 / C166 / C228
+       (e.g. 6531: Final Property Premium Rater 2,139,891.36 vs API 980,464.48).

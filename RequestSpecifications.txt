@@ -1,5 +1,5 @@
 EventName: RTConnectorPLRating
 OwnerId:15793
-Mode: DEV
-Environment: 25
+Mode: TEST
+Environment: 20
 Content-Type:application/json

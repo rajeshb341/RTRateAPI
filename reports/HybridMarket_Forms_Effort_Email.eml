@@ -1,0 +1,164 @@
+Subject: Bellevue ACE B2429BW2600089 - Hybrid Market: Forms Verification
+ Automation - Effort Summary
+X-Unsent: 1
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============7094961686497048508=="
+
+--===============7094961686497048508==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Bellevue ACE B2429BW2600089 - Hybrid Market forms verification automation: 31=
+.0 hrs automation effort vs 436.0 hrs manual (92.9% saved). View this email i=
+n HTML.
+
+--===============7094961686497048508==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=3D"utf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1">
+<title>Bellevue ACE B2429BW2600089 - Hybrid Market: Forms Verification Automa=
+tion - Effort Summary</title>
+</head>
+<body style=3D"margin:0; padding:0; background-color:#ffffff;">
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" border=3D"0" bgcolor=3D"#ffffff">
+<tr><td align=3D"left" style=3D"padding:16px;">
+
+<table role=3D"presentation" width=3D"680" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"width:680px; max-width:100%; font-family:Arial, Helve=
+tica, sans-serif; color:#1b2830;">
+
+  <!-- Title -->
+  <tr><td style=3D"padding:0 0 4px 0; font-size:20px; font-weight:bold; color=
+:#1b2830;">Bellevue ACE B2429BW2600089 &ndash; Hybrid Market<br><span style=
+=3D"font-size:16px; font-weight:normal; color:#1d6f8a;">Forms Verification Au=
+tomation &ndash; Effort Summary</span></td></tr>
+  <tr><td style=3D"padding:0 0 16px 0; font-size:13px; line-height:19px; colo=
+r:#5b6b75;">
+    399 test cases. Checks Form Name, Form Number and Form Print Order in Vie=
+w Forms, Schedule of Forms and UI PDFs, plus template matching for each form =
+in the issuance PDF.
+  </td></tr>
+
+  <!-- Headline: automation first -->
+  <tr><td style=3D"padding:0 0 18px 0;">
+    <table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+      <tr>
+        <td width=3D"46%" bgcolor=3D"#1d6f8a" style=3D"padding:14px 16px; bor=
+der:1px solid #1d6f8a;">
+          <div style=3D"font-size:12px; color:#d9ebf1; font-weight:bold;">AUT=
+OMATION EFFORT</div>
+          <div style=3D"font-size:32px; font-weight:bold; color:#ffffff;">31.=
+0 hrs</div>
+          <div style=3D"font-size:12px; color:#d9ebf1;">to verify all 399 tes=
+t cases, including 16 hrs development</div>
+        </td>
+        <td width=3D"2%" style=3D"font-size:1px;">&nbsp;</td>
+        <td width=3D"25%" bgcolor=3D"#e1f0e6" style=3D"padding:14px 16px; bor=
+der:1px solid #bcdcc7;">
+          <div style=3D"font-size:12px; color:#2f7a4b; font-weight:bold;">EFF=
+ORT SAVED</div>
+          <div style=3D"font-size:26px; font-weight:bold; color:#2f7a4b;">92.=
+9%</div>
+          <div style=3D"font-size:12px; color:#5b6b75;">405.0 hrs saved</div>
+        </td>
+        <td width=3D"2%" style=3D"font-size:1px;">&nbsp;</td>
+        <td width=3D"25%" bgcolor=3D"#f5f7f8" style=3D"padding:14px 16px; bor=
+der:1px solid #dde3e7;">
+          <div style=3D"font-size:12px; color:#5b6b75; font-weight:bold;">MAN=
+UAL EQUIVALENT</div>
+          <div style=3D"font-size:26px; font-weight:bold; color:#5b6b75;">436=
+.0 hrs</div>
+          <div style=3D"font-size:12px; color:#5b6b75;">for the same 399 test=
+ cases</div>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- Main table -->
+  <tr><td style=3D"padding:0 0 6px 0; font-size:15px; font-weight:bold;">Effo=
+rt breakdown (hours)</td></tr>
+  <tr><td style=3D"padding:0;">
+    <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" st=
+yle=3D"border-collapse:collapse; font-size:13px;">
+      <tr>
+        <th align=3D"left" bgcolor=3D"#1f4e78" style=3D"padding:8px 10px; col=
+or:#ffffff; border:1px solid #1f4e78;">Activity</th>
+        <th align=3D"right" bgcolor=3D"#1d6f8a" style=3D"padding:8px 10px; co=
+lor:#ffffff; border:1px solid #1d6f8a;">Automation</th>
+        <th align=3D"right" bgcolor=3D"#1f4e78" style=3D"padding:8px 10px; co=
+lor:#ffffff; border:1px solid #1f4e78;">Manual</th>
+        <th align=3D"right" bgcolor=3D"#1f4e78" style=3D"padding:8px 10px; co=
+lor:#ffffff; border:1px solid #1f4e78;">Saved</th>
+        <th align=3D"right" bgcolor=3D"#1f4e78" style=3D"padding:8px 10px; co=
+lor:#ffffff; border:1px solid #1f4e78;">Saving %</th>
+      </tr>
+      <tr>
+        <td style=3D"padding:8px 10px; border:1px solid #dde3e7;">Test case &=
+amp; test data preparation<br><span style=3D"font-size:11px; color:#5b6b75;">=
+All 399 TCs, prepared by the manual team</span></td>
+        <td align=3D"right" bgcolor=3D"#e6f2f6" style=3D"padding:8px 10px; bo=
+rder:1px solid #dde3e7; font-weight:bold; color:#1d6f8a;">-</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7; color:#5b6b75;">1.0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">-</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">-</td>
+      </tr>
+      <tr>
+        <td style=3D"padding:8px 10px; border:1px solid #dde3e7;">Automation =
+project development<br><span style=3D"font-size:11px; color:#5b6b75;">One-tim=
+e, reusable for future cycles</span></td>
+        <td align=3D"right" bgcolor=3D"#e6f2f6" style=3D"padding:8px 10px; bo=
+rder:1px solid #dde3e7; font-weight:bold; color:#1d6f8a;">16.0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7; color:#5b6b75;">-</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">-</td>
+      </tr>
+      <tr>
+        <td style=3D"padding:8px 10px; border:1px solid #dde3e7;">Execution &=
+amp; failure analysis</td>
+        <td align=3D"right" bgcolor=3D"#e6f2f6" style=3D"padding:8px 10px; bo=
+rder:1px solid #dde3e7; font-weight:bold; color:#1d6f8a;">15.0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7; color:#5b6b75;">435.0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">420.0</td>
+        <td align=3D"right" style=3D"padding:8px 10px; border:1px solid #dde3=
+e7;">96.6%</td>
+      </tr>
+      <tr>
+        <td bgcolor=3D"#ddebf7" style=3D"padding:8px 10px; border:1px solid #=
+c3d6e6; font-weight:bold;">Total</td>
+        <td align=3D"right" bgcolor=3D"#1d6f8a" style=3D"padding:8px 10px; bo=
+rder:1px solid #1d6f8a; font-weight:bold; color:#ffffff;">31.0</td>
+        <td align=3D"right" bgcolor=3D"#ddebf7" style=3D"padding:8px 10px; bo=
+rder:1px solid #c3d6e6; font-weight:bold; color:#5b6b75;">436.0</td>
+        <td align=3D"right" bgcolor=3D"#ddebf7" style=3D"padding:8px 10px; bo=
+rder:1px solid #c3d6e6; font-weight:bold;">405.0</td>
+        <td align=3D"right" bgcolor=3D"#ddebf7" style=3D"padding:8px 10px; bo=
+rder:1px solid #c3d6e6; font-weight:bold; color:#2f7a4b;">92.9%</td>
+      </tr>
+    </table>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
+
+--===============7094961686497048508==--
